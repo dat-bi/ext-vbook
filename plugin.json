@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "author": "dat-bi",
+    "description": "1509"
+  },
+  "data": [
+    {
+      "name": "STV 155",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/hajljnopera/vbook-ext/main/qidian/plugin.zip",
+      "version": 1,
+      "source": "https://www.sangtacviet.pro",
+      "icon": "https://raw.githubusercontent.com/hajljnopera/vbook-ext/main/qidian/icon.png",
+      "description": "STV bản tiếng Trung"
+    }
+  ]
+}
