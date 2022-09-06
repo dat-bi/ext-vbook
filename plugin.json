@@ -10,8 +10,11 @@
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/plugin.json",
       "version": 1,
       "source": "https://www.sangtacviet.pro",
-      "icon": "https://raw.githubusercontent.com/hajljnopera/vbook-ext/main/qidian/icon.png",
-      "description": "STV bản tiếng Trung"
+      "icon": "https://raw.githubusercontent.com/Darkrai9x/vbook-extensions/master/sangtacviet/icon.png",
+      "description": "STV bản tiếng Trung",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
     }
   ]
 }
