@@ -8,10 +8,34 @@
       "name": "STV 155",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://www.sangtacviet.pro",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/icon.png",
       "description": "STV bản tiếng Trung",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
+    {
+      "name": "tigerfp",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tigerfp/plugin.zip",
+      "version": 1,
+      "source": "https://www.tigerfp.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tigerfp/icon.png",
+      "description": "tigerfp",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
+    {
+      "name": "8xsk",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/8xsk/plugin.zip",
+      "version": 1,
+      "source": "http://www.8xsk.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/8xsk/icon.png",
+      "description": "8xsk web tiếng Trung",
       "type": "chinese_novel",
       "locale": "zh_CN"
 
