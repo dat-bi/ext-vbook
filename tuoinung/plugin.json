@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "tuoinung",
+    "author": "fusornat",
+    "version": 1,
+    "source": "https://tuoinung.com",
+    "regexp": "tuoinung.com/\\d+/\\d+/(.*?)[.]html#gsc.tab=0",
+    "description": "18+",
+    "locale": "vi-VN",
+    "language": "javascript",
+    "type": "novel",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
