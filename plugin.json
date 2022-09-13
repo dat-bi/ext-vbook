@@ -74,6 +74,43 @@
       "type": "novel",
       "locale": "vi_VN"
 
+    },
+    {
+      "name": "TruyenDam",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyendam/plugin.zip",
+      "version": 1,
+      "source": "https://truyendam.net",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyendam/icon.png",
+      "description": "https://truyendam.net",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
+
+    },
+    {
+      "name": "tuoinung",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/plugin.zip",
+      "version": 1,
+      "source": "http://tuoinung.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/icon.png",
+      "description": "tuoinung",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
+    },
+    {
+      "name": "kyhuyen",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kyhuyen/plugin.zip",
+      "version": 1,
+      "source": "http://kyhuyen.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kyhuyen/icon.png",
+      "description": "kyhuyen",
+      "type": "novel",
+      "locale": "vi_VN"
+
     }
   ]
 }
