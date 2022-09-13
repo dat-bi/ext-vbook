@@ -1,7 +1,7 @@
 {
     "metadata": {
         "name": "STV 155",
-        "author": "1509",
+        "author": "dat-bi",
         "version": 2,
         "source": "https://sangtacviet.pro",
         "regexp": "(www.)?sangtacviet.(info|com|xyz|pro)/truyen/([a-zA-Z0-9])+/\\d+/\\d+/?$",

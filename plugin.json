@@ -50,6 +50,30 @@
     "locale": "vi_VN",
     "type": "comic",
     "tag": "nsfw"
+    },
+    {
+      "name": "kanunu8",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kanunu8/plugin.zip",
+      "version": 1,
+      "source": "www.kanunu8.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kanunu8/icon.png",
+      "description": "www.kanunu8.com web tiếng Trung",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
+    {
+      "name": "kiemtruyen",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kiemtruyen/plugin.zip",
+      "version": 1,
+      "source": "http://www.kiemtruyen.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kiemtruyen/icon.png",
+      "description": "kiemtruyen",
+      "type": "novel",
+      "locale": "vi_VN"
+
     }
   ]
 }
