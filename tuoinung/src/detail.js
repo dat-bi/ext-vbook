@@ -13,8 +13,6 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-// (づ｡◕‿‿◕｡)づ
 function randomCover() {
     return 'https://truyenheo.net' + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
 }
