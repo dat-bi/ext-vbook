@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "name": "60ks",
+    "author": "hajljnopera",
+    "version": 4,
+    "source": "http://m.60ks.net",
+    "regexp": "http://(www|m).60ks.net((/ks/\\d+/\\d+/(index.html|$))|/(chapters|book)/\\d+/(index.html|$))",
+    "description": "Đọc truyện trên trang 60ks.net",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "home": "home.js"
+  }
+}
