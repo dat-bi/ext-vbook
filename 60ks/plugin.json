@@ -1,8 +1,8 @@
 {
   "metadata": {
     "name": "60ks",
-    "author": "hajljnopera",
-    "version": 4,
+    "author": "dat-bi",
+    "version": 1,
     "source": "http://m.60ks.net",
     "regexp": "http://(www|m).60ks.net((/ks/\\d+/\\d+/(index.html|$))|/(chapters|book)/\\d+/(index.html|$))",
     "description": "Đọc truyện trên trang 60ks.net",
