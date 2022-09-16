@@ -5,18 +5,6 @@
   },
   "data": [
     {
-      "name": "STV 155",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/plugin.zip",
-      "version": 2,
-      "source": "https://www.sangtacviet.pro",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/icon.png",
-      "description": "STV bản tiếng Trung",
-      "type": "chinese_novel",
-      "locale": "zh_CN"
-
-    },
-    {
       "name": "tigerfp",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tigerfp/plugin.zip",
