@@ -14,7 +14,7 @@ function execute(url) {
         author: author,
         description: doc.select("div.book-desc-detail").html(),
         detail: element.html(),
-        host: "https://koanchay.net",
+        host: "https://koanchay.com",
         ongoing: doc.select(".cover-info").html().indexOf("Còn tiếp") > 0,
         nsfw: true
     });
