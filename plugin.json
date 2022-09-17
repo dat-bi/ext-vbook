@@ -128,7 +128,7 @@
       "name": "koanchay",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/koanchay/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://koanchay.com/",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/koanchay/icon.png",
       "description": "koanchay chờ ad up thì xóa",
