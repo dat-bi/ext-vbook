@@ -1,8 +1,8 @@
 {
     "metadata": {
         "name": "STV 155",
-        "author": "dat-bi",
-        "version": 2,
+        "author": "1509",
+        "version": 3,
         "source": "https://sangtacviet.pro",
         "regexp": "(www.)?sangtacviet.(info|com|xyz|pro)/truyen/([a-zA-Z0-9])+/\\d+/\\d+/?$",
       "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",
