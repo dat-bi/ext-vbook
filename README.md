@@ -1,1 +1,1 @@
-Extension Vbook
+Extension Vbook app
