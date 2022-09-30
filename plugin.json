@@ -5,15 +5,27 @@
   },
   "data": [
       {
-      "name": "STV bản tiếng trung",
+      "name": "STV bản tiếng Trung",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/plugin.zip",
-      "version": 3,
+      "version": 5,
       "source": "www.sangtacviet.pro",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/icon.png",
       "description": "sangtacviet",
       "type": "chinese_novel",
       "locale": "zh_CN"
+
+    },
+    {
+      "name": "STV bản tiếng Việt",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV0/plugin.zip",
+      "version": 1,
+      "source": "www.sangtacviet.pro",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV0/icon.png",
+      "description": "sangtacviet",
+      "locale": "vi-VN",
+      "type": "novel"
 
     },
     {
