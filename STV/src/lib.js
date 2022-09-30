@@ -1,54 +1,4 @@
-function execute(url) {
-    if (url.slice(-1) !== "/")
-        url = url + "/";
-    let browser = Engine.newBrowser();
-    browser.launchAsync(url);
-
-    let injectJs = "function loadFuckkChapter(b){var a=new XMLHttpRequest;a.open(\"GET\",b,!0),a.onreadystatechange=function(){if(4==a.readyState&&200==a.status){var b=document.createElement(\"a\");b.className=\"fukkkkkk\",b.text=a.responseText,document.body.appendChild(b)}},a.send()};";
-
-    function loadToc(url) {
-        browser.callJs(injectJs + "loadFuckkChapter('" + url + "');", 100);
-        var retry = 0;
-        var json = '';
-        while (retry < 5) {
-            sleep(2000)
-            let doc = browser.html();
-            var data = doc.select("a.fukkkkkk");
-            if (data.length > 0) {
-                json = data.text();
-                break;
-            }
-            retry++;
-        }
-        return json;
-    }
-
-    function waitTocUrl() {
-        browser.waitUrl(".*?index.php.*?sajax=getchapterlist.*?", 10000);
-        var urls = JSON.parse(browser.urls());
-        var json = '';
-        urls.forEach(requestUrl => {
-            if (requestUrl.indexOf("getchapterlist") >= 0 && !json) {
-                json = loadToc(requestUrl.replace("https://sangtacviet.pro", ""));
-            }
-        });
-        return json;
-    }
-
-    var json = '';
-    var retry = 0;
-    while (retry < 5) {
-        sleep(2000)
-        let doc = browser.html();
-        if (doc.select("#chaptercontainerinner").length > 0) {
-            browser.callJs("document.getElementById('chaptercontainerinner').scrollIntoView();", 100);
-            json = waitTocUrl();
-            break;
-        }
-        retry++;
-    }
-    browser.close()
-    "use strict";
+"use strict";
 // Array of bytes to Base64 string decoding
 function b64ToUint6(nChr) {
   return nChr > 64 && nChr < 91
@@ -72,11 +22,11 @@ function base64DecToArr(sBase64, nBlocksSize) {
     : (nInLen * 3 + 1) >> 2;
   const taBytes = new Uint8Array(nOutLen);
 
-  let nMod3;
-  let nMod4;
-  let nUint24 = 0;
-  let nOutIdx = 0;
-  for (let nInIdx = 0; nInIdx < nInLen; nInIdx++) {
+  var nMod3;
+  var nMod4;
+  var nUint24 = 0;
+  var nOutIdx = 0;
+  for (var nInIdx = 0; nInIdx < nInLen; nInIdx++) {
     nMod4 = nInIdx & 3;
     nUint24 |= b64ToUint6(sB64Enc.charCodeAt(nInIdx)) << (6 * (3 - nMod4));
     if (nMod4 === 3 || nInLen - nInIdx === 1) {
@@ -108,14 +58,42 @@ function uint6ToB64(nUint6) {
     : 65;
 }
 
+function base64EncArr(aBytes) {
+  var nMod3 = 2;
+  var sB64Enc = "";
+
+  const nLen = aBytes.length;
+  var nUint24 = 0;
+  for (var nIdx = 0; nIdx < nLen; nIdx++) {
+    nMod3 = nIdx % 3;
+    if (nIdx > 0 && ((nIdx * 4) / 3) % 76 === 0) {
+      sB64Enc += "\r\n";
+    }
+
+    nUint24 |= aBytes[nIdx] << ((16 >>> nMod3) & 24);
+    if (nMod3 === 2 || aBytes.length - nIdx === 1) {
+      sB64Enc += String.fromCodePoint(
+        uint6ToB64((nUint24 >>> 18) & 63),
+        uint6ToB64((nUint24 >>> 12) & 63),
+        uint6ToB64((nUint24 >>> 6) & 63),
+        uint6ToB64(nUint24 & 63)
+      );
+      nUint24 = 0;
+    }
+  }
+  return (
+    sB64Enc.substr(0, sB64Enc.length - 2 + nMod3) +
+    (nMod3 === 2 ? "" : nMod3 === 1 ? "=" : "==")
+  );
+}
 
 /* UTF-8 array to JS string and vice versa */
 
 function UTF8ArrToStr(aBytes) {
-  let sView = "";
-  let nPart;
+  var sView = "";
+  var nPart;
   const nLen = aBytes.length;
-  for (let nIdx = 0; nIdx < nLen; nIdx++) {
+  for (var nIdx = 0; nIdx < nLen; nIdx++) {
     nPart = aBytes[nIdx];
     sView += String.fromCodePoint(
       nPart > 251 && nPart < 254 && nIdx + 5 < nLen /* six bytes */
@@ -155,13 +133,13 @@ function UTF8ArrToStr(aBytes) {
 }
 
 function strToUTF8Arr(sDOMStr) {
-  let aBytes;
-  let nChr;
+  var aBytes;
+  var nChr;
   const nStrLen = sDOMStr.length;
-  let nArrLen = 0;
+  var nArrLen = 0;
 
   /* mapping… */
-  for (let nMapIdx = 0; nMapIdx < nStrLen; nMapIdx++) {
+  for (var nMapIdx = 0; nMapIdx < nStrLen; nMapIdx++) {
     nChr = sDOMStr.codePointAt(nMapIdx);
 
     if (nChr > 65536) {
@@ -185,8 +163,8 @@ function strToUTF8Arr(sDOMStr) {
   aBytes = new Uint8Array(nArrLen);
 
   /* transcription… */
-  let nIdx = 0;
-  let nChrIdx = 0;
+  var nIdx = 0;
+  var nChrIdx = 0;
   while (nIdx < nArrLen) {
     nChr = sDOMStr.codePointAt(nChrIdx);
     if (nChr < 128) {
@@ -231,26 +209,6 @@ function strToUTF8Arr(sDOMStr) {
 
   return aBytes;
 }
-    if (json) {
-        let list = [];
-        let source = url.split('/')[4];
-        let data = JSON.parse(json);
-        let data0 = data.data;
-        let enkey = data.enckey;
-        let enkeyUTF8Output = base64DecToArr(enkey);
-        let data1 = UTF8ArrToStr(enkeyUTF8Output);
-            data1= data1.replace(/var(.*?)\(escape\(r\)\)\}\(/g,'').replace('))','')
-    data1 = data1.split(',')
-    let l0 = data1[0].replace("\"","").replace("\"","");
-    let l1 = data1[1];
-    let l2 = data1[2].replace("\"","").replace("\"","");
-    let l3 = data1[3];
-    let l4 = data1[4];
-    let l5 = data1[5];
-    l1 = parseInt(l1);
-    l3 = parseInt(l3);
-    l4 = parseInt(l4);
-    l5 = parseInt(l5);
 var bookid = ["", "split", "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/", "slice", "indexOf", "", "", ".", "pow", "reduce", "reverse", "0"];
 function _0xe11c(d, e, f) {
     var g = bookid[2].split("");
@@ -283,54 +241,4 @@ function htk(h, u, n, t, e, r) {
          s = s.replace(new RegExp(n[j], "g"), j);
           r += String.fromCharCode(_0xe11c(s, e, 10) - t)
         }           return decodeURIComponent(escape(r))
-}
-key= htk(l0,l1,l2,l3,l4,l5).replace(/if\(window(.*?)atob\(\'/g,'').replace(/\' \+ x.data\)\);}}catch\(e\){}\}/g,'')
-
-        const aMyUTF8Output = base64DecToArr(key + data0);
-        const data2 = UTF8ArrToStr(aMyUTF8Output);
-
-        // let data1 = Buffer.from('MS0lMkYtMS0lMkYtQ2glQzYlQjAlQzYl'+chapList, 'base64').toString();
-        // console.log(data1); MS0lMkYtMTA5Mjg0NTkyLSUyRi0lMjBD
-        // var data1 = atob('MS0lMkYtMS0lMkYtQ2glQzYlQjAlQzYl' + chapList)
-        let chapList = decodeURIComponent(data2)
-        console.log(chapList)
-
-        let list1 = ['biqugeinfo', 'biqugexs', 'uuxs', 'zwdu'];
-        let list12 = ['69shuorg', 'xbiquge',];
-        let start;
-        if (chapList) {
-            chapList = chapList.split("-//-")
-            if (source === 'uukanshu') {
-                start = chapList.length - 1
-            } else if (list12.includes(source) === true) {
-                start = 12
-            } else if (source === 'biqugese') {
-                start = 10
-            } else if (source === 'biqugebz') {
-                start = 9
-            } else if (list1.includes(source) === true) {
-                start = 1
-            } else {
-                start = 0
-            }
-            let end = (source === "uukanshu") ? -1 : chapList.length;
-            let step = (source === "uukanshu") ? -1 : 1;
-            for (; start !== end; start += step) {
-                let chap = chapList[start].split("-/-");
-                let name = chap[2];
-                if (name) {
-                    list.push({
-                        name: name.replace('\n', '').trim()
-                            .replace(/\s\s+/g, ' ')
-                            .replace(/([\t\n]+|<br>|&nbsp;)/g, "")
-                            .replace(/Thứ ([\d\,]+) chương/, "Chương $1:"),
-                        url: url  + chap[1],
-                        host: "https://sangtacviet.pro"
-                    });
-                }
-            }
-        }
-        return Response.success(list);
-    }
-    return null;
 }

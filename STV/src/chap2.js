@@ -12,6 +12,7 @@ function execute(url) {
         let doc = browser.html();
         var text = doc.select("#content-container > .contentbox").text();
         if (text.indexOf('Đang tải nội dung chương') === -1) {
+            doc.select("i[hd]").remove();
             content = doc.select("#content-container > .contentbox").html();
             break;
         }
@@ -70,7 +71,6 @@ function execute(url) {
         'Ҹ': 'S',
         'ҹ': 'b'
     }
-    // console.log(content)
     var newContent = '';
     for (let i = 0; i < content.length; i++) {
         let newChar = charMap[content[i]];
@@ -81,6 +81,7 @@ function execute(url) {
         }
     }
 
+    newContent = newContent.replace(/\<i t\=\"[A-Za-z](.*?)[A-Za-z]\<\/i>/g, "")
     newContent = newContent.replace(/<p>/g, "")
     newContent = newContent.replace(/\s/g,"")
     newContent = newContent.replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
