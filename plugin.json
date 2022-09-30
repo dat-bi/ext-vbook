@@ -17,6 +17,18 @@
 
     },
     {
+      "name": "STV bản tiếng Việt",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV0/plugin.zip",
+      "version": 1,
+      "source": "www.sangtacviet.pro",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV0/icon.png",
+      "description": "sangtacviet",
+      "locale": "vi-VN",
+      "type": "novel"
+
+    },
+    {
       "name": "tigerfp",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tigerfp/plugin.zip",
