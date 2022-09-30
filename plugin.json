@@ -4,6 +4,18 @@
     "description": "1509"
   },
   "data": [
+      {
+      "name": "STV bản tiếng trung",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/plugin.zip",
+      "version": 3,
+      "source": "www.sangtacviet.pro",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/icon.png",
+      "description": "sangtacviet",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
     {
       "name": "tigerfp",
       "author": "dat-bi",
