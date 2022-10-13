@@ -6,7 +6,7 @@
     "source": "https://www.tadu.com",
     "regexp": "(www.)?(m.)?tadu.com/book/\\d+/?",
     "description": "Đọc truyện trên trang www.tadu.com",
-    "local": "cn-CN",
+    "locale": "zh_CN",
     "language": "javascript",
     "type" : "chinese_novel"
   },
