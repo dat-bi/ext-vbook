@@ -18,6 +18,18 @@
 
     },
     {
+      "name": "kanshuwu",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kanshuwu/plugin.zip",
+      "version": 1,
+      "source": "https://www.kanshuwu.org",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kanshuwu/icon.png",
+      "description": "kanshuwu",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
+    {
       "name": "tadu fix",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tadu/plugin.zip",

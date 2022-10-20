@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "name": "kanshuwu",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "http://www.kanshuwu.org/",
+    "regexp": "http://www.kanshuwu.org/(book|xiaoshuo)/\\d+/",
+    "description": "Đọc truyện trên trang http://www.kanshuwu.org",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
