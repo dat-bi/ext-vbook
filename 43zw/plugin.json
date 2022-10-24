@@ -2,7 +2,7 @@
   "metadata": {
     "name": "43zw",
     "author": "dat-bi",
-    "version": 2,
+    "version": 3,
     "source": "https://43zw.cc/",
     "regexp": "https://43zw.cc/43zw/\\d+(.html)?$",
     "description": "Đọc truyện trên trang 43zw.cc",
