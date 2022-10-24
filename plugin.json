@@ -4,7 +4,42 @@
     "description": "1509"
   },
   "data": [
-     
+    {
+      "name": "ddxs",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ddxs/plugin.zip",
+      "version": 1,
+      "source": "https://www.ddxs.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ddxs/icon.png",
+      "description": "ddxs",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
+    {
+      "name": "123ds",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/plugin.zip",
+      "version": 1,
+      "source": "https://www.123ds.org",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/icon.png",
+      "description": "123ds",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
+    {
+      "name": "2kxs",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/2kxs/plugin.zip",
+      "version": 1,
+      "source": "https://k.2kxs.org/",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/2kxs/icon.png",
+      "description": "2kxs",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },    
     {
       "name": "tigerfp",
       "author": "dat-bi",
@@ -129,7 +164,7 @@
       "name": "43zw",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/43zw/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://43zw.cc/",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/43zw/icon.png",
       "description": "https://43zw.cc/ web tiếng Trung",

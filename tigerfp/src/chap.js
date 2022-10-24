@@ -8,7 +8,6 @@ function execute(url) {
     el1 = el1.html().replace(/\n/g,'')
             .replace(/&(nbsp|amp|quot|lt|gt);/g, "").replace(/<a(.*?)>(.*?)<\/a>/g,"")
             .replace(/(<br\s*\/?>){2,}/g, '<br>'); 
-            console.log(el1)
         return Response.success(el1);
 
 }

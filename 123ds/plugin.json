@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "43zw",
+    "name": "123ds",
     "author": "dat-bi",
-    "version": 2,
-    "source": "https://43zw.cc/",
-    "regexp": "https://43zw.cc/43zw/\\d+(.html)?$",
-    "description": "Đọc truyện trên trang 43zw.cc",
+    "version": 1,
+    "source": "https://www.123ds.org",
+    "regexp": "https://?(www.|m.)123ds.org/(.*?)/\\d+/",
+    "description": "Đọc truyện trên trang https://www.123ds.org",
     "locale": "zh_CN",
     "language": "javascript",
     "type": "chinese_novel"

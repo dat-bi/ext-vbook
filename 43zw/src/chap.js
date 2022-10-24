@@ -1,4 +1,4 @@
-//xu ly neu chia nhieu chuong
+//xu ly neu chia nhieu chuong neu khong co link
 // function getText(url, part){
 //     let response = fetch( url+ "_" + part + ".html")
 //     if (response.ok) {
@@ -22,7 +22,7 @@
 //     return Response.success(hkt)
 
 // }
-//xu ly neu chia nhieu chuong
+//xu ly neu chia nhieu chuong co dinh
 
 function execute(url) {
     url = url.replace('.html','')

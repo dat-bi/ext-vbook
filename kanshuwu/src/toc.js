@@ -2,7 +2,6 @@ function execute(url) {
 url = url.replace('kanshuwu.org/book/','kanshuwu.org/xiaoshuo/')
 let part1 = url.replace("http://www.kanshuwu.org", "")
 var next = part1;
-console.log(next)
 var data = [];
 while (next.includes(part1)) {
     let response = fetch("http://www.kanshuwu.org" + next);

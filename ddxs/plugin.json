@@ -1,18 +1,18 @@
 {
   "metadata": {
-    "name": "43zw",
+    "name": "ddxs",
     "author": "dat-bi",
-    "version": 2,
-    "source": "https://43zw.cc/",
-    "regexp": "https://43zw.cc/43zw/\\d+(.html)?$",
-    "description": "Đọc truyện trên trang 43zw.cc",
+    "version": 1,
+    "source": "https://www.ddxs.com",
+    "regexp": "https://(www.|m.)?ddxs.com/(.*?)/",
+    "description": "Đọc truyện trên trang ddxs.com",
     "locale": "zh_CN",
     "language": "javascript",
     "type": "chinese_novel"
   },
   "script": {
-    "home": "home.js",
     "detail": "detail.js",
+    "home": "home.js",
     "toc": "toc.js",
     "chap": "chap.js"
   }
