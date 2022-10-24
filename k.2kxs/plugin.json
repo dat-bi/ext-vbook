@@ -2,7 +2,7 @@
   "metadata": {
     "name": "2kxs",
     "author": "dat-bi",
-    "version": 2,
+    "version": 1,
     "source": "https://k.2kxs.org/",
     "regexp": "https://k.2kxs.org/\\d+_\\d+/",
     "description": "k.2kxs",
@@ -12,9 +12,7 @@
   },
   "script": {
     "home": "home.js",
-    "genre": "genre.js",
     "detail": "detail.js",
-    "search": "search.js",
     "toc":"toc.js",
     "chap": "chap.js"
   }
