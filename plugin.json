@@ -5,6 +5,18 @@
   },
   "data": [
     {
+      "name": "ranwen",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ranwen/plugin.zip",
+      "version": 1,
+      "source": "https://www.ranwen.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ranwen/icon.png",
+      "description": "ranwen",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
+    {
       "name": "ddxs",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ddxs/plugin.zip",
