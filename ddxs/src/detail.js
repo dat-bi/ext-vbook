@@ -1,4 +1,5 @@
 function execute(url) {
+    url = url.replace('m.','www.')
     let response = fetch(url + "/");
     if (response.ok) {
 
