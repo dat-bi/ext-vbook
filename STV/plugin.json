@@ -1,8 +1,8 @@
 {
     "metadata": {
-        "name": "STV Never Die",
+        "name": "STV ver China",
         "author": "dat-bi",
-        "version": 5,
+        "version": 6,
         "source": "https://sangtacviet.pro",
         "regexp": "(www.)?sangtacviet.(info|com|xyz|pro)/truyen/([a-zA-Z0-9])+/\\d+/\\d+/?$",
       "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",

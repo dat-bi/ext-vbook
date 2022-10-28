@@ -80,21 +80,20 @@ function execute(url) {
             newContent += content[i];
         }
     }
-
     newContent = newContent.replace(/\<i t\=\"[A-Za-z](.*?)[A-Za-z]\<\/i>/g, "")
-    newContent = newContent.replace(/<p>/g, "")
-    newContent = newContent.replace(/\s/g,"")
-    newContent = newContent.replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
-    newContent = newContent.replace(/<iid=\"exran(.*?)\">(.*?)<\/i>/g, "$2")
-    newContent = newContent.replace(/<ih=\"(.*?)\"t=\"/g, "")
-    newContent = newContent.replace(/\"v=\"(.*?)\"p=\"(.*?)\"id=\"(.*?)\">(.*?)<\/i>/g, "")
-    newContent = newContent.replace(/&lt;p&gt;/g, "")
-    newContent = newContent.replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
-    newContent = newContent.replace(/<a href=.*?<\/a>/g, "")
-    newContent = newContent.replace(/<br>/g, "\n")
-    newContent = newContent.replace(/\n+/g, "<br>")
-    newContent = newContent.replace(/\u201c/g, "")
-    newContent = newContent.replace(/\u201d/g, "")
-    newContent = newContent.replace(/&(nbsp|amp|quot|lt|gt|bp|emsp);/g, "");
+        .replace(/<p>/g, "")
+        .replace(/\s/g,"")
+        .replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
+        .replace(/<iid=\"exran(.*?)\">(.*?)<\/i>/g, "$2")
+        .replace(/<ih=\"(.*?)\"t=\"/g, "")
+        .replace(/\"v=\"(.*?)\"p=\"(.*?)\"id=\"(.*?)\">(.*?)<\/i>/g, "")
+        .replace(/&lt;p&gt;/g, "")
+        .replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
+        .replace(/<a href=.*?<\/a>/g, "")
+        .replace(/<br>/g, "\n")
+        .replace(/\n+/g, "<br>")
+        .replace(/\u201c/g, "")
+        .replace(/\u201d/g, "")
+        .replace(/&(nbsp|amp|quot|lt|gt|bp|emsp);/g, "");
     return Response.success(newContent);
 }

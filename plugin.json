@@ -4,6 +4,18 @@
     "description": "1509"
   },
   "data": [
+          {
+      "name": "STV",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/plugin.zip",
+      "version": 6,
+      "source": "https://sangtacviet.pro",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/icon.png",
+      "description": "STV",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
+    },
     {
       "name": "ranwen",
       "author": "dat-bi",
