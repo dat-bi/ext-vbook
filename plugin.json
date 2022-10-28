@@ -89,18 +89,6 @@
 
     },
     {
-      "name": "tadu fix",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tadu/plugin.zip",
-      "version": 1,
-      "source": "https://www.tadu.com",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tadu/icon.png",
-      "description": "tadu",
-      "type": "chinese_novel",
-      "locale": "zh_CN"
-
-    },
-    {
       "name": "8xsk",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/8xsk/plugin.zip",
