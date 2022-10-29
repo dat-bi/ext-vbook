@@ -1,9 +1,10 @@
 function execute(url) {
     if (url.slice(-1) !== "/")
         url = url + "/";
-    if(url.includes('fanqie')){
-        let idBook = url.split('/')[6];
-        const json = Http.get('https://fanqienovel.com/api/reader/directory/detail').params({bookId: idBook}).string();
+    var idBook = url.split('/')[6];
+    var idHost = url.split('/')[4];
+    if (idHost === 'fanqie') {
+        var json = Http.get('https://fanqienovel.com/api/reader/directory/detail').params({bookId: idBook}).string();
         if (json) {
             var allChap = JSON.parse(json).data.chapterListWithVolume;
             let list = [];
@@ -18,7 +19,86 @@ function execute(url) {
             }
             return Response.success(list);
         }
-    } else {
+    } 
+    else if (idHost === 'uukanshu') {
+            var doc = Http.get("https://sj.uukanshu.com/book.aspx?id=" + idBook).html();
+
+        if (doc) {
+            var el = doc.select("#chapterList a")
+            var data = [];
+            for (var i = 0; i < el.size(); i++) {
+                var e = el.get(i);
+                data.push({
+                    name: e.select("a").text(),
+                    url: 'https://sangtacviet.pro/truyen/uukanshu/1/'+idBook +'/' +e.attr("name"),
+                })
+            }
+
+        var page = doc.select(".pages a").last().attr("href").match(/page=(\d+)/);
+        if (page) {
+            page = parseInt(page[1]);
+            if (page > 1) {
+                for (var p = 2; p <= page; p++) {
+                    doc = Http.get(url + "&page=" + p).html();
+                    var el = doc.select("#chapterList a")
+                    for (var i = 0; i < el.size(); i++) {
+                        var e = el.get(i);
+                        data.push({
+                            name: e.select("a").text(),
+                            url: e.attr("href")
+                        })
+                    }
+                }
+            }
+        }
+
+        return Response.success(data);
+        }
+    }
+    else if (idHost === 'tadu') {
+            function capitalize(s){
+        return s[0].toUpperCase() + s.slice(1);
+    }
+            var doc = Http.get('https://www.tadu.com/book/catalogue/'+idBook).html();
+            var el = doc.select(".chapter").select("a");
+            let data = [];
+            for (var i = 0; i < el.size(); i++) {
+                var e = el.get(i);
+                data.push({
+                    name: capitalize(e.text()),
+                    url: 'https://sangtacviet.pro/truyen/tadu/1/'+ idBook +'/' + e.attr("href").replace('/book/','').replace(/\s/g,'')
+                })
+            }
+
+         return Response.success(data);
+    }    
+    else if (idHost === 'ciweimao'){
+        let response = fetch('https://mip.ciweimao.com/book/' + idBook);
+        if (response.ok) {
+            let doc = response.html();
+            let el1 = doc.select(".cnt-box.catalogue").last()
+            let el = el1.select("li a")
+            let data = [];
+            for (let i = 0;i < el.size(); i++) {
+                var e = el.get(i);
+                let isVip = e.select("i").attr("class").replace(/icon/g,"").replace("-","").trim();
+                let name = e.select("a").text();
+                if(isVip === "lock"){
+                    name = "[VIP] " + name;
+                }
+
+                data.push({
+                    name: name,
+                    url: 'https://sangtacviet.pro/truyen/tadu/1/'+ idBook +'/' + e.attr("href").match(/\d+/),
+                })
+
+
+            }
+            return Response.success(data);
+        }
+    }
+    else
+    {
         let browser = Engine.newBrowser();
         browser.launchAsync(url);
         var retry = 0;
