@@ -29,11 +29,11 @@
         "locale": "vi_VN"
     },
     {
-        "name": "YuShuBo 【御书网】 fix",
+        "name": "YuShuBo 【御书网】",
         "author": "dat-bi",
         "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/plugin.zip",
         "version": 5,
-        "source": "https://www.yushubo.nefix
+        "source": "https://www.yushubo.net",
         "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/icon.png",
         "description": "Đọc truyện trên trang yushubo.net",
         "type": "chinese_novel",
