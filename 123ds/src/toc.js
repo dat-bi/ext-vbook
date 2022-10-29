@@ -11,8 +11,8 @@ url = url.replace('www.123ds.org','m.123ds.org')
             let e = doc.get(i);
         data.push({
             name: e.select("a").text(),
-            url: "https://m.123ds.org" + e.select("a").attr("href"),
-            host: "https://m.123ds.org"
+            url: "https://www.123ds.org" + e.select("a").attr("href") + '///' + e.select("a").text(),
+            host: "https://www.123ds.org"
         });
         }
         return Response.success(data);

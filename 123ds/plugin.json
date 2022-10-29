@@ -2,7 +2,7 @@
   "metadata": {
     "name": "123ds",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://www.123ds.org",
     "regexp": "https://?(www.|m.)123ds.org/(.*?)/\\d+/",
     "description": "Đọc truyện trên trang https://www.123ds.org",

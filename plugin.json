@@ -44,7 +44,7 @@
       "name": "123ds",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://www.123ds.org",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/icon.png",
       "description": "123ds",
