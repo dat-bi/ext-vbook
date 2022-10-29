@@ -17,6 +17,29 @@
 
     },
     {
+        "name": "LxHentai fix",
+        "author": "dat-bi",
+        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/plugin.zip",
+        "version": 4,
+        "source": "https://lxhentai.com",
+        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/icon.png",
+        "description": "Đọc truyện trên trang Lxhentai.com",
+        "tag": "nsfw",
+        "type": "comic",
+        "locale": "vi_VN"
+    },
+    {
+        "name": "YuShuBo 【御书网】 fix",
+        "author": "dat-bi",
+        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/plugin.zip",
+        "version": 5,
+        "source": "https://www.yushubo.nefix
+        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/icon.png",
+        "description": "Đọc truyện trên trang yushubo.net",
+        "type": "chinese_novel",
+        "locale": "zh_CN"
+    },
+    {
       "name": "ranwen",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ranwen/plugin.zip",
