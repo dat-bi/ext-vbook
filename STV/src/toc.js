@@ -81,12 +81,7 @@ function execute(url) {
             let data = [];
             for (let i = 0;i < el.size(); i++) {
                 var e = el.get(i);
-                let isVip = e.select("i").attr("class").replace(/icon/g,"").replace("-","").trim();
                 let name = e.select("a").text();
-                if(isVip === "lock"){
-                    name = "[VIP] " + name;
-                }
-
                 data.push({
                     name: name,
                     url: 'https://sangtacviet.pro/truyen/tadu/1/'+ idBook +'/' + e.attr("href").match(/\d+/),

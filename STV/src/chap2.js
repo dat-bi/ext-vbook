@@ -80,20 +80,32 @@ function execute(url) {
             newContent += content[i];
         }
     }
-    newContent = newContent.replace(/\<i t\=\"[A-Za-z](.*?)[A-Za-z]\<\/i>/g, "")
-        .replace(/<p>/g, "")
-        .replace(/\s/g,"")
-        .replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
-        .replace(/<iid=\"exran(.*?)\">(.*?)<\/i>/g, "$2")
-        .replace(/<ih=\"(.*?)\"t=\"/g, "")
-        .replace(/\"v=\"(.*?)\"p=\"(.*?)\"id=\"(.*?)\">(.*?)<\/i>/g, "")
-        .replace(/&lt;p&gt;/g, "")
-        .replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
-        .replace(/<a href=.*?<\/a>/g, "")
-        .replace(/<br>/g, "\n")
-        .replace(/\n+/g, "<br>")
-        .replace(/\u201c/g, "")
-        .replace(/\u201d/g, "")
-        .replace(/&(nbsp|amp|quot|lt|gt|bp|emsp);/g, "");
+    var newContent = newContent.replace(/id\=\".*?\"/g,'')
+        .replace(/p\=\".*?\"/g,'')
+        .replace(/onclick\=\"pr\(this\)\;\"/g,'')
+        .replace(/isname\=\"true\"/g,'')
+        .replace(/v\=\".*?\"/g,'')
+        .replace(/h\=\"(.*?)\"/g,'')
+        .replace(/<span (.*?)>(.*?)<\/span>/g,'')
+        .replace(/\s/g,'')
+        .replace(/&(nbsp|amp|quot|lt|gt|bp|emsp);/g, "")
+        .replace(/<it\=\"/g,'')
+        .replace(/\">(.*?)<\/i>/g,'')
+        .replace(/<footer><\/footer>/g,'');
+    // newContent = newContent.replace(/\<i t\=\"[A-Za-z](.*?)[A-Za-z]\<\/i>/g, "")
+    //     .replace(/<p>/g, "")
+    //     .replace(/\s/g,"")
+    //     .replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
+    //     .replace(/<iid=\"exran(.*?)\">(.*?)<\/i>/g, "$2")
+    //     .replace(/<ih=\"(.*?)\"t=\"/g, "")
+    //     .replace(/\"v=\"(.*?)\"p=\"(.*?)\"id=\"(.*?)\">(.*?)<\/i>/g, "")
+    //     .replace(/&lt;p&gt;/g, "")
+    //     .replace(/<span.*?>(.*?)<\/span>(<br>)?/g, "")
+    //     .replace(/<a href=.*?<\/a>/g, "")
+    //     .replace(/<br>/g, "\n")
+    //     .replace(/\n+/g, "<br>")
+    //     .replace(/\u201c/g, "")
+    //     .replace(/\u201d/g, "")
+    //     .replace(/&(nbsp|amp|quot|lt|gt|bp|emsp);/g, "");
     return Response.success(newContent);
 }
