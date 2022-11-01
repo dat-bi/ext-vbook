@@ -23,6 +23,7 @@ function execute(url) {
         .replace(/<div(.*?)>/g,'')
         .replace(/<center>|<\/center>|<\/div>|/g, "")
         .replace(/\s|\n/g,'')
+        .replace(/为您提供裴屠狗大.*?请务必保存好书签！/g,'')
         .replace(/精华书阁.*?最快更新最新章节！|\<br\>\(\)\<br\>|为您提供滚开大.*?请务必保存好书签！|(本章未完，点击下一页精彩继续)/g,'')
         .replace(/\<br\>\<br\>\<br\>(.*?)：https\:\/\/wap\.jhssd\.com，(.*?)！\<br\>/g,'');
         console.log(data1)

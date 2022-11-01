@@ -2,7 +2,7 @@
     "metadata": {
         "name": "jhssd",
         "author": "dat-bi",
-        "version": 2,
+        "version": 1,
         "source": "https://wap.jhssd.com",
         "regexp": "(www.|wap.)?jhssd.com/\\d+/?$",
       "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",
