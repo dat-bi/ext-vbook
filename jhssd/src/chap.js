@@ -6,7 +6,7 @@ function execute(url) {
     let part1 = url.replace("https://wap.jhssd.com", "").replace('.html','');
     var next = part1;
     while (next.includes(part1)) {
-        var doc = browser.launch("https://wap.jhssd.com" + next +".html", 3000);
+        var doc = browser.launch("https://wap.jhssd.com" + next +".html", 4000);
         if (doc) {
             next = doc.select("#pb_next").attr("href").replace('.html','');
             console.log(next)
