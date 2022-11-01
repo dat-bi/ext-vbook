@@ -11,7 +11,7 @@ function execute(url) {
         var browser = Engine.newBrowser();
         browser.setUserAgent(UserAgent.android());
         browser.close()
-        var doc = browser.launch("https://wap.jhssd.com" + next , 1000);
+        var doc = browser.launch("https://wap.jhssd.com" + next , 3000);
         // console.log(doc)
         next = doc.select(".listpage .right a").attr("href")
         if (doc) {
