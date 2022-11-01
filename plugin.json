@@ -15,6 +15,18 @@
       "type": "chinese_novel",
       "locale": "zh_CN"
 
+    },    
+    {
+      "name": "jhssd",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/jhssd/plugin.zip",
+      "version": 1,
+      "source": "https://wap.jhssd.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/jhssd/icon.png",
+      "description": "Tinh hoa thư các",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
     },
     {
         "name": "LxHentai fix",

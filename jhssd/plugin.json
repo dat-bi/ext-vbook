@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "name": "jhssd",
+        "author": "dat-bi",
+        "version": 1,
+        "source": "https://wap.jhssd.com",
+        "regexp": "(www.|wap.)?jhssd.com/\\d+/?$",
+      "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",
+        "locale": "zh_CN",
+        "language": "javascript",
+        "type": "chinese_novel"
+    },
+    "script": {
+        "home": "home.js",
+        "search": "search.js",
+        "detail": "detail.js",
+        "toc": "toc.js",
+        "chap": "chap.js"
+    }
+}

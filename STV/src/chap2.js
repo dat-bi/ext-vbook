@@ -84,6 +84,8 @@ function execute(url) {
         .replace(/p\=\".*?\"/g,'')
         .replace(/onclick\=\"pr\(this\)\;\"/g,'')
         .replace(/isname\=\"true\"/g,'')
+        .replace(/namelen\=\".*?\"/g,'')
+        .replace(/asynctask\=\".*?\"/g,'')
         .replace(/v\=\".*?\"/g,'')
         .replace(/h\=\"(.*?)\"/g,'')
         .replace(/<span (.*?)>(.*?)<\/span>/g,'')
