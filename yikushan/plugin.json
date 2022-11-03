@@ -5,7 +5,7 @@
     "version": 1,
     "source": "http://www.yikushan.com/",
     "regexp": "http://www.yikushan.com/.*?/\\d+/",
-    "description": "Đọc truyện trên trang http://www.yikushan.org",
+    "description": "Đọc truyện trên trang http://www.yikushan.cọm",
     "locale": "zh_CN",
     "language": "javascript",
     "type": "chinese_novel"

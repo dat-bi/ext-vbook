@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "name": "xyushu5",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://m.xyushu5.com/",
+    "regexp": "https://(www.|m.)?xyushu5.com/(.*?)/\\d+(\\/|\\.html)",
+    "description": "Đọc truyện trên trang https://www.xyushu5.com",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

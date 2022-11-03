@@ -132,7 +132,8 @@
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yikushan/icon.png",
       "description": "yikushan",
       "type": "chinese_novel",
-      "locale": "zh_CN"
+      "locale": "zh_CN",
+          "tag": "nsfw"
 
     },
     {
@@ -145,6 +146,19 @@
       "description": "8xsk web tiếng Trung",
       "type": "chinese_novel",
       "locale": "zh_CN"
+
+    },
+    {
+      "name": "xyushu5",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xyushu5/plugin.zip",
+      "version": 1,
+      "source": "http://m.xyushu5.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xyushu5/icon.png",
+      "description": "xyushu5 web tiếng Trung",
+      "type": "chinese_novel",
+      "locale": "zh_CN",
+          "tag": "nsfw"
 
     },
     {"name": "Like Truyện",
