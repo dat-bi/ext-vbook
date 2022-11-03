@@ -122,6 +122,18 @@
       "type": "chinese_novel",
       "locale": "zh_CN"
 
+    },    
+    {
+      "name": "yikushan",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yikushan/plugin.zip",
+      "version": 1,
+      "source": "https://www.yikushan.org",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yikushan/icon.png",
+      "description": "yikushan",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+
     },
     {
       "name": "8xsk",

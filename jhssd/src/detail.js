@@ -12,7 +12,7 @@ function execute(url) {
     let doc = response.html();
     // var doc = browser.launch(url, 1000);
     // browser.close()
-        let coverImg = "https://www.jhssd.com/" + doc.select(".block_img2 img").first().attr("src");
+        let coverImg =  doc.select(".block_img2 img").first().attr("src");
         let author = doc.select(".block_txt2 > p:nth-child(4)").first().text();
         return Response.success({
             name: doc.select(".block_txt2 h2 a").text(),
