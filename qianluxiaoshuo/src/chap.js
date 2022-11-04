@@ -3,7 +3,7 @@ function execute(url) {
         var response = fetch(url);
         if (response.ok) {
             let text = response.text('gbk') // Trả về response request dạng string
-            var i1 = text.replace(/<i class=\"webfont\">/g,"").replace(/<\/i>/g,"").replace(/\n|\s/g,"").replace(/&(nbsp|amp|quot|lt|gt|bp|emsp);/g, "").replace(/<!doctypehtml>(.*?)<divclass="acontent"id="ccontent">/g,"").replace(/<spanstyle=.*?>/g,"").replace(/<\/span>/g,"").replace(/<\/div>.*?<\/html>/g,"").replace(/<br\/>/g,"\n")
+            var i1 = text.replace(/<i class=\"webfont\">/g,"").replace(/<\/i>/g,"").replace(/\n|\s/g,"").replace(/&(nbsp|amp|quot|lt|gt|bp|emsp);/g, "").replace(/<!doctypehtml>(.*?)<divclass="acontent"id="ccontent">/g,"").replace(/<spanstyle=.*?>/g,"").replace(/<\/span>/g,"").replace(/<\/div>.*?<\/html>/g,"")
             if(i1.length <= 500){
                 var html1 = "Đây là chương VIP. Nếu muốn đọc bạn cần mua chương VIP rồi đăng nhập tài khoản vào trình duyệt của Vbook.<br>Nếu đã mua rồi mà vẫn không đọc được thì lập chủ đề báo lỗi nha!";
                 return Response.success(html1);

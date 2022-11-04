@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Qianluxiaoshuo - Tiền Lộ",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://www.qianluxiaoshuo.com",
     "regexp": "https://www.qianluxiaoshuo.com/(.*?)/\\d+\\.html",
     "description": "Đọc truyện trên trang qianluxiaoshuo",

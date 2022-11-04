@@ -14,12 +14,23 @@
       "description": "...",
       "type": "chinese_novel",
       "locale": "zh_CN"
+    },
+    {
+      "name": "82zw",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/82zw/plugin.zip",
+      "version": 1,
+      "source": "https://www.82zw.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/82zw/icon.png",
+      "description": "...",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
     }, 
     {
       "name": "Qianluxiaoshuo - Tiền Lộ",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qianluxiaoshuo/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://www.qianluxiaoshuo.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qianluxiaoshuo/icon.png",
       "description": "...",
