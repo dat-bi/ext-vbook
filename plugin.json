@@ -14,8 +14,18 @@
       "description": "...",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
-    },    
+    }, 
+    {
+      "name": "Qianluxiaoshuo - Tiền Lộ",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qianluxiaoshuo/plugin.zip",
+      "version": 1,
+      "source": "https://www.qianluxiaoshuo.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qianluxiaoshuo/icon.png",
+      "description": "...",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },   
     {
       "name": "jhssd",
       "author": "dat-bi",
