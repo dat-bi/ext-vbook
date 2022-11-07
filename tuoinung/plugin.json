@@ -2,7 +2,7 @@
   "metadata": {
     "name": "tuoinung",
     "author": "dat-bi",
-    "version": 2,
+    "version": 3,
     "source": "https://tuoinung.com",
     "regexp": "tuoinung.com/\\d+/\\d+/(.*?)[.]html#gsc.tab=0",
     "description": "18+",
@@ -15,6 +15,7 @@
     "home": "home.js",
     "genre": "genre.js",
     "detail": "detail.js",
+    "search": "search.js",
     "toc": "toc.js",
     "chap": "chap.js"
   }

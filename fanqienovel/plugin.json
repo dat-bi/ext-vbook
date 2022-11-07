@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "Fanqie Novel",
+    "author": "Nhocconsr",
+    "version": 6,
+    "source": "https://fanqienovel.com",
+    "regexp": "fanqienovel.com/page/(.*?)",
+    "description": "v6: Cập nhật API mới ",
+    "local": "cn-CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

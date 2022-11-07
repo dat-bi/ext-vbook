@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "author": "dat-bi",
+    "description": "1509"
+  },
+  "data": [
+    {
+      "name": "Truyện Heo",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
+      "version": 1,
+      "source": "https://truyenheo.org",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
+      "description": "https://truyenheo.org/",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
+    }
+  ]
+}

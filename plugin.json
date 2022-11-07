@@ -16,6 +16,18 @@
       "locale": "zh_CN"
     },
     {
+      "name": "Truyện Heo",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
+      "version": 1,
+      "source": "https://truyenheo.org",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
+      "description": "https://truyenheo.org/",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
+    },
+    {
       "name": "82zw",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/82zw/plugin.zip",
@@ -25,7 +37,7 @@
       "description": "...",
       "type": "chinese_novel",
       "locale": "zh_CN"
-    }, 
+    },
     {
       "name": "Qianluxiaoshuo - Tiền Lộ",
       "author": "dat-bi",
@@ -36,7 +48,7 @@
       "description": "...",
       "type": "chinese_novel",
       "locale": "zh_CN"
-    },   
+    },
     {
       "name": "jhssd",
       "author": "dat-bi",
@@ -47,30 +59,29 @@
       "description": "Tinh hoa thư các",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
     },
     {
-        "name": "LxHentai fix",
-        "author": "dat-bi",
-        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/plugin.zip",
-        "version": 4,
-        "source": "https://lxhentai.com",
-        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/icon.png",
-        "description": "Đọc truyện trên trang Lxhentai.com",
-        "tag": "nsfw",
-        "type": "comic",
-        "locale": "vi_VN"
+      "name": "LxHentai fix",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/plugin.zip",
+      "version": 4,
+      "source": "https://lxhentai.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/icon.png",
+      "description": "Đọc truyện trên trang Lxhentai.com",
+      "tag": "nsfw",
+      "type": "comic",
+      "locale": "vi_VN"
     },
     {
-        "name": "YuShuBo 【御书网】",
-        "author": "dat-bi",
-        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/plugin.zip",
-        "version": 5,
-        "source": "https://www.yushubo.net",
-        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/icon.png",
-        "description": "Đọc truyện trên trang yushubo.net",
-        "type": "chinese_novel",
-        "locale": "zh_CN"
+      "name": "YuShuBo 【御书网】",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/plugin.zip",
+      "version": 5,
+      "source": "https://www.yushubo.net",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/icon.png",
+      "description": "Đọc truyện trên trang yushubo.net",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
     },
     {
       "name": "ranwen",
@@ -82,7 +93,6 @@
       "description": "ranwen",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
     },
     {
       "name": "ddxs",
@@ -94,7 +104,6 @@
       "description": "ddxs",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
     },
     {
       "name": "123ds",
@@ -106,7 +115,6 @@
       "description": "123ds",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
     },
     {
       "name": "2kxs",
@@ -118,8 +126,7 @@
       "description": "2kxs",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
-    },    
+    },
     {
       "name": "tigerfp",
       "author": "dat-bi",
@@ -130,7 +137,6 @@
       "description": "tigerfp",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
     },
     {
       "name": "kanshuwu",
@@ -142,8 +148,7 @@
       "description": "kanshuwu",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
-    },    
+    },
     {
       "name": "yikushan",
       "author": "dat-bi",
@@ -165,7 +170,6 @@
       "description": "8xsk web tiếng Trung",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
     },
     {
       "name": "xyushu5",
@@ -177,19 +181,19 @@
       "description": "xyushu5 web tiếng Trung",
       "type": "chinese_novel",
       "locale": "zh_CN",
-        "tag": "nsfw"
-
+      "tag": "nsfw"
     },
-    {"name": "Like Truyện",
-    "author": "dat-bi",
-    "version": 1,
-    "source": "https://liketruyen.net",
-    "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/liketruyen/plugin.zip",
-    "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/liketruyen/icon.png",
-    "description": "Đọc truyện trên trang like Truyện",
-    "locale": "vi_VN",
-    "type": "comic",
-    "tag": "nsfw"
+    {
+      "name": "Like Truyện",
+      "author": "dat-bi",
+      "version": 1,
+      "source": "https://liketruyen.net",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/liketruyen/plugin.zip",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/liketruyen/icon.png",
+      "description": "Đọc truyện trên trang like Truyện",
+      "locale": "vi_VN",
+      "type": "comic",
+      "tag": "nsfw"
     },
     {
       "name": "kanunu8",
@@ -201,7 +205,6 @@
       "description": "www.kanunu8.com web tiếng Trung",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
     },
     {
       "name": "kiemtruyen",
@@ -213,7 +216,6 @@
       "description": "kiemtruyen",
       "type": "novel",
       "locale": "vi_VN"
-
     },
     {
       "name": "TruyenDam",
@@ -226,13 +228,12 @@
       "type": "novel",
       "locale": "vi_VN",
       "tag": "nsfw"
-
     },
     {
       "name": "tuoinung",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/plugin.zip",
-      "version": 2,
+      "version": 3,
       "source": "http://tuoinung.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/icon.png",
       "description": "tuoinung",
@@ -250,7 +251,6 @@
       "description": "kyhuyen",
       "type": "novel",
       "locale": "vi_VN"
-
     },
     {
       "name": "43zw",
@@ -262,7 +262,6 @@
       "description": "https://43zw.cc/ web tiếng Trung",
       "type": "chinese_novel",
       "locale": "zh_CN"
-
     }
   ]
 }
