@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "name": "Fanqie Novel",
-    "author": "Nhocconsr",
-    "version": 6,
+    "name": "Fanqie Novel - fix",
+    "author": "dat-bi",
+    "version": 1,
     "source": "https://fanqienovel.com",
     "regexp": "fanqienovel.com/page/(.*?)",
     "description": "v6: Cập nhật API mới ",
