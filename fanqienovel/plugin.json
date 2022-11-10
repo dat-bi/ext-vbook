@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "Fanqie Novel - fix",
+    "name": "Fanqie Novel - API",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://fanqienovel.com",
-    "regexp": "fanqienovel.com/page/(.*?)",
-    "description": "v6: Cập nhật API mới ",
+    "regexp": "(wwww.)?((fanqienovel.com/page/\\d+)|(fanqienovel.com/page/\\d+.*?))",
+    "description": "...",
     "local": "cn-CN",
     "language": "javascript",
     "type": "chinese_novel"
