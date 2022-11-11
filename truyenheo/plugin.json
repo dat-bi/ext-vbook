@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Truyện Heo",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "http://truyenheo.org",
     "regexp": "truyenheo\\.org/[^/]+/?$",
     "description": "Đọc truyện trên trang http://truyenheo.org",

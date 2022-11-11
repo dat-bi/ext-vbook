@@ -2,7 +2,7 @@
   "metadata": {
     "name": "82zw",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://www.82zw.com",
     "regexp": "(www.|m.)?82zw.com/book/\\d+/",
     "description": "Đọc truyện trên trang 82zw.com",
