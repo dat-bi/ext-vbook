@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "name": "Mê Truyện Chữ",
+    "author": "vBook",
+    "version": 13,
+    "source": "https://metruyenchu.com",
+    "regexp": "(www.)?metruyenchu.com/truyen/[a-zA-Z0-9-]+/?$",
+    "description": "Đọc truyện trên trang Mê Truyện Chữ",
+    "locale": "vi_VN",
+    "language": "javascript"
+  },
+  "script": {
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "home": "home.js",
+    "genre": "genre.js",
+    "search": "search.js"
+  }
+}
