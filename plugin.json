@@ -1,20 +1,9 @@
 {
   "metadata": {
-    "author": "dat-bi",
+    "author": "Đạt Bi",
     "description": "1509"
   },
   "data": [
-    {
-      "name": "STV ver China",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/plugin.zip",
-      "version": 10,
-      "source": "https://sangtacviet.pro",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/icon.png",
-      "description": "...",
-      "type": "chinese_novel",
-      "locale": "zh_CN"
-    },    
     {
       "name": "fanqienovel",
       "author": "dat-bi",

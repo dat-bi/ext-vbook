@@ -1,17 +1,130 @@
 {
   "metadata": {
-    "author": "dat-bi",
+    "author": "Đạt Bi",
     "description": "1509"
   },
   "data": [
     {
-      "name": "Truyện Heo",
+      "name": "STV ver China ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/plugin.zip",
+      "version": 9,
+      "source": "https://sangtacviet.pro",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/STV/icon.png",
+      "description": "...",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },  
+    {
+      "name": "Fanqie novel ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/fanqienovel/plugin.zip",
+      "version": 2,
+      "source": "https://fanqienovel.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/fanqienovel/icon.png",
+      "description": "...",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },
+    {
+      "name": "Truyện Heo ✔",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://truyenheo.org",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
       "description": "https://truyenheo.org/",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
+    },
+    {
+      "name": "Jhssd ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/jhssd/plugin.zip",
+      "version": 1,
+      "source": "https://wap.jhssd.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/jhssd/icon.png",
+      "description": "Tinh hoa thư các",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },
+    {
+      "name": "LxHentai ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/plugin.zip",
+      "version": 4,
+      "source": "https://lxhentai.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/icon.png",
+      "description": "Đọc truyện trên trang Lxhentai.com",
+      "tag": "nsfw",
+      "type": "comic",
+      "locale": "vi_VN"
+    },
+    {
+      "name": "YuShuBo ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/plugin.zip",
+      "version": 5,
+      "source": "https://www.yushubo.net",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/icon.png",
+      "description": "Đọc truyện trên trang yushubo.net",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },
+    {
+      "name": "ddxs ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ddxs/plugin.zip",
+      "version": 2,
+      "source": "https://www.ddxs.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ddxs/icon.png",
+      "description": "ddxs",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },
+    {
+      "name": "123ds ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/plugin.zip",
+      "version": 2,
+      "source": "https://www.123ds.org",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/icon.png",
+      "description": "123ds",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },
+    {
+      "name": "2kxs ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/k.2kxs/plugin.zip",
+      "version": 1,
+      "source": "https://k.2kxs.org/",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/k.2kxs/icon.png",
+      "description": "2kxs",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },
+    {
+      "name": "Truyen Dam ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyendam/plugin.zip",
+      "version": 1,
+      "source": "https://truyendam.net",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyendam/icon.png",
+      "description": "https://truyendam.net",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
+    },
+    {
+      "name": "Tuoi nung ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/plugin.zip",
+      "version": 3,
+      "source": "http://tuoinung.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/icon.png",
+      "description": "tuoinung",
       "type": "novel",
       "locale": "vi_VN",
       "tag": "nsfw"
