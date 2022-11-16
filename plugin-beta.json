@@ -14,7 +14,29 @@
       "description": "...",
       "type": "chinese_novel",
       "locale": "zh_CN"
-    },  
+    }, 
+    {
+      "name": "[Review] yousuu 💬",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yousuu/plugin.zip",
+      "version": 1,
+      "source": "https://www.yousuu.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yousuu/icon.png",
+      "description": "...",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },
+    {
+      "name": "[Review] tuishujun 💬",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuishujun/plugin.zip",
+      "version": 1,
+      "source": "https://www.tuishujun.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuishujun/icon.png",
+      "description": "...",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
+    },
     {
       "name": "Fanqie novel ✔",
       "author": "dat-bi",
@@ -76,7 +98,7 @@
       "name": "ddxs ✔",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ddxs/plugin.zip",
-      "version": 2,
+      "version": 3,
       "source": "https://www.ddxs.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ddxs/icon.png",
       "description": "ddxs",

@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "name": "[Review] yousuu 💬",
+    "author": "Moleys + dat-bi",
+    "version": 1,
+    "source": "https://www.yousuu.com",
+    "regexp": "(www.|api.)?yousuu.com/book/\\d+/?$",
+    "description": "Xem đánh giá truyện trên trang https://www.yousuu.com",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "search": "search.js",
+    "chap": "chap.js"
+  }
+}
