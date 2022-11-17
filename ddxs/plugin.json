@@ -2,7 +2,7 @@
   "metadata": {
     "name": "ddxs",
     "author": "dat-bi",
-    "version": 3,
+    "version": 4,
     "source": "https://www.ddxs.com",
     "regexp": "https://(www.|m.)?ddxs.com/(.*?)/",
     "description": "Đọc truyện trên trang ddxs.com",
