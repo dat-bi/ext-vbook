@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "author": "Đạt Bi",
+    "description": "1509"
+  },
+  "data": [
+    {
+        "name": "Kho Truyện Tranh",
+        "author": "dat-bi",
+        "path": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/khotruyentranh/plugin.zip",
+        "version": 5,
+        "source": "https://khotruyentranhhot.com",
+        "icon": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/khotruyentranh/icon.png",
+        "description": "Đọc truyện trên trang khotruyentranhhot.com",
+        "type": "comic",
+        "locale": "vi_VN",
+        "tag" : "nsfw"
+      }
+  ]
+}

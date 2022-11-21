@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "name": "author.baidu",
+    "author": "Tác giả",
+    "version": 1,
+    "source": "https://author.baidu.com",
+    "regexp": "https://(author|baijiahao).baidu.com/(.*?)",
+    "description": "...",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "detail": "detail.js",
+    "home": "genre.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

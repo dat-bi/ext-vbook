@@ -5,15 +5,16 @@
   },
   "data": [
     {
-      "name": "fanqienovel",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/fanqienovel/plugin.zip",
-      "version": 2,
-      "source": "https://fanqienovel.com",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/fanqienovel/icon.png",
-      "description": "...",
-      "type": "chinese_novel",
-      "locale": "zh_CN"
+        "name": "Kho Truyện Tranh",
+        "author": "dat-bi fix",
+        "path": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/khotruyentranh/plugin.zip",
+        "version": 5,
+        "source": "https://khotruyentranhhot.com",
+        "icon": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/khotruyentranh/icon.png",
+        "description": "Đọc truyện trên trang khotruyentranhhot.com",
+        "type": "comic",
+        "locale": "vi_VN",
+        "tag" : "nsfw"
     },
     {
       "name": "[Review] tuishujun 💬",
@@ -68,29 +69,6 @@
       "source": "https://wap.jhssd.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/jhssd/icon.png",
       "description": "Tinh hoa thư các",
-      "type": "chinese_novel",
-      "locale": "zh_CN"
-    },
-    {
-      "name": "LxHentai fix",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/plugin.zip",
-      "version": 4,
-      "source": "https://lxhentai.com",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lxhentai/icon.png",
-      "description": "Đọc truyện trên trang Lxhentai.com",
-      "tag": "nsfw",
-      "type": "comic",
-      "locale": "vi_VN"
-    },
-    {
-      "name": "YuShuBo 【御书网】",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/plugin.zip",
-      "version": 5,
-      "source": "https://www.yushubo.net",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/icon.png",
-      "description": "Đọc truyện trên trang yushubo.net",
       "type": "chinese_novel",
       "locale": "zh_CN"
     },
