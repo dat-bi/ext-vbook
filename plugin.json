@@ -16,6 +16,18 @@
         "locale": "vi_VN",
         "tag" : "nsfw"
     },
+      {
+        "name": "Đọc Truyện 3Q",
+        "author": "dat-bi fix",
+        "path": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/doctruyen3q/plugin.zip",
+        "version": 2,
+        "source": "https://doctruyen3qme.com",
+        "icon": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/doctruyen3q/icon.png",
+        "description": "Đọc truyện trên trang doctruyen3qme.com",
+        "type": "comic",
+        "locale": "vi_VN",
+        "tag": "nsfw"
+      },
     {
       "name": "[Review] tuishujun 💬",
       "author": "dat-bi",
