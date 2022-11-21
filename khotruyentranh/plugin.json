@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Kho Truyện Tranh",
     "author": "dat-bi fix",
-    "version": 3,
+    "version": 6,
     "source": "https://khotruyentranhhot.com",
     "regexp": "(www.)?khotruyentranhhot.com/truyen/(.*?)+",
     "description": "Đọc truyện trên trang khotruyentranh.com",
