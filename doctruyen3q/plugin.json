@@ -1,8 +1,8 @@
 {
   "metadata": {
     "name": "Đọc Truyện 3Q",
-    "author": "Nhocconsr",
-    "version": 2,
+    "author": "dat-bi fix",
+    "version": 3,
     "source": "https://doctruyen3qme.com",
     "regexp": "(www.)?doctruyen3qme.com/truyen-tranh/[0-9a-z-]+/\\d+/?$",
     "description": "Add new site ^^!",

@@ -8,7 +8,7 @@
         "name": "Kho Truyện Tranh",
         "author": "dat-bi fix",
         "path": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/khotruyentranh/plugin.zip",
-        "version": 5,
+        "version": 6,
         "source": "https://khotruyentranhhot.com",
         "icon": "https://raw.githubusercontent.com/nhocconsr/vbook-ext/master/khotruyentranh/icon.png",
         "description": "Đọc truyện trên trang khotruyentranhhot.com",

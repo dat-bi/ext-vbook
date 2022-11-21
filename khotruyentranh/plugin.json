@@ -1,8 +1,8 @@
 {
   "metadata": {
     "name": "Kho Truyện Tranh",
-    "author": "Nhocconsr",
-    "version": 5,
+    "author": "dat-bi fix",
+    "version": 3,
     "source": "https://khotruyentranhhot.com",
     "regexp": "(www.)?khotruyentranhhot.com/truyen/(.*?)+",
     "description": "Đọc truyện trên trang khotruyentranh.com",
