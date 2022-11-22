@@ -17,6 +17,18 @@
         "tag" : "nsfw"
     },
     {
+        "name": "Manga Buddy",
+        "author": "dat-bi fix",
+        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mangabuddy/plugin.zip",
+        "version": 9,
+        "source": "https://mangaforest.com",
+        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mangabuddy/icon.png",
+        "description": "Đọc truyện trên trang mangaforest.com",
+        "type": "comic",
+        "locale": "en_EN",
+        "tag" : "nsfw"
+    },
+    {
         "name": "Đọc Truyện 3Q",
         "author": "dat-bi fix",
         "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/doctruyen3q/plugin.zip",
