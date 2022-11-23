@@ -84,13 +84,13 @@
       "locale": "vi_VN"
     },
     {
-      "name": "YuShuBo ✔",
+      "name": "YuShuGu ✔",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/plugin.zip",
-      "version": 5,
-      "source": "https://www.yushubo.net",
+      "version": 6,
+      "source": "https://www.yushugu.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yushubo/icon.png",
-      "description": "Đọc truyện trên trang yushubo.net",
+      "description": "Đọc truyện trên trang yushugu.com",
       "type": "chinese_novel",
       "locale": "zh_CN"
     },

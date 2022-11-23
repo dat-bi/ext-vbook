@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "vcomycs.net",
+    "author": "Cá mụp cắn cáp",
+    "version": 3,
+    "source": "https://vcomycs.net/",
+    "regexp": "(www.)?vcomycs.net/truyen-tranh/[^/].+/?$",
+    "description": "Đọc truyện tại https://vcomycs.net/",
+    "local": "vi-VN",
+    "language": "javascript",
+    "type": "comic"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

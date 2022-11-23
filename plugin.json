@@ -4,41 +4,23 @@
     "description": "1509"
   },
   "data": [
-    {
-        "name": "Kho Truyện Tranh",
+      {
+        "name": "TruyenKK",
         "author": "dat-bi fix",
-        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/khotruyentranh/plugin.zip",
-        "version": 6,
-        "source": "https://khotruyentranhhot.com",
-        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/khotruyentranh/icon.png",
-        "description": "Đọc truyện trên trang khotruyentranhhot.com",
-        "type": "comic",
-        "locale": "vi_VN",
-        "tag" : "nsfw"
-    },
-    {
-        "name": "Manga Buddy",
-        "author": "dat-bi fix",
-        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mangabuddy/plugin.zip",
+        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenkk1/plugin.zip",
         "version": 9,
-        "source": "https://mangaforest.com",
-        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mangabuddy/icon.png",
-        "description": "Đọc truyện trên trang mangaforest.com",
-        "type": "comic",
-        "locale": "en_EN",
-        "tag" : "nsfw"
-    },
-    {
-        "name": "Đọc Truyện 3Q",
+        "source": "https://truyenkkz.com",
+        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenkk1/icon.png",
+        "description": "Truyện tranh, truyện chữ tùm lum..."
+      },
+      {
+        "name": "vcomycs.net",
         "author": "dat-bi fix",
-        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/doctruyen3q/plugin.zip",
-        "version": 4,
-        "source": "https://doctruyen3qme.com",
-        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/doctruyen3q/icon.png",
-        "description": "Đọc truyện trên trang doctruyen3qme.com",
-        "type": "comic",
-        "locale": "vi_VN",
-        "tag": "nsfw"
+        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/vcomycs/plugin.zip",
+        "version": 3,
+        "source": "https://vcomycs.net/",
+        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/vcomycs/icon.png",
+        "description": "Đọc truyện trên trang https://vcomycs.net/"
       },
     {
       "name": "[Review] tuishujun 💬",
@@ -67,7 +49,7 @@
       "name": "82zw",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/82zw/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://www.82zw.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/82zw/icon.png",
       "description": "...",
@@ -78,7 +60,7 @@
       "name": "Qianluxiaoshuo - Tiền Lộ",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qianluxiaoshuo/plugin.zip",
-      "version": 4,
+      "version": 5,
       "source": "https://www.qianluxiaoshuo.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qianluxiaoshuo/icon.png",
       "description": "...",
@@ -166,7 +148,7 @@
       "name": "yikushan",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yikushan/plugin.zip",
-      "version": 2,
+      "version": 3,
       "source": "https://www.yikushan.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/yikushan/icon.png",
       "description": "yikushan",
