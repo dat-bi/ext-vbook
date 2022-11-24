@@ -4,6 +4,17 @@
     "description": "1509"
   },
   "data": [
+    {
+      "name": "ntruyen",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ntruyen/plugin.zip",
+      "version": 1,
+      "source": "http://ntruyen.vn",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ntruyen/icon.png",
+      "description": "ntruyen",
+      "type": "novel",
+      "locale": "vi_VN"
+    },
       {
         "name": "TruyenKK",
         "author": "dat-bi fix",

@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "nTruyen",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://ntruyen.vn/",
+    "regexp": "(www.)?ntruyen.vn/truyen/.*?.html",
+    "description": "Truyện chữ tùm lum...",
+    "locale": "vi_VN",
+    "type": "novel",
+    "language": "javascript"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
