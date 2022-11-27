@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "Kiếm truyện",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://kiemtruyen.com",
+    "regexp": "((https://www.)|(https://))kiemtruyen.com/[^/]+/?$",
+    "description": "Đọc truyện trên trang Kiếm truyện",
+    "locale": "vi_VN",
+    "type": "novel",
+    "language": "javascript"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

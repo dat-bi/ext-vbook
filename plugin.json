@@ -15,18 +15,6 @@
       "type": "novel",
       "locale": "vi_VN"
     },
-    {
-      "name": "truyenvn",
-      "author": "dat-bi fix",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenvn/plugin.zip",
-      "version": 2,
-      "source": "https://truyenvnhot.com",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenvn/icon.png",
-      "description": "Đọc truyện trên trang truyenvnhot.com",
-      "tag": "nsfw",
-      "type": "comic",
-      "locale": "vi_VN"
-    },
       {
         "name": "TruyenKK",
         "author": "dat-bi fix",
@@ -46,7 +34,7 @@
         "description": "Đọc truyện trên trang https://vcomycs.net/"
       },
     {
-      "name": "Truyện Heo ✔",
+      "name": "Truyện Heo",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
       "version": 3,
