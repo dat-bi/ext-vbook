@@ -2,6 +2,7 @@ load('libs.js');
 load('config.js');
 
 function execute(url) {
+    url = url.replace("truyenheo.org","truyensex.one");
     var response = fetch(url);
     if (response.ok) {
         var doc = response.html();

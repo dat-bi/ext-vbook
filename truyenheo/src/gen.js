@@ -4,7 +4,6 @@ load('config.js');
 function execute(url, page) {
     page = page || '1';
     var newUrl = String.format(BASE_URL + url + (page == '1' ? '/' : '/page/{0}/'), page);
-
     var response = fetch(newUrl);
     if (response.ok) {
         var doc = response.html();

@@ -2,10 +2,10 @@
   "metadata": {
     "name": "Truyện Heo",
     "author": "dat-bi",
-    "version": 1,
-    "source": "http://truyenheo.org",
+    "version": 3,
+    "source": "http://truyensex.one",
     "regexp": "truyenheo\\.org/[^/]+/?$",
-    "description": "Đọc truyện trên trang http://truyenheo.org",
+    "description": "Đọc truyện trên trang http://truyensex.one",
     "locale": "vi_VN",
     "language": "javascript",
     "type": "novel",

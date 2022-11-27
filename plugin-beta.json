@@ -52,10 +52,10 @@
       "name": "Truyện Heo ✔",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
-      "version": 2,
-      "source": "https://truyenheo.org",
+      "version": 3,
+      "source": "https://truyensex.one",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
-      "description": "https://truyenheo.org/",
+      "description": "https://truyensex.one/",
       "type": "novel",
       "locale": "vi_VN",
       "tag": "nsfw"

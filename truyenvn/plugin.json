@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Truyện VN",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://truyenvnhot.com",
     "regexp": "(www.)?truyenvnhot.(com|tv|vip)/[^/]+/?$",
     "description": "Đọc truyện trên trang Truyện VN",

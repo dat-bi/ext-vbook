@@ -19,7 +19,7 @@
       "name": "truyenvn",
       "author": "dat-bi fix",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenvn/plugin.zip",
-      "version": 1,
+      "version": 2,
       "source": "https://truyenvnhot.com",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenvn/icon.png",
       "description": "Đọc truyện trên trang truyenvnhot.com",
@@ -46,6 +46,18 @@
         "description": "Đọc truyện trên trang https://vcomycs.net/"
       },
     {
+      "name": "Truyện Heo ✔",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
+      "version": 3,
+      "source": "https://truyensex.one",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
+      "description": "https://truyensex.one/",
+      "type": "novel",
+      "locale": "vi_VN",
+      "tag": "nsfw"
+    },
+    {
       "name": "[Review] tuishujun 💬",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuishujun/plugin.zip",
@@ -55,18 +67,6 @@
       "description": "...",
       "type": "chinese_novel",
       "locale": "zh_CN"
-    },
-    {
-      "name": "Truyện Heo",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
-      "version": 2,
-      "source": "https://truyenheo.org",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
-      "description": "https://truyenheo.org/",
-      "type": "novel",
-      "locale": "vi_VN",
-      "tag": "nsfw"
     },
     {
       "name": "82zw",
