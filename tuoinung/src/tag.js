@@ -1,9 +1,8 @@
-load('libs.js');
 load('config.js');
 
 function execute(url, page) {
     if (!page) page = '1';
-    const doc = Http.get(url + '/page/'+ page).html();
+    const doc = Http.get(BASE_URL + url + '/page/'+ page).html();
     var next = doc.select("span.current + a").first().text()
     const el = doc.select(".row .listpost .col-xs-12")
     size = el.size()

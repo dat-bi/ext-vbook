@@ -38,17 +38,6 @@
       "locale": "zh_CN"
     },
     {
-      "name": "Fanqie novel ✔",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/fanqienovel/plugin.zip",
-      "version": 2,
-      "source": "https://fanqienovel.com",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/fanqienovel/icon.png",
-      "description": "...",
-      "type": "chinese_novel",
-      "locale": "zh_CN"
-    },
-    {
       "name": "Truyện Heo ✔",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
@@ -126,30 +115,6 @@
       "description": "2kxs",
       "type": "chinese_novel",
       "locale": "zh_CN"
-    },
-    {
-      "name": "Truyen Dam ✔",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyendam/plugin.zip",
-      "version": 1,
-      "source": "https://truyendam.net",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyendam/icon.png",
-      "description": "https://truyendam.net",
-      "type": "novel",
-      "locale": "vi_VN",
-      "tag": "nsfw"
-    },
-    {
-      "name": "Tuoi nung ✔",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/plugin.zip",
-      "version": 3,
-      "source": "http://tuoinung.com",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/icon.png",
-      "description": "tuoinung",
-      "type": "novel",
-      "locale": "vi_VN",
-      "tag": "nsfw"
     }
   ]
 }

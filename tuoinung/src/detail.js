@@ -1,3 +1,4 @@
+load('config.js');
 function execute(url) {
     const doc = Http.get(url).html();
     return Response.success({
@@ -5,7 +6,7 @@ function execute(url) {
         cover: randomCover(),
         author: null,
         description: 'TRUYỆN 18+',
-        host: "https://tuoinung.com"
+        host: BASE_URL
     });
 }
 function getRandomInt(min, max) {
@@ -14,5 +15,5 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function randomCover() {
-    return 'https://truyenheo.net' + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
+    return 'https://truyensex.one' + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
 }

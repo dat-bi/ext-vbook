@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "Kiếm truyện",
+    "name": "Truyện AudioCv",
     "author": "dat-bi",
     "version": 1,
-    "source": "https://kiemtruyen.com",
-    "regexp": "((https://www.)|(https://))kiemtruyen.com/[^/]+/?$",
-    "description": "Đọc truyện trên trang Kiếm truyện",
+    "source": "https://truyenaudiocvv.com",
+    "regexp": "https://truyenaudiocvv.com/[^/]+$",
+    "description": "Đọc truyện trên trang truyenaudiocvv",
     "locale": "vi_VN",
     "type": "novel",
     "language": "javascript"
@@ -14,7 +14,6 @@
     "home": "home.js",
     "genre": "genre.js",
     "detail": "detail.js",
-    "page": "page.js",
     "toc": "toc.js",
     "chap": "chap.js"
   }

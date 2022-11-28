@@ -1,6 +1,7 @@
+load('config.js');
 function execute(url, page) {
     if (!page) page = '1';
-    const doc = Http.get(url + '/page/'+ page).html();
+    const doc = Http.get(BASE_URL + url + '/page/'+ page).html();
     var next = doc.select(".wp-pagenavi a.page.larger").first().text()
     const el = doc.select(".listpost .row .col-md-12")
     size = el.size()
@@ -12,7 +13,7 @@ function execute(url, page) {
             link: e.select(".news-desc a").attr("href")+'#gsc.tab=0',
             cover: e.select(".news-image img").attr("src"),
             description: e.select(".desc").text(),
-            host: "https://tuoinung.com"
+            host: BASE_URL
         })
     }
     return Response.success(data,next)

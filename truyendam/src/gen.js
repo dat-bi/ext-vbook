@@ -42,5 +42,5 @@ function getRandomInt(min, max) {
 
 // (づ｡◕‿‿◕｡)づ
 function randomCover() {
-    return 'https://truyenheo.net/' + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
+    return 'https://truyensex.one/' + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
 }

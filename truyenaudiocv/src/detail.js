@@ -1,15 +1,15 @@
 function execute(url) {
-    var doc = Http.get(url).html();
-    // const host = "https://kiemtruyen.com"
+    var browser = Engine.newBrowser();
+    browser.setUserAgent(UserAgent.android());
+    var doc = browser.launch(url, 4000);
+    browser.close()
     if (doc) {
         return Response.success({
-            name: doc.select(".prefix-info > h1").text(),
-            cover:"https://kiemtruyen.com" +  doc.select("#content > div > div:nth-child(1) > div.row > div:nth-child(1) > img").attr("src"),
-            host: "https://kiemtruyen.com",
-            author: null,
-            description: doc.select("#content > div > ul > li > div:nth-child(1)").html(),
-            detail: doc.select("#content > div > div:nth-child(1) > div.row > div:nth-child(2)").text(),
-            ongoing: null
+            name: doc.select(".title").text(),
+            cover:doc.select(".col-lg-pull-6.col-lg-3 > div > img").attr("src"),
+            host: "https://truyenaudiocvv.com",
+            author: doc.select(".item-value span").first().text(),
+            description: doc.select(".brief").text()
         });
     }
     return null;
