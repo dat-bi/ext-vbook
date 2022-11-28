@@ -2,7 +2,7 @@
   "metadata": {
     "name": "TruyenKK",
     "author": "dat-bi fix",
-    "version": 10,
+    "version": 11,
     "source": "https://truyenkkz.com/",
     "regexp": "(www.)?truyenkkz.com/truyen/[^/]+/?$",
     "description": "Truyện chữ, truyện tranh tùm lum...",
@@ -17,6 +17,6 @@
     "detail": "detail.js",
     "search": "search.js",
     "toc": "toc.js",
-    "chap": "script.js"
+    "chap": "chap.js"
   }
 }
