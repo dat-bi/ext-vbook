@@ -1,18 +1,17 @@
 {
   "metadata": {
-    "name": "Kiếm truyện",
+    "name": "Tiên Hiệp",
     "author": "dat-bi",
     "version": 1,
-    "source": "https://kiemtruyen.com",
-    "regexp": "((https://www.)|(https://))kiemtruyen.com/[^/]+/?$",
-    "description": "Đọc truyện trên trang Kiếm truyện",
+    "source": "https://tienhiep2.net",
+    "regexp": "tienhiep2.net/truyen/.*?",
+    "description": "Đọc truyện trên trang tienhiep.net",
     "locale": "vi_VN",
     "type": "novel",
     "language": "javascript"
   },
   "script": {
     "home": "home.js",
-    "genre": "genre.js",
     "detail": "detail.js",
     "page": "page.js",
     "toc": "toc.js",

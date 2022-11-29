@@ -15,6 +15,17 @@
       "type": "novel",
       "locale": "vi_VN"
     },
+    {
+      "name": "Tiên Hiệp",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/plugin.zip",
+      "version": 1,
+      "source": "http://tienhiep2.net",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/icon.png",
+      "description": "tienhiep.net",
+      "type": "novel",
+      "locale": "vi_VN"
+    },
       {
         "name": "TruyenKK",
         "author": "dat-bi fix",
@@ -23,15 +34,6 @@
         "source": "https://truyenkkz.com",
         "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenkk1/icon.png",
         "description": "Truyện tranh, truyện chữ tùm lum..."
-      },
-      {
-        "name": "vcomycs.net",
-        "author": "dat-bi fix",
-        "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/vcomycs/plugin.zip",
-        "version": 3,
-        "source": "https://vcomycs.net/",
-        "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/vcomycs/icon.png",
-        "description": "Đọc truyện trên trang https://vcomycs.net/"
       },
     {
       "name": "Truyện Heo",
@@ -211,17 +213,6 @@
       "description": "www.kanunu8.com web tiếng Trung",
       "type": "chinese_novel",
       "locale": "zh_CN"
-    },
-    {
-      "name": "kiemtruyen",
-      "author": "dat-bi",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kiemtruyen/plugin.zip",
-      "version": 1,
-      "source": "http://www.kiemtruyen.com",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kiemtruyen/icon.png",
-      "description": "kiemtruyen",
-      "type": "novel",
-      "locale": "vi_VN"
     },
     {
       "name": "TruyenDam",
