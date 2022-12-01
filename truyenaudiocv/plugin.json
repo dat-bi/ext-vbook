@@ -13,6 +13,8 @@
   "script": {
     "detail": "detail.js",
     "toc": "toc.js",
+    "genre": "genre.js",
+    "home": "home.js",
     "chap": "chap.js"
   }
 }
