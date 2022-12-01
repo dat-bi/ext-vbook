@@ -4,7 +4,7 @@ function execute(url, page) {
 
     var doc = fetch("https://truyenaudiocvv.com" + url + "?page=" + page).html();
 
-    if (doc) {
+    if (doc.ok) {
         var el = doc.select(".filter-content > ul li");
         var novelList = [];
         var next = doc.select(".pagination > li.active + li").last().text();
@@ -21,5 +21,5 @@ function execute(url, page) {
         }
         return Response.success(novelList, next);
     }
-    return null;
+    return Response.error("Ấn vào trang nguồn để check verify")
 }
