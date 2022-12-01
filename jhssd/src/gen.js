@@ -3,7 +3,7 @@ function execute(key, page) {
     // var page = page + ''
     let browser = Engine.newBrowser();
     browser.setUserAgent(UserAgent.android());
-    var doc = browser.launch( 'https://wap.jhssd.com'+key + page + '.html', 4000)
+    var doc = browser.launch( 'https://m.2ksk.com'+key + page + '.html', 4000)
     browser.close()
 
         let el = doc.select("#Ranking ul")
@@ -12,10 +12,10 @@ function execute(key, page) {
         var e = el.get(i);
         data.push({
             name: e.select("li.tjxs > span:nth-child(1) > a ").text(),
-            link: 'https://wap.jhssd.com' + e.select(".tjimg a").attr("href"),
-            cover: 'https://wap.jhssd.com' + e.select(".tjimg a img").attr("src"),
+            link: 'https://m.2ksk.com' + e.select(".tjimg a").attr("href"),
+            cover: 'https://m.2ksk.com' + e.select(".tjimg a img").attr("src"),
             description: e.select(".xsm").last().text(),
-            host: "https://wap.jhssd.com"
+            host: "https://m.2ksk.com"
         })
     }
         return Response.success(data)

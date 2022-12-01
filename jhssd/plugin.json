@@ -1,10 +1,10 @@
 {
     "metadata": {
-        "name": "jhssd",
+        "name": "2ksk -Tinh Hoa Thư Các",
         "author": "dat-bi",
         "version": 1,
-        "source": "https://wap.jhssd.com",
-        "regexp": "(www.|wap.)?jhssd.com/\\d+/?$",
+        "source": "https://m.2ksk.com",
+        "regexp": "(www.|m.)?2ksk.com/\\d+/?$",
       "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",
         "locale": "zh_CN",
         "language": "javascript",
@@ -15,6 +15,7 @@
         "search": "search.js",
         "detail": "detail.js",
         "toc": "toc.js",
-        "chap": "chap.js"
+        "chap": "chap.js",
+        "page": "page.js"
     }
 }
