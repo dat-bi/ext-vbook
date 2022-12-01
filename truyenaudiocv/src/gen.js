@@ -2,9 +2,10 @@ function execute(url, page) {
     sleep(1000)
     if (!page) page = '1';
 
-    var doc = fetch("https://truyenaudiocvv.com" + url + "?page=" + page).html();
+    var response = fetch("https://truyenaudiocvv.com" + url + "?page=" + page);
 
-    if (doc.ok) {
+    if (response.ok) {
+        let doc = response.html()
         var el = doc.select(".filter-content > ul li");
         var novelList = [];
         var next = doc.select(".pagination > li.active + li").last().text();
