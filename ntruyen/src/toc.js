@@ -7,6 +7,14 @@ function execute(url) {
     var page = 1
     var listchapter = []
     do {
+    // let response = fetch('https://ntruyen.vn/ajax/load_chapter',{
+    //     method : "POST",
+    //     // headers: {'Content-Type': 'application/json; charset=UTF-8'},
+    //     body: {
+    //         story_id : 46876,
+    //         page: 2
+    //     }
+    // }) 
         var chapJson = Http.post("https://ntruyen.vn/ajax/load_chapter").params({
             "story_id": story_id,
             "page": page
