@@ -4,7 +4,7 @@
     "author": "dat-bi",
     "version": 1,
     "source": "https://truyenaudiocvv.com",
-    "regexp": "https://truyenaudiocvv.com/[^/]+$",
+    "regexp": "https://(truyenaudiocvv.com|/[^/]+$",
     "description": "Đọc truyện trên trang truyenaudiocvv",
     "locale": "vi_VN",
     "type": "novel",

@@ -16,6 +16,17 @@
       "locale": "vi_VN"
     },
     {
+      "name": "truyenaudiocv",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenaudiocv/plugin.zip",
+      "version": 1,
+      "source": "http://truyenaudiocv.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenaudiocv/icon.png",
+      "description": "truyenaudiocvv",
+      "type": "novel",
+      "locale": "vi_VN"
+    },
+    {
       "name": "Tiên Hiệp",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/plugin.zip",

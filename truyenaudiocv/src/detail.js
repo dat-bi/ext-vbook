@@ -1,9 +1,7 @@
 function execute(url) {
-    var browser = Engine.newBrowser();
-    browser.setUserAgent(UserAgent.android());
-    var doc = browser.launch(url, 4000);
-    browser.close()
-    if (doc) {
+    let response = fetch(url)
+    if (response.ok) {
+    let doc =response.html()
         return Response.success({
             name: doc.select(".title").text(),
             cover:doc.select(".col-lg-pull-6.col-lg-3 > div > img").attr("src"),

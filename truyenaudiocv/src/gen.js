@@ -1,20 +1,21 @@
 function execute(url, page) {
+    sleep(1000)
     if (!page) page = '1';
 
-    var doc = Http.get(url + "?page=" + page).html();
+    var doc = fetch("https://truyenaudiocvv.com" + url + "?page=" + page).html();
 
     if (doc) {
-        var el = doc.select("#pagewrap > div.row.main-container > div.main-section > section > div.list-stories > ul > li");
+        var el = doc.select(".filter-content > ul li");
         var novelList = [];
         var next = doc.select(".pagination > li.active + li").last().text();
         for (var i = 0; i < el.size(); i++) {
             var e = el.get(i);
             novelList.push({
-                name: e.select(".title > a").text(),
-                link: "https://kiemtruyen.com" + e.select(".title > a").first().attr("href"),
-                description: e.select(".author").text(),
-                cover:"https://kiemtruyen.com" + e.select("img").attr("src"),
-                host: "https://kiemtruyen.com",
+                name: e.select(".thumb img").attr("alt"),
+                link: e.select(".thumb").attr("href"),
+                description: e.select(".time").text(),
+                cover:e.select(".thumb img").attr("src"),
+                host: "https://truyenaudiocvv.com",
             });
 
         }
