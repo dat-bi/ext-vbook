@@ -61,6 +61,7 @@ let text = response.text() // Trả về response request dạng string
 let text = response.text(charset) // Trả về response request dạng string
 let json = response.json() // Trả về response request dạng JSONObject
 ```
+Cách khác:
 ```javascript
 var request = Http.get(url) // Tạo request GET, return Request object
 var request = Http.post(url) // Tạo request POST, return Request object
