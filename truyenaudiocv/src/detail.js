@@ -10,5 +10,5 @@ function execute(url) {
             description: doc.select(".brief").text()
         });
     }
-    return null;
+    return Response.error("Ấn vào trang nguồn để check verify");
 }

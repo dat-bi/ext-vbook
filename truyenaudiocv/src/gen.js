@@ -1,9 +1,7 @@
 function execute(url, page) {
     sleep(1000)
     if (!page) page = '1';
-
     var response = fetch("https://truyenaudiocvv.com" + url + "?page=" + page);
-
     if (response.ok) {
         let doc = response.html()
         var el = doc.select(".filter-content > ul li");
@@ -18,7 +16,6 @@ function execute(url, page) {
                 cover:e.select(".thumb img").attr("src"),
                 host: "https://truyenaudiocvv.com",
             });
-
         }
         return Response.success(novelList, next);
     }
