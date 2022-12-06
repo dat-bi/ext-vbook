@@ -11,8 +11,7 @@ function execute(url) {
             cover: cover,
             author: null,
             description: doc.select("#page > div.cenl > div.cl1 > ul").html() + "<br>" +doc.select("#page > div.cenl > div.cl2 > div > p").html(),
-            detail: null,
-            host: "https://downbook.cc"
+            detail: null
         });
     }
     return null;

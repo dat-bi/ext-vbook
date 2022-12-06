@@ -2,7 +2,7 @@
   "metadata": {
     "name": "qubook",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://sj.qubook.cc/",
     "regexp": "sj.?qubook.cc/TXT/(.*?).html",
     "description": "Đọc truyện trên trang qubook.cc",

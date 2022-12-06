@@ -2,7 +2,7 @@
   "metadata": {
     "name": "downbook",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://sj.downbook.cc/",
     "regexp": "sj.?downbook.cc/TXT/(.*?).html",
     "description": "Đọc truyện trên trang downbook.cc",

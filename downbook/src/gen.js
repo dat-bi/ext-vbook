@@ -9,7 +9,7 @@ function execute(url, page) {
                 name: e.select("a:nth-child(2)").first().text(),
                 link: e.select("a:nth-child(2)").first().attr("href"),
                 description: e.select("a:nth-child(1)").first().text(),
-                host: "https://www.downbook.cc"
+                host: "https://sj.downbook.cc"
             })
         });
 

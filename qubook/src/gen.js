@@ -9,7 +9,7 @@ function execute(url, page) {
                 name: e.select("h1 a").first().text(),
                 link: e.select("h1 a").first().attr("href"),
                 description: e.select("h3").first().text(),
-                host: "https://www.qubook.cc/"
+                host: "https://sj.qubook.cc/"
             })
         });
 
