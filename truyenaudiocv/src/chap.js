@@ -1,6 +1,6 @@
 function execute(url) {
-    sleep(1000)
-    let doc = fetch(url,{
+    var data = ""
+    var doc = fetch(url,{
         method: "GET",
             headers: {
                 // 'user-agent': UserAgent.android(),
@@ -9,20 +9,23 @@ function execute(url) {
         })
     if(!doc.ok){ return Response.error("Ấn vào trang nguồn để check verify")}
     else {
-        sleep(1000)
-        let id = doc.text().match(/\[\{\"track\":0,.*?\"name\"/g)[0].match(/\d+/g)[1]
-        let response = fetch("https://truyenaudiocvv.com/api/getText?taskId="+ id);
-        if (response.ok) {
-            let json = response.json();
+        let page = url.split("listen?i=")[1]
+        console.log(page % 3)
+        if(page%3 === 0 ){
+            var track1 = doc.text().match(/\[\{\"track\":0,(.*?)\"track\":2(.*?)\"isFree\":1\}/g)[0] + "]"
+        }else{
+            var track1 = doc.text().match(/\[\{\"track\":0,(.*)\"isFree\":1\}/g)[0] + "]"
+        }
+        var track = JSON.parse(track1)
+        var trackLength =track.length
+        for(var i =0; i < trackLength ; i++){
+            let newUrl = "https://truyenaudiocvv.com/api/getText?taskId="+ track[i].id
+            let json = fetch(newUrl).json();
             var content = json.content
-            content = content.replace("Nguồn Truyện Audio CV chấm com.","")
-                            .replace(/<br \/>/g,"\n")
-                            .replace(/\\n\./g,"")
-                            .replace(/<br> Cách Chương\.<br>/g,"")
-            return Response.success(content);              
-        } else {
-            return Response.error("Ấn vào trang nguồn để check verify")
-        }        
+            data += content
+        }
+        data = data.replace(/Nguồn Truyện Audio CV chấm com./g,"").replace(/<br \/>/g,"\n").replace(/\\n\./g,"").replace(/<br> Cách Chương\.<br>/g,"");
+        return Response.success(data); 
     }
 }
 

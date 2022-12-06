@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Truyện AudioCv",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://truyenaudiocvv.com",
     "regexp": "https://(truyenaudiocvv.com|t18cv.com)/[^/]+$",
     "description": "Đọc truyện trên trang truyenaudiocvv",
@@ -14,6 +14,7 @@
     "detail": "detail.js",
     "toc": "toc.js",
     "genre": "genre.js",
+    "search": "search.js",
     "home": "home.js",
     "chap": "chap.js"
   }

@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "name": "qubook",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://sj.qubook.cc/",
+    "regexp": "sj.?qubook.cc/TXT/(.*?).html",
+    "description": "Đọc truyện trên trang qubook.cc",
+    "locale": "zh-CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "genre": "genre.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
