@@ -1,8 +1,7 @@
 load('libs.js');
 
 function execute(url) {
-    url = url.replace("truyenheo.org","truyensex.one");
-    url = url.replace("truyensex.one","truyensextv.com");
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img,"truyensextv.com")
     var response = fetch(url);
     if (response.ok) {
         var doc = response.html();

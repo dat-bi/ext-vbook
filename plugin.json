@@ -216,18 +216,6 @@
       "tag": "nsfw"
     },
     {
-      "name": "Like Truyện",
-      "author": "dat-bi",
-      "version": 1,
-      "source": "https://liketruyen.net",
-      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/liketruyen/plugin.zip",
-      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/liketruyen/icon.png",
-      "description": "Đọc truyện trên trang like Truyện",
-      "locale": "vi_VN",
-      "type": "comic",
-      "tag": "nsfw"
-    },
-    {
       "name": "kanunu8",
       "author": "dat-bi",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kanunu8/plugin.zip",
