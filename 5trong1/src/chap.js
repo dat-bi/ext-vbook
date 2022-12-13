@@ -8,6 +8,10 @@ function execute(url) {
         return Response.success(getTocUU(url))
     } else if(url.includes("69shu")){
         return Response.success(getTo69shu(url))
+    } else if(url.includes("yushu")){
+        return Response.success(getToYushu(url))
+    } else if(url.includes("fanqie")){
+        return Response.success(getToFanqie(url))
     }
     return null
 }
@@ -40,6 +44,34 @@ function getTo69shu(url){
             ;
         // log(htm);
         return htm;
+    }
+    return null;
+}
+function getToYushu(url) {
+    const doc = fetch(url).html();
+    var content = doc.select("#BookText").html();
+    var nextPage = doc.select('.articlebtn a').last();
+    while(nextPage.text() === '下一页'){
+        var doc2 = fetch('https://www.yushugu.com/'+nextPage.attr('href')).html();
+        content += doc2.select("#BookText").html();
+        var nextPage = doc2.select('.articlebtn a').last();
+    }
+    content = content.replace(/<p><\/p>/g,'')
+    return content;
+}
+function getToFanqie(url) {
+    let response = fetch(url, {
+        headers: {
+            'user-agent': UserAgent.android()
+        }
+    });
+    if (response.ok) {
+        let res_json = response.json();
+        console.log(res_json)
+        let dataa = res_json.data.content;  
+        var doc = Html.parse(dataa);
+        var content = doc.select('article').html();
+    return content;
     }
     return null;
 }

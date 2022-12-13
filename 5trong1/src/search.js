@@ -1,34 +1,30 @@
-load('libs.js');
-
 function execute(key, page) {
-    var host = 'https://www.qidian.com';
+    if (!page) page = '1';
+    let response = fetch('https://sangtacviet.pro/?find=&findinname=' + key + '&minc=0&tag=&p=' + page);
 
-    let response = fetch('https://www.qidian.com/search', {
-        method: "GET",
-        queries: {
-            'kw': key
-        }
-    });
+    function toCapitalize(sentence) {
+        const words = sentence.split(" ");
+
+        return words.map((word) => {
+            return word[0].toUpperCase() + word.substring(1);
+        }).join(" ");
+    }
 
     if (response.ok) {
-        let doc = response.html();
-
-        var data = [];
-
-        var elems = $.QA(doc, 'li.res-book-item');
-        if (!elems.length) return Response.error(key);
-
-        elems.forEach(function(e) {
+        let doc = response.html()
+        let next = doc.select(".pagination").select("li.active + li").text()
+        let el = doc.select("#searchviewdiv a.booksearch")
+        let data = [];
+        el.forEach(e => {
             data.push({
-                name: $.Q(e, 'div.book-mid-info > h4 > a').text(),
-                cover: $.Q(e, 'div.book-img-box img').attr('src').mayBeFillHost(host),
-                link: $.Q(e, 'div.book-mid-info > h4 > a').attr('href').mayBeFillHost(host),
-                description: $.Q(e, 'p.author').text(),
-                host: host
+                name: toCapitalize(e.select(".searchbooktitle").first().text()),
+                link: e.select("a").first().attr("href"),
+                cover: e.select("img").first().attr("src"),
+                description: e.select(" div > span.searchtag").last().text(),
+                host: "https://sangtacviet.pro"
             })
-        })
-
-        return Response.success(data);
+        });
+        return Response.success(data, next)
     }
     return null;
 }

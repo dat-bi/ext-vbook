@@ -14,6 +14,17 @@
       "description": "...",
       "type": "chinese_novel",
       "locale": "zh_CN"
+    },    
+    {
+      "name": "5trong1",
+      "author": "dat-bi",
+      "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/plugin.zip",
+      "version": 1,
+      "source": "https://sangtacviet.com",
+      "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/icon.png",
+      "description": "(5 trong 1) hỗ trợ 5 web fanqie, qidian, 69shu, uukanshu ,Yushubo, (sangtacviet chỉ để lấy thông tin với đọc bình luận cho tiện thôi)",
+      "type": "chinese_novel",
+      "locale": "zh_CN"
     },
     {
       "name": "downbook",

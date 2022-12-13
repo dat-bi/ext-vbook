@@ -3,7 +3,6 @@ function execute(url) {
     var browser = Engine.newBrowser();
     browser.setUserAgent(UserAgent.android());
     // var browser = Engine.newBrowser();
-    // browser.setUserAgent(UserAgent.android());
     let data  ="";
     let part1 = url.replace("https://m.2ksk.com", "").replace('.html','');
     // var next = part1;
