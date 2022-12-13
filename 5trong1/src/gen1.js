@@ -31,7 +31,7 @@ function execute(url, page) {
                 link: e.select("a").first().attr("href"),
                 cover: img,
                 description: e.select(".info span").first().text(),
-                host: "https://sangtacviet.com"
+                host: "https://sangtacviet.pro"
                 
             })
             }}}
