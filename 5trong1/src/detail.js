@@ -1,4 +1,10 @@
 function execute(url) {
+    if(url.includes("fanqienovel")){
+        url = "https://sangtacviet.pro/truyen/fanqie/1/" + url.match(/\d+/g)[0]
+    }
+    if(url.includes("fqnovel")){
+        url = "https://sangtacviet.pro/truyen/fanqie/1/" + url.match(/\d+/g)[1]
+    }
     let response = fetch(url + '/');
     function toCapitalize(sentence) {
         const words = sentence.split(" ");
