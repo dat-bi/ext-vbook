@@ -1,7 +1,7 @@
 function execute() {
 
     let data = [
-        '玄幻|xuanhuan|21',
+        '玄幻(Tổng)|xuanhuan|21',
         '奇幻|qihuan|1',
         '武侠|wuxia|2',
         '仙侠|xianxia|22',
@@ -25,7 +25,7 @@ function execute() {
         };
     })
     var data2 = [        
-        {title: "🧡玄幻1", input: "/rank/yuepiao/chn21/year{year}-month{month}-page{page}/", script: "gen.js"},        
+        {title: "🧡玄幻1(tháng này)", input: "/rank/yuepiao/chn21/year{year}-month{month}-page{page}/", script: "gen.js"},        
         {title: "奇幻1", input: "/rank/yuepiao/chn1/year{year}-month{month}-page{page}/", script: "gen.js"},        
         {title: "武侠1", input: "/rank/yuepiao/chn2/year{year}-month{month}-page{page}/", script: "gen.js"},        
         {title: "仙侠1", input: "/rank/yuepiao/chn22/year{year}-month{month}-page{page}/", script: "gen.js"},        
@@ -39,7 +39,7 @@ function execute() {
         {title: "诸天无限1", input: "/rank/yuepiao/chn20109/year{year}-month{month}-page{page}/", script: "gen.js"},
         {title: "悬疑1", input: "/rank/yuepiao/chn10/year{year}-month{month}-page{page}/", script: "gen.js"},        
         {title: "轻小说1", input: "/rank/yuepiao/chn12/year{year}-month{month}-page{page}/", script: "gen.js"},
-        {title: "❤玄幻-1", input: "/rank/yuepiao-1/chn21/year{year}-month{month}-page{page}/", script: "gen.js"},        
+        {title: "❤玄幻-1(tháng trước)", input: "/rank/yuepiao-1/chn21/year{year}-month{month}-page{page}/", script: "gen.js"},        
         {title: "奇幻-1", input: "/rank/yuepiao-1/chn1/year{year}-month{month}-page{page}/", script: "gen.js"},        
         {title: "武侠-1", input: "/rank/yuepiao-1/chn2/year{year}-month{month}-page{page}/", script: "gen.js"},        
         {title: "仙侠-1", input: "/rank/yuepiao-1/chn22/year{year}-month{month}-page{page}/", script: "gen.js"},        
