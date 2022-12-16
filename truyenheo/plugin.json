@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "Truyện Heo",
+    "name": "truyenheo",
     "author": "dat-bi",
-    "version": 4,
-    "source": "http://truyensextv.com",
+    "version": 5,
+    "source": "http://truyensextv.me",
     "regexp": "truyenheo\\.org/[^/]+/?$",
-    "description": "Đọc truyện trên trang http://truyensextv.com",
+    "description": "Đọc truyện trên trang http://truyensextv.me",
     "locale": "vi_VN",
     "language": "javascript",
     "type": "novel",
