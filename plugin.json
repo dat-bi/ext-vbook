@@ -7,10 +7,10 @@
         {
             "name": "[Review] tuishujun 💬",
             "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/[Review] tuishujun 💬/plugin.zip",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/%5BReview%5D%20tuishujun%20%F0%9F%92%AC/plugin.zip",
             "version": 1,
             "source": "https://www.tuishujun.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/[Review] tuishujun 💬/icon.png",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/%5BReview%5D%20tuishujun%20%F0%9F%92%AC/icon.png",
             "description": "Xem đánh giá truyện trên trang https://www.tuishujun.com/",
             "type": "chinese_novel",
             "locale": "zh_CN"
@@ -29,10 +29,10 @@
         {
             "name": "2ksk -Tinh Hoa Thư Các",
             "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/2ksk -Tinh Hoa Thư Các/plugin.zip",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/2ksk%20-Tinh%20Hoa%20Th%C6%B0%20C%C3%A1c/plugin.zip",
             "version": 1,
             "source": "https://m.2ksk.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/2ksk -Tinh Hoa Thư Các/icon.png",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/2ksk%20-Tinh%20Hoa%20Th%C6%B0%20C%C3%A1c/icon.png",
             "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",
             "type": "chinese_novel",
             "locale": "zh_CN"
@@ -95,7 +95,7 @@
         },
         {
             "name": "author.baidu",
-            "author": "Tác giả",
+            "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/author.baidu/plugin.zip",
             "version": 1,
             "source": "https://author.baidu.com",
@@ -151,10 +151,10 @@
         {
             "name": "Kỳ huyễn",
             "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Kỳ huyễn/plugin.zip",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/K%E1%BB%B3%20huy%E1%BB%85n/plugin.zip",
             "version": 1,
             "source": "https://kyhuyen.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Kỳ huyễn/icon.png",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/K%E1%BB%B3%20huy%E1%BB%85n/icon.png",
             "description": "Đọc truyện trên trang Kỳ huyễn kyhuyen.com",
             "type": "novel",
             "locale": "vi_VN"
@@ -173,10 +173,10 @@
         {
             "name": "Qianluxiaoshuo - Tiền Lộ",
             "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Qianluxiaoshuo - Tiền Lộ/plugin.zip",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Qianluxiaoshuo%20-%20Ti%E1%BB%81n%20L%E1%BB%99/plugin.zip",
             "version": 5,
             "source": "https://www.qianluxiaoshuo.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Qianluxiaoshuo - Tiền Lộ/icon.png",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Qianluxiaoshuo%20-%20Ti%E1%BB%81n%20L%E1%BB%99/icon.png",
             "description": "Đọc truyện trên trang qianluxiaoshuo",
             "type": "chinese_novel",
             "locale": "zh_CN"
@@ -228,10 +228,10 @@
         {
             "name": "Truyện AudioCv",
             "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truyện AudioCv/plugin.zip",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20AudioCv/plugin.zip",
             "version": 2,
             "source": "https://truyenaudiocvv.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truyện AudioCv/icon.png",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20AudioCv/icon.png",
             "description": "Đọc truyện trên trang truyenaudiocvv",
             "type": "novel",
             "locale": "vi_VN"
