@@ -1,11 +1,12 @@
 load('libs.js');
 
 function execute(url) {
+        url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
     if(url.includes("fanqienovel")){
-        url = "https://sangtacviet.pro/truyen/fanqie/1/" + url.match(/\d+/g)[0]
+        url = STVHOST+ "/truyen/fanqie/1/" + url.match(/\d+/g)[0]
     }
     if(url.includes("fqnovel")){
-        url = "https://sangtacviet.pro/truyen/fanqie/1/" + url.match(/\d+/g)[1]
+        url = STVHOST +"/truyen/fanqie/1/" + url.match(/\d+/g)[1]
     }
     var id = url.replace(/https.*?\/1\//g,"").replace("/","")
     if(url.includes("qidian")){

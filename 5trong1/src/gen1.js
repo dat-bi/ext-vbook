@@ -1,6 +1,7 @@
 function execute(url, page) {
+load('libs.js');
     if (!page) page = '1';
-    let response = fetch(url + '&p=' + page)
+    let response = fetch(STVHOST + url + '&p=' + page)
     if (response.ok) {
         let doc = response.html()
         let next = doc.select(".pagination").select("li.active + li").text()
@@ -31,7 +32,7 @@ function execute(url, page) {
                 link: e.select("a").first().attr("href"),
                 cover: img,
                 description: e.select(".info span").first().text(),
-                host: "https://sangtacviet.pro"
+                host: STVHOST
                 
             })
             }}}

@@ -1,9 +1,11 @@
+load('libs.js');
 function execute(url) {
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
     if(url.includes("fanqienovel")){
-        url = "https://sangtacviet.pro/truyen/fanqie/1/" + url.match(/\d+/g)[0]
+        url = STVHOST +"/truyen/fanqie/1/" + url.match(/\d+/g)[0]
     }
     if(url.includes("fqnovel")){
-        url = "https://sangtacviet.pro/truyen/fanqie/1/" + url.match(/\d+/g)[1]
+        url = STVHOST + "/truyen/fanqie/1/" + url.match(/\d+/g)[1]
     }
     let response = fetch(url + '/');
     function toCapitalize(sentence) {
@@ -27,7 +29,7 @@ function execute(url) {
             description: des,
             detail: _detail,
             ongoing: true,
-            host: "https://sangtacviet.pro"
+            host: ""
         });
     }
     return null;

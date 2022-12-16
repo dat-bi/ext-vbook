@@ -1,9 +1,8 @@
 load('libs.js');
-
 function execute(url) {
-    
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
     if(url.includes("qidian")){
-        return null;
+        return Response.error("không hỗ trợ đọc chương qidian");
     }
     else if(url.includes("uukanshu")){
         return Response.success(getTocUU(url))

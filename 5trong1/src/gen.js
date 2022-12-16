@@ -1,5 +1,4 @@
 load('libs.js');
-
 function execute(url, page) {
     let host = 'https://www.qidian.com';
     if (url.includes("-1")) {
@@ -32,7 +31,7 @@ function execute(url, page) {
 
         elems.forEach(function(e) {
             let link = $.Q(e, '.book-mid-info h2 a').attr('href').mayBeFillHost(host)
-            let newLink = "https://sangtacviet.pro/truyen/qidian/1/" + getLink(link) + "/";
+            let newLink = STVHOST + "truyen/qidian/1/" + getLink(link) + "/";
             data.push({
                 name: $.Q(e, '.book-mid-info h2 a').text(),
                 link: newLink,

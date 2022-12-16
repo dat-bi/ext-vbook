@@ -1,8 +1,6 @@
+# Intellij
 .idea/*
 *.iml
 *test.json
 data.json
-*.rar
-*.bak
-_*/
-.test
+history.bak

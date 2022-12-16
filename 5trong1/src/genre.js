@@ -1,5 +1,4 @@
 function execute() {
-
     let data = [
         '玄幻(Tổng)|xuanhuan|21',
         '奇幻|qihuan|1',

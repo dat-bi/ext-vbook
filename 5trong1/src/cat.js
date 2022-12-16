@@ -1,5 +1,4 @@
 load('libs.js');
-
 function execute(url, page) {
     var host = 'https://www.qidian.com';
 
@@ -14,9 +13,9 @@ function execute(url, page) {
         var elems = $.QA(doc, 'li[data-rid]');
         if (!elems.length) return Response.error(url);
 
-        elems.forEach(function(e) {
+        elems.forEach(function (e) {
             let link = $.Q(e, '.book-mid-info h2 a').attr('href').mayBeFillHost(host)
-            let newLink = "https://sangtacviet.pro/truyen/qidian/1/" + getLink(link) + "/";
+            let newLink = STVHOST + "truyen/qidian/1/" + getLink(link) + "/";
             data.push({
                 name: $.Q(e, '.book-mid-info h2 a').text(),
                 cover: newLink,
