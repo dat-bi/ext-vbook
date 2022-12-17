@@ -1,20 +1,21 @@
 load('libs.js');
 function execute(url) {
-    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
     if(url.includes("qidian")){
         return Response.error("không hỗ trợ đọc chương qidian");
     }
     else if(url.includes("uukanshu")){
-        var data = getTocUU(url)
+        var data1 = getTocUU(url)
     } else if(url.includes("69shu")){
-        data = getTo69shu(url)
+        var data1 = getTo69shu(url)
     } else if(url.includes("yushu")){
-        data = getToYushu(url)
+        var data1 = getToYushu(url)
     } else if(url.includes("fanqie")){
-        data = getToFanqie(url)
+        var data1 = getToFanqie(url)
     }
-    if(data)
-    return Response.success(data.replace(/<br\s*\/?>|\n/g,"<br><br>"))
+    if(data1 !== null){
+        data1 = data1.replace(/<br\s*\/?>|\n/g,"<br><br>")
+        return Response.success(data1)
+    }
 }
 function getTocUU(url){
     var htm = "";
@@ -53,11 +54,10 @@ function getToYushu(url) {
     var content = doc.select("#BookText").html();
     var nextPage = doc.select('.articlebtn a').last();
     while(nextPage.text() === '下一页'){
-        var doc2 = fetch('https://www.yushugu.com/'+nextPage.attr('href')).html();
+        var doc2 = fetch('https://www.yushugu.cc/'+nextPage.attr('href')).html();
         content += doc2.select("#BookText").html();
         var nextPage = doc2.select('.articlebtn a').last();
     }
-    content = content.replace(/<p><\/p>/g,'')
     return content;
 }
 function getToFanqie(url) {
