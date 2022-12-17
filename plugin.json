@@ -196,7 +196,7 @@
             "name": "ranwen",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ranwen/plugin.zip",
-            "version": 2,
+            "version": 3,
             "source": "http://www.ranwen.la",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ranwen/icon.png",
             "description": "Đọc truyện trên trang http://www.ranwen.la",

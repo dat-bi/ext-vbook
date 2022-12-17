@@ -5,7 +5,7 @@ function execute(url) {
         let doc = response.html();
         let htm = doc.select("#contents p").html();
         htm = htm.replace(/\&nbsp;/g, "").replace(/\<\a(.*?)<\/a>/g,'').replace(/【.*?www.yeguoyuedu.com.*?】/g,'');
-        return Response.success(htm);
+        return Response.success(htm.replace(/<br\s*\/?>|\n/g,"<br><br>"));
     }
     return null;
 }

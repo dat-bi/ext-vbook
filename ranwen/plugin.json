@@ -2,9 +2,9 @@
   "metadata": {
     "name": "ranwen",
     "author": "dat-bi",
-    "version": 2,
+    "version": 3,
     "source": "http://www.ranwen.la",
-    "regexp": "(www.|m.)?ranwen.la/\\d+_\\d+/?$",
+    "regexp": "https://(www.|m.)?ranwen.la/files/.*?/\\d+/\\d+/",
     "description": "Đọc truyện trên trang http://www.ranwen.la",
     "locale": "zh_CN",
     "language": "javascript",

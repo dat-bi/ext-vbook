@@ -5,15 +5,16 @@ function execute(url) {
         return Response.error("không hỗ trợ đọc chương qidian");
     }
     else if(url.includes("uukanshu")){
-        return Response.success(getTocUU(url))
+        data = getTocUU(url)
     } else if(url.includes("69shu")){
-        return Response.success(getTo69shu(url))
+        data = getTo69shu(url)
     } else if(url.includes("yushu")){
-        return Response.success(getToYushu(url))
+        data = getToYushu(url)
     } else if(url.includes("fanqie")){
-        return Response.success(getToFanqie(url))
+        data = getToFanqie(url)
     }
-    return null
+    if(data)
+    return Response.success(data.replace(/<br\s*\/?>|\n/g,"<br><br>"))
 }
 function getTocUU(url){
     var htm = "";
