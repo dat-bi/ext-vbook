@@ -5,7 +5,7 @@ function execute(url) {
         return Response.error("không hỗ trợ đọc chương qidian");
     }
     else if(url.includes("uukanshu")){
-        data = getTocUU(url)
+        var data = getTocUU(url)
     } else if(url.includes("69shu")){
         data = getTo69shu(url)
     } else if(url.includes("yushu")){
