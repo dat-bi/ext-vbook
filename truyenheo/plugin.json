@@ -2,9 +2,9 @@
   "metadata": {
     "name": "truyenheo",
     "author": "dat-bi",
-    "version": 5,
+    "version": 6,
     "source": "http://truyensextv.me",
-    "regexp": "truyenheo\\.org/[^/]+/?$",
+    "regexp": "truyensextv.me/[^/]+/?$",
     "description": "Đọc truyện trên trang http://truyensextv.me",
     "locale": "vi_VN",
     "language": "javascript",
