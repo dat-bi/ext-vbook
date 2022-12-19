@@ -116,6 +116,17 @@
             "locale": "zh_CN"
         },
         {
+            "name": "Độc giả số 1",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/%C4%90%E1%BB%99c%20gi%E1%BA%A3%20s%E1%BB%91%201/plugin.zip",
+            "version": 1,
+            "source": "https://docgiaso1.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/%C4%90%E1%BB%99c%20gi%E1%BA%A3%20s%E1%BB%91%201/icon.png",
+            "description": "Đọc truyện trên trang Net Truyện",
+            "type": "comic",
+            "locale": "vi_VN"
+        },
+        {
             "name": "downbook",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/downbook/plugin.zip",
@@ -247,6 +258,17 @@
             "type": "novel",
             "locale": "vi_VN",
             "tag": "nsfw"
+        },
+        {
+            "name": "Tu Chân Giới",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tu%20Ch%C3%A2n%20Gi%E1%BB%9Bi/plugin.zip",
+            "version": 1,
+            "source": "https://tuchangioi.net/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tu%20Ch%C3%A2n%20Gi%E1%BB%9Bi/icon.png",
+            "description": "Đọc truyện trên trang tienhiep.net",
+            "type": "novel",
+            "locale": "vi_VN"
         },
         {
             "name": "tuoinung",

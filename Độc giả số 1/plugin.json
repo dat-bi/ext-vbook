@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "Độc giả số 1",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://docgiaso1.com",
+    "regexp": "https://(www.)?docgiaso1.com/truyen-.*?.html",
+    "description": "Đọc truyện trên trang Net Truyện",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "comic"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

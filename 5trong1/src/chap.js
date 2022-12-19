@@ -1,16 +1,17 @@
 load('libs.js');
 function execute(url) {
+    var data1;
     if(url.includes("qidian")){
         return Response.error("không hỗ trợ đọc chương qidian");
     }
     else if(url.includes("uukanshu")){
-        var data1 = getTocUU(url)
+        data1 = getTocUU(url)
     } else if(url.includes("69shu")){
-        var data1 = getTo69shu(url)
+        data1 = getTo69shu(url)
     } else if(url.includes("yushu")){
-        var data1 = getToYushu(url)
+        data1 = getToYushu(url)
     } else if(url.includes("fanqie")){
-        var data1 = getToFanqie(url)
+        data1 = getToFanqie(url)
     }
     if(data1 !== null){
         data1 = data1.replace(/<br\s*\/?>|\n/g,"<br><br>")
