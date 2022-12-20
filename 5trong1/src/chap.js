@@ -1,22 +1,19 @@
 load('libs.js');
 function execute(url) {
-    var data1;
     if(url.includes("qidian")){
         return Response.error("không hỗ trợ đọc chương qidian");
     }
     else if(url.includes("uukanshu")){
-        data1 = getTocUU(url)
+        return Response.success(getTocUU(url))
     } else if(url.includes("69shu")){
-        data1 = getTo69shu(url)
+        return Response.success(getTo69shu(url))
     } else if(url.includes("yushu")){
-        data1 = getToYushu(url)
+        return Response.success(getToYushu(url))
     } else if(url.includes("fanqie")){
-        data1 = getToFanqie(url)
+        return Response.success(getToFanqie(url))
     }
-    if(data1 !== null){
-        data1 = data1.replace(/<br\s*\/?>|\n/g,"<br><br>")
-        return Response.success(data1)
-    }
+    return null
+    
 }
 function getTocUU(url){
     var htm = "";
@@ -31,7 +28,7 @@ function getTocUU(url){
         htm = doc.select("#contentbox").html();
     }
     htm = htm.replace(/[UＵ][UＵ]\s*看书\s*[wｗ][wｗ][wｗ][\.．][uｕ][uｕ][kｋ][aａ][nｎ][sｓ][hｈ][uｕ][\.．][cｃ][oｏ][mｍ]/gi, "");
-    htm = htm.replace(/\&nbsp;/g, "");
+    htm = htm.replace(/\&nbsp;/g, "").replace(/<br\s*\/?>|\n/g,"<br><br>");
     return htm;
 }
 function getTo69shu(url){
@@ -46,7 +43,7 @@ function getTo69shu(url){
             .replace('(本章完)', '')
             ;
         // log(htm);
-        return htm;
+        return htm.replace(/<br\s*\/?>|\n/g,"<br><br>");
     }
     return null;
 }
@@ -59,7 +56,7 @@ function getToYushu(url) {
         content += doc2.select("#BookText").html();
         var nextPage = doc2.select('.articlebtn a').last();
     }
-    return content;
+    return content.replace(/<br\s*\/?>|\n/g,"<br><br>");
 }
 function getToFanqie(url) {
     let response = fetch(url, {
@@ -67,13 +64,11 @@ function getToFanqie(url) {
             'user-agent': UserAgent.android()
         }
     });
-    if (response.ok) {
-        let res_json = response.json();
-        console.log(res_json)
+    let res_json = response.json();
+    // console.log(res_json)
         let dataa = res_json.data.content;  
         var doc = Html.parse(dataa);
         var content = doc.select('article').html();
-    return content;
-    }
-    return null;
+    return content.replace(/<br\s*\/?>|\n/g,"<br><br>");
+
 }

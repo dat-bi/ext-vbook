@@ -52,7 +52,7 @@
             "name": "5trong1",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/plugin.zip",
-            "version": 2,
+            "version": 3,
             "source": "https://sangtacvietfpt.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/icon.png",
             "description": "(5 trong 1) hỗ trợ 5 web fanqie, qidian, 69shu, uukanshu ,Yushubo, (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> không hỗ trợ get trực tiếp từ trang gốc 69shu, uukanshu ,Yushubo",
