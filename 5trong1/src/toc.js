@@ -77,7 +77,7 @@ function formatName(name) {
     return name.replace(re, '第$2章');
 }
 function getTocYuShuBo(){
-    const yUrl = 'https://www.yushugu.com/list_other_'+id+'.html';
+    const yUrl = 'https://www.yushugu.cc/list_other_'+id+'.html';
     var doc = fetch(yUrl).html();
     var el = doc.select("ul.chapter-list li a")
     const list = [];
@@ -86,7 +86,7 @@ function getTocYuShuBo(){
         list.push({
             name: e.text(),
             url: e.attr("href"),
-            host: "https://www.yushugu.com"
+            host: "https://www.yushugu.cc"
         })
     }
     return list;
