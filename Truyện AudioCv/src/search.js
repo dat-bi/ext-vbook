@@ -1,7 +1,8 @@
+load('config.js');
 function execute(key, page) {
     sleep(1000)
     if (!page) page = '1';
-    var response = fetch("https://truyenaudiocvv.com/danh-sach?page=" + page + "&keyword=" + key );
+    var response = fetch(BASE_URL +"/danh-sach?page=" + page + "&keyword=" + key );
     if (response.ok) {
         let doc = response.html()
         var el = doc.select(".filter-content > ul li");

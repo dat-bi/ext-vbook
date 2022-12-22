@@ -2,9 +2,9 @@
   "metadata": {
     "name": "Truyện AudioCv",
     "author": "dat-bi",
-    "version": 2,
-    "source": "https://truyenaudiocvv.com",
-    "regexp": "https://(truyenaudiocvv.com|t18cv.com)/[^/]+$",
+    "version": 3,
+    "source": "https://truyenaudiocv.org",
+    "regexp": "https://(truyenaudiocv.*?|t18cv.com)/[^/]+$",
     "description": "Đọc truyện trên trang truyenaudiocvv",
     "locale": "vi_VN",
     "type": "novel",

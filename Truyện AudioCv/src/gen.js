@@ -1,7 +1,8 @@
+load('config.js');
 function execute(url, page) {
     sleep(1000)
     if (!page) page = '1';
-    var response = fetch("https://truyenaudiocvv.com" + url + "?page=" + page);
+    var response = fetch(BASE_URL + url + "?page=" + page);
     if (response.ok) {
         let doc = response.html()
         var el = doc.select(".filter-content > ul li");
@@ -14,7 +15,7 @@ function execute(url, page) {
                 link: e.select(".thumb").attr("href"),
                 description: e.select(".time").text(),
                 cover:e.select(".thumb img").attr("src"),
-                host: "https://truyenaudiocvv.com",
+                host: BASE_URL,
             });
         }
         return Response.success(novelList, next);

@@ -1,3 +1,4 @@
+load('config.js');
 function execute(url) {
     var data = ""
     var doc = fetch(url,{
@@ -19,7 +20,7 @@ function execute(url) {
         var track = JSON.parse(track1)
         var trackLength =track.length
         for(var i =0; i < trackLength ; i++){
-            let newUrl = "https://truyenaudiocvv.com/api/getText?taskId="+ track[i].id
+            let newUrl = BASE_URL +"/api/getText?taskId="+ track[i].id
             let json = fetch(newUrl).json();
             var content = json.content
             data += content

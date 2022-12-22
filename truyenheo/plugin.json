@@ -4,7 +4,7 @@
     "author": "dat-bi",
     "version": 6,
     "source": "http://truyensextv.me",
-    "regexp": "truyensextv.me/[^/]+/?$",
+    "regexp": "truyen(heo|sex).*?/[^/]+/?$",
     "description": "Đọc truyện trên trang http://truyensextv.me",
     "locale": "vi_VN",
     "language": "javascript",

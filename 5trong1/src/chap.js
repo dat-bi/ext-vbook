@@ -69,6 +69,6 @@ function getToFanqie(url) {
         let dataa = res_json.data.content;  
         var doc = Html.parse(dataa);
         var content = doc.select('article').html();
-    return content.replace(/<br\s*\/?>|\n/g,"<br><br>");
+    return content;
 
 }
