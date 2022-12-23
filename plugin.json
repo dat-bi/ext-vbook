@@ -171,6 +171,18 @@
             "locale": "vi_VN"
         },
         {
+            "name": "Men18",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Men18/plugin.zip",
+            "version": 1,
+            "source": "https://men18.net",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Men18/icon.png",
+            "description": "Đọc truyện trên trang men18",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "Nhúng Truyện",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Nh%C3%BAng%20Truy%E1%BB%87n/plugin.zip",
