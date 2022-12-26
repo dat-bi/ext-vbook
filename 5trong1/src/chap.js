@@ -9,11 +9,10 @@ function execute(url) {
         return Response.success(getTo69shu(url))
     } else if(url.includes("yushu")){
         return Response.success(getToYushu(url))
-    } else if(url.includes("fanqie")){
+    } else if(url.includes("fqnovel")){
         return Response.success(getToFanqie(url))
     }
     return null
-    
 }
 function getTocUU(url){
     var htm = "";
@@ -65,7 +64,6 @@ function getToFanqie(url) {
         }
     });
     let res_json = response.json();
-    // console.log(res_json)
         let dataa = res_json.data.content;  
         var doc = Html.parse(dataa);
         var content = doc.select('article').html();
