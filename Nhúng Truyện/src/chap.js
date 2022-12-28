@@ -1,7 +1,6 @@
 function execute(url) {
     let id = url.split("/")[4]
     let newUrl = "https://cp.nhungtruyen.com/api/chapters/"+id
-    console.log(newUrl)
     var response = fetch(newUrl)
     if(response.ok){
         let json = response.json()
