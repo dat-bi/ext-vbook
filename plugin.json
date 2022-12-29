@@ -238,6 +238,17 @@
             "locale": "zh_CN"
         },
         {
+            "name": "test",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/test/plugin.zip",
+            "version": 1,
+            "source": "https://author.baidu.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/test/icon.png",
+            "description": "...",
+            "type": "chinese_novel",
+            "locale": "zh_CN"
+        },
+        {
             "name": "tienhiep",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/plugin.zip",
