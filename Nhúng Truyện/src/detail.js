@@ -1,6 +1,8 @@
 function execute(url) {
-    let id = url.split("/")[4]
-    if( id  !== "undefined"){
+    if(url.slice(-1) !== "/")
+        url = url + "/";
+    let id_chap = url.split("/")[4]
+    if( id_chap  !== "undefined"){
         var url  = url.match(/https\:\/\/nhungtruyen.com\/(.*?)\//g)[0]
     }
     var doc = fetch(url).html()
