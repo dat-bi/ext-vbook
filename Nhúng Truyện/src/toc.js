@@ -1,7 +1,7 @@
 function execute(url) {
     var newUrl, chapurl;
-    let id = url.split("/")[4]
-    if( id  === "undefined"){
+    var id_chap = url.split("/")[4]
+    if( id_chap  === "undefined"){
         var browser = Engine.newBrowser() // Khởi tạo browser
         browser.launch(url, 3000) // Mở trang web với timeout, trả về Document object
         let ul = browser.urls() // Trả về các url đã request trên trang
@@ -9,11 +9,12 @@ function execute(url) {
         browser.close() // Đóng browser khi đã xử lý xong
         // console.log(newUrl)
     } else {
-        chapurl = "https://cp.nhungtruyen.com/api/chapters/"+id
+        chapurl = "https://cp.nhungtruyen.com/api/chapters/"+id_chap
         var response = fetch(chapurl)
         let json = response.json()
         let sourceId = json._data.source_id
         newUrl = "https://cp.nhungtruyen.com/api/chapters?source_id=" + sourceId
+        url  = url.replace(new RegExp("/"+id_chap,"g"),"")
     }
         var response = fetch(newUrl)
         if(response.ok){
