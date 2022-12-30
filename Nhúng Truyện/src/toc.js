@@ -1,5 +1,7 @@
 function execute(url) {
     var newUrl, chapurl;
+    if(url.slice(-1) !== "/")
+        url = url + "/";
     var id_chap = url.split("/")[4]
     if( id_chap  === "undefined"){
         var browser = Engine.newBrowser() // Khởi tạo browser
