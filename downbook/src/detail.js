@@ -4,7 +4,7 @@ function execute(url) {
         let doc = response.html('gbk');
         let cover  = doc.select("#page > div.cenl > div.cl1 > a > img").attr("src")
         if (cover.length === 0){
-            cover = "https://www.downbook.cc/book/UploadPic/2022-12/45khhg5mhu0.jpg"
+            cover = "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/anh-bia/1.png"
         }
         return Response.success({
             name: doc.select("#page > div.cenl > div.cl1 > div > h1").text(),

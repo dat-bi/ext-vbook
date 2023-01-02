@@ -17,7 +17,7 @@ function execute(key, page) {
                 link: e.select("h1 > a").attr("href"),
                 description: e.select("h5 > a").text(),
                 host: "https://downbook.cc/",
-                cover:"https://www.downbook.cc/book/UploadPic/2022-12/45khhg5mhu0.jpg"
+                cover:"https://raw.githubusercontent.com/dat-bi/ext-vbook/main/anh-bia/0.png"
             });
         }
         return Response.success(novelList, next);

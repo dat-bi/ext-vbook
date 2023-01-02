@@ -7,7 +7,7 @@ function execute(url) {
             let link = e.select("a").first().attr("href");
             if(link.includes(".html"))
                 data.push({
-                    cover:'https://www.kanunu8.com/files/terrorist/201102/1633/img.jpg',
+                    cover:'https://raw.githubusercontent.com/dat-bi/ext-vbook/main/anh-bia/0.png',
                     name: e.select("a").first().text(),
                     link: "https://www.kanunu8.com" + link,
                     description: '',

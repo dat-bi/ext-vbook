@@ -30,7 +30,7 @@ function execute(url) {
         }
         return Response.success({
             name: name0,
-            cover:'https://www.kanunu8.com/files/terrorist/201102/1633/img.jpg',
+            cover:'https://raw.githubusercontent.com/dat-bi/ext-vbook/main/anh-bia/0.png',
             author: author,
             description: description,
             detail: "作者： " + author,

@@ -2,7 +2,7 @@
   "metadata": {
     "name": "kanunu8",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://www.kanunu8.com",
     "regexp": "https://(www.)?kanunu8.com(/(book2|book3|book|book4)/\\d+($|/$|/index.html)|/files/(.*?)(/(.*?)/|/)\\d+\\.html)",
     "description": "Đọc truyện trên trang https://www.kanunu8.com",
