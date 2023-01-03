@@ -7,7 +7,7 @@ function execute(url, page) {
             data.push({
                 name: e.select("a").first().text(),
                 link: 'https://www.ddxs.com/' + e.select("a").first().attr("href"),
-                cover: "https://www.ddxs.com/img/3/3183.jpg",
+                cover: "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/anh-bia/1.png",
                 description: null,
                 host: "https://www.ddxs.com/"
             })
