@@ -19,10 +19,10 @@ function execute(url) {
         */
     if(response.ok){ // Check request success (status >= 200 && status < 300)
         let doc = response.html() // Trả về response request dạng Document object
-        let doc = response.html(charset) // Trả về response request dạng Document object //Web trung có thể là gbk
-        let text = response.text() // Trả về response request dạng string
-        let text = response.text(charset) // Trả về response request dạng string
-        let json = response.json() // Trả về response request dạng JSONObject
+        // let doc = response.html(charset) // Trả về response request dạng Document object //Web trung có thể là gbk
+        // let text = response.text() // Trả về response request dạng string
+        // let text = response.text(charset) // Trả về response request dạng string
+        // let json = response.json() // Trả về response request dạng JSONObject
         let text = json._data.vi
         var content = ""
         for(let i = 1; i < text.length - 1; i++){
