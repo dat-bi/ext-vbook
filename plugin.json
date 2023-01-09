@@ -1,7 +1,7 @@
 {
     "metadata": {
         "author": "Đạt Bi",
-        "description": "1509"
+        "description": "📛🔻📛"
     },
     "data": [
         {
@@ -152,7 +152,7 @@
             "name": "kanunu8",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kanunu8/plugin.zip",
-            "version": 1,
+            "version": 2,
             "source": "https://www.kanunu8.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kanunu8/icon.png",
             "description": "Đọc truyện trên trang https://www.kanunu8.com",
@@ -272,12 +272,12 @@
         },
         {
             "name": "truyenheo",
-            "author": "dat-bi",
+            "author": "hajljnopera",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
             "version": 6,
             "source": "http://truyensextv.me",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
-            "description": "Đọc truyện trên trang http://truyensextv.me",
+            "description": "Đọc truyện trên trang http://truyensextv.me tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
             "type": "novel",
             "locale": "vi_VN",
             "tag": "nsfw"
@@ -304,6 +304,16 @@
             "type": "novel",
             "locale": "vi-VN",
             "tag": "nsfw"
+        },
+        {
+            "name": "xinyushuwu",
+            "author": "hajljnopera",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xinyushuwu/plugin.zip",
+            "version": 1,
+            "source": "https://www.xinyushuwu.org",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xinyushuwu/icon.png",
+            "description": "Đọc truyện trên trang https://www.xinyushuwu.org. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
+            "type": "chinese_novel"
         },
         {
             "name": "xyushu5",
