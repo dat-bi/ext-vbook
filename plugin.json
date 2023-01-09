@@ -272,7 +272,7 @@
         },
         {
             "name": "truyenheo",
-            "author": "hajljnopera",
+            "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
             "version": 6,
             "source": "http://truyensextv.me",
@@ -307,7 +307,7 @@
         },
         {
             "name": "xinyushuwu",
-            "author": "hajljnopera",
+            "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xinyushuwu/plugin.zip",
             "version": 1,
             "source": "https://www.xinyushuwu.org",
