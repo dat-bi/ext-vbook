@@ -1,11 +1,11 @@
 {
   "metadata": {
     "name": "truyenheo",
-    "author": "dat-bi",
+    "author": "hajljnopera",
     "version": 6,
     "source": "http://truyensextv.me",
     "regexp": "truyen(heo|sex).*?/[^/]+/?$",
-    "description": "Đọc truyện trên trang http://truyensextv.me",
+    "description": "Đọc truyện trên trang http://truyensextv.me tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
     "locale": "vi_VN",
     "language": "javascript",
     "type": "novel",

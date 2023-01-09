@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "name": "xinyushuwu",
+    "author": "hajljnopera",
+    "version": 1,
+    "source": "https://www.xinyushuwu.org",
+    "regexp": "(www|m)\\.xinyushuwu\\.org/\\d+/\\d+/?",
+    "description": "Đọc truyện trên trang https://www.xinyushuwu.org. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
+    "local": "vi-VN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "home": "home.js",
+    "search": "search.js"
+  }
+}
