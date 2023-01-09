@@ -2,7 +2,7 @@ load('libs.js');
 
 function execute(url) {
     url = url.replace('xinyushuwu.com', 'xinyushuwu.org');
-    var host = 'https://m.xinyushuwu.org';
+    var host = 'https://www.xinyushuwu.org';
     url = url.replace('m.xinyushuwu.org', 'www.xinyushuwu.org').append('/');
     var doc = Http.get(url).html('gbk');
 
