@@ -271,6 +271,16 @@
             "locale": "vi_VN"
         },
         {
+            "name": "truyenchuth",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenchuth/plugin.zip",
+            "version": 1,
+            "source": "https://truyenchuth.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenchuth/icon.png",
+            "description": "Truyện chữ, truyện tranh tùm lum...",
+            "type": "novel"
+        },
+        {
             "name": "truyenheo",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",

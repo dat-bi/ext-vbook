@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "truyenchuth",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://truyenchuth.com",
+    "regexp": "(www.)?truyenchuth.com/truyen.*?",
+    "description": "Truyện chữ, truyện tranh tùm lum...",
+    "local": "vi-VN",
+    "language": "javascript",
+    "type": "novel"
+  },
+  "script": {
+    "home": "home.js",
+    "page": "page.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
