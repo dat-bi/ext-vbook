@@ -2,7 +2,7 @@
   "metadata": {
     "name": "ntruyen",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://ntruyen.vn/",
     "regexp": "(www.)?ntruyen.vn/truyen/.*?.html",
     "description": "Truyện chữ tùm lum...",
@@ -12,6 +12,7 @@
   },
   "script": {
     "home": "home.js",
+    "page": "page.js",
     "genre": "genre.js",
     "detail": "detail.js",
     "search": "search.js",

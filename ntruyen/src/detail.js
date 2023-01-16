@@ -1,6 +1,6 @@
 function execute(url) {
     var browser = Engine.newBrowser();
-    var doc = browser.launch(url, 3000);
+    var doc = browser.launch(url, 5000);
     browser.close()
     return Response.success({
         name : doc.select(".story-title h1").text(),
