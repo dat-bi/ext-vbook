@@ -1,4 +1,5 @@
 load('config.js');
+load('libs.js')
 function execute(url) {
     var response = fetch(url);
     if (response.ok) {

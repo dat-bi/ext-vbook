@@ -4,5 +4,5 @@ function execute(url) {
     content = content.replace(/\n/g,'<br>')
     content = content.replace(/&nbsp;/g,'')
     content = content.replace(/Bạn đang đọc truyện (.*?)\.html/g,'')
-    return Response.success(content); 
+    return Response.success(content.replace(/<br>|\\n/g,"<br><br>")); 
 }

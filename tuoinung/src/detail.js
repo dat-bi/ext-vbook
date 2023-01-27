@@ -15,5 +15,5 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function randomCover() {
-    return 'https://truyensextv.com' + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
+    return 'https://truyensextv.me' + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
 }
