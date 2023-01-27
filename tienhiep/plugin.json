@@ -2,9 +2,9 @@
   "metadata": {
     "name": "tienhiep",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://tienhiep2.net",
-    "regexp": "tienhiep2.net/truyen/.*?",
+    "regexp": "https://tienhiep2.net/(truyen|chuong).*?",
     "description": "Đọc truyện trên trang tienhiep.net",
     "locale": "vi_VN",
     "type": "novel",

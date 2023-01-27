@@ -241,7 +241,7 @@
             "name": "tienhiep",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/plugin.zip",
-            "version": 1,
+            "version": 2,
             "source": "https://tienhiep2.net",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/icon.png",
             "description": "Đọc truyện trên trang tienhiep.net",
