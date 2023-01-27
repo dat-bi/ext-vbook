@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Tu Chân Giới",
     "author": "dat-bi",
-    "version": 1,
+    "version": 2,
     "source": "https://tuchangioi.net/",
     "regexp": "https://tuchangioi.net/.*?/",
     "description": "Đọc truyện trên trang tienhiep.net",
@@ -13,7 +13,6 @@
   "script": {
     "home": "home.js",
     "detail": "detail.js",
-    "page": "page.js",
     "toc": "toc.js",
     "chap": "chap.js"
   }
