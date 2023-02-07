@@ -183,6 +183,17 @@
             "tag": "nsfw"
         },
         {
+            "name": "mmdaobaobei",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mmdaobaobei/plugin.zip",
+            "version": 1,
+            "source": "https://www.mmdaobaobei.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mmdaobaobei/icon.png",
+            "description": " - Nữu Nữu câu lạc bộ văn học",
+            "type": "chinese_novel",
+            "tag": "nsfw"
+        },
+        {
             "name": "Nhúng Truyện",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Nh%C3%BAng%20Truy%E1%BB%87n/plugin.zip",
@@ -323,7 +334,8 @@
             "source": "https://www.xinyushuwu.org",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xinyushuwu/icon.png",
             "description": "Đọc truyện trên trang https://www.xinyushuwu.org. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
-            "type": "chinese_novel"
+            "type": "chinese_novel",
+            "tag": "nsfw"
         },
         {
             "name": "xyushu5",

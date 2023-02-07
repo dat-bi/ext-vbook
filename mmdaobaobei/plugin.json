@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "mmdaobaobei",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://www.mmdaobaobei.com",
+    "regexp": "www.mmdaobaobei.com/.*?/\\d+.html",
+    "description": " - Nữu Nữu câu lạc bộ văn học",
+    "local": "vi-VN",
+    "language": "javascript",
+    "type": "chinese_novel",
+    "tag": "nsfw"
+  },
+  "script": {
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "home": "home.js",
+    "search": "search.js",
+    "genre": "genre.js"
+  }
+}

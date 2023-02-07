@@ -8,7 +8,8 @@
     "description": "Đọc truyện trên trang https://www.xinyushuwu.org. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
     "local": "vi-VN",
     "language": "javascript",
-    "type": "chinese_novel"
+    "type": "chinese_novel",
+    "tag": "nsfw"
   },
   "script": {
     "detail": "detail.js",
