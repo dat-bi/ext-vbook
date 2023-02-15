@@ -6,7 +6,7 @@ function execute(url) {
         let json = response.json()
         let text = json._data.vi
         var content = ""
-        for(let i = 1; i < text.length - 1; i++){
+        for(let i = 1; i < text.length; i++){
             content = content + text[i] + "<br><br>"
         }
             return Response.success(content);

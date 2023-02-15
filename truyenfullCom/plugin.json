@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "Truyện Full Com",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://truyenfull.com",
+    "regexp": "(www.)?truyenfull.com/[^/]+/?$",
+    "description": "Đọc truyện trên trang Truyện Full",
+    "locale": "vi_VN",
+    "type": "novel",
+    "language": "javascript"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
