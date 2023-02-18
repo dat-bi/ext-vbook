@@ -2,9 +2,9 @@
   "metadata": {
     "name": "60ks",
     "author": "dat-bi",
-    "version": 1,
-    "source": "http://m.60ks.net",
-    "regexp": "http://(www|m).60ks.net((/ks/\\d+/\\d+/(index.html|$))|/(chapters|book)/\\d+/(index.html|$))",
+    "version": 2,
+    "source": "http://m.60ks.cc",
+    "regexp": "http://(www|m).60ks.(net|cc)((/ks/\\d+/\\d+/(index.html|$))|/(chapters|book)/\\d+/(index.html|$))",
     "description": "Đọc truyện trên trang 60ks.net",
     "locale": "zh_CN",
     "language": "javascript",

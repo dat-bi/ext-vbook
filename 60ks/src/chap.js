@@ -1,6 +1,6 @@
 // http://m.60ks.net/101515/2267/15151805.html -----http://www.60ks.net/ks/139/139060/43155455.html
 function execute(url) {
-    url = url.replace('m.60ks.net','www.60ks.net/ks').replace('index.html','')
+    url = url.replace('m.60ks.cc','www.60ks.cc/ks').replace('index.html','')
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');

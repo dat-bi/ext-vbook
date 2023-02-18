@@ -38,21 +38,10 @@
             "locale": "zh_CN"
         },
         {
-            "name": "43zw",
-            "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/43zw/plugin.zip",
-            "version": 3,
-            "source": "https://43zw.cc/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/43zw/icon.png",
-            "description": "Đọc truyện trên trang 43zw.cc",
-            "type": "chinese_novel",
-            "locale": "zh_CN"
-        },
-        {
             "name": "5trong1",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/plugin.zip",
-            "version": 4,
+            "version": 5,
             "source": "https://sangtacvietfpt.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/icon.png",
             "description": "(5 trong 1) hỗ trợ 5 web fanqie, qidian, 69shu, uukanshu ,Yushubo, (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> không hỗ trợ get trực tiếp từ trang gốc 69shu, uukanshu ,Yushubo",
@@ -63,8 +52,8 @@
             "name": "60ks",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/60ks/plugin.zip",
-            "version": 1,
-            "source": "http://m.60ks.net",
+            "version": 2,
+            "source": "http://m.60ks.cc",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/60ks/icon.png",
             "description": "Đọc truyện trên trang 60ks.net",
             "type": "chinese_novel",
@@ -92,17 +81,6 @@
             "type": "chinese_novel",
             "locale": "zh_CN",
             "tag": "nsfw"
-        },
-        {
-            "name": "author.baidu",
-            "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/author.baidu/plugin.zip",
-            "version": 1,
-            "source": "https://author.baidu.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/author.baidu/icon.png",
-            "description": "...",
-            "type": "chinese_novel",
-            "locale": "zh_CN"
         },
         {
             "name": "ddxs",
@@ -290,6 +268,17 @@
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenchuth/icon.png",
             "description": "Truyện chữ, truyện tranh tùm lum...",
             "type": "novel"
+        },
+        {
+            "name": "Truyện Full Com",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20Full%20Com/plugin.zip",
+            "version": 1,
+            "source": "https://truyenfull.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20Full%20Com/icon.png",
+            "description": "Đọc truyện trên trang Truyện Full",
+            "type": "novel",
+            "locale": "vi_VN"
         },
         {
             "name": "truyenheo",

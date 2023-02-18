@@ -9,7 +9,7 @@ function execute(url) {
         return Response.success(getTo69shu(url))
     } else if(url.includes("yushu")){
         return Response.success(getToYushu(url))
-    } else if(url.includes("fqnovel")){
+    } else if(url.includes("fqnovel")||url.includes("novel.snssdk")){
         return Response.success(getToFanqie(url))
     }
     return null

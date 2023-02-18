@@ -1,5 +1,5 @@
 function execute(url, page) {
-    var host = 'http://www.60ks.net';
+    var host = 'http://www.60ks.cc';
     if (!page) page = '1';
     var response = fetch(url +page+'.html');
     if (response.ok) {

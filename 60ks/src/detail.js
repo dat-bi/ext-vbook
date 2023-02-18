@@ -9,7 +9,7 @@ function execute(url) {
             author: doc.select("body > div.cover > div.block > div.block_txt2 > p:nth-child(4) > a").first().text(),
             description: doc.select("body > div.cover > div.intro_info").text(),
             detail: doc.select("body > div.cover > div.block > div.block_txt2 > p:nth-child(6)").text(),
-            host: "http://wwww.60ks.net"
+            host: "http://wwww.60ks.cc"
         });
     }
     return null;

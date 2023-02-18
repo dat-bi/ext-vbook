@@ -1,7 +1,7 @@
 function execute(url) {
     
-    var host = 'http://www.60ks.net';
-    url = url.replace('http://m.60ks.net/book/', 'http://www.60ks.net/ks/1/').replace('index.html', '');
+    var host = 'http://www.60ks.cc';
+    url = url.replace('http://m.60ks.cc/book/', 'http://www.60ks.cc/ks/1/').replace('index.html', '');
         if(url.slice(-1) !== "/")
         url = url + "/";
     let response = fetch(url);
