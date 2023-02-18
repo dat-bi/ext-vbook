@@ -4,7 +4,7 @@
     "author": "dat-bi",
     "version": 5,
     "source": "https://sangtacvietfpt.com",
-    "regexp": "(wwww.)?((fanqienovel.com\/page\/\\d+)|(fanqienovel.com\/page\/\\d+.*?)|https:\/\/novel.snssdk.com\/.*?|(api3-normal-lf.fqnovel.com\/reading\/bookapi\/directory\/all_items\/.*)|((https:\/\/|http:\/\/)sangtacviet.*?\/truyen\/(fanqie|uukanshu|yushubo|69shu)\/1\/\\d+.*?))",
+    "regexp": "(wwww.)?((fanqienovel.com\/page\/\\d+)|(fanqienovel.com\/page\/\\d+.*?)|https:\/\/novel.snssdk.com\/.*?|(api3-normal-lf.fqnovel.com\/reading\/bookapi\/directory\/all_items\/.*)|((https:\/\/|http:\/\/)sangtacviet.*?\/truyen\/(fanqie|uukanshu|yushubo|yushugu|69shu)\/1\/\\d+.*?))",
     "description": "(5 trong 1) hỗ trợ 5 web fanqie, qidian, 69shu, uukanshu ,Yushubo, (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> không hỗ trợ get trực tiếp từ trang gốc 69shu, uukanshu ,Yushubo",
     "locale": "zh_CN",
     "language": "javascript",
