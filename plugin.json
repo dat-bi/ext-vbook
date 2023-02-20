@@ -270,12 +270,12 @@
             "type": "novel"
         },
         {
-            "name": "Truyện Full Com",
+            "name": "truyenfullCom",
             "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20Full%20Com/plugin.zip",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenfullCom/plugin.zip",
             "version": 1,
             "source": "https://truyenfull.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20Full%20Com/icon.png",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenfullCom/icon.png",
             "description": "Đọc truyện trên trang Truyện Full",
             "type": "novel",
             "locale": "vi_VN"
