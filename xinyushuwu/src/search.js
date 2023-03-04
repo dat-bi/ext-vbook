@@ -1,7 +1,7 @@
 load('libs.js');
 
 function execute(key, page) {
-    var host = 'https://www.xinyushuwu.org';
+    var host = 'https://www.xinyushuwu.net';
     var searchUrl = '{0}/modules/article/search.php?searchkey={1}&page={2}';
 
     var gbkEncode = function(s) {

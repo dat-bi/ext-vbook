@@ -319,10 +319,10 @@
             "name": "xinyushuwu",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xinyushuwu/plugin.zip",
-            "version": 1,
-            "source": "https://www.xinyushuwu.org",
+            "version": 2,
+            "source": "https://www.xinyushuwu.net",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xinyushuwu/icon.png",
-            "description": "Đọc truyện trên trang https://www.xinyushuwu.org. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
+            "description": "Đọc truyện trên trang https://www.xinyushuwu.net. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
             "type": "chinese_novel",
             "tag": "nsfw"
         },

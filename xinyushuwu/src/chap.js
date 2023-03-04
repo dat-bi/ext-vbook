@@ -2,7 +2,8 @@ load('libs.js');
 
 function execute(url) {
     url = url.replace('xinyushuwu.com', 'xinyushuwu.org');
-    url = url.replace('m.xinyushuwu.org', 'www.xinyushuwu.org');
+    url = url.replace('xinyushuwu.org', 'xinyushuwu.net');
+    url = url.replace('m.xinyushuwu.net', 'www.xinyushuwu.net');
     var doc = Http.get(url).html('gbk');
     var htm = $.Q(doc, '#articlecontent').html();
 
