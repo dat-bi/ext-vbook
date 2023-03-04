@@ -293,6 +293,18 @@
             "tag": "nsfw"
         },
         {
+            "name": "truyenngontinh",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenngontinh/plugin.zip",
+            "version": 1,
+            "source": "https://truyenngontinh.net",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenngontinh/icon.png",
+            "description": "Đọc truyện trên trang https://truyenngontinh.net tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
+            "type": "novel",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "Tu Chân Giới",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tu%20Ch%C3%A2n%20Gi%E1%BB%9Bi/plugin.zip",

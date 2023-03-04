@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "truyenngontinh",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://truyenngontinh.net",
+    "regexp": "truyenngontinh.*?/[^/]+/?$",
+    "description": "Đọc truyện trên trang https://truyenngontinh.net tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "novel",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "genre": "genre.js"
+  }
+}
