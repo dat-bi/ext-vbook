@@ -249,6 +249,17 @@
             "locale": "zh-CN"
         },
         {
+            "name": "Trùm Truyện",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tr%C3%B9m%20Truy%E1%BB%87n/plugin.zip",
+            "version": 1,
+            "source": "https://trumtruyen.vn",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tr%C3%B9m%20Truy%E1%BB%87n/icon.png",
+            "description": "Đọc truyện trên trang Truyện Full",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "Truyện AudioCv",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20AudioCv/plugin.zip",
