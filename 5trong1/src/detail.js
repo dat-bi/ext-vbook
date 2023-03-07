@@ -1,6 +1,7 @@
 load('libs.js');
 function execute(url) {
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+    // let STVHOST = "https://sangtacvietfpt.com/"
     if(url.includes("fanqienovel")){
         url = STVHOST +"/truyen/fanqie/1/" + url.match(/\d+/g)[0]
     }

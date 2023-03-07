@@ -65,8 +65,8 @@ function getToFanqie(url) {
     });
     let res_json = response.json();
         let dataa = res_json.data.content;  
-        var doc = Html.parse(dataa);
-        var content = doc.select('article').html();
-    return content;
+        var doc = Html.parse(dataa).html();
+        // var content = doc.select('article');
+    return doc;
 
 }

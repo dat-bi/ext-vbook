@@ -15,7 +15,7 @@ function execute(url, page) {
             name: e.select("h3 a").first().text(),
             link: e.select("h3 a").first().attr("href"),
             cover: e.select(".cover img").first().attr("src"),
-            description: e.select(".metas").first().text(),
+            description: e.select(".metas a").first().text() + " - " + e.select(".metas a").last().text() + " - " + e.select(".metas span").last().text(),
             host: "https://ntruyen.vn"
         }))
         return Response.success(data, next)

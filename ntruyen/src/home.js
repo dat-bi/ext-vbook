@@ -1,7 +1,17 @@
-function execute() {
-    return Response.success([
-    {title : "Truyện hot", input : "danh-sach/truyen-hot/?order=story_viewed", script: "gen.js" },
-    {title : "Truyện top", input : "danh-sach/truyen-top/?order=story_viewed", script: "gen.js" },
-    {title : "Truyện full", input : "danh-sach/truyen-full/?order=story_viewed", script: "gen.js" },
-    ])
+function execute(url) {
+    let response = fetch("https://ntruyen.vn/")
+    if (response.ok) {
+        let doc = response.html()
+        var data = []
+        let el = doc.select("#main-nav > div > div.sort-dropdown > ul a")
+        el.forEach(e => {
+            data.push({
+                title: e.text(),
+                input: e.attr("href").replace("https://ntruyen.vn/",""),
+                script: "gen.js"
+            })
+        }
+        )
+    }
+    return Response.success(data)
 }

@@ -1,7 +1,7 @@
 load('libs.js');
-
 function execute(url) {
         url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+        // let STVHOST = "https://sangtacvietfpt.com/"
     if(url.includes("fanqienovel")){
         url = STVHOST+ "/truyen/fanqie/1/" + url.match(/\d+/g)[0]
     }
@@ -168,7 +168,7 @@ function getTocFanqienovel(url) {
     } else {
         var bookID = url.match(/\d+/g)[0]
         console.log(bookID)
-	    var response = fetch("https://api3-normal-lf.fqnovel.com/reading/bookapi/directory/all_items/v/?need_version=true&book_id="+bookID+"&iid=2665637677906061&aid=1967&app_name=novelapp&version_code=495", {
+	    var response = fetch("https://api5-normal-lf.fqnovel.com/reading/bookapi/directory/all_items/v/?book_id="+bookID+"&iid=2159861899465991&aid=1967&version_code=311&update_version_code=31132", {
         headers: {
             'user-agent': UserAgent.android()
         }
@@ -176,15 +176,15 @@ function getTocFanqienovel(url) {
     }
     if (response.ok) {
         let res_json = response.json();
-        let allBook = res_json.data.item_data_list;
+        let allBook = res_json.data.item_list;
         
         var book = [];
-        for (let i = 0; i < allBook.length; i++) {
+        for (let i = 0, j=1; i < allBook.length; i++ , j++) {
             let item = allBook[i];
             
             book.push({
-                    name: item['title'],           
-                    url: 'https://novel.snssdk.com/api/novel/book/reader/full/v1/?group_id=' + item['item_id'] + "&item_id=" + item['item_id'] + "&aid=1977",
+                    name: "章" + j,           
+                    url: 'https://novel.snssdk.com/api/novel/book/reader/full/v1/?group_id=' + item + "&item_id=" + item + "&aid=1977",
                     host: "https://novel.snssdk.com"
         })
         }

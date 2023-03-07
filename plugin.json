@@ -27,21 +27,10 @@
             "locale": "zh_CN"
         },
         {
-            "name": "2ksk -Tinh Hoa Thư Các",
-            "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/2ksk%20-Tinh%20Hoa%20Th%C6%B0%20C%C3%A1c/plugin.zip",
-            "version": 1,
-            "source": "https://m.2ksk.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/2ksk%20-Tinh%20Hoa%20Th%C6%B0%20C%C3%A1c/icon.png",
-            "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",
-            "type": "chinese_novel",
-            "locale": "zh_CN"
-        },
-        {
             "name": "5trong1",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/plugin.zip",
-            "version": 5,
+            "version": 6,
             "source": "https://sangtacvietfpt.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/icon.png",
             "description": "(5 trong 1) hỗ trợ 5 web fanqie, qidian, 69shu, uukanshu ,Yushubo, (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> không hỗ trợ get trực tiếp từ trang gốc 69shu, uukanshu ,Yushubo",
@@ -247,6 +236,17 @@
             "description": "Đọc truyện trên trang tigerfp.com",
             "type": "chinese_novel",
             "locale": "zh-CN"
+        },
+        {
+            "name": "Tinh Hoa Thư Các",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tinh%20Hoa%20Th%C6%B0%20C%C3%A1c/plugin.zip",
+            "version": 1,
+            "source": "https://m.xbyuan.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tinh%20Hoa%20Th%C6%B0%20C%C3%A1c/icon.png",
+            "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",
+            "type": "chinese_novel",
+            "locale": "zh_CN"
         },
         {
             "name": "Trùm Truyện",

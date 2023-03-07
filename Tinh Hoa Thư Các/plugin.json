@@ -1,10 +1,10 @@
 {
     "metadata": {
-        "name": "2ksk -Tinh Hoa Thư Các",
+        "name": "Tinh Hoa Thư Các",
         "author": "dat-bi",
         "version": 1,
-        "source": "https://m.2ksk.com",
-        "regexp": "(www.|m.)?2ksk.com/\\d+/?$",
+        "source": "https://m.xbyuan.com",
+        "regexp": "(www.|m.)?xbyuan.com/\\d+/?$",
       "description": "Ngôn ngữ của extension này là tiếng TRUNG QUỐC, không phải TIẾNG VIỆT",
         "locale": "zh_CN",
         "language": "javascript",

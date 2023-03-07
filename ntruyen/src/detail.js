@@ -7,6 +7,6 @@ function execute(url) {
         cover : doc.select(".cover img").attr("src"),
         host : "https://ntruyen.vn",
         author : doc.select(".story-title span").text(),
-        description : doc.select(".description").text(),
+        description : doc.select(".story-main > div.flexbox > div.story-info > div.genres").html() +"<br>"+ doc.select(".description").text(),
     });
 }

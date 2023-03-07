@@ -16,11 +16,11 @@ function execute(url) {
         let author = doc.select(".block_txt2 > p:nth-child(4)").first().text();
         return Response.success({
             name: doc.select(".block_txt2 h2 a").text(),
-            cover: "https://m.2ksk.com/files/article/image/0/5/5s.jpg",
+            cover: 'https://raw.githubusercontent.com/dat-bi/ext-vbook/main/anh-bia/1.png',
             author: author,
             description: doc.select(".intro_info").text(),
             detail: doc.select(".block_txt2 > p:nth-child(7)").text(),
-            host: "https://m.2ksk.com"
+            host: "https://m.xbyuan.com"
         });
 
 }
