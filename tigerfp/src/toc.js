@@ -6,7 +6,6 @@ function execute(url) {
         let doc = response.html('gbk');
         const data = [];
         doc= doc.select("#list > div.book-chapter-list > ul:nth-child(4) li a")
-        console.log(doc)
         for (let i = 0;i < doc.size(); i++) {
             let e = doc.get(i);
         data.push({
