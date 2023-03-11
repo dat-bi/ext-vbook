@@ -371,6 +371,17 @@
             "description": "Đọc truyện trên trang http://www.yikushan.cọm",
             "type": "chinese_novel",
             "locale": "zh_CN"
+        },
+        {
+            "name": "zhenhunxiaoshuo",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/zhenhunxiaoshuo/plugin.zip",
+            "version": 1,
+            "source": "https://www.zhenhunxiaoshuo.com/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/zhenhunxiaoshuo/icon.png",
+            "description": "Đọc truyện trên trang http://www.yikushan.cọm",
+            "type": "chinese_novel",
+            "locale": "zh_CN"
         }
     ]
 }
