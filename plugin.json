@@ -138,6 +138,18 @@
             "locale": "vi_VN"
         },
         {
+            "name": "lkdttzz",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lkdttzz/plugin.zip",
+            "version": 1,
+            "source": "https://lkdttzz.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/lkdttzz/icon.png",
+            "description": "Đọc truyện trên trang Net Truyện",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "Men18",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Men18/plugin.zip",
