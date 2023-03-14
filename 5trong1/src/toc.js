@@ -1,74 +1,64 @@
-load('libs.js');
 function execute(url) {
-        url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
-        // let STVHOST = "https://sangtacvietfpt.com/"
-    if(url.includes("fanqienovel")){
-        url = STVHOST+ "/truyen/fanqie/1/" + url.match(/\d+/g)[0]
-    }
-    if(url.includes("fqnovel")){
-        url = STVHOST +"/truyen/fanqie/1/" + url.match(/\d+/g)[1]
-    }
-    var id = url.replace(/https.*?\/1\//g,"").replace("/","")
-    if(url.includes("qidian")){
-        return Response.success(getTocQidian(id))
+    // url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+    var id = url.replace(/https.*?\/1\//g, "").replace("/", "")
+    if (url.includes(",")) {
+        return Response.success(getTocFanqienovel(url))
     } else if (url.includes("uukanshu")) {
         return Response.success(getTocUU(id))
     } else if (url.includes("69shu")) {
         return Response.success(getTo69shu(id))
     } else if (url.includes("yushu")) {
         return Response.success(getTocYuShuBo(id))
-    } else if (url.includes("fanqie")) {
-        return Response.success(getTocFanqienovel(url))
     }
     return null
 }
-function getTocUU(id){
+function getTocUU(id) {
     url = "https://sj.uukanshu.com/book.aspx?id=" + id;
     var doc = Http.get(url).html();
     var el = doc.select("#chapterList a")
     var data = [];
     for (var i = 0; i < el.size(); i++) {
         var e = el.get(i);
-            data.push({
-                name: e.select("a").text(),
-                url: e.attr("href"),
-                host: "https://sj.uukanshu.com"
-            })
-        }
+        data.push({
+            name: e.select("a").text(),
+            url: e.attr("href"),
+            host: "https://sj.uukanshu.com"
+        })
+    }
     var page = doc.select(".pages a").last().attr("href").match(/page=(\d+)/);
     if (page) {
         page = parseInt(page[1]);
         if (page > 1) {
-                for (var p = 2; p <= page; p++) {
-                    doc = Http.get(url + "&page=" + p).html();
-                    var el = doc.select("#chapterList a")
-                    for (var i = 0; i < el.size(); i++) {
-                        var e = el.get(i);
-                        data.push({
-                            name: e.select("a").text(),
-                            url: e.attr("href"),
-                            host: "https://sj.uukanshu.com"
-                        })
-                    }
+            for (var p = 2; p <= page; p++) {
+                doc = Http.get(url + "&page=" + p).html();
+                var el = doc.select("#chapterList a")
+                for (var i = 0; i < el.size(); i++) {
+                    var e = el.get(i);
+                    data.push({
+                        name: e.select("a").text(),
+                        url: e.attr("href"),
+                        host: "https://sj.uukanshu.com"
+                    })
                 }
             }
         }
+    }
     return data;
 }
-function getTo69shu(id){
-    let response = fetch('https://www.69shu.com/' + id +'/');
+function getTo69shu(id) {
+    let response = fetch('https://www.69shu.com/' + id + '/');
     if (response.ok) {
         let doc = response.html('gbk');
-		var data = [];
-		var elems = doc.select('div.catalog > ul > li > a:not(#bookcase)');
-		elems.forEach(function(e) {
-			data.push({
-				name: formatName(e.text()),
-				url: e.attr('href'),
-				host: 'https://www.69shu.com'
-			})
-		});
-		return data;
+        var data = [];
+        var elems = doc.select('div.catalog > ul > li > a:not(#bookcase)');
+        elems.forEach(function (e) {
+            data.push({
+                name: formatName(e.text()),
+                url: e.attr('href'),
+                host: 'https://www.69shu.com'
+            })
+        });
+        return data;
     }
 }
 function formatName(name) {
@@ -76,8 +66,8 @@ function formatName(name) {
 
     return name.replace(re, '第$2章');
 }
-function getTocYuShuBo(){
-    const yUrl = 'https://www.yushugu.cc/list_other_'+id+'.html';
+function getTocYuShuBo() {
+    const yUrl = 'https://www.yushugu.cc/list_other_' + id + '.html';
     var doc = fetch(yUrl).html();
     var el = doc.select("ul.chapter-list li a")
     const list = [];
@@ -97,7 +87,7 @@ function parseDoc(doc, arr) {
 
     let host = 'https://book.qidian.com';
 
-    elems.forEach(function(e) {
+    elems.forEach(function (e) {
         let url = $.Q(e, 'a').attr('href').mayBeFillHost(host);
         let vip = url.includes('vipreader') ? '[VIP] ' : '';
 
@@ -138,10 +128,10 @@ function getTocQidian(url) {
 
         let freeFm = 'https://read.qidian.com/chapter/{0}/{1}';
         let vipFm = 'https://vipreader.qidian.com/chapter/{0}/{1}';
-        
-        j.data.vs.forEach(function(section){
+
+        j.data.vs.forEach(function (section) {
             let chapters = section.cs;
-            chapters.forEach(function(chap){
+            chapters.forEach(function (chap) {
                 data.push({
                     name: (section.hS ? '[VIP] ' : '') + chap.cN,
                     url: String.format(section.hS ? vipFm : freeFm, bookId, chap.id),
@@ -156,39 +146,24 @@ function getTocQidian(url) {
     return null;
 }
 function getTocFanqienovel(url) {
-    if(url.includes("sangtacviet")){
-        url = "https://fanqienovel.com/page/" + url.match(/\d+/g)[1]
-    }
-    if(url.includes("api3-normal-lf.fqnovel")){
-        var response = fetch(url, {
+    let newurl = `https://api5-normal-lf.fqnovel.com/reading/bookapi/directory/all_infos/v/?item_ids=${url}&iid=2159861899465991&aid=1967&version_code=311&update_version_code=31132`
+    let response = fetch(newurl, {
         headers: {
             'user-agent': UserAgent.android()
         }
     });
-    } else {
-        var bookID = url.match(/\d+/g)[0]
-        console.log(bookID)
-	    var response = fetch("https://api5-normal-lf.fqnovel.com/reading/bookapi/directory/all_items/v/?book_id="+bookID+"&iid=2159861899465991&aid=1967&version_code=311&update_version_code=31132", {
-        headers: {
-            'user-agent': UserAgent.android()
-        }
-    });
-    }
     if (response.ok) {
         let res_json = response.json();
-        let allBook = res_json.data.item_list;
-        
-        var book = [];
-        for (let i = 0, j=1; i < allBook.length; i++ , j++) {
-            let item = allBook[i];
-            
+        let item = res_json.data;
+        const book = [];
+        for (let i = 0; i < item.length; i++) {
             book.push({
-                    name: "章" + j,           
-                    url: 'https://novel.snssdk.com/api/novel/book/reader/full/v1/?group_id=' + item + "&item_id=" + item + "&aid=1977",
-                    host: "https://novel.snssdk.com"
-        })
+                name: item[i].title,
+                url: 'https://novel.snssdk.com/api/novel/book/reader/full/v1/?group_id=' + item[i].item_id + "&item_id=" + item[i].item_id + "&aid=1977",
+                host: "https://novel.snssdk.com"
+            })
         }
-        return book;  
-     }
+        return book
+    }
     return null;
 }
