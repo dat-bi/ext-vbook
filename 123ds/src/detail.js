@@ -5,18 +5,20 @@ function execute(url) {
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html();
-        let coverImg = doc.select(".DivImg img").first().attr("src");
-        if (coverImg.startsWith("/")) {
-            coverImg = "https://m.123ds.org" + coverImg;
-        }
-        let author = doc.select(".DivBig > div.js > span:nth-child(1)").first().text();
+        let author =  doc.select('meta[property="og:novel:author"]').attr("content");
+        let coverImg = doc.select('meta[property="og:image"]').attr("content");
+        let descriptionMeta = doc.select('meta[property="og:description"]').attr("content");
+        let novelTitle = doc.select('meta[property="og:title"]').attr("content");
+        let status = doc.select('meta[property="og:novel:status"]').attr("content");
+        let updateTime = doc.select('meta[property="og:novel:update_time"]').attr("content");
+        let category = doc.select('meta[property="og:novel:category"]').attr("content");
         return Response.success({
-            name: doc.select(".DivBig > a").text(),
+            name: novelTitle,
             cover: coverImg,
             author: author,
-            description: doc.select("#nrjj").text(),
-            detail: null,
-            host: "https://m.123ds.org"
+            description: ("<br>Thể loại: <br>") + category + ("<br>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>") + "Trạng thái: " + status + ("<br>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>") + descriptionMeta,
+            detail: "Tác giả：" + author + ("<br>⠀⠀⠀⠀<br>") + "Mới nhất: "+ updateTime,
+            host: "https://m.123duw.com"
         });
     }
     return null;

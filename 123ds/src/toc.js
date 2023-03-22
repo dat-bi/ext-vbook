@@ -1,5 +1,5 @@
 function execute(url) {
-url = url.replace('www.123ds.org','m.123ds.org')
+url = url.replace('www.123duw.com','m.123duw.com')
         if(url.slice(-1) !== "/")
         url = url + "/";
     let response = fetch(url + 'list/');
@@ -11,8 +11,8 @@ url = url.replace('www.123ds.org','m.123ds.org')
             let e = doc.get(i);
         data.push({
             name: e.select("a").text(),
-            url: "https://www.123ds.org" + e.select("a").attr("href") + '///' + e.select("a").text(),
-            host: "https://www.123ds.org"
+            url: "https://www.123duw.com" + e.select("a").attr("href") + '///' + e.select("a").text(),
+            host: "https://www.123duw.com"
         });
         }
         return Response.success(data);

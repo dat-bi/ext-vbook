@@ -2,10 +2,10 @@
   "metadata": {
     "name": "123ds",
     "author": "dat-bi",
-    "version": 2,
-    "source": "https://www.123ds.org",
-    "regexp": "https://?(www.|m.)123ds.org/(.*?)/\\d+/",
-    "description": "Đọc truyện trên trang https://www.123ds.org",
+    "version": 3,
+    "source": "https://www.123duw.com",
+    "regexp": "https://?(www.|m.)123duw.com/(.*?)/\\d+/",
+    "description": "Đọc truyện trên trang https://www.123duw.com",
     "locale": "zh_CN",
     "language": "javascript",
     "type": "chinese_novel"
@@ -13,6 +13,7 @@
   "script": {
     "home": "home.js",
     "detail": "detail.js",
+    "genre": "genre.js",
     "toc": "toc.js",
     "chap": "chap.js"
   }
