@@ -19,10 +19,10 @@
             "name": "123ds",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/plugin.zip",
-            "version": 2,
-            "source": "https://www.123ds.org",
+            "version": 3,
+            "source": "https://www.123duw.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/icon.png",
-            "description": "Đọc truyện trên trang https://www.123ds.org",
+            "description": "Đọc truyện trên trang https://www.123duw.com",
             "type": "chinese_novel",
             "locale": "zh_CN"
         },

@@ -1,5 +1,5 @@
 function execute() {
     return Response.success([
-        // {title: "悬疑", input: "http://www.kanshuwu.org/fenlei/11/", script: "zen.js"}
+        {title: "首页", input: "https://www.123duw.com/", script: "gen.js"}
     ]);
 }
