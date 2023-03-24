@@ -1,15 +1,10 @@
 load('libs.js');
 function execute(url) {
-    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
-    url = STVHOST + "/truyen/fanqie/1/" + url.match(/\d+/g)[0]
-    let response = fetch(url + '/');
-    function toCapitalize(sentence) {
-        const words = sentence.split(" ");
-
-        return words.map((word) => {
-            return word[0].toUpperCase() + word.substring(1);
-        }).join(" ");
+    if (url.includes("sangtac") != 1) {
+        url = STVHOST + "/truyen/fanqie/1/" + url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, "").match(/\d+/g)[0]
     }
+    url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+    let response = fetch(url + '/');
     if (response.ok) {
         let doc = response.html();
         let author = doc.html().match(/Tác giả:.*?\s+(.*?)\s*</);
@@ -28,4 +23,11 @@ function execute(url) {
         });
     }
     return null;
+}
+function toCapitalize(sentence) {
+    const words = sentence.split(" ");
+
+    return words.map((word) => {
+        return word[0].toUpperCase() + word.substring(1);
+    }).join(" ");
 }
