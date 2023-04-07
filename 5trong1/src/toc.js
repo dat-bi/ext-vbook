@@ -7,10 +7,9 @@ function execute(url) {
         return Response.success(getTocUU(id))
     } else if (url.includes("69shu")) {
         return Response.success(getTo69shu(id))
-    } else if (url.includes("yushu")) {
-        return Response.success(getTocYuShuBo(id))
+    } else {
+        return Response.success(getTostv(url))
     }
-    return null
 }
 function getTocUU(id) {
     url = "https://sj.uukanshu.com/book.aspx?id=" + id;
@@ -166,4 +165,43 @@ function getTocFanqienovel(url) {
         return book
     }
     return null;
+}
+function getTostv(url) {
+    if (url.slice(-1) !== "/") url = url + "/";
+    let host = url.split('/truyen/')[0];
+    const source = url.split('/')[4];
+    const bookId = url.split('/')[6];
+    let list = [];
+    var browser = Engine.newBrowser();
+    browser.setUserAgent(UserAgent.android());
+    browser.launch(url, 4000);
+    browser.callJs(`
+document.createElement = function(create) {
+    return function() {
+        var ret = create.apply(this, arguments);
+        if (ret.tagName.toLowerCase() === "a" && arguments.callee.caller.toString().startsWith("function(e,a,b)")) { //
+            arguments.callee.caller.arguments[0].setAttribute("chap-url", "/truyen/${source}/" + arguments.callee.caller.arguments[1] + "/${bookId}/" + arguments.callee.caller.arguments[2] + "/");
+        }
+        return ret;
+    };
+}(document.createElement)
+`, 0);
+
+    browser.callJs("renewchapter(true);", 1000);
+
+    do {
+        var listchapitems = browser.html().select(".listchapitem");
+    } while (listchapitems.length == 0);
+
+    listchapitems.forEach(chapItem => {
+        let title = chapItem.text();
+        let chapUrl = chapItem.attr("chap-url");
+        list.push({
+            name: title,
+            url: chapUrl,
+            host: host,
+        });
+    });
+
+    return list;
 }

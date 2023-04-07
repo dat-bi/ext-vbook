@@ -1,18 +1,13 @@
 load('libs.js');
 function execute(url) {
-    if(url.includes("qidian")){
-        return Response.error("không hỗ trợ đọc chương qidian");
-    }
-    else if(url.includes("uukanshu")){
+    if(url.includes("uukanshu")){
         return Response.success(getTocUU(url))
     } else if(url.includes("69shu")){
         return Response.success(getTo69shu(url))
-    } else if(url.includes("yushu")){
-        return Response.success(getToYushu(url))
-    } else if(url.includes("fqnovel")||url.includes("novel.snssdk")){
+    }else if(url.includes("fqnovel")||url.includes("novel.snssdk")){
         return Response.success(getToFanqie(url))
     }
-    return null
+    return Response.success(getTostv(url))
 }
 function getTocUU(url){
     var htm = "";
@@ -69,4 +64,29 @@ function getToFanqie(url) {
         var content = doc.select('article').html();
     return content;
 
+}
+function getTostv(url) {
+    if (url.slice(-1) !== "/") url = url + "/";
+    const book = url.split('/truyen/')[1];
+        var browser = Engine.newBrowser();
+        browser.setUserAgent(UserAgent.android());
+        browser.launch(url, 4000);
+        browser.callJs(`document.location='/truyen/${book}';`, 2000);
+        browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
+        let doc = browser.html()
+        var content = doc.select("#content-container .contentbox").html();
+        browser.close();
+        content = content.replace(/<span(.*?)>(.*?)<\/span>/g, "")
+            .replace(/id\=\"(.*?)\"/g, '')
+            .replace(/p\=\"(.*?)\"/g, '')
+            .replace(/onclick\=\"pr\(this\)\;\"/g, '')
+            .replace(/isname\=\"true\"/g, '')
+            .replace(/namelen\=\".*?\"/g, '')
+            .replace(/asynctask\=\".*?\"/g, '')
+            .replace(/<\/i><i h="[A-Za-z](.*?)\"(.*?)t=\"[A-Za-z](.*?)\"(.*?)<\/i>/gim, '</i>')
+            .replace(/<i(.*?)h=\"(.*?)t=\"(.*?)\"(.*?)<\/i>/g, "$3")
+            .replace(/<i(.*?)t=\"(.*?)\"<\/i>/g, "$2")
+            .replace(/\·\·\·\·\·\·/g, "")
+            .replace(/\s/g, "")
+        return content;
 }

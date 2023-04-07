@@ -12,6 +12,7 @@ function execute(url) {
             })
         }
         )
+        data.shift()
     }
     return Response.success(data)
 }
