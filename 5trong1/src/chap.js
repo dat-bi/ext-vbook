@@ -83,9 +83,10 @@ function getTostv(url) {
             .replace(/isname\=\"true\"/g, '')
             .replace(/namelen\=\".*?\"/g, '')
             .replace(/asynctask\=\".*?\"/g, '')
-            .replace(/<\/i><i h="[A-Za-z](.*?)\"(.*?)t=\"[A-Za-z](.*?)\"(.*?)<\/i>/gim, '</i>')
+            .replace(/<\/i><i h="(h|s|c)(.*?)\" t=\"(h|s|c)(.*?)\"(.*?)<\/i>/gim, '</i>')
+            .replace(/<i t="(h|s|c)(.*?)\" h=\"(h|s|c)(.*?)\"(.*?)>(.*?)<\/i>/gim, "")
             .replace(/<i(.*?)h=\"(.*?)t=\"(.*?)\"(.*?)<\/i>/g, "$3")
-            .replace(/<i(.*?)t=\"(.*?)\"<\/i>/g, "$2")
+            .replace(/<i(.*?)t=\"(.*?)\"(.*?)<\/i>/g, "$2")
             .replace(/\·\·\·\·\·\·/g, "")
             .replace(/\s/g, "")
         return content;
