@@ -8,8 +8,9 @@ function execute(url) {
     let arr = url.split("/")
     // console.log(arr.length)
     var browser = Engine.newBrowser() // Khởi tạo browser
-    browser.launch(url, 3000) // Mở trang web với timeout, trả về Document object
+    browser.launch(url, 5000) // Mở trang web với timeout, trả về Document object
     let ul = browser.urls() // Trả về các url đã request trên trang
+    // console.log(ul)
     browser.close() // Đóng browser khi đã xử lý xong
     if (arr.length != 5) {
         chapurl = ul.match(/"https:\/\/cp.nhungtruyen.com\/api\/chapters\/\d+/g)[0].replace(/\"/g, "");
@@ -26,6 +27,7 @@ function execute(url) {
         // console.log(sourceId)
     }
     newUrl = "https://cp.nhungtruyen.com/api/chapters?source_id=" + sourceId
+// console.log(newUrl)
     var response = fetch(newUrl)
     if (response.ok) {
         let json = response.json()
