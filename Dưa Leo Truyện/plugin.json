@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "Dưa Leo Truyện",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://dualeotruyenhot.com/",
+    "regexp": "https://(www.)?dualeotruyenhot.com/truyen-tranh/.*?.html",
+    "description": "Đọc truyện trên trang dualeotruyenhot",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "comic",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

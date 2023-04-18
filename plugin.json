@@ -105,6 +105,18 @@
             "locale": "zh-CN"
         },
         {
+            "name": "Dưa Leo Truyện",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/D%C6%B0a%20Leo%20Truy%E1%BB%87n/plugin.zip",
+            "version": 1,
+            "source": "https://dualeotruyenhot.com/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/D%C6%B0a%20Leo%20Truy%E1%BB%87n/icon.png",
+            "description": "Đọc truyện trên trang dualeotruyenhot",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "kanshuwu",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/kanshuwu/plugin.zip",
