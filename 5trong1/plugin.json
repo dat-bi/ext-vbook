@@ -2,10 +2,10 @@
     "metadata": {
         "name": "5trong1",
         "author": "dat-bi",
-        "version": 11,
+        "version": 13,
         "source": "https://sangtacviet.vip",
-        "regexp": "(wwww.)?((fanqienovel.com\/page\/\\d+)|(fanqienovel.com\/page\/\\d+.*?)|https:\/\/novel.snssdk.com\/.*?|(api3-normal-lf.fqnovel.com\/reading\/bookapi\/directory\/all_items\/.*)|((https:\/\/|http:\/\/)sangtacviet.*?/truyen\/(.*?)\/1\/\\d+.*?))",
-        "description": "(5 trong 1) hỗ trợ đọc 5 web fanqie, qidian, 69shu, uukanshu, stv (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> không hỗ trợ nhúng trực tiếp từ trang gốc 69shu, uukanshu",
+        "regexp": "(wwww.)?((fanqienovel.com\/page\/\\d+)|(fanqienovel.com\/page\/\\d+.*?)|https:\/\/novel.snssdk.com\/.*?|(api3-normal-lf.fqnovel.com\/reading\/bookapi\/directory\/all_items\/.*)|((https:\/\/|http:\/\/)sangtacviet.*?/truyen\/(.*?)\/1\/\\d+.*?))|((www|m).69shu\\.com/txt/(.*?)\\.htm)|(https://bookshelf.html5.qq.com/(qbread|autojump)/(.*?))|(www\\.ptwxz\\.com/bookinfo/\\d+/\\d+\\.html$)",
+        "description": "(5 trong 1) hỗ trợ đọc 5 web fanqie, qidian, 69shu, uukanshu, html5, ptwxz, stv (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> không hỗ trợ nhúng trực tiếp từ trang gốc 69shu, uukanshu",
         "locale": "zh_CN",
         "language": "javascript",
         "type": "chinese_novel"

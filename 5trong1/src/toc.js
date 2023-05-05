@@ -1,15 +1,28 @@
+load('libs.js');
 function execute(url) {
     // url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
     var id = url.replace(/https.*?\/1\//g, "").replace("/", "")
-    if (url.includes(",")) {
-        return Response.success(getTocFanqienovel(url))
-    } else if (url.includes("uukanshu")) {
-        return Response.success(getTocUU(id))
-    } else if (url.includes("69shu")) {
-        return Response.success(getTo69shu(id))
+    var data;
+    if (url.includes("sangtac") != 1) {
+        if (url.includes(",")) {
+            data = getTocFanqienovel(url)
+        } else if (url.includes("html5")) {
+            data = getTocHtml5(url);
+        } else if (url.includes("ptwxz")) {
+            data = getTocPtwxz(url);
+        } else if (url.includes("69shu")){
+            data = getTo69shu1(url);
+        }
     } else {
-        return Response.success(getTostv(url))
+        if (url.includes("uukanshu")) {
+            data = getTocUU(id)
+        } else if (url.includes("69shu")) {
+            data = getTo69shu(id)
+        } else {
+            data = getTostv(url)
+        }
     }
+    return Response.success(data)
 }
 function getTocUU(id) {
     url = "https://sj.uukanshu.com/book.aspx?id=" + id;
@@ -46,6 +59,23 @@ function getTocUU(id) {
 }
 function getTo69shu(id) {
     let response = fetch('https://www.69shu.com/' + id + '/');
+    if (response.ok) {
+        let doc = response.html('gbk');
+        var data = [];
+        var elems = doc.select('div.catalog > ul > li > a:not(#bookcase)');
+        elems.forEach(function (e) {
+            data.push({
+                name: formatName(e.text()),
+                url: e.attr('href'),
+                host: 'https://www.69shu.com'
+            })
+        });
+        return data;
+    }
+}
+function getTo69shu1(url) {
+    url = url.replace(/.+\.69shu\.com\/txt\/(.*?)\.htm/, 'https://www.69shu.com/$1').append('/');
+    let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
         var data = [];
@@ -125,4 +155,45 @@ document.createElement = function(create) {
     });
 
     return list;
+}
+function getTocPtwxz(url) {
+    var host = 'https://www.ptwxz.com';
+    url = url.replace(/www\.ptwxz\.com\/bookinfo\/(\d+)\/(\d+)\.html$/, 'www.ptwxz.com/html/$1/$2/').append('/');
+
+    var response = fetch(url);
+    var doc = response.html('gb2312');
+
+    var data = [];
+    var elems = $.QA(doc, 'div.centent li > a');
+
+    if (!elems.length) return Response.error(url);
+
+    elems.forEach(function (e) {
+        data.push({
+            name: e.text(),
+            url: e.attr('href').mayBeFillHost(url),
+            host: host
+        })
+    });
+
+    return data;
+}
+function getTocHtml5(url) {
+    const bookidRegex = /bookid=(\d+)/;
+    const match = url.match(bookidRegex);
+    const resourceid = match[1];
+    let url_catalog = "https://novel.html5.qq.com/cgi-bin/novel_reader/catalog?book_id=" + resourceid
+    let response = fetch(url_catalog, { "headers": { "Referer": "https://bookshelf.html5.qq.com/qbread/adread/catalog" } })
+    let doc = response.json();
+    let el = doc.catalog
+    const data = [];
+    for (let i = 0; i < el.length; i++) {
+        let link = "https://bookshelf.html5.qq.com/qbread/api/wenxue/buy/ad-chapter/v3?resourceid=" + resourceid + "&serialid=" + el[i].serial_id + "&apn=1&readnum=1&duration=2&srcCh="
+        data.push({
+            name: el[i].serial_name,
+            url: link,
+            host: "https://bookshelf.html5.qq.com"
+        })
+    }
+    return data
 }

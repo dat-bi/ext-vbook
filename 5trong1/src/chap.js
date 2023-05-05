@@ -6,8 +6,46 @@ function execute(url) {
         return Response.success(getTo69shu(url))
     } else if (url.includes("fqnovel") || url.includes("novel.snssdk")) {
         return Response.success(getToFanqie(url))
+    } else if (url.includes("html5")) {
+        return Response.success(getToHtml5(url))
+    } else if (url.includes("ptwxz")) {
+        return Response.success(getToPtwxz(url))
     }
     return Response.success(getTostv(url))
+}
+function getToPtwxz(url) {
+    var response = fetch(url);
+    var doc = response.html('gb2312');
+    var htm = $.Q(doc, 'body', { remove: 'h1, div, table, script, center' }).html();
+    htm = cleanHtml(htm);
+    return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");
+}
+function getToHtml5(url) {
+    const [resourceId, serialId] = url.match(/resourceid=(\d+).*serialid=(\d+)/).slice(1);
+    let response = fetch('https://novel.html5.qq.com/be-api/content/ads-read', {
+        method: 'POST',
+        headers: {
+            'Referer': 'https://novel.html5.qq.com/',
+            'Q-GUID': '0ee63838b72eb075f63e93ae0bc288cb',
+            'QIMEI36': '8ff310843a87a71101958f5610001e316a11',
+        },
+        body: JSON.stringify({
+            'ContentAnchorBatch': [
+                {
+                    'BookID': resourceId,
+                    'ChapterSeqNo': [serialId]
+                }
+            ],
+            'Scene': 'chapter'
+        })
+    });
+    let doc = response.json();
+    let content = doc.data.Content[0].Content[0]
+    // if(!doc.data.isFree) return Response.success("Không FREE");
+    // let content = doc.data.content.join("<br>")
+    content = content.replace(/\r\n/g, "<br><br>").replace(/<br\s*\/?>|\n/g, "<br><br>")
+
+    return content;
 }
 function getTocUU(url) {
     var htm = "";

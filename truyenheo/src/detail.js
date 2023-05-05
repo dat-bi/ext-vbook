@@ -8,7 +8,7 @@ function execute(url) {
         var doc = response.html();
         return Response.success({
             name: $.Q(doc, '.bai-viet-box h1 > a').text(),
-            cover: randomCover(),
+            cover:  "https://i.imgur.com/5BdXa90.png",
             author: $.Q(doc, '.bai-viet-box h1 > a', 1).text().replace('Tác giả', '').trim() || 'Sưu tầm',
             description: 'Nghiêm cấm trẻ em dưới 18 tuổi',
             detail: '',
@@ -26,6 +26,3 @@ function getRandomInt(min, max) {
 }
 
 // (づ｡◕‿‿◕｡)づ
-function randomCover() {
-    return BASE_URL + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
-}

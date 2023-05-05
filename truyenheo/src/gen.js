@@ -18,7 +18,7 @@ function execute(url, page) {
             data.push({
                 name: name,
                 link: $.Q(e, 'a').attr('href'),
-                cover: randomCover(),
+                cover:  "https://i.imgur.com/5BdXa90.png",
                 description: $.Q(e, 'span').text(),
                 host: BASE_URL
             })
@@ -37,9 +37,4 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// (づ｡◕‿‿◕｡)づ
-function randomCover() {
-    return BASE_URL + '/anh/anhgaifull/' + getRandomInt(1, 4500) + '.jpg';
 }
