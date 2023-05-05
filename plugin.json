@@ -284,17 +284,6 @@
             "locale": "vi_VN"
         },
         {
-            "name": "Truyện AudioCv",
-            "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20AudioCv/plugin.zip",
-            "version": 3,
-            "source": "https://truyenaudiocv.org",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Truy%E1%BB%87n%20AudioCv/icon.png",
-            "description": "Đọc truyện trên trang truyenaudiocvv",
-            "type": "novel",
-            "locale": "vi_VN"
-        },
-        {
             "name": "truyenchuth",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenchuth/plugin.zip",
