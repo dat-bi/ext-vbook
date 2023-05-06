@@ -79,17 +79,6 @@ function getTo69shu(url) {
     }
     return null;
 }
-function getToYushu(url) {
-    const doc = fetch(url).html();
-    var content = doc.select("#BookText").html();
-    var nextPage = doc.select('.articlebtn a').last();
-    while (nextPage.text() === '下一页') {
-        var doc2 = fetch('https://www.yushugu.cc/' + nextPage.attr('href')).html();
-        content += doc2.select("#BookText").html();
-        var nextPage = doc2.select('.articlebtn a').last();
-    }
-    return content.replace(/<br\s*\/?>|\n/g, "<br><br>");
-}
 function getToFanqie(url) {
     let response = fetch(url, {
         headers: {
@@ -114,6 +103,17 @@ function getTostv(url) {
     let doc = browser.html()
     var content = doc.select("#content-container .contentbox").html();
     browser.close();
+    while (content.includes("Đang tải nội dung chương") == 1) {
+        sleep(3000);
+        var browser = Engine.newBrowser();
+        browser.setUserAgent(UserAgent.android());
+        browser.launch(url, 4000);
+        browser.callJs(`document.location='/truyen/${book}';`, 2000);
+        browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
+        let doc = browser.html()
+        var content = doc.select("#content-container .contentbox").html();
+        browser.close();
+    }
     content = content.replace(/<span(.*?)>(.*?)<\/span>/g, "")
         .replace(/id\=\"(.*?)\"/g, '')
         .replace(/p\=\"(.*?)\"/g, '')
