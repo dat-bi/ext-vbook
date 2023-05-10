@@ -2,7 +2,7 @@
   "metadata": {
     "name": "tuoinung",
     "author": "dat-bi",
-    "version": 5,
+    "version": 6,
     "source": "https://home.tuoinung.co",
     "regexp": ".*?tuoinung.co/\\d+/\\d+/(.*?)[.](html|html#gsc.tab=0)",
     "description": "18+",
