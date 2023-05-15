@@ -240,6 +240,17 @@
             "locale": "zh_CN"
         },
         {
+            "name": "shushuwuxs",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/shushuwuxs/plugin.zip",
+            "version": 1,
+            "source": "https://www.shushuwuxs.com/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/shushuwuxs/icon.png",
+            "description": "Đọc truyện trên trang http://www.shushuwuxs.cọm",
+            "type": "chinese_novel",
+            "locale": "zh_CN"
+        },
+        {
             "name": "tienhiep",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/plugin.zip",

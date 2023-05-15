@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "name": "shushuwuxs",
+    "author": "dat-bi",
+    "version": 1,
+    "source": "https://www.shushuwuxs.com/",
+    "regexp": "https://(www|m).shushuwuxs.com/(read(.*?)|new(.*?))",
+    "description": "Đọc truyện trên trang http://www.shushuwuxs.cọm",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
