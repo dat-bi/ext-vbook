@@ -4,9 +4,11 @@ function execute(url) {
         return Response.success(getTocUU(url))
     } else if (url.includes("69shu")) {
         return Response.success(getTo69shu(url))
-    } else if (url.includes("fqnovel") || url.includes("novel.snssdk")) {
-        return Response.success(getToFanqie(url))
-    } else if (url.includes("html5")) {
+    } 
+    // else if (url.includes("fqnovel") || url.includes("novel.snssdk")) {
+    //     return Response.success(getToFanqie(url))
+    // } 
+    else if (url.includes("html5")) {
         return Response.success(getToHtml5(url))
     } else if (url.includes("ptwxz")) {
         return Response.success(getToPtwxz(url))
@@ -102,18 +104,13 @@ function getTostv(url) {
     browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
     let doc = browser.html()
     var content = doc.select("#content-container .contentbox").html();
-    browser.close();
     while (content.includes("Đang tải nội dung chương") == 1) {
-        sleep(3000);
-        var browser = Engine.newBrowser();
-        browser.setUserAgent(UserAgent.android());
-        browser.launch(url, 4000);
-        browser.callJs(`document.location='/truyen/${book}';`, 2000);
+        browser.callJs(`document.location='/truyen/${book}';`, 1000);
         browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
         let doc = browser.html()
         var content = doc.select("#content-container .contentbox").html();
-        browser.close();
     }
+    browser.close();
     content = content.replace(/<span(.*?)>(.*?)<\/span>/g, "")
         .replace(/id\=\"(.*?)\"/g, '')
         .replace(/p\=\"(.*?)\"/g, '')
@@ -126,7 +123,7 @@ function getTostv(url) {
         .replace(/<i t="(h|s|c)(.*?)\" h=\"(h|s|c)(.*?)\"(.*?)>(.*?)<\/i>/gim, "")
         .replace(/<i(.*?)h=\"(.*?)t=\"(.*?)\"(.*?)<\/i>/g, "$3")
         .replace(/<i(.*?)t=\"(.*?)\"(.*?)<\/i>/g, "$2")
-        .replace(/\·\·\·\·\·\·/g, "")
+        .replace(/\·\·\·\·\·\·/g, ".")
         .replace(/\s/g, "")
     return content;
 }

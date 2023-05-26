@@ -4,13 +4,14 @@ function execute(url) {
     var id = url.replace(/https.*?\/1\//g, "").replace("/", "")
     var data;
     if (url.includes("sangtac") != 1) {
-        if (url.includes(",")) {
-            data = getTocFanqienovel(url)
-        } else if (url.includes("html5")) {
+        // if (url.includes(",")) {
+        //     data = getTocFanqienovel(url)
+        // } else 
+        if (url.includes("html5")) {
             data = getTocHtml5(url);
         } else if (url.includes("ptwxz")) {
             data = getTocPtwxz(url);
-        } else if (url.includes("69shu")){
+        } else if (url.includes("69shu")) {
             data = getTo69shu1(url);
         }
     } else {
