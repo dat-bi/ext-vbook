@@ -99,7 +99,7 @@ function getTostv(url) {
     const book = url.split('/truyen/')[1];
     var browser = Engine.newBrowser();
     browser.setUserAgent(UserAgent.android());
-    browser.launch(url, 4000);
+    browser.launch(url, 1000);
     browser.callJs(`document.location='/truyen/${book}';`, 2000);
     browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
     let doc = browser.html()

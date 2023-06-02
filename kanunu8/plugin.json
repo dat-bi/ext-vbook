@@ -2,9 +2,9 @@
   "metadata": {
     "name": "kanunu8",
     "author": "dat-bi",
-    "version": 2,
+    "version": 3,
     "source": "https://www.kanunu8.com",
-    "regexp": "https://(www.)?kanunu8.com(/(book2|book3|book|book4)/\\d+($|/$|/index.html)|/files/(.*?)(/(.*?)/|/)\\d+\\.html)",
+    "regexp": "https://(www.)?kanunu8.com(/(book2|book3|book|book4)/\\d+($|/$|/index.html)|/files/(.*?)(/(.*?)/|/)\\d+\\.html|/.*?/\\d+/\\d+.html)",
     "description": "Đọc truyện trên trang https://www.kanunu8.com",
     "locale": "zh_CN",
     "language": "javascript",
