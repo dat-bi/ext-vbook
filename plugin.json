@@ -363,6 +363,17 @@
             "tag": "nsfw"
         },
         {
+            "name": "Wiki Dịch test",
+            "author": "vBook",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Wiki%20D%E1%BB%8Bch%20test/plugin.zip",
+            "version": 17,
+            "source": "https://wikidich8.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Wiki%20D%E1%BB%8Bch%20test/icon.png",
+            "description": "Đọc truyện trên trang Wiki Dịch, review ở thông tin truyện",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "xinyushuwu",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/xinyushuwu/plugin.zip",

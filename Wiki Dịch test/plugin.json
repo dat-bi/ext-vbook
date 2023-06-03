@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "name": "Wiki Dịch test",
+    "author": "vBook",
+    "version": 17,
+    "source": "https://wikidich8.com",
+    "regexp": "(www.)?wiki(.*?)/truyen/[^/]+/?$",
+    "description": "Đọc truyện trên trang Wiki Dịch, review ở thông tin truyện",
+    "locale": "vi_VN",
+    "type": "novel",
+    "language": "javascript"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "thread_num": 1,
+    "delay": 3000,
+    "code" : "const BASE_URL = \"https://wikidich8.com\";"
+  }
+}
