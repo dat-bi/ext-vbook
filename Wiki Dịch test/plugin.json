@@ -19,7 +19,7 @@
     "chap": "chap.js"
   },
   "config": {
-    "thread_num": 1,
-    "code": "let CONFIG_URL = \"https://sssssss\""
+    "thread_num": 2,
+    "code": "let CONFIG_URL = \"https://sssssss\";"
   }
 }
