@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Wiki Dịch test",
     "author": "vBook",
-    "version": 17,
+    "version": 18,
     "source": "https://wikidich8.com",
     "regexp": "(www.)?wiki(.*?)/truyen/[^/]+/?$",
     "description": "Đọc truyện trên trang Wiki Dịch, review ở thông tin truyện",
@@ -20,7 +20,6 @@
   },
   "config": {
     "thread_num": 1,
-    "delay": 3000,
-    "code" : "const BASE_URL = \"https://wikidich8.com\";"
+    "code": "let CONFIG_URL = \"https://sssssss\""
   }
 }
