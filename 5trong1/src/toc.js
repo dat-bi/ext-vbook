@@ -15,6 +15,7 @@ function execute(url) {
             data = getTo69shu1(url);
         }
     } else {
+        url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
         if (url.includes("uukanshu")) {
             data = getTocUU(id)
         } else if (url.includes("69shu")) {

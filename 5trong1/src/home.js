@@ -4,7 +4,7 @@ function execute() {
         // 热门作品排行
         {title: "Q票榜", input: "/rank/yuepiao/year{year}-month{month}-page{page}/", script: "gen.js"},
         {title: "Q票榜[-1]", input: "/rank/yuepiao/-1year{year}-month{month}-page{page}/", script: "gen.js"},        
-        {title: "Q票榜[-2]", input: "/rank/yuepiao/-1year{year}-month{month}-page{page}/", script: "gen.js"},
+        {title: "Q票榜[-2]", input: "/rank/yuepiao/-2year{year}-month{month}-page{page}/", script: "gen.js"},
         {title: "Q24热销榜", input: "/rank/hotsales/page{page}/", script: "gen.js"},
         {title: "Q阅榜", input: "/rank/readindex/page{page}/", script: "gen.js"},
         {title: "Q推荐票", input: "/rank/recom/page{page}/", script: "gen.js"},
