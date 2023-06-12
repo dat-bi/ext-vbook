@@ -10,7 +10,7 @@ if (!String.format) {
     };
 }
 
-const STVHOST = "https://sangtacviet.vip/"
+var STVHOST = "https://sangtacviet.vip/"
 
 // https://stackoverflow.com/a/18234317
 String.prototype.formatUnicorn = String.prototype.formatUnicorn ||

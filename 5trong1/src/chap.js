@@ -1,19 +1,22 @@
 load('libs.js');
 function execute(url) {
-    if (url.includes("uukanshu")) {
-        return Response.success(getTocUU(url))
-    } else if (url.includes("69shu")) {
-        return Response.success(getTo69shu(url))
-    } 
-    // else if (url.includes("fqnovel") || url.includes("novel.snssdk")) {
-    //     return Response.success(getToFanqie(url))
-    // } 
-    else if (url.includes("html5")) {
-        return Response.success(getToHtml5(url))
-    } else if (url.includes("ptwxz")) {
-        return Response.success(getToPtwxz(url))
+    if (url.includes("sangtac") != 1) {
+        if (url.includes("html5")) {
+            return Response.success(getToHtml5(url))
+        } else if (url.includes("ptwxz")) {
+            return Response.success(getToPtwxz(url))
+        } else if (url.includes("69shu")) {
+            return Response.success(getTo69shu(url))
+        } else if (url.includes("uukanshu")) {
+            return Response.success(getTocUU(url))
+        }
+    } else {
+        // else if (url.includes("fqnovel") || url.includes("novel.snssdk")) {
+        //     return Response.success(getToFanqie(url))
+        // }
+        return Response.success(getTostv(url))
     }
-    return Response.success(getTostv(url))
+
 }
 function getToPtwxz(url) {
     var response = fetch(url);
@@ -98,18 +101,36 @@ function getTostv(url) {
     if (url.slice(-1) !== "/") url = url + "/";
     const book = url.split('/truyen/')[1];
     var browser = Engine.newBrowser();
-    browser.setUserAgent(UserAgent.android());
-    browser.launch(url, 1000);
-    browser.callJs(`document.location='/truyen/${book}';`, 2000);
-    browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
-    let doc = browser.html()
-    var content = doc.select("#content-container .contentbox").html();
-    while (content.includes("Đang tải nội dung chương") == 1) {
-        browser.callJs(`document.location='/truyen/${book}';`, 1000);
-        browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
-        let doc = browser.html()
-        var content = doc.select("#content-container .contentbox").html();
+    // browser.setUserAgent(UserAgent.android());
+    // browser.launch(url, 1000);
+    // browser.callJs(`document.location='/truyen/${book}';`, 2000);
+    // browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
+    // let doc = browser.html()
+    // var content = doc.select("#content-container .contentbox").html();
+    // while (content.includes("Đang tải nội dung chương") == 1) {
+    //     browser.callJs(`document.location='/truyen/${book}';`, 1000);
+    //     browser.callJs(`document.querySelector(".blk-item2").click();`, 1000);
+    //     let doc = browser.html()
+    //     var content = doc.select("#content-container .contentbox").html();
+    // }
+    // browser.close();
+    browser.launchAsync(url);
+    browser.callJs(`document.location='/truyen/${book}';`, 4000);
+    browser.waitUrl(".*?index.php.*?sajax=readchapter.*?", 10000);
+
+    var retry = 0;
+    while (retry < 5) {
+        sleep(1000);
+        let doc = browser.html();
+        var text = doc.select("#content-container > .contentbox").text();
+        if (text.indexOf('Đang tải nội dung chương') === -1) {
+            doc.select("i[hd]").remove();
+            content = doc.select("#content-container > .contentbox").html();
+            break;
+        }
+        retry++;
     }
+
     browser.close();
     content = content.replace(/<span(.*?)>(.*?)<\/span>/g, "")
         .replace(/id\=\"(.*?)\"/g, '')
