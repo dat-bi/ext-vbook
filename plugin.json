@@ -27,17 +27,6 @@
             "locale": "zh_CN"
         },
         {
-            "name": "5trong1",
-            "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/plugin.zip",
-            "version": 18,
-            "source": "https://sangtacviet.vip",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5trong1/icon.png",
-            "description": "(5 trong 1) hỗ trợ đọc 5 web fanqie, qidian, 69shu, uukanshu, html5, ptwxz, stv (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
-            "type": "chinese_novel",
-            "locale": "zh_CN"
-        },
-        {
             "name": "60ks",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/60ks/plugin.zip",
