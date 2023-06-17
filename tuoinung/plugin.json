@@ -2,9 +2,9 @@
   "metadata": {
     "name": "tuoinung",
     "author": "dat-bi",
-    "version": 6,
-    "source": "https://home.tuoinung.co",
-    "regexp": ".*?tuoinung.co/\\d+/\\d+/(.*?)[.](html|html#gsc.tab=0)",
+    "version": 7,
+    "source": "https://tuoinung.cc",
+    "regexp": ".*?tuoinung.*?/\\d+/\\d+/(.*?)[.](html|html#gsc.tab=0)",
     "description": "18+",
     "locale": "vi-VN",
     "language": "javascript",
