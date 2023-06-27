@@ -3,7 +3,7 @@ function execute(url, page) {
     let response = fetch('https://nhungtruyen.com/tim-kiem?tags='+ url + "&page=" + page);
     if(response.ok){
         let doc = response.html();
-        let next = page + 1
+        let next = (parseInt(page,10) + 1).toString()
         let el = doc.select("#filter-result > div > div.box-content > div > div")
         let data = [];
         el.forEach(e => data.push({
