@@ -3,7 +3,7 @@ function execute(url, page) {
     let response = fetch(url + "?page=" + page);
     if (response.ok) {
         let doc = response.html();
-        let next = page + 1
+        let next = (parseInt(page,10) + 1).toString()
         let el = doc.select(".grid.grid-cols-1.gap-4 >div ")
         let data = [];
         el.forEach(e => data.push({
