@@ -1,10 +1,8 @@
-load('libs.js');
-
 function execute(url, page) {
     if (!page) page = 1;
     let host = 'https://www.qidian.com';
     if (url.includes("Q票榜")) {
-        if(time == ""){
+        if(time === "2023"){
             return Response.error("bổ sung thêm tháng muốn xem nguyệt phiếu \n ví dụ: let TIME = '5/2023';")
         }
         url = (host + url.replace("Q票榜","")).formatUnicorn({
@@ -49,4 +47,4 @@ function execute(url, page) {
         return Response.success(data, next);
     }
     return null;
-}
+} 

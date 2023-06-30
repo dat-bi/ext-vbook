@@ -15,7 +15,7 @@ function getLink(link) {
     let m = link.match(BOOK_ID_REGEX)
     return m && m[1]
 }
-let time = "";
+let time = "2023";
 try {
     if (CONFIG_URL) {
         STVHOST = CONFIG_URL;
