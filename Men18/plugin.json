@@ -2,9 +2,9 @@
   "metadata": {
     "name": "Men18",
     "author": "dat-bi",
-    "version": 1,
-    "source": "https://men18.net",
-    "regexp": "https://men18.net/(.*?)/",
+    "version": 2,
+    "source": "https://hen18.biz/",
+    "regexp": "https://hen18.biz/(.*?)/",
     "description": "Đọc truyện trên trang men18",
     "locale": "vi_VN",
     "language": "javascript",

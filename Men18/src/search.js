@@ -1,6 +1,6 @@
 function execute(key, page) {
     if (!page) page = '1';
-    const doc = Http.get("http://men18.net/").params({"s": key, "trang": page}).html();
+    const doc = Http.get(BASE_URL).params({"s": key, "trang": page}).html();
 
     var next = doc.select(".pagination").select("li.active + li").text()
 
@@ -18,7 +18,7 @@ function execute(key, page) {
             link: e.select("h3 a").first().attr("href"),
             cover: coverImg,
             description: e.select(".chapter a").first().text(),
-            host: "http://men18.net"
+            host: BASE_URL
         })
     }
 
