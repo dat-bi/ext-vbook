@@ -13,6 +13,6 @@ function execute(url) {
         description: doc.select(".detail-content p").html(),
         detail: doc.select(".list-info").html(),
         host: BASE_URL,
-        ongoing: doc.select(".detail-info .status").html().indexOf("Đang tiến hành") >= 0
+        ongoing: true
     });
 }
