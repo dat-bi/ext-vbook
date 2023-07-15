@@ -35,7 +35,7 @@ function execute(url) {
         let chap = json._data
         for (let i = 0; i < chap.length; i++) {
             data.push({
-                name: chap[i].name.vi,
+                name: chap[i].name.vi||`Chương ${i+1}:`,
                 url: urls + "/" + chap[i].id,
                 host: "https://nhungtruyen.com"
             })

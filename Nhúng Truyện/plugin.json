@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Nhúng Truyện",
     "author": "dat-bi",
-    "version": 12,
+    "version": 13,
     "source": "https://nhungtruyen.com/",
     "regexp": "(www.)?nhungtruyen.com/.*?",
     "description": "Muốn thêm truyện từ khác nguồn mặc định thì vào 1 chương truyện bất kỳ của nguồn khác ý rồi get truyện về",

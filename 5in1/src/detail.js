@@ -89,7 +89,7 @@ function getDetailHtml5(url) {
     let url2 = "https://bookshelf.html5.qq.com/qbread/api/novel/adbooks/bookinfo?bookid=" + bookid
     let response = fetch(url2, { "headers": { "Referer": "https://bookshelf.html5.qq.com/qbread/adread/catalog" } });
     let doc = response.json();
-    let book = doc.data
+    let book = doc.data.bookInfo
     let data = {
         name: book.resourceName,
         cover: book.picurl,

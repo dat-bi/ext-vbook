@@ -4,7 +4,7 @@
         "author": "dat-bi",
         "version": 1,
         "source": "https://sangtacviet.vip",
-        "regexp": "(wwww.)?((fanqienovel.com\/page\/\\d+)|(fanqienovel.com\/page\/\\d+.*?)|https:\/\/novel.snssdk.com\/.*?|(api3-normal-lf.fqnovel.com\/reading\/bookapi\/directory\/all_items\/.*)|((https:\/\/|http:\/\/)sangtacviet.*?/truyen\/(.*?)\/1\/\\d+.*?))|((www|m).69shu\\.com/txt/(.*?)\\.htm)|(https://bookshelf.html5.qq.com/(qbread|autojump)/(.*?))|(www\\.ptwxz\\.com/bookinfo/\\d+/\\d+\\.html$)",
+        "regexp": "(wwww.)?((fanqienovel.com\/page\/\\d+)|(fanqienovel.com\/page\/\\d+.*?)|https:\/\/novel.snssdk.com\/.*?|(api3-normal-lf.fqnovel.com\/reading\/bookapi\/directory\/all_items\/.*)|((https:\/\/|http:\/\/)sangtacviet.*?/truyen\/(ptwxz|69shu|uukanshu)\/1\/\\d+.*?))|((www|m).69shu\\.com/txt/(.*?)\\.htm)|(https://bookshelf.html5.qq.com/(qbread|autojump)/(.*?))|(www\\.ptwxz\\.com/bookinfo/\\d+/\\d+\\.html$)",
         "description": "(5 trong 1) hỗ trợ đọc 5 web fanqie, qidian, 69shu, uukanshu, html5, ptwxz, stv (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
         "locale": "zh_CN",
         "language": "javascript",
