@@ -11,9 +11,9 @@ function execute(url) {
             return Response.success(getTocUU(url))
         }
     } else {
-        // else if (url.includes("fqnovel") || url.includes("novel.snssdk")) {
-        //     return Response.success(getToFanqie(url))
-        // }
+        if (url.includes("/content?item_id=")) {
+            return Response.success(getToFanqie(url))
+        }
         return Response.success("Hiện tại chưa lấy được nội dung từ STV, đọc web khác đi!")
     }
 
@@ -85,16 +85,13 @@ function getTo69shu(url) {
     return null;
 }
 function getToFanqie(url) {
-    let response = fetch(url, {
-        headers: {
-            'user-agent': UserAgent.android()
-        }
-    });
-    let res_json = response.json();
-    let dataa = res_json.data.content;
-    var doc = Html.parse(dataa);
-    var content = doc.select('article').html();
-    return content;
+    let response_chapter_info = fetch(url)
+    if (response_chapter_info.ok) {
+        let json = response_chapter_info.json();
+        let chapter_info = json.data.data.content.replace(/<br\s*\/?>|\n/g, "<br><br>");
+        return chapter_info;
+    }
+    return "Kiểm tra lại app Fanqie";
 
 }
 function getTostv(url) {

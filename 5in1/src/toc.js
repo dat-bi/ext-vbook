@@ -3,8 +3,15 @@ function execute(url) {
     // url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
     var id = url.replace(/https.*?\/1\//g, "").replace("/", "")
     var data;
+    if (url.includes("fanqienovel")) {
+        url = "https://sangtacvietfpt.com/truyen/fanqie/1/" + url.match(/\d+/g)[0]
+    }
+    if (url.includes("fanqie")) {
+        data = getTocFanqienovel(url)
+        return Response.success(data)
+    }
     if (url.includes("sangtac") != 1) {
-        // if (url.includes(",")) {
+        // if (url.includes("fanqie")) {
         //     data = getTocFanqienovel(url)
         // } else 
         if (url.includes("html5")) {
@@ -19,6 +26,8 @@ function execute(url) {
             data = getTocUU(id)
         } else if (url.includes("69shu")) {
             data = getTo69shu(id)
+        } else if (url.includes("ptwxz")) {
+            data = getTocPtwxz1(id)
         } else {
             data = getTostv(url)
         }
@@ -74,6 +83,7 @@ function getTo69shu(id) {
         return data;
     }
 }
+
 function getTo69shu1(url) {
     url = url.replace(/.+\.69shu\.com\/txt\/(.*?)\.htm/, 'https://www.69shu.com/$1').append('/');
     let response = fetch(url);
@@ -179,6 +189,26 @@ function getTocPtwxz(url) {
 
     return data;
 }
+function getTocPtwxz1(id) {
+    id = id.match(/\d+/g)[0];
+    let url = `https://www.ptwxz.com/html/${Math.floor(id / 1000)}/${id}/`;
+    var response = fetch(url);
+    var doc = response.html('gb2312');
+
+    var data = [];
+    var elems = $.QA(doc, 'div.centent li > a');
+
+    if (!elems.length) return Response.error(url);
+
+    elems.forEach(function (e) {
+        data.push({
+            name: e.text(),
+            url: e.attr('href').mayBeFillHost(url),
+            host: "https://www.ptwxz.com"
+        })
+    });
+    return data;
+}
 function getTocHtml5(url) {
     const bookidRegex = /bookid=(\d+)/;
     const match = url.match(bookidRegex);
@@ -196,5 +226,26 @@ function getTocHtml5(url) {
             host: "https://bookshelf.html5.qq.com"
         })
     }
+    return data
+}
+function getTocFanqienovel(url) {
+    // let host = "http://192.168.1.193:9999";
+        var browser = Engine.newBrowser();
+        let host = "http://" + browser.launch("http://net.ipcalf.com/", 2000).select("#list").text().match(/\d+\.\d+\.\d+\.\d+/)[0] + ":9999"
+        browser.close();
+    let id_fanqie = url.match(/\d+/g)[1];
+    let json = fetch(host + "/info?book_id=" + id_fanqie).json()
+    let book_id = url.split("book_id=")[1]
+    let response = fetch(host + "/catalog?book_id=" + book_id)
+    let json = response.json();
+    let chapter_list = json.data.data.item_data_list;
+    const data = [];
+    chapter_list.forEach((e) => {
+        data.push({
+            name: e.title,
+            url: host + "/content?item_id=" + e.item_id,
+            host: host
+        })
+    });
     return data
 }
