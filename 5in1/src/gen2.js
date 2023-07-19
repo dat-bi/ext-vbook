@@ -1,6 +1,9 @@
 load('libs.js');
 function execute(url, page) {
     if (!page) page = 1;
+    if (url.includes("qidian")) {
+        url = url.replace(/https:\/\/www\.qidian\.com/g, "");
+    }
     let host = 'https://www.qidian.com';
     url = (host + url).formatUnicorn({
         page: page || 1,

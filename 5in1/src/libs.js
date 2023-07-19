@@ -1,8 +1,8 @@
 // https://stackoverflow.com/a/4673436
 if (!String.format) {
-    String.format = function(format) {
+    String.format = function (format) {
         var args = Array.prototype.slice.call(arguments, 1);
-        return format.replace(/{(\d+)}/g, function(match, number) {
+        return format.replace(/{(\d+)}/g, function (match, number) {
             return typeof args[number] != 'undefined' ?
                 args[number] :
                 match;
@@ -30,45 +30,45 @@ try {
 }
 // https://stackoverflow.com/a/18234317
 String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
-function () {
-    "use strict";
-    var str = this.toString();
-    if (arguments.length) {
-        var t = typeof arguments[0];
-        var key;
-        var args = ("string" === t || "number" === t) ?
-            Array.prototype.slice.call(arguments)
-            : arguments[0];
+    function () {
+        "use strict";
+        var str = this.toString();
+        if (arguments.length) {
+            var t = typeof arguments[0];
+            var key;
+            var args = ("string" === t || "number" === t) ?
+                Array.prototype.slice.call(arguments)
+                : arguments[0];
 
-        for (key in args) {
-            str = str.replace(new RegExp("\\{" + key + "\\}", "gi"), args[key]);
+            for (key in args) {
+                str = str.replace(new RegExp("\\{" + key + "\\}", "gi"), args[key]);
+            }
         }
-    }
 
-    return str;
-};
+        return str;
+    };
 
-String.prototype.append = function(w) {
+String.prototype.append = function (w) {
     if (this.endsWith(w)) return this;
     return this + w;
 }
 
-String.prototype.prepend = function(w) {
+String.prototype.prepend = function (w) {
     if (this.startsWith(w)) return this;
     return w + this;
 }
 
-String.prototype.rtrim = function(s) {
+String.prototype.rtrim = function (s) {
     if (s == undefined) s = '\\s';
     return this.replace(new RegExp("[" + s + "]*$"), '');
 }
 
-String.prototype.ltrim = function(s) {
+String.prototype.ltrim = function (s) {
     if (s == undefined) s = '\\s';
     return this.replace(new RegExp("^[" + s + "]*"), '');
 }
 
-String.prototype.mayBeFillHost = function(host) {
+String.prototype.mayBeFillHost = function (host) {
     var url = this.trim();
     if (!url) return '';
     if (url.startsWith(host)) return url;
@@ -80,19 +80,19 @@ String.prototype.mayBeFillHost = function(host) {
 // --------------------------------------------------
 
 var TypeChecker = {
-    isString: function(o) {
+    isString: function (o) {
         return typeof o == "string" || (typeof o == "object" && o.constructor === String);
     }, // https://stackoverflow.com/a/9729103
-    isNumber: function(o) {
+    isNumber: function (o) {
         return typeof o == "number" || (typeof o == "object" && o.constructor === Number);
     }, // https://stackoverflow.com/a/9729103
-    isArray: function(o) {
+    isArray: function (o) {
         return o instanceof Array;
     },
-    isFunction: function(o) {
+    isFunction: function (o) {
         return o && {}.toString.call(o) === '[object Function]';
     }, // https://stackoverflow.com/a/7356528
-    isObject: function(o) {
+    isObject: function (o) {
         return typeof o === 'object' && o !== null;
     }, // https://stackoverflow.com/a/8511332
 };
@@ -127,14 +127,14 @@ function cleanHtml(html) {
 // --------------------------------------------------
 
 var $ = {
-    Q: function(e, q, i) {
+    Q: function (e, q, i) {
         var _empty = Html.parse('').select('body');
 
         var els = e.select(q);
         if (els == '' || els.size() == 0) return _empty;
         if (i == undefined) return els.first();
 
-        if (typeof(i) == 'number') {
+        if (typeof (i) == 'number') {
             if (i == -1) return els.last();
             if (i >= els.size()) return _empty;
 
@@ -146,14 +146,14 @@ var $ = {
             return els;
         }
     },
-    QA: function(e, q, o) {
+    QA: function (e, q, o) {
         var arr = [];
         var els = e.select(q);
         o = o || {};
 
         if (els == '' || els.size() == 0) return o.j ? '' : arr;
 
-        var processItem = function(item) {
+        var processItem = function (item) {
             if (o.f) {
                 if (o.f(item)) arr.push(o.m ? o.m(item) : item);
             } else {
@@ -162,7 +162,7 @@ var $ = {
         }
 
         var count = els.size();
-        
+
         if (o.reverse) {
             for (var i = count - 1; i >= 0; i--) {
                 var item = els.get(i);
@@ -175,7 +175,7 @@ var $ = {
             }
         }
 
-        if (o.j && typeof(o.j) == 'string') return arr.join(o.j);
+        if (o.j && typeof (o.j) == 'string') return arr.join(o.j);
 
         return arr;
     }

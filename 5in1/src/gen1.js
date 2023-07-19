@@ -1,5 +1,5 @@
-function execute(url, page) {
 load('libs.js');
+function execute(url, page) {
     if (!page) page = '1';
     let response = fetch(STVHOST + url + '&p=' + page)
     if (response.ok) {
