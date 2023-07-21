@@ -1,5 +1,6 @@
 function execute(url) {
     var newUrl, chapurl, Id;
+    url = url.replace("?vbook","");
     if (url.slice(-1) !== "/") {
         url = url + "/";
     }

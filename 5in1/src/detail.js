@@ -41,17 +41,18 @@ function getDetailQidian(url) {
     else {
         doc = response.html();
     }
+    let cover1 = "https:" + $.Q(doc, '#bookImg img').attr('src');
     let author = doc.select('meta[property="og:novel:author"]').attr("content")
     let a_gen = doc.select('.book-author .author-name > a');
     let genres = [
         {
             title: a_gen.get(0).attr("title"),
-            input: "https:" + a_gen.get(1).attr("href").replace(/-subCateId\d+/g, "-page{page}"),
+            input: "https:" + a_gen.get(1).attr("href").replace(/-subCateId\d+/g, "-page{page}-orderId10"),
             script: "gen2.js"
         },
         {
             title: a_gen.get(1).attr("title"),
-            input: "https:" + a_gen.get(1).attr("href") + "-page{page}/",
+            input: "https:" + a_gen.get(1).attr("href") + "-page{page}-orderId10/",
             script: "gen2.js"
         }
     ]
@@ -59,7 +60,7 @@ function getDetailQidian(url) {
     tag.forEach(e => {
         genres.push({
             title: e.text(),
-            input: "https:" + e.attr("href") + "-page{page}/",
+            input: "https:" + e.attr("href") + "-page{page}-orderId10/",
             script: "gen2.js"
         })
     })
@@ -71,13 +72,13 @@ function getDetailQidian(url) {
         },
         {
             title: "Truyện đề cử:",
-            input: $.QA(doc, '.book-weekly-hot-rec.weekly-hot-rec > div'),
+            input: doc.select('.book-weekly-hot-rec.weekly-hot-rec > div') + doc.select("#bookImg img"),
             script: "suggests_d.js"
         }
     ];
     return {
         name: $.Q(doc, '#bookName').text(),
-        cover: "https:" + $.Q(doc, '#bookImg img').attr('src'),
+        cover: cover1,
         author: author,
         description: $.Q(doc, '#book-intro-detail').html(),
         host: STVHOST,
@@ -88,7 +89,7 @@ function getDetailQidian(url) {
 function getDetailStv(url) {
     let response = fetch(url + '/');
     let doc = response.html();
-    var author = doc.select("i.cap").attr("onclick").replace(/location=\'\/\?find\=&findinname\=(.*?)\'/g, "$1")
+    var author = doc.select("i.cap").attr("onclick").replace(/location=\'\/\?find\=&findinname\=(.*?)\'/g, "$1");
     let des = doc.select(".blk:has(.fa-water) .blk-body").html();
     let _detail = doc.select("#inner > div.container.px-md-4.px-sm-0.px-0 > div:nth-child(5) .blk-body");
     _detail.select("a").remove();

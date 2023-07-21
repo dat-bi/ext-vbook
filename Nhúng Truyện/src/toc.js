@@ -1,4 +1,9 @@
 function execute(url) {
+    let fanfic = 0;
+    if (url.includes("?vbook")) {
+        fanfic = 1;
+    }
+    url = url.replace("?vbook", "");
     var urls = url;
     var newUrl, chapurl, sourceId;
     const data = [];
@@ -20,15 +25,14 @@ function execute(url) {
         sourceId = json._data[0].id
     }
     newUrl = "https://cp.nhungtruyen.com/api/chapters?source_id=" + sourceId
-    // console.log(newUrl)
     var response = fetch(newUrl)
     if (response.ok) {
         let json = response.json()
         let chap = json._data
         for (let i = 0; i < chap.length; i++) {
             data.push({
-                name: chap[i].name.vi||`Chương ${i+1}:`,
-                url: urls + "/" + chap[i].id,
+                name: chap[i].name.vi || `Chương ${i + 1}:`,
+                url: urls + "/" + chap[i].id + "?enable_name_fanfic=" + fanfic,
                 host: "https://nhungtruyen.com"
             })
         }
