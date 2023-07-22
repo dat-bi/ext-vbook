@@ -3,7 +3,7 @@
 // @name         STV Translate
 // @version      1
 // @description  Dịch tiếng Trung với API STV
-// @author       ...
+// @author       Mol
 // @match        *://*/*
 // @icon         https://i.imgur.com/89Gaurs.png
 // @require      https://moldich.gq/assets/js/stv-translate.js
