@@ -9,7 +9,7 @@ function execute(url) {
         for (let i = 0; i < text.length; i++) {
             content = content + text[i] + "<br><br>"
         }
-        return Response.success(content.replace(/^Chương \d+.{1,100}<br>/g, "").replace(/\(tấu chương xong\)/g, ""));
+        return Response.success(content);
     }
     return null
 

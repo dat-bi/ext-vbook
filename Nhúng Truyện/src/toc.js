@@ -32,7 +32,7 @@ function execute(url) {
         for (let i = 0; i < chap.length; i++) {
             data.push({
                 name: chap[i].name.vi || `Chương ${i + 1}:`,
-                url: urls + "/" + chap[i].id + "?enable_name_fanfic=" + fanfic,
+                url: urls + "/" + chap[i].id + "?enable_name_fanfic=" + fanfic + "&source_id=" + sourceId + `&index=${i + 1}`,
                 host: "https://nhungtruyen.com"
             })
         }
