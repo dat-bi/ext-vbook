@@ -11,7 +11,7 @@ function execute(url, page) {
             year: time.split("/")[1],
             month: time.split("/")[0].toString().padStart(2, '0')
         });
-
+    
     } else {
         url = (host + url).formatUnicorn({
             page: page || 1,
@@ -19,7 +19,6 @@ function execute(url, page) {
             month: (new Date().getMonth() + 1).toString().padStart(2, '0')
         });
     }
-    log(url)
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html();

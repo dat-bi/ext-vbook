@@ -1,7 +1,20 @@
 load('libs.js');
+load('1qidian.js');
+load('1fanqie.js');
+load('169shu.js');
+load('1uukanshu.js');
+load('1ptwxz.js');
+load('1html5.js');
 function execute(url) {
     var data;
-    if (url.includes("sangtac") != 1) {
+    if (url.includes("sangtac")) {
+        if (url.includes("qidian")) {
+            data = getDetailQidian(url);
+        } else {
+            url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+            data = getDetailStv(url);
+        }
+    } else {
         if ((url.includes("fqnovel") || url.includes("fanqie"))) {
             url = STVHOST + "/truyen/fanqie/1/" + url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, "").match(/\d+/g)[0];
             data = getDetailStv(url);
@@ -15,78 +28,11 @@ function execute(url) {
             url = STVHOST + "/truyen/qidian/1/" + url.match(/\d+/g)[0];
             data = getDetailQidian(url);
         }
-
-    } else {
-        if (url.includes("qidian")) {
-            data = getDetailQidian(url);
-        } else {
-            url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
-            data = getDetailStv(url);
-        }
     }
     return Response.success(data);
 
 }
-function getDetailQidian(url) {
-    let idBook = url.match(/\d+/g)[1];
-    url = 'https://www.qidian.com/book/' + idBook + '/';
-    console.log(url)
-    let response = fetch(url);
-    let doc;
-    if (!response.ok) return null;
-    if (response.status == 202) {
-        let browser = Engine.newBrowser();
-        browser.launch(url, 15 * 1000);
-        doc = browser.html();
-    }
-    else {
-        doc = response.html();
-    }
-    let cover1 = "https:" + $.Q(doc, '#bookImg img').attr('src');
-    let author = doc.select('meta[property="og:novel:author"]').attr("content")
-    let a_gen = doc.select('.book-author .author-name > a');
-    let genres = [
-        {
-            title: a_gen.get(0).attr("title"),
-            input: "https:" + a_gen.get(1).attr("href").replace(/-subCateId\d+/g, "-page{page}-orderId10"),
-            script: "gen2.js"
-        },
-        {
-            title: a_gen.get(1).attr("title"),
-            input: "https:" + a_gen.get(1).attr("href") + "-page{page}-orderId10/",
-            script: "gen2.js"
-        }
-    ]
-    let tag = doc.select('#j-intro-honor-tag > p a');
-    tag.forEach(e => {
-        genres.push({
-            title: e.text(),
-            input: "https:" + e.attr("href") + "-page{page}-orderId10/",
-            script: "gen2.js"
-        })
-    })
-    let suggests = [
-        {
-            title: "Truyện cùng tác giả:",
-            input: doc.select('.other-works .book-wrap-new>a'),
-            script: "suggests_author.js"
-        },
-        {
-            title: "Truyện đề cử:",
-            input: doc.select('.book-weekly-hot-rec.weekly-hot-rec > div') + doc.select("#bookImg img"),
-            script: "suggests_d.js"
-        }
-    ];
-    return {
-        name: $.Q(doc, '#bookName').text(),
-        cover: cover1,
-        author: author,
-        description: $.Q(doc, '#book-intro-detail').html(),
-        host: STVHOST,
-        genres: genres,
-        suggests: suggests,
-    };
-}
+
 function getDetailStv(url) {
     let response = fetch(url + '/');
     let doc = response.html();
@@ -133,59 +79,5 @@ function getDetailStv(url) {
     }
     return data;
 }
-function getDetail69shu(url) {
-    var host = 'https://www.69shu.com';
-    url = url.replace(/.+\.69shu\.com\/txt\/(\d+)\.htm/, 'https://www.69shu.com/txt/$1.htm');
 
-    let response = fetch(url);
-    let doc = response.html('gbk');
-    let data = {
-        name: $.Q(doc, 'div.booknav2 > h1 > a').text(),
-        cover: $.Q(doc, 'div.bookimg2 > img').attr('src'),
-        author: $.Q(doc, 'div.booknav2 > p:nth-child(2) > a').text().trim(),
-        description: $.Q(doc, 'div.navtxt > p').html(),
-        detail: $.QA(doc, 'div.booknav2 p', { m: x => x.text(), j: '<br>' }),
-        host: host
-    }
-    return data;
-}
-function getDetailPtwxz(url) {
-    var host = 'https://www.ptwxz.com';
 
-    var response = fetch(url);
-    var doc = response.html('gb2312');
-
-    var author = $.QA(doc, '#content table table td', { f: x => /作.*者：/.test(x.text()), m: x => x.text().replace(/作.*者：/, '').replace('<br', '').trim(), j: ' ' });
-    var category = $.QA(doc, '#content table table td', { f: x => /类.*别：/.test(x.text()), m: x => x.text().replace(/类.*别：/, '').replace('<br', '').trim(), j: ' ' });
-    var cover = $.Q(doc, '#content table table a > img[align][hspace][vspace]').attr('src');
-    var description = $.Q(doc, '#content table table div[style]:not([id]):not([onclick])', { remove: 'span, a' }).html();
-    description = cleanHtml(description);
-    let data = {
-        name: $.Q(doc, '#content h1').text(),
-        cover: cover,
-        author: author,
-        description: description,
-        detail: String.format('作者: {0}<br>类别: {1}', author, category),
-        host: host
-    }
-    return data
-}
-function getDetailHtml5(url) {
-    const bookidRegex = /bookid=(\d+)/;
-    const match = url.match(bookidRegex);
-    const bookid = match[1];
-    let url2 = "https://bookshelf.html5.qq.com/qbread/api/novel/adbooks/bookinfo?bookid=" + bookid
-    let response = fetch(url2, { "headers": { "Referer": "https://bookshelf.html5.qq.com/qbread/adread/catalog" } });
-    let doc = response.json();
-    let book = doc.data.bookInfo
-    let data = {
-        name: book.resourceName,
-        cover: book.picurl,
-        author: book.author,
-        description: book.summary.replace(/\n/g, "<br>"),
-        detail: "作者： " + book.author + "<br>" + book.subject,
-        ongoing: !book.isfinish,
-        host: "https://bookshelf.html5.qq.com"
-    }
-    return data
-}

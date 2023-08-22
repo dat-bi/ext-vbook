@@ -30,10 +30,10 @@
             "name": "5in1",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/plugin.zip",
-            "version": 4,
+            "version": 5,
             "source": "https://sangtacviet.vip",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/icon.png",
-            "description": "(5 trong 1) hỗ trợ đọc 5 web fanqie, qidian, 69shu, uukanshu, html5, ptwxz (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
+            "description": "(5 trong 1) hỗ trợ đọc 6 web fanqie, qidian, 69shu, uukanshu, html5, ptwxz (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
             "type": "chinese_novel",
             "locale": "zh_CN"
         },
