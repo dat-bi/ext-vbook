@@ -1,20 +1,25 @@
+load('config.js');
 function execute(url) {
-        if(url.slice(-1) !== "/")
-        url = url + "/";
-    let response = fetch(url.replace('m.','www.'));
+
+    let bookId = parseInt(/du\/(\d+)\/?$/.exec(url)[1]);
+    let xid = Math.floor(bookId / 1000)
+    let dataUrl = BASE_URL + '/files/' + xid + '/' + bookId + '/' + bookId + '.json';
+
+    let response = fetch(dataUrl);
     if (response.ok) {
-        let doc = response.html('gbk');
-        const data = [];
-        doc= doc.select("#list > div.book-chapter-list > ul:nth-child(4) li a")
-        for (let i = 0;i < doc.size(); i++) {
-            let e = doc.get(i);
-        data.push({
-            name: e.select("a").text(),
-            url: url+e.attr("href"),
-            host: "https://www.tigerfp.com"
+        let json = response.json();
+
+        let chapters = [];
+
+        json.list.forEach(item => {
+            chapters.push({
+                name: item.chaptername,
+                url: BASE_URL + '/du/' + bookId + '/' + item.chapterid + '.html',
+            })
         });
-        }
-        return Response.success(data);
+
+        return Response.success(chapters);
     }
+
     return null;
 }

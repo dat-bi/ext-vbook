@@ -2,7 +2,7 @@
   "metadata": {
     "name": "tigerfp",
     "author": "dat-bi",
-    "version": 2,
+    "version": 3,
     "source": "https://www.tigerfp.com",
     "regexp": "(www.|m.)?((tigerfp.com/du/\\d+/)|(tigerfp.com/du/\\d+))",
     "description": "Đọc truyện trên trang tigerfp.com",
@@ -12,6 +12,7 @@
   },
   "script": {
     "home": "home.js",
+    "genre": "genre.js",
     "detail": "detail.js",
     "toc": "toc.js",
     "chap": "chap.js"

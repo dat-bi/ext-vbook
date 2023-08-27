@@ -1,13 +1,33 @@
+load('config.js');
 function execute(url) {
-    var url = url.replace('m.','www.')
-    let el1 =""
-    var browser = Engine.newBrowser() // Khởi tạo browser
-    let doc = browser.launch(url, 5000) // Mở trang web với timeout, trả về Document object
-    el1 = doc.select(".txt")
-    browser.close()
-    el1 = el1.html().replace(/\n/g,'')
-            .replace(/&(nbsp|amp|quot|lt|gt);/g, "").replace(/<a(.*?)>(.*?)<\/a>/g,"")
-            .replace(/(<br\s*\/?>){2,}/g, '<br>'); 
-        return Response.success(el1);
 
+    let bookId = getBookId(url);
+    if (!bookId) return null;
+
+    let chapId = /\/(\d+).html/.exec(url)[1];
+
+    let ssid = 555;
+    let hou = '.html';
+    let xid = Math.floor(bookId / 1000)
+
+    let urlData = BASE_URL + '/files/article/html' + ssid + '/' + xid + '/' + bookId + '/' + chapId + hou;
+
+    let response = fetch(urlData);
+    if (response.ok) {
+        let data = response.text();
+        let txt = Script.execute(data + "\nfunction getTxt() {return cctxt;}", "getTxt", "");
+        return Response.success(txt);
+    }
+
+    return null;
+}
+
+function getBookId(url) {
+    let response = fetch(url);
+
+    if (response.ok) {
+        let html = response.text();
+        return parseInt(/bookid=(\d+);/.exec(html)[1]);
+    }
+    return null;
 }

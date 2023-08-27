@@ -1,14 +1,41 @@
+load('config.js');
 function execute(url) {
-    let response = fetch(url.replace('m.','www.'));
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL);
+    let response = fetch(url);
     if (response.ok) {
-        let doc = response.html('gbk');
+        let doc = response.html();
+
+        let coverImg = doc.select('meta[property="og:image"]').attr("content");
+        let title = doc.select('meta[property="og:title"]').attr("content");
+        let status = doc.select('meta[property="og:novel:status"]').attr("content");
+        let newChap = doc.select(".update-text a").text();
+        let author = doc.select('meta[property="og:novel:author"]').attr("content");
+        let category = doc.select('meta[property="og:novel:category"]').attr("content");
+        let updateTime = doc.select('meta[property="og:novel:update_time"]').attr("content").replace(/\d\d:\d\d:\d\d/g, "");
+
+        let genres = [];
+        doc.select(".tag font").forEach(e => {
+            genres.push({
+                title: e.text()
+            });
+        });
         return Response.success({
-            name: doc.select("#list > div.book-main > div.book-text > h1").text(),
-            cover: doc.select("#fengmian > a > img").attr("src"),
-            author: doc.select("#list > div.book-main > div.book-text > span").text(),
-            description: doc.select("#list > div.book-main > div.book-text > div.intro").text(),
-            detail: doc.select("#list .book-main .book-text .tag span").get(0).text(),
-            host: "https://www.tigerfp.com"
+            host: BASE_URL,
+            ongoing: doc.select(".tag span").last().text().indexOf("连载中") >= 0,
+            name: title,
+            cover: coverImg,
+            author: author,
+            detail: "Thể loại: " + category + '<br>' + "Tình trạng: " + status + '<br>' + newChap + '<br>' + "Thời gian cập nhật: " + updateTime,
+            description: doc.select(".intro").html(),
+
+            genres: genres,
+            suggests: [
+                {
+                    title: "Đề cử",
+                    input: doc.select("#comment .good-wrap").html(),
+                    script: "suggest.js"
+                }
+            ],
         });
     }
     return null;
