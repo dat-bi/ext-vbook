@@ -265,7 +265,7 @@
             "name": "tigerfp",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tigerfp/plugin.zip",
-            "version": 2,
+            "version": 3,
             "source": "https://www.tigerfp.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tigerfp/icon.png",
             "description": "Đọc truyện trên trang tigerfp.com",
