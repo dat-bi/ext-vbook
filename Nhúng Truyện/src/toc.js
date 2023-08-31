@@ -1,9 +1,9 @@
 function execute(url) {
-    let fanfic = 0;
-    if (url.includes("?vbook")) {
-        fanfic = 1;
+    let kay = "";
+    if (url.includes("vbook")) {
+        kay = url.match(/\?vbook\d+/g)[0];
+        url = url.replace(new RegExp(kay.replace(/\?/, "\\?"), "g"), "");
     }
-    url = url.replace("?vbook", "");
     var urls = url;
     var newUrl, chapurl, sourceId;
     const data = [];
@@ -29,10 +29,10 @@ function execute(url) {
     if (response.ok) {
         let json = response.json()
         let chap = json._data
-        for (let i = 0; i < chap.length; i++) {
+        for (let key in chap) {
             data.push({
-                name: chap[i].name.vi || `Chương ${i + 1}:`,
-                url: urls + "/" + chap[i].id + "?enable_name_fanfic=" + fanfic + "&source_id=" + sourceId + `&index=${i + 1}`,
+                name: chap[key].name || `Chương ${key}:`,
+                url: urls + "/" + chap[key].source_id + "/" + key + kay,
                 host: "https://nhungtruyen.com"
             })
         }
