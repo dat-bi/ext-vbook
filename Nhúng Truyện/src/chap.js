@@ -19,12 +19,12 @@ function execute(url) {
         type = "Modern";
     }
     let newUrl = "https://cp.nhungtruyen.com/api/chapters/0?enable_fanfic=" + enable_fanfic + "&type=" + type + "&source_id=" + id + "&index=" + index;
-    console.log(newUrl)
     var response = fetch(newUrl)
     if (response.ok) {
         let json = response.json()
         let content = json._data.content
-        return Response.success(content.replace(/<br>|\\n/g, "<br><br>"));
+        content = content.replace(/\n/g, "<br>")
+        return Response.success(content);
     }
     return null
 

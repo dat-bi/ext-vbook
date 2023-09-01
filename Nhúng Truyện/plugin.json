@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Nhúng Truyện",
     "author": "dat-bi",
-    "version": 17,
+    "version": 18,
     "source": "https://nhungtruyen.com/",
     "regexp": "(www.)?nhungtruyen.com/.*?",
     "description": "Muốn thêm truyện từ khác nguồn mặc định thì vào 1 chương truyện bất kỳ của nguồn khác ý rồi get truyện về <br> Mặc định dịch không bật đồng nhân + văn phong cổ đại <br> Muốn bật name đồng nhân + văn phong cổ đại của truyện nào thì thêm '?vbook11' vào cuối link truyện, rồi nhúng lại truyện <br> Không bật đồng nhân + văn phong hiện đại = '?vbook02' <br> Bật đồng nhân + văn phong hiện đại = '?vbook12'",
