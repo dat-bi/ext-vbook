@@ -308,7 +308,7 @@
             "name": "truyenfullCom",
             "author": "dat-bi",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenfullCom/plugin.zip",
-            "version": 2,
+            "version": 3,
             "source": "https://truyenfull.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenfullCom/icon.png",
             "description": "Đọc truyện trên trang Truyện Full",

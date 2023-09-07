@@ -1,7 +1,7 @@
 function execute(key, page) {
     if (!page) page = '1';
 
-    var doc = Http.get("https://truyenfull.vn/tim-kiem/")
+    var doc = Http.get("https://truyenfull.com/tim-kiem/")
         .params({tukhoa: key, page: page}).html();
 
     if (doc) {
@@ -15,7 +15,7 @@ function execute(key, page) {
                 link: e.select(".truyen-title > a").first().attr("href"),
                 description: e.select(".author").text(),
                 cover: e.select("[data-image]").attr("data-image"),
-                host: "https://truyenfull.vn",
+                host: "https://truyenfull.com",
             });
 
         }
