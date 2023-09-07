@@ -1,13 +1,17 @@
 function execute(url) {
-    var response = fetch(url);
-    if(response.ok){
+    let url1 = fetch(url).html().select("#list-chapter ul > li:nth-child(1) a").first().attr("href").replace(/chuong.*?html/g, "").replace("https://truyenfull.com", "https://truyenfull1.com")
+    var truyenId = url.replace(/\.com\/.*?\./g, "").match(/\d+/g)[0];
+    let response = fetch("https://truyenfull.com/api/chapters/" + truyenId)
+    if (response.ok) {
+        const jsonData = response.json();
+        const itemSize = jsonData.items.length;
         let chapters = [];
-        response.json().items.forEach(function (item, index){
+        for (let i = 1; i <= itemSize; i++) {
             chapters.push({
-                name: item.chapter_name,
-                url: url + "/chuong-" +index+ ".html"//item.chapterID
+                name: "Chương " + i,
+                url: url1 + "chuong-" + i + ".html",
             });
-        })
+        }
         return Response.success(chapters);
     }
     return null
