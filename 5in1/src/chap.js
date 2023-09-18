@@ -15,7 +15,7 @@ function execute(url) {
     if (url.includes("sangtac") != 1) {
         if (url.includes("html5")) {
             return Response.success(getChapHtml5(url))
-        } else if (url.includes("ptwxz")) {
+        } else if (url.includes("piaotian")) {
             return Response.success(getChapPtwxz(url))
         } else if (url.includes("69shu")) {
             return Response.success(getChap69shu(url))

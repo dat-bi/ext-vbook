@@ -22,7 +22,7 @@ function execute(url) {
             data = getDetail69shu(url);
         } else if (url.includes("html5")) {
             data = getDetailHtml5(url);
-        } else if (url.includes("ptwxz")) {
+        } else if (url.includes("piaotian")) {
             data = getDetailPtwxz(url);
         } else if (url.includes("qidian")) {
             url = STVHOST + "/truyen/qidian/1/" + url.match(/\d+/g)[0];
