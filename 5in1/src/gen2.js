@@ -33,7 +33,7 @@ function execute(url, page) {
                 description: $.Q(e, '.book-mid-info p.update a').text().replace('最新更新', '').replace(/.*?/g,"").trim()
             })
         })
-        let next = page + 1;
+        let next = page* 1 + 1;
         return Response.success(data, next);
     }
     return null;
