@@ -2,7 +2,7 @@
     "metadata": {
         "name": "5in1",
         "author": "dat-bi",
-        "version": 6,
+        "version": 7,
         "source": "https://sangtacviet.vip",
         "regexp": "(wwww.)?((fanqienovel.com\/page\/\\d+)|(fanqienovel.com\/page\/\\d+.*?)|((https:\/\/|http:\/\/)sangtacviet.*?/truyen\/(qidian|ptwxz|fanqie|69shu|uukanshu)\/1\/\\d+.*?))|((www|m).69shu.*?\\.com/txt/(.*?)\\.htm)|(https://bookshelf.html5.qq.com/(qbread|autojump)/(.*?))|(www\\.(ptwxz|piaotian)\\.com/bookinfo/\\d+/\\d+\\.html$)|(book|m|www)\\.qidian\\.com/(info|book)/(.*?)",
         "description": "(5 trong 1) hỗ trợ đọc 6 web fanqie, qidian, 69shu, uukanshu, html5, ptwxz (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
