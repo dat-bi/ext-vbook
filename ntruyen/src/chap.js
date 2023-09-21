@@ -1,8 +1,10 @@
 function execute(url) {
-    var browser = Engine.newBrowser() // Khởi tạo browser
-    let doc = browser.launch(url, 5000) // Mở trang web với timeout, trả về Document object
-    let el1 = doc.select("#chapter-content")
-    browser.close()
-    return Response.success(el1);
-
+    let response = fetch(url);
+    if (response.ok) {
+        var doc = response.html()
+        let data
+        data = doc.select("#chapter-content").html()
+        return Response.success(data);
+    }
+    return null;
 }
