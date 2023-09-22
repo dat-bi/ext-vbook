@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "xsyz - Tiểu thuyết dịch trạm",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "https://www.xsyz.cc/",
     "regexp": "https://www.xsyz.cc/.*?/\\d+/",

@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const data = {
     "metadata": {
-        "author": "Đạt Bi",
+        "author": "B",
         "description": "📛🔻📛"
     },
     "data": []

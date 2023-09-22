@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "tigerfp",
-    "author": "dat-bi",
+    "author": "B",
     "version": 3,
     "source": "https://www.tigerfp.com",
     "regexp": "(www.|m.)?((tigerfp.com/du/\\d+/)|(tigerfp.com/du/\\d+))",

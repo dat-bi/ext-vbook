@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "kanshuwu",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "http://www.kanshuwu.org/",
     "regexp": "http://www.kanshuwu.org/(book|xiaoshuo)/\\d+/",

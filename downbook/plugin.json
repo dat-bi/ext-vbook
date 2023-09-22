@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "downbook",
-    "author": "dat-bi",
+    "author": "B",
     "version": 2,
     "source": "https://sj.downbook.cc/",
     "regexp": "sj.?downbook.cc/TXT/(.*?).html",

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "Kỳ huyễn",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "https://kyhuyen.com/",
     "regexp": "https://kyhuyen.com/truyen/[^/]+/?$",

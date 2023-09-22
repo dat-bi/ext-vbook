@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "truyenchuth",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "https://truyenchuth.com",
     "regexp": "(www.)?truyenchuth.com/truyen.*?",

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "xyushu5",
-    "author": "dat-bi",
+    "author": "B",
     "version": 2,
     "source": "https://m.xyushu5.com/",
     "regexp": "https://(www.|m.)?xyushu5.com/(.*?)/\\d+(\\/|\\.html)",

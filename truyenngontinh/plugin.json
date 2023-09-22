@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "truyenngontinh",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "https://truyenngontinh.net",
     "regexp": "truyenngontinh.*?/[^/]+/?$",

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "tuoinung",
-    "author": "dat-bi",
+    "author": "B",
     "version": 7,
     "source": "https://tuoinung.cc",
     "regexp": ".*?tuoinung.*?/\\d+/\\d+/(.*?)[.](html|html#gsc.tab=0)",

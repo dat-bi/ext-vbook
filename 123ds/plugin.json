@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "123ds",
-    "author": "dat-bi",
+    "author": "B",
     "version": 3,
     "source": "https://www.123duw.com",
     "regexp": "https://?(www.|m.)123duw.com/(.*?)/\\d+/",

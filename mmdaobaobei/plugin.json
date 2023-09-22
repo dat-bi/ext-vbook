@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "mmdaobaobei",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "https://www.mmdaobaobei.com",
     "regexp": "www.mmdaobaobei.com/.*?/\\d+.html",

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "ranwen",
-    "author": "dat-bi",
+    "author": "B",
     "version": 3,
     "source": "http://www.ranwen.la",
     "regexp": "https://(www.|m.)?ranwen.la/files/.*?/\\d+/\\d+/",

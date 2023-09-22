@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "Qianluxiaoshuo - Tiền Lộ",
-    "author": "dat-bi",
+    "author": "B",
     "version": 5,
     "source": "https://www.qianluxiaoshuo.com",
     "regexp": "https://www.qianluxiaoshuo.com/(.*?)/\\d+\\.html",

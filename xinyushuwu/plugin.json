@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "xinyushuwu",
-    "author": "dat-bi",
+    "author": "B",
     "version": 2,
     "source": "https://www.xinyushuwu.net",
     "regexp": "(www|m)\\.xinyushuwu.*?/\\d+/\\d+/?",

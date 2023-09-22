@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "ddxs",
-    "author": "dat-bi",
+    "author": "B",
     "version": 4,
     "source": "https://www.ddxs.com",
     "regexp": "https://(www.|m.)?ddxs.com/(.*?)/",

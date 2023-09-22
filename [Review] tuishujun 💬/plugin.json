@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "[Review] tuishujun 💬",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "https://www.tuishujun.com/",
     "regexp": "(www.|api.)?tuishujun.com/books/\\d+",

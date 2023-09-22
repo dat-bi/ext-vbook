@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "Dưa Leo Truyện",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "https://dualeotruyenhot.com/",
     "regexp": "https://(www.)?dualeotruyenhot.com/truyen-tranh/.*?.html",

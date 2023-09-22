@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "tienhiep",
-    "author": "dat-bi",
+    "author": "B",
     "version": 2,
     "source": "https://tienhiep2.net",
     "regexp": "https://tienhiep2.net/(truyen|chuong).*?",

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "60ks",
-    "author": "dat-bi",
+    "author": "B",
     "version": 2,
     "source": "http://m.60ks.cc",
     "regexp": "http://(www|m).60ks.(net|cc)((/ks/\\d+/\\d+/(index.html|$))|/(chapters|book)/\\d+/(index.html|$))",

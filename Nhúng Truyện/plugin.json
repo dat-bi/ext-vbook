@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "Nhúng Truyện",
-    "author": "dat-bi",
+    "author": "B",
     "version": 18,
     "source": "https://nhungtruyen.com/",
     "regexp": "(www.)?nhungtruyen.com/.*?",

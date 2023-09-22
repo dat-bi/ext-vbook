@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "yikushan",
-    "author": "dat-bi",
+    "author": "B",
     "version": 3,
     "source": "http://www.yikushan.com/",
     "regexp": "http://www.yikushan.com/.*?/\\d+/",

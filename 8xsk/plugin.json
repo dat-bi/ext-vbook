@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "8xsk",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "http://www.8xsk.com",
     "regexp": "(www.)?8xsk.com/novel/\\d+(/?|\\.html)",

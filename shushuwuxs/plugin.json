@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "shushuwuxs",
-    "author": "dat-bi",
+    "author": "B",
     "version": 1,
     "source": "https://www.shushuwuxs.com/",
     "regexp": "https://(www|m).shushuwuxs.com/(read(.*?)|new(.*?))",
