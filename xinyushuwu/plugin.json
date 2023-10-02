@@ -2,7 +2,7 @@
   "metadata": {
     "name": "xinyushuwu",
     "author": "B",
-    "version": 2,
+    "version": 3,
     "source": "https://www.xinyushuwu.net",
     "regexp": "(www|m)\\.xinyushuwu.*?/\\d+/\\d+/?",
     "description": "Đọc truyện trên trang https://www.xinyushuwu.net. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
@@ -16,6 +16,7 @@
     "toc": "toc.js",
     "chap": "chap.js",
     "home": "home.js",
-    "search": "search.js"
+    "search": "search.js",
+    "genre": "genre.js"    
   }
 }

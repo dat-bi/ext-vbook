@@ -1,12 +1,14 @@
 function execute() {
     return Response.success([
-        {title: "玄幻小说", input: "/xuanhuan/{0}.html", script: "gen.js"},
-        {title: "仙侠小说", input: "/xianxia/{0}.html", script: "gen.js"},
-        {title: "都市小说", input: "/dushi/{0}.html", script: "gen.js"},
-        {title: "军史小说", input: "/junshi/{0}.html", script: "gen.js"},
-        {title: "网游小说", input: "/wangyou/{0}.html", script: "gen.js"},
-        {title: "科幻小说", input: "/kehuan/{0}.html", script: "gen.js"},
-        {title: "耽美小说", input: "/danmei/{0}.html", script: "gen.js"},
-        {title: "辣文合集", input: "/lawen/{0}.html", script: "gen.js"},
+        { title: "总点击榜", input: "/paihang/allvisit_{0}.html", script: "gen1.js" },
+        { title: "月点击榜", input: "/paihang/monthvisit_{0}.html", script: "gen1.js" },
+        { title: "周点击榜", input: "/paihang/weekvisit_{0}.html", script: "gen1.js" },
+        { title: "总推荐榜", input: "/paihang/allvote_{0}.html", script: "gen1.js" },
+        { title: "月推荐榜", input: "/paihang/monthvote_{0}.html", script: "gen1.js" },
+        { title: "周推荐榜", input: "/paihang/weekvote_{0}.html", script: "gen1.js" },
+        { title: "总收藏榜", input: "/paihang/goodnum_{0}.html", script: "gen1.js" },
+        { title: "总字数榜", input: "/paihang/size_{0}.html", script: "gen1.js" },
+        { title: "最新入库", input: "/paihang/postdate_{0}.html", script: "gen1.js" },
+        { title: "最近更新", input: "/paihang/lastupdate_{0}.html", script: "gen1.js" },
     ]);
 }
