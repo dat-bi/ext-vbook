@@ -188,7 +188,7 @@
       "name": "Nhúng Truyện",
       "author": "B",
       "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Nh%C3%BAng%20Truy%E1%BB%87n/plugin.zip",
-      "version": 18,
+      "version": 19,
       "source": "https://nhungtruyen.com/",
       "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Nh%C3%BAng%20Truy%E1%BB%87n/icon.png",
       "description": "Muốn thêm truyện từ khác nguồn mặc định thì vào 1 chương truyện bất kỳ của nguồn khác ý rồi get truyện về <br> Muốn bật name đồng nhân của truyện nào thì thêm '?vbook' vào cuối link truyện, rồi nhúng lại truyện",
