@@ -1,7 +1,7 @@
 function execute(key, page) {
     if (!page) page = '1';
     key = encodeURIComponent(key)
-    let response = fetch("https://dualeotruyenhot.com/tim-kiem.html?key="+key);
+    let response = fetch(BASE_URL + "/tim-kiem.html?key="+key);
 
     if (response.ok) {
         let doc = response.html();
@@ -14,7 +14,7 @@ function execute(key, page) {
                 link: e.select("a").first().attr("href"),
                 cover: coverImg,
                 description: e.select(".chap_name").first().text(),
-                host: "https://dualeotruyenhot.com/"
+                host: BASE_URL
             });
         });
 

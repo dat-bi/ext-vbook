@@ -1,6 +1,7 @@
+load('config.js');
 function execute(url, page) {
     if (!page) page = 1;
-    let response = fetch("https://dualeotruyenhot.com" + url + "/page=" + page);
+    let response = fetch(BASE_URL + url + "/page=" + page);
     if (response.ok) {
         let doc = response.html();
         let next = page + 1;
@@ -12,7 +13,7 @@ function execute(url, page) {
                 link: e.select("a").first().attr("href"),
                 cover: coverImg,
                 description: e.select(".chap_name").first().text(),
-                host: "https://dualeotruyenhot.com/"
+                host: BASE_URL
             });
         });
 

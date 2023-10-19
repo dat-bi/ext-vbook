@@ -6,7 +6,7 @@ function execute(url) {
         doc.select(".chap_name a").forEach(e => list.push({
                 name: e.text(),
                 url: e.attr("href"),
-                host: "https://dualeotruyenhot.com"
+                host: BASE_URL
         }));
         return Response.success(list.reverse());
 }
