@@ -5,8 +5,8 @@ function execute(url) {
     if (response.ok) {
         var doc = response.html()
         let data = [];
-        doc.select("body > div.container > div.content_view_chap img").forEach(e => {
-            let img = e.attr("data-original");
+        doc.select("#kt_app_content_container > div:nth-child(1) > div img").forEach(e => {
+            let img = e.attr("src");
             data.push(img);
         });
         return Response.success(data);
