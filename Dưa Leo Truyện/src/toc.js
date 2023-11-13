@@ -1,13 +1,15 @@
 load('config.js');
 function execute(url) {
-    var browser = Engine.newBrowser() // Khởi tạo browser
-    let doc = browser.launch(url, 7000) // Mở trang web với timeout, trả về Document object
-    browser.close() // Đóng browser khi đã xử lý xong
+    let response = fetch(url);
+    if (response.ok) {
+        let doc = response.html();
         let list = [];
-        doc.select("table > tbody > tr a").forEach(e => list.push({
-                name: e.text(),
-                url: e.attr("href"),
-                host: BASE_URL
+        doc.select(".box_list .chapter-item").forEach(e => list.push({
+            name: e.text(),
+            url: e.select("a").attr("href"),
+            host: BASE_URL
         }));
         return Response.success(list.reverse());
+    }
+    return null;
 }
