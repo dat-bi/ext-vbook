@@ -7,7 +7,7 @@ function execute(url, page) {
         let next = page + 1;
         let data = [];
         doc.select("div.box_list .li_truyen").forEach(e => {
-            let coverImg = e.select("img").first().attr("src");
+            let coverImg = e.select("img").first().attr("data-src");
             data.push({
                 name: e.select(".name").first().text(),
                 link: e.select("a").first().attr("href"),
