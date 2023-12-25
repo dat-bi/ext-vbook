@@ -1,5 +1,5 @@
 function getTocUukanshu(id) {
-    url = "https://sj.uukanshu.com/book.aspx?id=" + id;
+    url = "https://sj.uukanshu.net/book.aspx?id=" + id;
     var doc = Http.get(url).html();
     var el = doc.select("#chapterList a")
     var data = [];
@@ -8,7 +8,7 @@ function getTocUukanshu(id) {
         data.push({
             name: e.select("a").text(),
             url: e.attr("href"),
-            host: "https://sj.uukanshu.com"
+            host: "https://sj.uukanshu.net"
         })
     }
     var page = doc.select(".pages a").last().attr("href").match(/page=(\d+)/);
@@ -23,7 +23,7 @@ function getTocUukanshu(id) {
                     data.push({
                         name: e.select("a").text(),
                         url: e.attr("href"),
-                        host: "https://sj.uukanshu.com"
+                        host: "https://sj.uukanshu.net"
                     })
                 }
             }
@@ -33,7 +33,7 @@ function getTocUukanshu(id) {
 }
 function getChapUukanshu(url) {
     var htm = "";
-    if (url.indexOf("sj.uukanshu.com") !== -1) {
+    if (url.indexOf("sj.uukanshu.net") !== -1) {
         var doc = Http.get(url).html();
         doc.select(".ad_content").remove();
         doc.select("div.box").remove();

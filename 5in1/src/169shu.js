@@ -15,7 +15,7 @@ function getChap69shu(url) {
     return null;
 }
 function getToc69shu1(url) {
-    url = url.replace(/.+\.69shuba\.com\/txt\/(.*?)\.htm/, 'https://www.69shuba.com/$1').append('/');
+    url = url.replace(/.+\.69shuba\.com\/book\/(.*?)\.htm/, 'https://www.69shuba.com/book/$1').append('/');
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
@@ -53,7 +53,7 @@ function getToc69shu(id) {
 }
 function getDetail69shu(url) {
     var host = 'https://www.69shuba.com';
-    url = url.replace(/.+\.69shuba\.com\/txt\/(\d+)\.htm/, 'https://www.69shuba.com/txt/$1.htm');
+    url = url.replace(/.+\.69shuba\.com\/book\/(\d+)\.htm/, 'https://www.69shuba.com/book/$1.htm');
 
     let response = fetch(url);
     let doc = response.html('gbk');
