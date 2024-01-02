@@ -1,3 +1,4 @@
+var host69 = 'https://www.69xinshu.com';
 function getChap69shu(url) {
     let response = fetch(url);
     if (response.ok) {
@@ -25,7 +26,7 @@ function getToc69shu1(url) {
             data.push({
                 name: formatName(e.text()),
                 url: e.attr('href'),
-                host: 'https://www.69shuba.com'
+                host: host69
             })
         });
         return data;
@@ -36,7 +37,7 @@ function formatName(name) {
     return name.replace(re, '第$2章');
 }
 function getToc69shu(id) {
-    let response = fetch('https://www.69shuba.com/' + id + '/');
+    let response = fetch(host69 + '/' + id + '/');
     if (response.ok) {
         let doc = response.html('gbk');
         var data = [];
@@ -45,16 +46,13 @@ function getToc69shu(id) {
             data.push({
                 name: formatName(e.text()),
                 url: e.attr('href'),
-                host: 'https://www.69shuba.com'
+                host: host69
             })
         });
         return data;
     }
 }
 function getDetail69shu(url) {
-    var host = 'https://www.69shuba.com';
-    url = url.replace(/.+\.69shuba\.com\/book\/(\d+)\.htm/, 'https://www.69shuba.com/book/$1.htm');
-
     let response = fetch(url);
     let doc = response.html('gbk');
     let data = {
@@ -63,7 +61,7 @@ function getDetail69shu(url) {
         author: $.Q(doc, 'div.booknav2 > p:nth-child(2) > a').text().trim(),
         description: $.Q(doc, 'div.navtxt > p').html(),
         detail: $.QA(doc, 'div.booknav2 p', { m: x => x.text(), j: '<br>' }),
-        host: host
+        host: host69
     }
     return data;
 }
