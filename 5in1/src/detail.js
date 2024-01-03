@@ -4,7 +4,7 @@ load('1fanqie.js');
 load('169shu.js');
 load('1uukanshu.js');
 load('1ptwxz.js');
-load('1html5.js');
+// load('1html5.js');
 function execute(url) {
     var data;
     if (url.includes("sangtac")) {
@@ -48,24 +48,24 @@ function getDetailStv(url) {
         }
     ];
     let genres = [];
-    if (url.includes("fanqie")) {
-        let idBook = url.match(/\d+/g)[1];
-        let json = fetch("http://localhost:9999/info?book_id=" + idBook).json()
-        let book_info = json.data.data;
-        let a_gen = JSON.parse(book_info.category_schema)
-        a_gen.forEach(e => {
-            genres.push({
-                title: e.name,
-                input: "http://localhost:9999/reading/bookapi/new_category/landing/v/?category_id=" + e.category_id + "&offset={{page}}&sub_category_id&genre_type=0&limit=10&source=front_category&front_page_selected_category&no_need_all_tag=true&query_gender=1",
-                script: "gen_fanqie.js"
-            })
-        });
-        suggests[0] = {
-            title: "Truyện cùng tác giả:",
-            input: author,
-            script: "search.js"
-        }
-    }
+    // if (url.includes("fanqie")) {
+    //     let idBook = url.match(/\d+/g)[1];
+    //     let json = fetch("http://localhost:9999/info?book_id=" + idBook).json()
+    //     let book_info = json.data.data;
+    //     let a_gen = JSON.parse(book_info.category_schema)
+    //     a_gen.forEach(e => {
+    //         genres.push({
+    //             title: e.name,
+    //             input: "http://localhost:9999/reading/bookapi/new_category/landing/v/?category_id=" + e.category_id + "&offset={{page}}&sub_category_id&genre_type=0&limit=10&source=front_category&front_page_selected_category&no_need_all_tag=true&query_gender=1",
+    //             script: "gen_fanqie.js"
+    //         })
+    //     });
+    //     suggests[0] = {
+    //         title: "Truyện cùng tác giả:",
+    //         input: author,
+    //         script: "search.js"
+    //     }
+    // }
     let data = {
         name: doc.select("#oriname").text(),
         cover: doc.select(".container:has(#book_name2) img").first().attr("src"),

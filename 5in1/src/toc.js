@@ -4,15 +4,15 @@ load('1fanqie.js');
 load('169shu.js');
 load('1uukanshu.js');
 load('1ptwxz.js');
-load('1html5.js');
+// load('1html5.js');
 function execute(url) {
     // url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
     var id = url.replace(/https.*?\/1\//g, "").replace("/", "")
     var data;
-    if (url.includes("fanqienovel")) {
-        url = "https://sangtacvietfpt.com/truyen/fanqie/1/" + url.match(/\d+/g)[0]
-    }
-    if (url.includes("fanqie")) {
+    // if (url.includes("fanqienovel")) {
+    //     url = "https://sangtacviet.vip/truyen/fanqie/1/" + url.match(/\d+/g)[0] + "/"
+    // }
+    if (url.includes(",")) {
         data = getTocFanqienovel(url)
         return Response.success(data)
     }

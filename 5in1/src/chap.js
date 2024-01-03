@@ -4,9 +4,9 @@ load('1fanqie.js');
 load('169shu.js');
 load('1uukanshu.js');
 load('1ptwxz.js');
-load('1html5.js');
+// load('1html5.js');
 function execute(url) {
-    if (url.includes("content?item_id=")) {
+    if (url.includes("fanqie")) {
         return Response.success(getChapFanqie(url))
     }
     if (url.includes("vipreader")) {
@@ -17,7 +17,7 @@ function execute(url) {
             return Response.success(getChapHtml5(url))
         } else if (url.includes("piaotian")) {
             return Response.success(getChapPtwxz(url))
-        } else if (url.includes("69shu")) {
+        } else if (url.includes("www.69")) {
             return Response.success(getChap69shu(url))
         } else if (url.includes("uukanshu")) {
             return Response.success(getChapUukanshu(url))

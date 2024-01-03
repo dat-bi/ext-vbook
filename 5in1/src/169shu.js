@@ -16,7 +16,7 @@ function getChap69shu(url) {
     return null;
 }
 function getToc69shu1(url) {
-    url = url.replace(/.+\.69shuba\.com\/book\/(.*?)\.htm/, 'https://www.69shuba.com/book/$1').append('/');
+    url = url.replace("\.htm", '/')
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
@@ -37,7 +37,8 @@ function formatName(name) {
     return name.replace(re, '第$2章');
 }
 function getToc69shu(id) {
-    let response = fetch(host69 + '/' + id + '/');
+    url = host69 + '/book/' + id + '/'
+    let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
         var data = [];
