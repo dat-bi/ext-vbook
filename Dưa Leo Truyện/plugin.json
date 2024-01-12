@@ -2,10 +2,10 @@
   "metadata": {
     "name": "Dưa Leo Truyện",
     "author": "B",
-    "version": 3,
+    "version": 4,
     "source": "https://dualeotruyenpk.com/",
     "regexp": "https://(www.)?dualeotruyen.*?/truyen-tranh/.*?.html",
-    "description": "Đọc truyện trên trang dualeotruyenhot",
+    "description": "Đọc truyện trên trang dualeotruyen",
     "locale": "vi_VN",
     "language": "javascript",
     "type": "comic",
