@@ -1,19 +1,16 @@
 var host69 = 'https://www.69xinshu.com';
 function getChap69shu(url) {
-    let response = fetch(url);
-    if (response.ok) {
-        let doc = response.html('gbk');
+    var browser = Engine.newBrowser() // Khởi tạo browser
+    let doc = browser.launch(url, 5000) // Mở trang web với timeout, trả về Document object
+    // let doc = response.html();
+    var htm = $.Q(doc, 'div.txtnav', { remove: ['h1', 'div'] }).html();
 
-        var htm = $.Q(doc, 'div.txtnav', { remove: ['h1', 'div'] }).html();
-
-        htm = cleanHtml(htm)
-            .replace(/^ *第\d+章.*?<br>/, '') // Ex: '  第11745章 大结局，终<br>'
-            .replace('(本章完)', '')
-            ;
-        // log(htm);
-        return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");
-    }
-    return null;
+    htm = cleanHtml(htm)
+        .replace(/^ *第\d+章.*?<br>/, '') // Ex: '  第11745章 大结局，终<br>'
+        .replace('(本章完)', '')
+        ;
+    browser.close() // Đóng browser khi đã xử lý xong
+    return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");
 }
 function getToc69shu1(url) {
     url = url.replace("\.htm", '/')
@@ -61,8 +58,7 @@ function getDetail69shu(url) {
         cover: $.Q(doc, 'div.bookimg2 > img').attr('src'),
         author: $.Q(doc, 'div.booknav2 > p:nth-child(2) > a').text().trim(),
         description: $.Q(doc, 'div.navtxt > p').html(),
-        detail: $.QA(doc, 'div.booknav2 p', { m: x => x.text(), j: '<br>' }),
-        host: host69
+        detail: $.QA(doc, 'div.booknav2 p', { m: x => x.text(), j: '<br>' })
     }
     return data;
 }

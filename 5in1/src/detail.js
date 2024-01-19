@@ -18,7 +18,7 @@ function execute(url) {
         if ((url.includes("fqnovel") || url.includes("fanqie"))) {
             url = STVHOST + "/truyen/fanqie/1/" + url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, "").match(/\d+/g)[0];
             data = getDetailStv(url);
-        } else if (url.includes("69shu")) {
+        } else if (url.includes("www.69")) {
             data = getDetail69shu(url);
         } else if (url.includes("html5")) {
             data = getDetailHtml5(url);
