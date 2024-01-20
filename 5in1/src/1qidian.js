@@ -48,27 +48,27 @@ function getDetailQidian(url) {
     }
     let cover1 = "https:" + $.Q(doc, '#bookImg img').attr('src');
     let author = doc.select('meta[property="og:novel:author"]').attr("content")
-    let a_gen = doc.select('.book-author .author-name > a');
-    let genres = [
-        {
-            title: a_gen.get(0).attr("title"),
-            input: "https:" + a_gen.get(1).attr("href").replace(/-subCateId\d+/g, "-page{page}-orderId10"),
-            script: "gen2.js"
-        },
-        {
-            title: a_gen.get(1).attr("title"),
-            input: "https:" + a_gen.get(1).attr("href") + "-page{page}-orderId10/",
-            script: "gen2.js"
-        }
-    ]
-    let tag = doc.select('#j-intro-honor-tag > p a');
-    tag.forEach(e => {
-        genres.push({
-            title: e.text(),
-            input: "https:" + e.attr("href") + "-page{page}-orderId10/",
-            script: "gen2.js"
-        })
-    })
+    // let a_gen = doc.select('.book-author .author-name > a');
+    // let genres = [
+    //     {
+    //         title: a_gen.get(0).attr("title"),
+    //         input: "https:" + a_gen.get(1).attr("href").replace(/-subCateId\d+/g, "-page{page}-orderId10"),
+    //         script: "gen2.js"
+    //     },
+    //     {
+    //         title: a_gen.get(1).attr("title"),
+    //         input: "https:" + a_gen.get(1).attr("href") + "-page{page}-orderId10/",
+    //         script: "gen2.js"
+    //     }
+    // ]
+    // let tag = doc.select('#j-intro-honor-tag > p a');
+    // tag.forEach(e => {
+    //     genres.push({
+    //         title: e.text(),
+    //         input: "https:" + e.attr("href") + "-page{page}-orderId10/",
+    //         script: "gen2.js"
+    //     })
+    // })
     let suggests = [
         {
             title: "Truyện cùng tác giả:",
@@ -87,7 +87,7 @@ function getDetailQidian(url) {
         author: author,
         description:  doc.select('#book-intro-detail').html(),
         host: STVHOST,
-        genres: genres,
+        // genres: genres,
         suggests: suggests,
     };
 }
