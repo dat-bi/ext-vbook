@@ -4,6 +4,8 @@ load('1fanqie.js');
 load('169shu.js');
 load('1uukanshu.js');
 load('1ptwxz.js');
+load('crypto.js');
+load('1qimao.js');
 // load('1html5.js');
 function execute(url) {
     // url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
@@ -25,6 +27,8 @@ function execute(url) {
             data = getToc69shu(id)
         } else if (url.includes("ptwxz")) {
             data = getTocPtwxz(id)
+        } else if (url.includes("qimao")) {
+            data = getTocQimao(id)
         } else {
             data = getTostv(url)
         }

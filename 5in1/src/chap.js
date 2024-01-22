@@ -4,6 +4,8 @@ load('1fanqie.js');
 load('169shu.js');
 load('1uukanshu.js');
 load('1ptwxz.js');
+load('1qimao.js');
+load('crypto.js');
 // load('1html5.js');
 function execute(url) {
     if (url.includes("fanqie")) {
@@ -12,6 +14,7 @@ function execute(url) {
     if (url.includes("vipreader")) {
         return Response.success(getChapQidian(url))
     }
+
     if (url.includes("sangtac") != 1) {
         if (url.includes("html5")) {
             return Response.success(getChapHtml5(url))
@@ -21,6 +24,8 @@ function execute(url) {
             return Response.success(getChap69shu(url))
         } else if (url.includes("uukanshu")) {
             return Response.success(getChapUukanshu(url))
+        } else if (url.includes("api-bc.wtzw")) {
+            return Response.success(getChapQimao(url))
         }
     } else {
         return Response.success("Hiện tại chưa lấy được nội dung từ STV, đọc web khác đi!")
