@@ -1,7 +1,7 @@
 var host69 = 'https://www.69xinshu.com';
 function getChap69shu(url) {
     var browser = Engine.newBrowser() // Khởi tạo browser
-    let doc = browser.launch(url, 5000) // Mở trang web với timeout, trả về Document object
+    let doc = browser.launch(url, 4000) // Mở trang web với timeout, trả về Document object
     // let doc = response.html();
     var htm = $.Q(doc, 'div.txtnav', { remove: ['h1', 'div'] }).html();
 

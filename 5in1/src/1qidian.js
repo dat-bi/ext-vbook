@@ -10,7 +10,6 @@ function getChapQidian(url) {
 }
 function getTocQidian(url) {
     let idBook = url.match(/\d+/g)[1];
-    console.log(url)
     let response = fetch("https://m.qidian.com/book/" + idBook + "/catalog/", {
         headers: {
             'user-agent': UserAgent.android(), // set chế độ điện thoại

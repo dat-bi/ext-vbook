@@ -9,10 +9,12 @@ function execute(url, page) {
         page: page || 1,
     });
     if (url.slice(-1) !== "/") url = url + "/";
-    log(url)
-    let response = fetch(url);
-    if (response.ok) {
-        let doc = response.html();
+    var browser = Engine.newBrowser() // Khởi tạo browser
+    let doc = browser.launch(url, 5000) // Mở trang web với timeout, trả về Document object
+    browser.close() // Đóng browser khi đã xử lý xong
+    // let response = fetch(url);
+    // if (response.ok) {
+    //     let doc = response.html();
         let data = [];
 
         let elems = $.QA(doc, '#book-img-text > ul > li');
@@ -35,6 +37,6 @@ function execute(url, page) {
         })
         let next = page* 1 + 1;
         return Response.success(data, next);
-    }
-    return null;
+    // }
+    // return null;
 }

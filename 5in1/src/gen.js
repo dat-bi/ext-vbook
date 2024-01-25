@@ -11,7 +11,7 @@ function execute(url, page) {
             year: time.split("/")[1],
             month: time.split("/")[0].toString().padStart(2, '0')
         });
-    
+
     } else {
         url = (host + url).formatUnicorn({
             page: page || 1,
@@ -19,32 +19,42 @@ function execute(url, page) {
             month: (new Date().getMonth() + 1).toString().padStart(2, '0')
         });
     }
-    let response = fetch(url);
-    if (response.ok) {
-        let doc = response.html();
-        let data = [];
-
-        let elems = $.QA(doc, '#rank-view-list > div > ul > li');
-        if (!elems.length) return null;
-
-        elems.forEach(function (e, index) {
-            let i = (page - 1) * 20 + + index + 1;
-            let link = $.Q(e, '.book-mid-info h2 a').attr('href').mayBeFillHost(host)
-            let newLink = STVHOST + "truyen/qidian/1/" + getLink(link) + "/";
-            data.push({
-                name: "<" + i + ">" + $.Q(e, '.book-mid-info h2 a').text(),
-                link: newLink,
-                cover: $.Q(e, 'div a img').attr('src').mayBeFillHost(host),
-                description: $.Q(e, '.book-mid-info p.update').text().replace('最新更新', '').trim()
-            })
+    // let response = fetch("https://m.qidian.com/book/" + idBook + "/catalog/", {
+    //     headers: {
+    //         'user-agent': UserAgent.android(), // set chế độ điện thoại
+    //     }
+    // });
+    var browser = Engine.newBrowser()
+    let doc = browser.launch(url, 5000)
+    browser.close()
+    // if (response.ok) {
+    // let doc = response.html();
+    let data = [];
+    let elems = $.QA(doc, '#rank-view-list > div > ul > li');
+    while (!elems.length) {
+        var browser = Engine.newBrowser()
+        doc = browser.launch(url, 5000)
+        elems = $.QA(doc, '#rank-view-list > div > ul > li');
+        browser.close()
+    };
+    elems.forEach(function (e, index) {
+        let i = (page - 1) * 20 + + index + 1;
+        let link = $.Q(e, '.book-mid-info h2 a').attr('href').mayBeFillHost(host)
+        let newLink = STVHOST + "truyen/qidian/1/" + getLink(link) + "/";
+        data.push({
+            name: "<" + i + ">" + $.Q(e, '.book-mid-info h2 a').text(),
+            link: newLink,
+            cover: $.Q(e, 'div a img').attr('src').mayBeFillHost(host),
+            description: $.Q(e, '.book-mid-info p.update').text().replace('最新更新', '').trim()
         })
+    })
 
-        let next = $.Q(doc, '#rank-view-list .rank-tag', -1).text();
-        // log(next);
+    let next = $.Q(doc, '#rank-view-list .rank-tag', -1).text();
+    // log(next);
 
-        if (next) next = +next / 20 + 1; // 20 items/page
+    if (next) next = +next / 20 + 1; // 20 items/page
 
-        return Response.success(data, next);
-    }
-    return null;
+    return Response.success(data, next);
+    // }
+    // return null;
 } 
