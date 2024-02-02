@@ -1,15 +1,19 @@
 var host69 = 'https://www.69xinshu.com';
 function getChap69shu(url) {
-    var browser = Engine.newBrowser() // Khởi tạo browser
-    let doc = browser.launch(url, 4000) // Mở trang web với timeout, trả về Document object
-    // let doc = response.html();
-    var htm = $.Q(doc, 'div.txtnav', { remove: ['h1', 'div'] }).html();
+    let response = fetch(url);
+    if (response.ok) {
+        let doc = response.html('gbk');
+        if (doc.html().includes("69shubaV1")) {
+            var browser = Engine.newBrowser() // Khởi tạo browser
+            doc = browser.launch(url, 4000)
+        }
+        var htm = $.Q(doc, 'div.txtnav', { remove: ['h1', 'div'] }).html();
 
-    htm = cleanHtml(htm)
-        .replace(/^ *第\d+章.*?<br>/, '') // Ex: '  第11745章 大结局，终<br>'
-        .replace('(本章完)', '')
-        ;
-    browser.close() // Đóng browser khi đã xử lý xong
+        htm = cleanHtml(htm)
+            .replace(/^ *第\d+章.*?<br>/, '') // Ex: '  第11745章 大结局，终<br>'
+            .replace('(本章完)', '')
+            ;
+    }
     return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");
 }
 function getToc69shu1(url) {

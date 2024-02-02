@@ -1,52 +1,43 @@
 load('libs.js');
 function execute(url, page) {
-    if (!page) page = 1;
     // https://m.qidian.com/majax/rank/reclist?gender=male&pageNum=2&_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6
     // url = `https://m.qidian.com/majax${url}list?gender=male&pageNum=${page}`
-    var browser = Engine.newBrowser()
-    let doc = browser.launch("https://m.qidian.com/majax/rank/reclist?gender=male&pageNum=2&_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6", 10000)
-    browser.close()
-    // let response = fetch("https://m.qidian.com/majax/rank/reclist?gender=male&pageNum=2&_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6"
-        // , {
-        //     method: "GET",    // GET, POST, PUT, DELETE, PATCH
-        //     headers: {
-        //         'user-agent': UserAgent.android(), // set chế độ điện thoại
-        //     },
-        //     queries: {
-        //         "pageNum": page,
-        //         // "gender": "male",
-        //         "_csrfToken": "VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6"
-        //     }
-        // }
-    // );
-    // if (response.ok) {
-        let json = doc.json();
+    if (!page) {
+        page = 1;
+        var browser = Engine.newBrowser()
+        browser.launch("https://my.qidian.com/author/9639927/", 6000)
+        let url1 = browser.urls()
+        browser.close()
+        var _csrfToken = url1.match(/_csrfToken(.*?)\\u0026/g)[0].replace("\\u0026", "").replace("\\u003d", "=")
+        log(_csrfToken)
+        var response = fetch(`https://m.qidian.com/majax/${url}list?gender=male&pageNum=1&${_csrfToken}`);
+
+        // var _csrfToken = `https://m.qidian.com/majax/${url}list?pageNum=1&_csrfToken=TyPFF7zEkSUdFK5m9p3433RdbHZtJQ1StcSCsW2c`
+        // log(_csrfToken)
+        // var response = fetch(_csrfToken);
+    } else {
+        _csrfToken = page.match(/_csrfToken(.*?)$/)[0]
+        log(_csrfToken)
+        response = fetch(page);
+    }
+    if (response.ok) {
+        let json = response.json();
         let data = [];
-        // let elems = json.data.total
-        log(json)
-        // if (!elems.length) {
-        //     var browser = Engine.newBrowser()
-        //     doc = browser.launch(url, 5000)
-        //     browser.close()
-        // };
-        // elems.forEach(function (e, index) {
-        //     let i = (page - 1) * 20 + + index + 1;
-        //     let link = $.Q(e, '.book-mid-info h2 a').attr('href').mayBeFillHost(host)
-        //     let newLink = STVHOST + "truyen/qidian/1/" + getLink(link) + "/";
-        //     data.push({
-        //         name: "<" + i + ">" + $.Q(e, '.book-mid-info h2 a').text(),
-        //         link: newLink,
-        //         cover: $.Q(e, 'div a img').attr('src').mayBeFillHost(host),
-        //         description: $.Q(e, '.book-mid-info p.update').text().replace('最新更新', '').trim()
-        //     })
-        // })
-
-        // let next = $.Q(doc, '#rank-view-list .rank-tag', -1).text();
-        // // log(next);
-
-        // if (next) next = +next / 20 + 1; // 20 items/page
-
-        // return Response.success(data, next);
-    // }
-    // return null;
-} 
+        log(json.msg)
+        let pageNum = (json.data.pageNum + 1).toString()
+        log(pageNum)
+        let next = `https://m.qidian.com/majax/${url}list?gender=male&pageNum=${pageNum}&${_csrfToken}`
+        let elems = json.data.records
+        elems.forEach(function (e, index) {
+            let i = (pageNum - 2) * 20 + index + 1;
+            data.push({
+                name: "<" + i + ">" + e.bName,
+                link: `${STVHOST}truyen/qidian/1/${e.bid}/`,
+                cover: `https://bookcover.yuewen.com/qdbimg/349573/${e.bid}/150.webp`,
+                description: e.bAuth + " " + e.rankCnt
+            })
+        })
+        return Response.success(data, next);
+    }
+    return null;
+}

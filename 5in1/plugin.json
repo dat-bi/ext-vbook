@@ -2,10 +2,10 @@
   "metadata": {
     "name": "5in1",
     "author": "B",
-    "version": 13,
+    "version": 14,
     "source": "https://sangtacviet.vip",
     "regexp": "(wwww.)?((fanqienovel.com/page/\\d+)|(fanqienovel.com/page/\\d+.*?)|fanqienovel.com/info(.*?)|((https://|http://)sangtacviet.*?/truyen/(qidian|ptwxz|fanqie|69shu|uukanshu|qimao)/1/\\d+.*?))|((www|m).(69shuba|69xinshu).com\/(txt|book)\/(.*?).htm)|(www.(ptwxz|piaotian).com/bookinfo/\\d+/\\d+.html$)|(book|m|www).qidian.com/(info|book)/(.*?)",
-    "description": "(5 trong 1) hỗ trợ đọc các web fanqie, qidian, 69shu, uukanshu, ptwxz, qimao (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
+    "description": "(5 trong 1) hỗ trợ đọc các web fanqie, qidian(chương free), 69shu, uukanshu, ptwxz, qimao (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
     "locale": "zh_CN",
     "language": "javascript",
     "type": "chinese_novel"

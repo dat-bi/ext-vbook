@@ -8,12 +8,14 @@ load('1ptwxz.js');
 function execute(url) {
     var data;
     if (url.includes("sangtac")) {
-        if (url.includes("qidian")) {
-            data = getDetailQidian(url);
-        } else {
-            url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
-            data = getDetailStv(url);
-        }
+        url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+        data = getDetailStv(url);
+        // if (url.includes("qidian")) {
+        //     data = getDetailQidian(url);
+        // } else {
+        //     url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+        //     data = getDetailStv(url);
+        // }
     } else {
         if ((url.includes("fqnovel") || url.includes("fanqie"))) {
             url = STVHOST + "/truyen/fanqie/1/" + url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, "").match(/\d+/g)[0];
@@ -24,7 +26,8 @@ function execute(url) {
             data = getDetailHtml5(url);
         } else if (url.includes("piaotian")) {
             data = getDetailPtwxz(url);
-        } else if (url.includes("qidian")) {
+        }
+        else if (url.includes("qidian")) {
             url = STVHOST + "/truyen/qidian/1/" + url.match(/\d+/g)[0];
             data = getDetailQidian(url);
         }

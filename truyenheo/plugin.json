@@ -2,8 +2,8 @@
   "metadata": {
     "name": "truyenheo",
     "author": "B",
-    "version": 9,
-    "source": "http://truyensextv.org",
+    "version": 10,
+    "source": "https://truyensextv.cc/",
     "regexp": "truyen(heo|sex).*?/[^/]+/?$",
     "description": "Đọc truyện trên trang http://truyensextv.me tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
     "locale": "vi_VN",

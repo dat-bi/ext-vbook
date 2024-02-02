@@ -19,11 +19,6 @@ function execute(url, page) {
             month: (new Date().getMonth() + 1).toString().padStart(2, '0')
         });
     }
-    // let response = fetch("https://m.qidian.com/book/" + idBook + "/catalog/", {
-    //     headers: {
-    //         'user-agent': UserAgent.android(), // set chế độ điện thoại
-    //     }
-    // });
     var browser = Engine.newBrowser()
     let doc = browser.launch(url, 5000)
     browser.close()

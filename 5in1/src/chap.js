@@ -11,7 +11,7 @@ function execute(url) {
     if (url.includes("fanqie")) {
         return Response.success(getChapFanqie(url))
     }
-    if (url.includes("vipreader")) {
+    if (url.includes("m.qidian")) {
         return Response.success(getChapQidian(url))
     }
 

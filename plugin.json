@@ -320,7 +320,7 @@
             "name": "truyenheo",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
-            "version": 9,
+            "version": 10,
             "source": "http://truyensextv.org",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
             "description": "Đọc truyện trên trang http://truyensextv.me tác giả là hajljnopera mà xóa rồi, dat-bi sửa",

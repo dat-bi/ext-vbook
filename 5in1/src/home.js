@@ -1,5 +1,6 @@
 function execute() {
     return Response.success([
+        { title: "Q票榜", input: "/rank/yuepiao", script: "gen0.js" },
         { title: "Q票榜", input: "/rank/yuepiao/year{year}-month{month}-page{page}/", script: "gen.js" },
         { title: "Q票榜[🎈]", input: "/rank/yuepiao/year{year}-month{month}-page{page}Q票榜/", script: "gen.js" },
         { title: "畅销榜", input: "/rank/hotsales/page{page}/", script: "gen.js" },

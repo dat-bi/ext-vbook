@@ -1,11 +1,16 @@
 function getChapQidian(url) {
-    var response = fetch(url);
+    var response = fetch(url, {
+        headers: {
+            'user-agent': UserAgent.android(), // set chế độ điện thoại
+        }
+    });
     var doc = response.html();
-    var htm =  doc.select('div.read-content.j_readContent').html();
-    var author_say = doc.select('.author-say p').first().html();
-    if(author_say){
-        htm = htm +"<br><br>PS:<br><br>"+  author_say;
-    }
+    console.log(doc)
+    var htm =  doc.select('.content').html();
+    // var author_say = doc.select('.author-say p').first().html();
+    // if(author_say){
+    //     htm = htm +"<br><br>PS:<br><br>"+  author_say;
+    // }
     return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");
 }
 function getTocQidian(url) {
@@ -24,13 +29,15 @@ function getTocQidian(url) {
         q.cs.forEach((e) => {
             data.push({
                 name: e.cN,
-                url: "https://vipreader.qidian.com/chapter/" + idBook + "/" + e.id,
+                url: "https://m.qidian.com/chapter/" + idBook + "/" + e.id + "/", //
                 pay: e.sS == 1 ? false : true,
             })
         });
     })
     return data
+    //https://vipreader.qidian.com/ajax/chapter/chapterInfo?_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6&bookId=1038465154&chapterId=776211503&authorId=402481273
 }
+//https://book.qidian.com/ajax/book/category?_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6&bookId=1038465154
 function getDetailQidian(url) {
     let idBook = url.match(/\d+/g)[1];
     url = 'https://www.qidian.com/book/' + idBook + '/';
