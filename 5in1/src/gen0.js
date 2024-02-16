@@ -1,6 +1,7 @@
 load('libs.js');
 function execute(url, page) {
     // https://m.qidian.com/majax/rank/reclist?gender=male&pageNum=2&_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6
+    // https://m.qidian.com/majax/rank/yuepiaolist?gender=male&pageNum=1&catId=21&yearmonth=202401&_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6
     // url = `https://m.qidian.com/majax${url}list?gender=male&pageNum=${page}`
     if (!page) {
         page = 1;
