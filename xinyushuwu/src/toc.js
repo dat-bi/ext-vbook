@@ -1,11 +1,7 @@
 load('libs.js');
-
+load('config.js');
 function execute(url) {
-    url = url.replace('xinyushuwu.com', 'xinyushuwu.org');
-    url = url.replace('xinyushuwu.org', 'xinyushuwu.net');
-    url = url.replace('m.xinyushuwu.net', 'www.xinyushuwu.net');
-    var host = 'https://www.xinyushuwu.net';
-    url = url.replace('m.xinyushuwu.net', 'www.xinyushuwu.net').append('/');
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL).append('/');
     var doc = Http.get(url).html('gbk');
 
     var data = [];
@@ -16,7 +12,7 @@ function execute(url) {
         data.push({
             name: e.text(),
             url: e.attr('href').mayBeFillHost(url),
-            host: host,
+            host: BASE_URL,
         })
     });
 

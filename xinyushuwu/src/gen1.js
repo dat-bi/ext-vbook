@@ -1,9 +1,8 @@
 load('libs.js');
-
+load('config.js');
 function execute(url, page) {
-    var host = 'https://www.xinyushuwu.net';
     if (!page) page = '1';
-    url = String.format(host + url, page);
+    url = String.format(BASE_URL + url, page);
     var doc = Http.get(url).html('gbk');
 
     var data = [];
@@ -16,7 +15,7 @@ function execute(url, page) {
             name: $.Q(e, 'td:nth-child(1) > p > a').text(),
             link: $.Q(e, 'td:nth-child(1) > p > a').attr('href'),
             description: $.Q(e, 'td:nth-child(3) > p').text(),
-            host: host
+            host: BASE_URL
         })
     })
 

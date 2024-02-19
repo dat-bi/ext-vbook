@@ -1,7 +1,6 @@
 load('libs.js');
-
+load('config.js');
 function execute(key, page) {
-    var host = 'https://www.xinyushuwu.net';
     var searchUrl = '{0}/modules/article/search.php?searchkey={1}&page={2}';
 
     var gbkEncode = function(s) {
@@ -9,7 +8,7 @@ function execute(key, page) {
         return GBK.encode(s);
     }
 
-    var http = Http.get(String.format(searchUrl, host, gbkEncode(key), page || '1'));
+    var http = Http.get(String.format(searchUrl, BASE_URL, gbkEncode(key), page || '1'));
     var doc = http.html('gbk');
 
     var data = [];
@@ -22,9 +21,9 @@ function execute(key, page) {
             data.push({
                 name: $.Q(e, 'a').text().trim(),
                 link: $.Q(e, 'a').attr('href'),
-                cover: genCover(host, link),
+                cover: genCover(BASE_URL, link),
                 description: $.Q(e, 'td.odd', 1).text(),
-                host: host
+                host: BASE_URL
             })
         })
 
@@ -36,10 +35,10 @@ function execute(key, page) {
         if (bookId && bookId[1]) {
             return Response.success([{
                 name: $.Q(doc, '.introduce > h1').text(),
-                link: String.format('{0}/{1}/{2}/', host, Math.floor(bookId[1] / 1000), bookId[1]),
+                link: String.format('{0}/{1}/{2}/', BASE_URL, Math.floor(bookId[1] / 1000), bookId[1]),
                 cover: $.Q(doc, '.catalog img').attr('src'),
                 description: $.Q(doc, '.introduce a[href*="author"]').text(),
-                host: host
+                host: BASE_URL
             }])
         }
     }

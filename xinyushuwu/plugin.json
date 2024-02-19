@@ -2,10 +2,10 @@
   "metadata": {
     "name": "xinyushuwu",
     "author": "B",
-    "version": 3,
-    "source": "https://www.xinyushuwu.net",
+    "version": 4,
+    "source": "https://m.xinyushuwu2.com",
     "regexp": "(www|m)\\.xinyushuwu.*?/\\d+/\\d+/?",
-    "description": "Đọc truyện trên trang https://www.xinyushuwu.net. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
+    "description": "Đọc truyện trên trang xinyushuwu. tác giả hajljnopera mà xóa rồi, dat-bi sửa",
     "local": "vi-VN",
     "language": "javascript",
     "type": "chinese_novel",
