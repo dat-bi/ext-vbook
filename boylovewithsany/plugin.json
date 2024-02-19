@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "boylovewithsany",
+    "author": "B",
+    "version": 1,
+    "source": "https://boylovewithsany.com/",
+    "regexp": "(www.)?boylovewithsany.*?/.*?",
+    "description": "Đọc truyện trên trang boylovewithsany",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "comic",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

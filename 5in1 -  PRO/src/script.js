@@ -9,13 +9,9 @@ function execute(url) {
     //     log(_csrfToken)
     // let json = fetch(url).json()
     // console.log(json.data.bookStatus)
-        let response = fetch("https://m.qidian.com/chapter/1038465154/776211503/", {
-        headers: {
-            'user-agent': UserAgent.android(), // set chế độ điện thoại
-        }
-    });
-    var htm =  response.html().select('.content').html();
-    console.log(htm)
+        let response = fetch("https://truyen.tangthuvien.vn/");
+    var htm =  response.headers
+    console.log(JSON.stringify(htm))
     // var _csrfToken = cookies.match(/_csrfToken=(.*?);/)[1];
     // log(_csrfToken)
     // let t = "https://m.qidian.com/majax/rank/reclist?gender=male&pageNum=2&_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6"
