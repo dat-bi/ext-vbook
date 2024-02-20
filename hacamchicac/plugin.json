@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "hacamchicac",
+    "author": "B",
+    "version": 1,
+    "source": "https://hacamchicac.com",
+    "regexp": "(www.)?hacamchicac.*?/.*?",
+    "description": "Đọc truyện trên trang hacamchicac",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "comic",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
