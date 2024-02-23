@@ -5,7 +5,7 @@ function execute(url) {
     if (response.ok) {
         var doc = response.html()
         let data = [];
-        doc.select(".content-container img").forEach(e => {
+        doc.select(".content_view_chap img").forEach(e => {
             let img = e.attr("src");
             data.push(img);
         });

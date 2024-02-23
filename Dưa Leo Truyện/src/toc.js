@@ -5,7 +5,7 @@ function execute(url) {
     if (response.ok) {
         let doc = response.html();
         let list = [];
-        doc.select(".list-chapters a").forEach(e => list.push({
+        doc.select(".box_list .chap_name a").forEach(e => list.push({
             name: e.text(),
             url: e.attr("href"),
             host: BASE_URL
