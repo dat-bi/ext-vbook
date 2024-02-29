@@ -34,7 +34,7 @@ function execute(url, page) {
                 name: "<" + i + ">" + e.bName,
                 link: `${STVHOST}truyen/qidian/1/${e.bid}/`,
                 cover: `https://bookcover.yuewen.com/qdbimg/349573/${e.bid}/150.webp`,
-                description: `${e.bAuth}-${e.rankCnt || e.state || ""}`
+                description: `${e.bAuth}- ${e.rankCnt || e.state || ""}`
             })
         })
         return Response.success(data, next);
