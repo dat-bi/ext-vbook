@@ -345,7 +345,7 @@
             "name": "truyenfullCom",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenfullCom/plugin.zip",
-            "version": 3,
+            "version": 4,
             "source": "https://truyenfull.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenfullCom/icon.png",
             "description": "Đọc truyện trên trang Truyện Full",

@@ -2,7 +2,7 @@
   "metadata": {
     "name": "truyenfullCom",
     "author": "B",
-    "version": 3,
+    "version": 4,
     "source": "https://truyenfull.com",
     "regexp": "(www.)?truyenfull.com/[^/]+/?$",
     "description": "Đọc truyện trên trang Truyện Full",
