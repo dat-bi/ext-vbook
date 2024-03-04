@@ -1,9 +1,9 @@
-var host69 = 'https://www.69xinshu.com';
+var host69 = 'https://www.69shu.pro';
 function getChap69shu(url) {
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
-        if (doc.html().includes("69shubaV1")) {
+        if (doc.html().includes("vip='69shu")) {
             var browser = Engine.newBrowser() // Khởi tạo browser
             doc = browser.launch(url, 4000)
         }

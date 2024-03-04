@@ -30,7 +30,7 @@
             "name": "5in1",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/plugin.zip",
-            "version": 15,
+            "version": 16,
             "source": "https://sangtacviet.vip",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/icon.png",
             "description": "(5 trong 1) hỗ trợ đọc các web fanqie, qidian(chương free), 69shu, uukanshu, ptwxz, qimao (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
@@ -45,6 +45,17 @@
             "source": "http://m.60ks.cc",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/60ks/icon.png",
             "description": "Đọc truyện trên trang 60ks.net",
+            "type": "chinese_novel",
+            "locale": "zh_CN"
+        },
+        {
+            "name": "69shu",
+            "author": "dat-bi",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/69shu/plugin.zip",
+            "version": 1,
+            "source": "https://69shux.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/69shu/icon.png",
+            "description": "Đọc truyện trên trang 69shuX",
             "type": "chinese_novel",
             "locale": "zh_CN"
         },
