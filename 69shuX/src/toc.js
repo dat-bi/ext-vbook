@@ -6,12 +6,12 @@ function execute(url) {
     const match = url.match(regex);
     let book_id = match[1];
     console.log(book_id)
-    let response = fetch(BASE_URL + "/book/" + book_id +"/index.html");
+    let response = fetch(BASE_URL + "/ajax_novels/chapterlist/" + book_id +".html");
     if (response.ok) {
         let doc = response.html();
 
 		var data = [];
-		var elems = $.QA(doc, 'div.catalog > ul > li > a:not(#bookcase)');
+		var elems = $.QA(doc, 'ul > li > a');
 		
 		elems.forEach(function(e) {
 			data.push({
