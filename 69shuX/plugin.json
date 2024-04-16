@@ -2,7 +2,7 @@
   "metadata": {
     "name": "69shuX",
     "author": "dat-bi",
-    "version": 3,
+    "version": 4,
     "source": "https://69shux.com",
     "regexp": "69shux\\.com/(txt|book)/.*?\\.html",
     "description": "Đọc truyện trên trang 69shuX",
