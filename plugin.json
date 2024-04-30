@@ -94,6 +94,18 @@
             "locale": "vi_VN",
             "tag": "nsfw"
         },
+                {
+            "name": "myreadingmanga",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/myreadingmanga/plugin.zip",
+            "version": 1,
+            "source": "https://myreadingmanga.info/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/myreadingmanga/icon.png",
+            "description": "Đọc truyện trên trang myreadingmanga",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
         {
             "name": "Buondua",
             "author": "hieu05",
