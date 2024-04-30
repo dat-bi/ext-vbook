@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "roadsteam",
+    "name": "myreadingmanga",
     "author": "B",
     "version": 1,
-    "source": "https://roadsteam.net/",
-    "regexp": "(www.)?roadsteam.*?/.*?",
-    "description": "Đọc truyện trên trang roadsteam",
+    "source": "https://myreadingmanga.info/",
+    "regexp": "https://myreadingmanga.*?/.*?/",
+    "description": "Đọc truyện trên trang myreadingmanga",
     "locale": "vi_VN",
     "language": "javascript",
     "type": "comic",
@@ -13,7 +13,6 @@
   },
   "script": {
     "home": "home.js",
-    "genre": "genre.js",
     "detail": "detail.js",
     "search": "search.js",
     "toc": "toc.js",
