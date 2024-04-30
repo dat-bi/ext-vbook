@@ -3,7 +3,7 @@ function execute(url) {
     if (response.ok) {
         var doc = response.html()
         let data
-        data = doc.select("#chapter-content").html()
+        data = doc.select("#read-content").html()
         return Response.success(data);
     }
     return null;
