@@ -1,7 +1,7 @@
 
 function execute(url, page) {
     if (!page) page = '1';
-    url = "https://myreadingmanga.info" + url + "/page/" + page + "/"
+    url = url + "/page/" + page + "/"
     var browser = Engine.newBrowser();
     browser.setUserAgent(UserAgent.android());
     var doc = browser.launch(url, 5000);

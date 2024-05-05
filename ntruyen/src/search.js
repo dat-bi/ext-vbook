@@ -1,19 +1,20 @@
-function execute(key, page) { 
+function execute(key, page) {
     var key = encodeURIComponent(key)
-    var url = "https://www.google.com/search?q="+key+"+site%3Ahttps%3A%2F%2Fntruyen.vn%2F"
-    let response = fetch(url)
+    let response = fetch("https://ntruyen.vn/tim-kiem/" + key)
     if (response) {
         let doc = response.html();
         let data = [];
-        let elems = doc.select("a[href*='url?q=https:']")
-        console.log(elems)
+        let elems = doc.select("#top-voted .small-story_item")
+        // console.log(elems)
         if (!elems.length) return Response.error(key);
 
-        elems.forEach(function(elems) {
-            var link = elems.select('a').attr('href').match(/https:\/\/ntruyen.vn\/(.*?).html/g)+""
+        elems.forEach(function (e) {
+            var link = e.select('a').first().attr('href')
             data.push({
-                name: elems.select('h3').text(),
-                link: link
+                name: e.select('a').first().attr('title'),
+                link: link,
+                cover: e.select('img').attr('src'),
+                description:  e.select('.story-title').text()
             })
         })
         return Response.success(data);

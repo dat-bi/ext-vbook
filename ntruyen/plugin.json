@@ -2,9 +2,9 @@
   "metadata": {
     "name": "ntruyen",
     "author": "B",
-    "version": 5,
+    "version": 6,
     "source": "https://ntruyen.vn/",
-    "regexp": "(www.)?ntruyen.vn/truyen/.*?.html",
+    "regexp": "https://ntruyen.vn/truyen/.*?-\\d+(.html)$",
     "description": "Truyện chữ tùm lum...",
     "locale": "vi_VN",
     "type": "novel",

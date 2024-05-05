@@ -258,7 +258,7 @@
             "name": "ntruyen",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ntruyen/plugin.zip",
-            "version": 5,
+            "version": 6,
             "source": "https://ntruyen.vn/",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ntruyen/icon.png",
             "description": "Truyện chữ tùm lum...",

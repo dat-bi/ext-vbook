@@ -1,12 +1,12 @@
 function execute(url, page) {
     if (!page) page = '1';
-    let response = fetch('https://ntruyen.vn/'+url,{
-        method : "GET",
-        queries : {
-            paged : page
+    let response = fetch('https://ntruyen.vn/' + url, {
+        method: "GET",
+        queries: {
+            paged: page
         }
     });
-    if(response.ok){
+    if (response.ok) {
         let doc = response.html();
         let next = doc.select(".pagination").select("li.active + li").text()
         let el = doc.select(".grid-story-item")

@@ -2,7 +2,7 @@
   "metadata": {
     "name": "myreadingmanga",
     "author": "B",
-    "version": 1,
+    "version": 2,
     "source": "https://myreadingmanga.info/",
     "regexp": "https://myreadingmanga.*?/.*?/",
     "description": "Đọc truyện trên trang myreadingmanga",
