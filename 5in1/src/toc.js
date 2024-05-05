@@ -38,7 +38,7 @@ function execute(url) {
             data = getTocQidian(url)
         } else if (url.includes("html5")) {
             data = getTocHtml5(url);
-        } else if (url.includes("piaotian")) {
+        } else if (url.includes("piaotia")) {
             data = getTocPtwxz1(url);
         } else if (url.includes("www.69")) {
             data = getToc69shu1(url);

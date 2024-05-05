@@ -24,7 +24,7 @@ function execute(url) {
             data = getDetail69shu(url);
         } else if (url.includes("html5")) {
             data = getDetailHtml5(url);
-        } else if (url.includes("piaotian")) {
+        } else if (url.includes("piaotia")) {
             data = getDetailPtwxz(url);
         }
         else if (url.includes("qidian")) {

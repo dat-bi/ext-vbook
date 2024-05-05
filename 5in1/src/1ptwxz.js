@@ -1,6 +1,5 @@
+var host_ptwxz = 'https://www.piaotia.com';
 function getDetailPtwxz(url) {
-    var host = 'https://www.piaotian.com';
-
     var response = fetch(url);
     var doc = response.html('gb2312');
 
@@ -15,7 +14,7 @@ function getDetailPtwxz(url) {
         author: author,
         description: description,
         detail: String.format('作者: {0}<br>类别: {1}', author, category),
-        host: host
+        host: host_ptwxz
     }
     return data
 }
@@ -27,8 +26,7 @@ function getChapPtwxz(url) {
     return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");
 }
 function getTocPtwxz1(url) {
-    var host = 'https://www.piaotian.com';
-    url = url.replace(/www\.piaotian\.com\/bookinfo\/(\d+)\/(\d+)\.html$/, 'www.piaotian.com/html/$1/$2/').append('/');
+    url = url.replace(/bookinfo\/(\d+)\/(\d+)\.html$/, '/html/$1/$2/').append('/');
 
     var response = fetch(url);
     var doc = response.html('gb2312');
@@ -42,14 +40,14 @@ function getTocPtwxz1(url) {
         data.push({
             name: e.text(),
             url: e.attr('href').mayBeFillHost(url),
-            host: host
+            host: host_ptwxz
         })
     });
 
     return data;
 }
 function getTocPtwxz(id) {
-    let url = `https://www.piaotian.com/html/${Math.floor(id / 1000)}/${id}/`;
+    let url = host_ptwxz + `/html/${Math.floor(id / 1000)}/${id}/`;
     var response = fetch(url);
     var doc = response.html('gb2312');
 
@@ -62,7 +60,7 @@ function getTocPtwxz(id) {
         data.push({
             name: e.text(),
             url: e.attr('href').mayBeFillHost(url),
-            host: "https://www.piaotian.com"
+            host: host_ptwxz
         })
     });
     return data;
