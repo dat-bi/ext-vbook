@@ -35,9 +35,9 @@ function getTocQidian(url) {
         });
     })
     return data
-    //https://vipreader.qidian.com/ajax/chapter/chapterInfo?_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6&bookId=1038465154&chapterId=776211503&authorId=402481273
+    //https://vipreader.qidian.com/ajax/chapter/chapterInfo?_csrfToken=lg4ZxvMuZMDb68RpqLFHuqScEu3wKHAmG0TbXcb6&bookId=1038465154&chapterId=776211503&authorId=402481273
 }
-//https://book.qidian.com/ajax/book/category?_csrfToken=VGcimHqXEuhHG54BcVuOK2ho1WukStoalTmFIRZ6&bookId=1038465154
+//https://book.qidian.com/ajax/book/category?_csrfToken=lg4ZxvMuZMDb68RpqLFHuqScEu3wKHAmG0TbXcb6&bookId=1038465154
 function getDetailQidian(url) {
     let idBook = url.match(/\d+/g)[1];
     url = 'https://www.qidian.com/book/' + idBook + '/';

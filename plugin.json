@@ -98,7 +98,7 @@
             "name": "myreadingmanga",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/myreadingmanga/plugin.zip",
-            "version": 1,
+            "version": 3,
             "source": "https://myreadingmanga.info/",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/myreadingmanga/icon.png",
             "description": "Đọc truyện trên trang myreadingmanga",
