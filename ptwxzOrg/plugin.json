@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "name": "ptwxzOrg",
+    "author": "B",
+    "version": 1,
+    "source": "https://ptwxz.org",
+    "regexp": "(www|m)?ptwxz.org/.*?/\\d+/(index.html)?",
+    "description": "Đọc truyện trên trang ptwxz",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

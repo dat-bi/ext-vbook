@@ -27,6 +27,17 @@
             "locale": "zh_CN"
         },
         {
+            "name": "ptwxzOrg",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ptwxzOrg/plugin.zip",
+            "version": 1,
+            "source": "https://ptwxz.org",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ptwxzOrg/icon.png",
+            "description": "Đọc truyện trên trang ptwxzOrg",
+            "type": "chinese_novel",
+            "locale": "zh_CN"
+        },
+        {
             "name": "5in1",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/plugin.zip",
@@ -94,7 +105,7 @@
             "locale": "vi_VN",
             "tag": "nsfw"
         },
-                {
+        {
             "name": "myreadingmanga",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/myreadingmanga/plugin.zip",
