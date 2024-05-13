@@ -14,10 +14,9 @@ function execute(url, page) {
         elems.forEach(function(e) {
             data.push({
                 name: $.Q(e, '.title').text().trim(),
-                link: $.Q(e, 'a').attr('href'),
+                link: BASE_URL + $.Q(e, 'a').attr('href'),
                 cover: $.Q(e, 'img').attr('src').trim(),
                 description: $.Q(e, '.author').text(),
-                host: BASE_URL
             })
         })
         var next = parseInt(page, 10) + 1;

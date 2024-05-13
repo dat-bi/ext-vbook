@@ -2,7 +2,7 @@ load('libs.js');
 load('config.js');
 
 function execute(url) {
-    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL).replace("index.html","");
+    url = url.replace("www.", "m.").replace("index.html", "")
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html();
