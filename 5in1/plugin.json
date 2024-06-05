@@ -2,10 +2,10 @@
   "metadata": {
     "name": "5in1",
     "author": "B",
-    "version": 17,
+    "version": 18,
     "source": "https://sangtacviet.vip",
-    "regexp": "(wwww.)?(((https://|http://)sangtacviet.*?/truyen/(qidian|ptwxz|fanqie|69shu|uukanshu|qimao)/1/\\d+.*?))|((www|m).(69shuba|69xinshu|69shu).(com|pro)\/(txt|book)\/(.*?).htm)|(www.(ptwxz|piaotian|piaotia).com/bookinfo/\\d+/\\d+.html$)|(book|m|www).qidian.com/(info|book)/(.*?)",
-    "description": "(5 trong 1) hỗ trợ đọc các web fanqie, qidian(chương free), 69shu, uukanshu, ptwxz, qimao (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
+    "regexp": "(wwww.)?(((https://|http://)sangtacviet.*?/truyen/(qidian|ptwxz|fanqie|69shu|qimao)/1/\\d+.*?))|((www|m).(69shuba|69xinshu|69shu).(com|pro|net)\/(txt|book)\/(.*?).htm)|((www|m).69yuedu.net\/article\/(.*?).html)|(www.(ptwxz|piaotian|piaotia).com/bookinfo/\\d+/\\d+.html$)|(book|m|www).qidian.com/(info|book)/(.*?)",
+    "description": "(5 trong 1) hỗ trợ đọc các web qidian(chương free), 69shu, ptwxz, qimao (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi)",
     "locale": "zh_CN",
     "language": "javascript",
     "type": "chinese_novel"
@@ -15,7 +15,6 @@
     "toc": "toc.js",
     "chap": "chap.js",
     "home": "home.js",
-    "page": "page.js",
     "search": "search.js",
     "genre": "genre.js"
   }

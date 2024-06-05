@@ -1,5 +1,9 @@
 function execute() {
     var data2 = [
+        { title: "Fanqie Tuần", input: "?find=&host=fanqie&minc=0&sort=viewweek&step=1&tag=", script: "gen1.js" },
+        { title: "Fanqie Ngày", input: "?find=&host=fanqie&minc=0&sort=viewday&step=1&tag=", script: "gen1.js" },
+        { title: "Fanqie đánh dấu", input: "?find=&host=fanqie&minc=0&sort=bookmarked&tag=", script: "gen1.js" },
+        { title: "Fanqie like", input: "?find=&host=fanqie&minc=0&sort=like&tag=", script: "gen1.js" },
         { title: '🔴Bảng tổng nguyệt phiếu🔴', input: '/majax/rank/yuepiaolist?gender=male&pageNum={page}&{_csrfToken}', script: 'cat.js' },
         { title: "玄幻", input: "/majax/rank/yuepiaolist?gender=male&pageNum={page}&catId=21&{_csrfToken}", script: "gen0.js" },
         { title: "奇幻", input: "/majax/rank/yuepiaolist?gender=male&pageNum={page}&catId=1&{_csrfToken}", script: "gen0.js" },

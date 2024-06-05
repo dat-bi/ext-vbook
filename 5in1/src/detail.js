@@ -1,29 +1,18 @@
 load('libs.js');
 load('1qidian.js');
-load('1fanqie.js');
 load('169shu.js');
-load('1uukanshu.js');
+load('269shu.js');
 load('1ptwxz.js');
-// load('1html5.js');
 function execute(url) {
     var data;
     if (url.includes("sangtac")) {
         url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
         data = getDetailStv(url);
-        // if (url.includes("qidian")) {
-        //     data = getDetailQidian(url);
-        // } else {
-        //     url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
-        //     data = getDetailStv(url);
-        // }
     } else {
-        if ((url.includes("fqnovel") || url.includes("fanqie"))) {
-            url = STVHOST + "/truyen/fanqie/1/" + url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, "").match(/\d+/g)[0];
-            data = getDetailStv(url);
-        } else if (url.includes("www.69")) {
+        if (url.includes("69shu")) {
             data = getDetail69shu(url);
-        } else if (url.includes("html5")) {
-            data = getDetailHtml5(url);
+        } else if (url.includes("69yuedu")) {
+            data = getDetail69yuedu(url);
         } else if (url.includes("piaotia")) {
             data = getDetailPtwxz(url);
         }
@@ -51,24 +40,6 @@ function getDetailStv(url) {
         }
     ];
     let genres = [];
-    // if (url.includes("fanqie")) {
-    //     let idBook = url.match(/\d+/g)[1];
-    //     let json = fetch("http://localhost:9999/info?book_id=" + idBook).json()
-    //     let book_info = json.data.data;
-    //     let a_gen = JSON.parse(book_info.category_schema)
-    //     a_gen.forEach(e => {
-    //         genres.push({
-    //             title: e.name,
-    //             input: "http://localhost:9999/reading/bookapi/new_category/landing/v/?category_id=" + e.category_id + "&offset={{page}}&sub_category_id&genre_type=0&limit=10&source=front_category&front_page_selected_category&no_need_all_tag=true&query_gender=1",
-    //             script: "gen_fanqie.js"
-    //         })
-    //     });
-    //     suggests[0] = {
-    //         title: "Truyện cùng tác giả:",
-    //         input: author,
-    //         script: "search.js"
-    //     }
-    // }
     let data = {
         name: doc.select("#oriname").text(),
         cover: doc.select(".container:has(#book_name2) img").first().attr("src"),
