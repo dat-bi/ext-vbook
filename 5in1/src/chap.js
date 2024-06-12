@@ -3,6 +3,7 @@ load('1qidian.js');
 load('169shu.js');
 load('269shu.js');
 load('1ptwxz.js');
+load('1fanqie.js');
 load('1qimao.js');
 load('crypto.js');
 function execute(url) {
@@ -23,6 +24,9 @@ function execute(url) {
             return Response.success(getChapQimao(url))
         }
     } else {
+        if (url.includes("fanqie")) {
+            return Response.success(getChapFanqie(url))
+        }
         return Response.success("Hiện tại chưa lấy được nội dung từ STV, đọc web khác đi!")
     }
 }

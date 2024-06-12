@@ -25,7 +25,7 @@ function execute(url) {
     } else {
 
         if (url.includes("qidian")) {
-            url = STVHOST + "truyen/qidian/1/" + url.match(/\d+/g)[0] + "/";
+            url = STVHOST + "/truyen/qidian/1/" + url.match(/\d+/g)[0] + "/";
             console.log(url)
             data = getTocQidian(url)
         } else if (url.includes("piaotia")) {
@@ -45,6 +45,7 @@ function getTostv(url) {
     let host = url.split('/truyen/')[0];
     const source = url.split('/')[4];
     const bookId = url.split('/')[6];
+    console.log(host + " " + source +  " " + bookId)
     let list = [];
     var browser = Engine.newBrowser();
     browser.setUserAgent(UserAgent.android());
