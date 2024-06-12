@@ -35,7 +35,7 @@ function execute(url, page) {
     elems.forEach(function (e, index) {
         let i = (page - 1) * 20 + + index + 1;
         let link = $.Q(e, '.book-mid-info h2 a').attr('href').mayBeFillHost(host)
-        let newLink = STVHOST + "truyen/qidian/1/" + getLink(link) + "/";
+        let newLink = STVHOST + "/truyen/qidian/1/" + getLink(link) + "/";
         data.push({
             name: "<" + i + ">" + $.Q(e, '.book-mid-info h2 a').text(),
             link: newLink,

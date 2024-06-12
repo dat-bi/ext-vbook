@@ -35,7 +35,7 @@ function execute(url, page) {
             let i = (pageNum - 2) * 20 + index + 1;
             data.push({
                 name: "<" + i + ">" + e.bName,
-                link: `${STVHOST}truyen/qidian/1/${e.bid}/`,
+                link: `${STVHOST}/truyen/qidian/1/${e.bid}/`,
                 cover: `https://bookcover.yuewen.com/qdbimg/349573/${e.bid}/150.webp`,
                 description: e.bAuth + " " + e.rankCnt
             })
