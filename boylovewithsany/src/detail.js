@@ -11,7 +11,7 @@ function execute(url) {
             cover: coverImg,
             author:  doc.select(".infox .spe span:nth-child(3)").first().text().replace("Tác Giả",""),
             
-            description: doc.select(".infox").first().html() + doc.select(".desc").first().html()
+            description:  doc.select(".desc").first().html()
         });
     }
     return null;
