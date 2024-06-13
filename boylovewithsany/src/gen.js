@@ -5,7 +5,10 @@ function execute(url) {
         let doc = response.html();
         let data = [];
         doc.select(" .animepost>.animposx a").forEach(e => {
-            let coverImg = e.select("img").attr("data-src");
+            let coverImg = e.select("img").attr("data-lazy-src");
+            if(coverImg.length < 30){
+                coverImg = e.select("img").attr("data-src");
+            }
             data.push({
                 name: e.attr("title"),
                 link: e.attr("href"),
