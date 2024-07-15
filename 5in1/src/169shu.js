@@ -1,4 +1,4 @@
-var host69 = 'https://www.69shuba.pro';
+var host69 = 'https://www.69shuba.cx';
 function getChap69shu(url) {
     let response = fetch(url);
     if (response.ok) {
@@ -30,7 +30,7 @@ function getToc69shu1(url) {
                 host: host69
             })
         });
-        return data;
+        return data.reverse ();
     }
 }
 function formatName(name) {
