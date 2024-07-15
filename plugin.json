@@ -60,13 +60,13 @@
             "locale": "zh_CN"
         },
         {
-            "name": "69shuX",
-            "author": "dat-bi",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/69shuX/plugin.zip",
-            "version": 4,
-            "source": "https://69shux.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/69shuX/icon.png",
-            "description": "Đọc truyện trên trang 69shuX",
+            "name": "twkan",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/twkan/plugin.zip",
+            "version": 1,
+            "source": "https://twkan.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/twkan/icon.png",
+            "description": "Đọc truyện trên trang twkan",
             "type": "chinese_novel",
             "locale": "zh_CN"
         },

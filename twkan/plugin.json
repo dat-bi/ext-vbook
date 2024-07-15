@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "69shuX",
+    "name": "twkan",
     "author": "B",
-    "version": 4,
-    "source": "https://69shux.com",
-    "regexp": "69shux\\.com/(txt|book)/.*?\\.html",
-    "description": "Đọc truyện trên trang 69shuX",
+    "version": 1,
+    "source": "https://twkan.com",
+    "regexp": "twkan\\.com/(txt|book)/.*?\\.html",
+    "description": "Đọc truyện trên trang twkan",
     "locale": "zh_CN",
     "language": "javascript",
     "type": "chinese_novel"
