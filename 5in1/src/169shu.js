@@ -30,7 +30,7 @@ function getToc69shu1(url) {
                 host: host69
             })
         });
-        return data.reverse ();
+        return data.reverse();
     }
 }
 function formatName(name) {
@@ -51,7 +51,7 @@ function getToc69shu(id) {
                 host: host69
             })
         });
-        return data;
+        return data.reverse();
     }
 }
 function getDetail69shu(url) {
