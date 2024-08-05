@@ -1,12 +1,15 @@
+
 function execute(url) {
-    var doc = Http.get(url).html();
-    var list = [];
-    var truyenId = doc.select("input#truyen-id").attr("value");
-    var truyenAscii = doc.select("input#truyen-ascii").attr("value");
-    var page = doc.select("input#total-page").attr("value");
-    if (page) page = parseInt(page); else page = 1;
-    for (var i = 1; i <= page; i++) {
-        list.push("https://trumtruyen.vn/ajax.php?type=list_chapter&tid=" + truyenId + "&tascii=" + truyenAscii + "&page=" + i + "&totalp=" + page);
+    let response = fetch(url);
+    if (response.ok) {
+        let doc = response.html();
+        let el = doc.select(".page-item:nth-last-child(2) .page-link").text();
+        if(!el){return Response.success(url  + "?page=" + 1); }
+        const data = [];
+        for (let i = 1; i <= el; i++) {
+            data.push(url  + "?page=" +  i)
+        }
+        return Response.success(data);
     }
-    return Response.success(list);
+    return null;
 }
