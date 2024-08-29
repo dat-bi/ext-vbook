@@ -6,7 +6,7 @@ function execute(url) {
         var doc = response.html()
         let data = [];
         doc.select("#imagech").forEach(e => {
-            let img = e.attr("data-lazy-src");
+            let img = e.attr("data-src");
             if(img){
                 data.push(img);
             }

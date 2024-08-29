@@ -8,7 +8,7 @@ function execute(key, page) {
         let doc = response.html();
         let data = [];
         let e = doc.select(".archive-grid-post").first()
-            let coverImg = e.select("img").first().attr("src");
+            let coverImg = e.select("img").first().attr("data-src");
             data.push({
                 name: e.select("a").first().text().replace(/\| Chap \d+/g,""),
                 link: e.select("a").attr("href"),

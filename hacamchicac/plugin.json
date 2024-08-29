@@ -2,7 +2,7 @@
   "metadata": {
     "name": "hacamchicac",
     "author": "B",
-    "version": 2,
+    "version": 3,
     "source": "https://hacamchicac.com",
     "regexp": "(www.)?hacamchicac.*?/.*?",
     "description": "Đọc truyện trên trang hacamchicac",
