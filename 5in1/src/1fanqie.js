@@ -15,7 +15,7 @@ function getChapFanqie(url) {
     // })
     // if (response_chapter_info.ok) {
         let text = doc.text()
-        text = text.replace(/(\{\"code.*?content":\")/g,"").replace(/\"\,\"creationStatus.*}/g,"").replace(/\\u003cp\\u003e/g,"").replace(/\\u003c\/p\\u003e/g,"<br><br>")
+        text = text.replace(/(\{\"code.*?content":\")/g,"").replace(/\"\,\"creationStatus.*}/g,"").replace(/\\u003cp\\u003e/g,"").replace(/\\u003c\/p\\u003e/g,"<br><br>").replace(/\\u003cimg.*?img\\u003e/g,"")
         console.log(text)
         // let chapter_info = r_content(json.data.chapterData.content)
         let chapter_info = r_content(text)
