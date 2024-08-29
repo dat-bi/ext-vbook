@@ -22,13 +22,11 @@ function execute(url) {
             return Response.success(getChap69yuedu(url))
         } else if (url.includes("api-bc.wtzw")) {
             return Response.success(getChapQimao(url))
-        }
-    } else {
-        if (url.includes("fanqie")) {
+        } else if (url.includes("fanqie")) {
             return Response.success(getChapFanqie(url))
         }
-        return Response.success("Hiện tại chưa lấy được nội dung từ STV, đọc web khác đi!")
     }
+        return Response.success("Hiện tại chưa lấy được nội dung từ STV, đọc web khác đi!")
 }
 
 // function getTostv(url) {

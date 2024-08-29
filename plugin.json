@@ -5,17 +5,6 @@
     },
     "data": [
         {
-            "name": "[Review] tuishujun 💬",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/%5BReview%5D%20tuishujun%20%F0%9F%92%AC/plugin.zip",
-            "version": 1,
-            "source": "https://www.tuishujun.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/%5BReview%5D%20tuishujun%20%F0%9F%92%AC/icon.png",
-            "description": "Xem đánh giá truyện trên trang https://www.tuishujun.com/",
-            "type": "chinese_novel",
-            "locale": "zh_CN"
-        },
-        {
             "name": "123ds",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/123ds/plugin.zip",
@@ -41,7 +30,7 @@
             "name": "5in1",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/plugin.zip",
-            "version": 23,
+            "version": 24,
             "source": "https://sangtacviet.vip",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/icon.png",
             "description": "(5 trong 1) hỗ trợ đọc các web fanqie, qidian(chương free), 69shu, uukanshu, ptwxz, qimao (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
@@ -94,30 +83,6 @@
             "tag": "nsfw"
         },
         {
-            "name": "boylovewithsany",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/boylovewithsany/plugin.zip",
-            "version": 3,
-            "source": "https://boylovewithsany.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/boylovewithsany/icon.png",
-            "description": "Đọc truyện trên trang boylovewithsany",
-            "type": "comic",
-            "locale": "vi_VN",
-            "tag": "nsfw"
-        },
-        {
-            "name": "myreadingmanga",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/myreadingmanga/plugin.zip",
-            "version": 3,
-            "source": "https://myreadingmanga.info/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/myreadingmanga/icon.png",
-            "description": "Đọc truyện trên trang myreadingmanga",
-            "type": "comic",
-            "locale": "vi_VN",
-            "tag": "nsfw"
-        },
-        {
             "name": "Buondua",
             "author": "hieu05",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Buondua/plugin.zip",
@@ -161,30 +126,6 @@
             "description": "Đọc truyện trên trang downbook.cc",
             "type": "chinese_novel",
             "locale": "zh-CN"
-        },
-        {
-            "name": "Dưa Leo Truyện",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/D%C6%B0a%20Leo%20Truy%E1%BB%87n/plugin.zip",
-            "version": 9,
-            "source": "https://dualeotruyenza.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/D%C6%B0a%20Leo%20Truy%E1%BB%87n/icon.png",
-            "description": "Đọc truyện trên trang dualeotruyen",
-            "type": "comic",
-            "locale": "vi_VN",
-            "tag": "nsfw"
-        },
-        {
-            "name": "hacamchicac",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/hacamchicac/plugin.zip",
-            "version": 2,
-            "source": "https://hacamchicac.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/hacamchicac/icon.png",
-            "description": "Đọc truyện trên trang hacamchicac",
-            "type": "comic",
-            "locale": "vi_VN",
-            "tag": "nsfw"
         },
         {
             "name": "kanshuwu",
@@ -244,28 +185,6 @@
             "tag": "nsfw"
         },
         {
-            "name": "mmdaobaobei",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mmdaobaobei/plugin.zip",
-            "version": 1,
-            "source": "https://www.mmdaobaobei.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mmdaobaobei/icon.png",
-            "description": " - Nữu Nữu câu lạc bộ văn học",
-            "type": "chinese_novel",
-            "tag": "nsfw"
-        },
-        {
-            "name": "Nhúng Truyện",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Nh%C3%BAng%20Truy%E1%BB%87n/plugin.zip",
-            "version": 19,
-            "source": "https://nhungtruyen.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Nh%C3%BAng%20Truy%E1%BB%87n/icon.png",
-            "description": "Muốn thêm truyện từ khác nguồn mặc định thì vào 1 chương truyện bất kỳ của nguồn khác ý rồi get truyện về <br> Mặc định dịch không bật đồng nhân + văn phong cổ đại <br> Muốn bật name đồng nhân + văn phong cổ đại của truyện nào thì thêm '?vbook11' vào cuối link truyện, rồi nhúng lại truyện <br> Không bật đồng nhân + văn phong hiện đại = '?vbook02' <br> Bật đồng nhân + văn phong hiện đại = '?vbook12'",
-            "type": "novel",
-            "locale": "vi_VN"
-        },
-        {
             "name": "ntruyen",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ntruyen/plugin.zip",
@@ -275,17 +194,6 @@
             "description": "Truyện chữ tùm lum...",
             "type": "novel",
             "locale": "vi_VN"
-        },
-        {
-            "name": "Qianluxiaoshuo - Tiền Lộ",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Qianluxiaoshuo%20-%20Ti%E1%BB%81n%20L%E1%BB%99/plugin.zip",
-            "version": 5,
-            "source": "https://www.qianluxiaoshuo.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Qianluxiaoshuo%20-%20Ti%E1%BB%81n%20L%E1%BB%99/icon.png",
-            "description": "Đọc truyện trên trang qianluxiaoshuo",
-            "type": "chinese_novel",
-            "locale": "zh_CN"
         },
         {
             "name": "qubook",
@@ -308,18 +216,6 @@
             "description": "Đọc truyện trên trang http://www.ranwen.la",
             "type": "chinese_novel",
             "locale": "zh_CN"
-        },
-        {
-            "name": "roadsteam",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/roadsteam/plugin.zip",
-            "version": 1,
-            "source": "https://roadsteam.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/roadsteam/icon.png",
-            "description": "Đọc truyện trên trang roadsteam",
-            "type": "comic",
-            "locale": "vi_VN",
-            "tag": "nsfw"
         },
         {
             "name": "shushuwuxs",
@@ -399,18 +295,6 @@
             "tag": "nsfw"
         },
         {
-            "name": "truyenngontinh",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenngontinh/plugin.zip",
-            "version": 1,
-            "source": "https://truyenngontinh.net",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenngontinh/icon.png",
-            "description": "Đọc truyện trên trang https://truyenngontinh.net tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
-            "type": "novel",
-            "locale": "vi_VN",
-            "tag": "nsfw"
-        },
-        {
             "name": "Tu Chân Giới",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tu%20Ch%C3%A2n%20Gi%E1%BB%9Bi/plugin.zip",
@@ -420,18 +304,6 @@
             "description": "Đọc truyện trên trang tienhiep.net",
             "type": "novel",
             "locale": "vi_VN"
-        },
-        {
-            "name": "tuoinung",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/plugin.zip",
-            "version": 7,
-            "source": "https://tuoinung.cc",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tuoinung/icon.png",
-            "description": "18+",
-            "type": "novel",
-            "locale": "vi-VN",
-            "tag": "nsfw"
         },
         {
             "name": "xinyushuwu",

@@ -45,38 +45,56 @@ function getTostv(url) {
     let host = url.split('/truyen/')[0];
     const source = url.split('/')[4];
     const bookId = url.split('/')[6];
-    console.log(host + " " + source +  " " + bookId)
+    console.log(host + " " + source + " " + bookId)
     let list = [];
-    var browser = Engine.newBrowser();
-    browser.setUserAgent(UserAgent.android());
-    browser.launch(url, 4000);
-    browser.callJs(`
-document.createElement = function(create) {
-    return function() {
-        var ret = create.apply(this, arguments);
-        if (ret.tagName.toLowerCase() === "a" && arguments.callee.caller.toString().startsWith("function(e,a,b)")) { //
-            arguments.callee.caller.arguments[0].setAttribute("chap-url", "/truyen/${source}/" + arguments.callee.caller.arguments[1] + "/${bookId}/" + arguments.callee.caller.arguments[2] + "/");
+    let newurl = `https://fanqienovel.com/page/${bookId}`
+    console.log(newurl)
+
+    let response = fetch(newurl);
+    if (response.ok) {
+        let doc = response.html();
+
+        let el = doc.select(".page-directory-content a.chapter-item-title")
+
+        for (var i = 0; i < el.size(); i++) {
+            var e = el.get(i);
+            list.push({
+                name: e.text(),
+                url: "https://fanqienovel.com" + e.attr("href")
+            })
         }
-        return ret;
-    };
-}(document.createElement)
-`, 0);
-
-    browser.callJs("renewchapter(true);", 1000);
-
-    do {
-        var listchapitems = browser.html().select(".listchapitem");
-    } while (listchapitems.length == 0);
-
-    listchapitems.forEach(chapItem => {
-        let title = chapItem.text();
-        let chapUrl = chapItem.attr("chap-url");
-        list.push({
-            name: title,
-            url: chapUrl,
-            host: host,
-        });
-    });
-
+    }
     return list;
+    //     var browser = Engine.newBrowser();
+    //     browser.setUserAgent(UserAgent.android());
+    //     browser.launch(url, 4000);
+    //     browser.callJs(`
+    // document.createElement = function(create) {
+    //     return function() {
+    //         var ret = create.apply(this, arguments);
+    //         if (ret.tagName.toLowerCase() === "a" && arguments.callee.caller.toString().startsWith("function(e,a,b)")) { //
+    //             arguments.callee.caller.arguments[0].setAttribute("chap-url", "/truyen/${source}/" + arguments.callee.caller.arguments[1] + "/${bookId}/" + arguments.callee.caller.arguments[2] + "/");
+    //         }
+    //         return ret;
+    //     };
+    // }(document.createElement)
+    // `, 0);
+
+    //     browser.callJs("renewchapter(true);", 1000);
+
+    //     do {
+    //         var listchapitems = browser.html().select(".listchapitem");
+    //     } while (listchapitems.length == 0);
+
+    //     listchapitems.forEach(chapItem => {
+    //         let title = chapItem.text();
+    //         let chapUrl = chapItem.attr("chap-url");
+    //         list.push({
+    //             name: title,
+    //             url: chapUrl,
+    //             host: host,
+    //         });
+    //     });
+
+
 }

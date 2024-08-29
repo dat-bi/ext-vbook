@@ -1,18 +1,26 @@
 function getChapFanqie(url) {
-    let chapid = url.match(/\d+/g)[2]
-    url = "https://fanqienovel.com/api/reader/full?itemId=" + chapid
-    const cookie = "novel_web_id=7357767624615331362;";
+    const regex = /(?:item_id=|\/)(\d+)$/;
+    let chapid = url.match(regex)[1]
 
-    let response_chapter_info = fetch(url, {
-        headers: {
-            'Cookie': cookie
-        }
-    })
-    if (response_chapter_info.ok) {
-        let json = response_chapter_info.json();
-        let chapter_info = r_content(json.data.chapterData.content)
+    url = "https://fanqienovel.com/api/reader/full?itemId=" + chapid
+    var browser = Engine.newBrowser() // Khởi tạo browser
+    let doc = browser.launch(url, 5000) // Mở trang web với timeout, trả về Document object
+    browser.close() // Đóng browser khi đã xử lý xong
+    // const cookie = "novel_web_id=7357767624615331362;";
+    // console.log(url)
+    // let response_chapter_info = fetch(url, {
+    //     headers: {
+    //         'Cookie': cookie
+    //     }
+    // })
+    // if (response_chapter_info.ok) {
+        let text = doc.text()
+        text = text.replace(/(\{\"code.*?content":\")/g,"").replace(/\"\,\"creationStatus.*}/g,"").replace(/\\u003cp\\u003e/g,"").replace(/\\u003c\/p\\u003e/g,"<br><br>")
+        console.log(text)
+        // let chapter_info = r_content(json.data.chapterData.content)
+        let chapter_info = r_content(text)
         return chapter_info;
-    }
+    // }
     return "lỗi";
 }
 

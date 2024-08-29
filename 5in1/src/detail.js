@@ -29,7 +29,7 @@ function getDetailStv(url) {
     let response = fetch(url + '/');
     // let doc = response.html();
     var browser = Engine.newBrowser() // Khởi tạo browser
-    let doc = browser.launch(url, 2000) // Mở trang web với timeout, trả về Document object
+    let doc = browser.launch(url, 7000) // Mở trang web với timeout, trả về Document object
     browser.close() // Đóng browser khi đã xử lý xong
     var author = doc.select("i.cap").attr("onclick").replace(/location=\'\/\?find\=&findinname\=(.*?)\'/g, "$1");
     let des = doc.select(".blk:has(.fa-water) .blk-body").html();
