@@ -2,7 +2,7 @@
   "metadata": {
     "name": "boylovewithsany",
     "author": "B",
-    "version": 3,
+    "version": 4,
     "source": "https://boylovewithsany.com/",
     "regexp": "(www.)?boylovewithsany.*?/.*?",
     "description": "Đọc truyện trên trang boylovewithsany",
