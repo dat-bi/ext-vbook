@@ -6,7 +6,7 @@ function execute(url) {
         var doc = response.html()
         let data = [];
         doc.select(".inner-entry-content p img").forEach(e => {
-            let img = e.attr("src").replace("https://i.imgur.com/XTuTfE4.jpg","").replace("https://hacamchicac.com/tt.jpg","");
+            let img = e.attr("data-src");
             if (!img.includes("https:") && img != ""){
                 img  = "https://hacamchicac.com" +img
             }
