@@ -1,4 +1,4 @@
-var host69 = 'https://www.69shuba.cx';
+var host69 = 'https://69shu.me';
 function getChap69shu(url) {
     let response = fetch(url);
     if (response.ok) {
@@ -39,6 +39,7 @@ function formatName(name) {
 }
 function getToc69shu(id) {
     url = host69 + '/book/' + id + '/'
+    console.log(url)
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
