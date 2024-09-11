@@ -47,21 +47,23 @@ function getToFA(url) {
     const bookId = url.split('/')[6];
     console.log(host + " " + source + " " + bookId)
     let list = [];
-    let newurl = `https://fanqienovel.com/page/${bookId}`
+    let newurl = `https://fanqienovel.com/api/reader/directory/detail?bookId=${bookId}`   // /api/reader/directory/detail?bookId=
     let response = fetch(newurl)
     if (response.ok) {
-        let doc = response.text()
-        let text = doc.match(/INITIAL_STATE__\=(.*?)\;/g)[0].replace("INITIAL_STATE__=", "").replace(";", "")
+        let doc = response.json()
+        // let text = doc.match(/INITIAL_STATE__\=(.*?)\;/g)[0].replace("INITIAL_STATE__=", "").replace(";", "")
         // console.log(text)
-        let json = JSON.parse(text);
-        let el = json.page.chapterListWithVolume[0]
-        // console.log(el)
-        el.forEach((e) => {
+        // let json = JSON.parse(text);
+        // let el = json.page.chapterListWithVolume
+        let el = doc.data.chapterListWithVolume
+         el.forEach((q) => {
+        q.forEach((e) => {
             list.push({
                 name: e.title,
                 url: url + e.itemId
             })
         })
+         })
     }
 
     return list;
