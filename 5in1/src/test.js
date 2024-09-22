@@ -2,13 +2,12 @@ function execute(url) {
     // let response = fetch(url);
     // let doc = response.html();
     // console.log(doc.select("body > script:nth-child(3)"))
-    url = "https://fanqienovel.com/api/reader/full?itemId=" + "7350108490167241753"
+    url = "http://14.225.254.182/truyen/qidian/1/1040216164/" 
     console.log(url)
     var browser = Engine.newBrowser() // Khởi tạo browser
     let doc = browser.launch(url, 5000) // Mở trang web với timeout, trả về Document object
-    browser.callJs('document.cookie = "novel_web_id=7357767624615331362;";', 200)
     browser.close() // Đóng browser khi đã xử lý xong
-    let text = doc.text()
+    let text = doc.html()
     console.log(text)
     //     var author = doc.select("i.cap").attr("onclick").replace(/location=\'\/\?find\=&findinname\=(.*?)\'/g, "$1");
     //     let des = doc.select(".blk:has(.fa-water) .blk-body").html();

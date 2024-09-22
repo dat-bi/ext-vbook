@@ -9,8 +9,8 @@ function execute(url) {
 
     var id = url.replace(/https.*?\/1\//g, "").replace("/", "")
     var data;
-    if (url.includes("sangtac")) {
-        url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+   if (url.includes("sangtac")||url.includes("14.225.254.182")) {
+        url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, "https://sangtacviet.vip")
         if (url.includes("qidian")) {
             data = getTocQidian(url)
         } else if (url.includes("69shu")) {

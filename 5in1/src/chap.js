@@ -10,7 +10,7 @@ function execute(url) {
     if (url.includes("m.qidian")) {
         return Response.success(getChapQidian(url))
     }
-    if (url.includes("sangtac") != 1) {
+    if (url.includes("sangtac") != 1 || url.includes("14.225.254.182") != 1) {
         if (url.includes("html5")) {
             return Response.success(getChapHtml5(url))
         } else if (url.includes("piaotia")) {
@@ -23,7 +23,7 @@ function execute(url) {
             return Response.success(getChapQimao(url))
         }
     }
-    if  (url.includes("fanqie")) {
+    if (url.includes("fanqie")) {
         return Response.success(getChapFanqie(url))
     }
 }

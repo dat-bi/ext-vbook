@@ -5,8 +5,9 @@ load('269shu.js');
 load('1ptwxz.js');
 function execute(url) {
     var data;
-    if (url.includes("sangtac")) {
-        url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+    if (url.includes("sangtac")||url.includes("14.225.254.182")) {
+        url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
+        console.log(url)
         data = getDetailStv(url);
     } else {
         if (url.includes("69shu")) {
