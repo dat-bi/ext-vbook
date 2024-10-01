@@ -6,11 +6,10 @@ load('1ptwxz.js');
 load('crypto.js');
 load('1qimao.js');
 function execute(url) {
-
-    var id = url.replace(/https.*?\/1\//g, "").replace("/", "")
     var data;
-   if (url.includes("sangtac")||url.includes("14.225.254.182")) {
+    if (url.includes("sangtac") || url.includes("14.225.254.182")) {
         url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, "https://sangtacviet.vip")
+        let id = url.replace(/https.*?\/1\//g, "").replace("/", "")
         if (url.includes("qidian")) {
             data = getTocQidian(url)
         } else if (url.includes("69shu")) {
@@ -56,14 +55,14 @@ function getToFA(url) {
         // let json = JSON.parse(text);
         // let el = json.page.chapterListWithVolume
         let el = doc.data.chapterListWithVolume
-         el.forEach((q) => {
-        q.forEach((e) => {
-            list.push({
-                name: e.title,
-                url: url + e.itemId
+        el.forEach((q) => {
+            q.forEach((e) => {
+                list.push({
+                    name: e.title,
+                    url: url + e.itemId
+                })
             })
         })
-         })
     }
 
     return list;

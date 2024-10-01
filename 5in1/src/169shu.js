@@ -17,9 +17,8 @@ function getChap69shu(url) {
     return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");
 }
 function getToc69shu1(url) {
-    url = url.replace("\.htm", '/')
+    url = url.replace(".htm", '/')
     let response = fetch(url);
-    if (response.ok) {
         let doc = response.html('gbk');
         var data = [];
         var elems = doc.select('div.catalog > ul > li > a:not(#bookcase)');
@@ -31,17 +30,15 @@ function getToc69shu1(url) {
             })
         });
         return data.reverse();
-    }
 }
 function formatName(name) {
     var re = /^(\d+)\.第(\d+)章/;
     return name.replace(re, '第$2章');
 }
 function getToc69shu(id) {
-    url = host69 + '/book/' + id + '/'
+    url = `${host69}/book/${id}/`
     console.log(url)
     let response = fetch(url);
-    if (response.ok) {
         let doc = response.html('gbk');
         var data = [];
         var elems = doc.select('div.catalog > ul > li > a:not(#bookcase)');
@@ -53,7 +50,6 @@ function getToc69shu(id) {
             })
         });
         return data.reverse();
-    }
 }
 function getDetail69shu(url) {
     let response = fetch(url);
