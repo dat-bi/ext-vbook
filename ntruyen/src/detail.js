@@ -7,7 +7,7 @@ function execute(url) {
     return Response.success({
         name : doc.select(".story-title h1").text(),
         cover : doc.select(".cover img").attr("src"),
-        host : "https://ntruyen.vn",
+        host : "https://ntruyen.top",
         author : doc.select(".story-title span").text(),
         description : doc.select(".story-main > div.flexbox > div.story-info > div.genres").html() +"<br>"+ doc.select(".description").text(),
     });

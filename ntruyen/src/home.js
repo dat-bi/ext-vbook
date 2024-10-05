@@ -1,5 +1,5 @@
 function execute(url) {
-    let response = fetch("https://ntruyen.vn/")
+    let response = fetch("https://ntruyen.top/")
     if (response.ok) {
         let doc = response.html()
         var data = []
@@ -7,7 +7,7 @@ function execute(url) {
         el.forEach(e => {
             data.push({
                 title: e.text(),
-                input: e.attr("href").replace("https://ntruyen.vn/",""),
+                input: e.attr("href").replace("https://ntruyen.top/",""),
                 script: "gen.js"
             })
         }

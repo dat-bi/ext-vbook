@@ -1,6 +1,6 @@
 function execute(key, page) {
     var key = encodeURIComponent(key)
-    let response = fetch("https://ntruyen.vn/tim-kiem/" + key)
+    let response = fetch("https://ntruyen.top/tim-kiem/" + key)
     if (response) {
         let doc = response.html();
         let data = [];

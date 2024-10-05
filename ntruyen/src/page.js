@@ -5,7 +5,7 @@ function execute(url) {
     var story_id = doc.select("#main-container > script") + ""
     story_id = story_id.match(/\d+/g)[0]
     var data = []
-    var chapJson = Http.post("https://ntruyen.vn/ajax/load_chapter").params({
+    var chapJson = Http.post("https://ntruyen.top/ajax/load_chapter").params({
             "story_id": story_id,
             "page": 1
         }).string()

@@ -1,6 +1,6 @@
 function execute(url, page) {
     if (!page) page = '1';
-    let response = fetch('https://ntruyen.vn/' + url, {
+    let response = fetch('https://ntruyen.top/' + url, {
         method: "GET",
         queries: {
             paged: page
@@ -16,7 +16,7 @@ function execute(url, page) {
             link: e.select("h3 a").first().attr("href"),
             cover: e.select(".cover img").first().attr("src"),
             description: e.select(".metas a").first().text() + " - " + e.select(".metas a").last().text() + " - " + e.select(".metas span").last().text(),
-            host: "https://ntruyen.vn"
+            host: "https://ntruyen.top"
         }))
         return Response.success(data, next)
     }
