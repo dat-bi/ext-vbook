@@ -1,5 +1,5 @@
 load('libs.js');
-load('config.js')
+// load('config.js')
 function execute(url, page) {
     if (!page) page = 1;
     let host = 'https://m.qidian.com/';
@@ -7,15 +7,15 @@ function execute(url, page) {
     //     page: page || 1,
     //     _csrfToken: get_csrfToken()
     // });
-    console.log(url)
+    // console.log(url)
     let response = fetch(url)
     if (response.ok) {
         let json = response.json();
         let data = [];
-        log(json.msg)
-        let pageNum = (json.data.pageNum + 1).toString()
-        log(pageNum)
-        let next = pageNum
+        // log(json.msg)
+        // let pageNum = (json.data.pageNum + 1).toString()
+        // log(pageNum)
+        // let next = pageNum
         // let next = `https://m.qidian.com/majax/${url}list?gender=male&pageNum=${pageNum}&${_csrfToken}`
         let elems = json.data.records
         elems.forEach(function (e, index) {
@@ -27,7 +27,7 @@ function execute(url, page) {
                 description: `${e.bAuth}- ${e.rankCnt || e.state || ""}`
             })
         })
-        return Response.success(data, next);
+        return Response.success(data);
     }
     return null;
 }
