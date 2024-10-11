@@ -5,7 +5,7 @@ load('269shu.js');
 load('1ptwxz.js');
 function execute(url) {
     var data;
-    if (url.includes("sangtac")||url.includes("14.225.254.182")) {
+    if (url.includes("sangtac") || url.includes("14.225.254.182")) {
         url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, STVHOST)
         console.log(url)
         data = getDetailStv(url);
@@ -40,8 +40,15 @@ function getDetailStv(url) {
             script: "suggests.js"
         }
     ];
-    let cover = doc.select('meta[property="og:image"]').first().attr("content").replace("/cdn/images/nc.jpg","https://static.sangtacvietcdn.xyz/img/bookcover256.jpg")
-    
+    var cover = doc.select('meta[property="og:image"]').first().attr("content").replace("/cdn/images/nc.jpg", "https://static.sangtacvietcdn.xyz/img/bookcover256.jpg")
+    if (url.includes("69shu")) {
+        let text = fetch(url + '/').text();
+        if (text.includes("truyen/qidian")) {
+            let idb = text.match(/truyen\/qidian\/1\/.*?\//g)[0].match(/\d+/g)[1]
+            cover = `https://bookcover.yuewen.com/qdbimg/349573/${idb}/300`
+        }
+    }
+
     let data = {
         name: doc.select("#oriname").text(),
         cover: cover,
