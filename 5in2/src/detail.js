@@ -53,7 +53,7 @@ function getDetailStv(url) {
         name: doc.select("#oriname").text(),
         cover: cover,
         // author: author || 'Unknow',
-        // description: des,
+        description: des,
         // detail: _detail.html().replace(/\n/g, "<br>"),
         ongoing: true,
         host: STVHOST,

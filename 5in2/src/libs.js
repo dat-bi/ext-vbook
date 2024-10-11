@@ -9,7 +9,7 @@ if (!String.format) {
         });
     };
 }
-let STVHOST = "https://sangtacviet.vip";
+let STVHOST = "http://14.225.254.182";
 function getLink(link) {
     const BOOK_ID_REGEX = /(?:book|m)?\.qidian\.com\/(?:info|book)\/(\d+)(:?\.html)?/
     let m = link.match(BOOK_ID_REGEX)
