@@ -52,12 +52,12 @@ function getDetailStv(url) {
     let data = {
         name: doc.select("#oriname").text(),
         cover: cover,
-        author: author || 'Unknow',
-        description: des,
-        detail: _detail.html().replace(/\n/g, "<br>"),
+        // author: author || 'Unknow',
+        // description: des,
+        // detail: _detail.html().replace(/\n/g, "<br>"),
         ongoing: true,
         host: STVHOST,
-        suggests: suggests,
+        // suggests: suggests,
     }
     return data;
 }
