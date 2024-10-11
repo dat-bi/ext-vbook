@@ -3,10 +3,10 @@ load('config.js')
 function execute(url, page) {
     if (!page) page = 1;
     let host = 'https://m.qidian.com/';
-    url = (host + url).formatUnicorn({
-        page: page || 1,
-        _csrfToken: get_csrfToken()
-    });
+    // url = (host + url).formatUnicorn({
+    //     page: page || 1,
+    //     _csrfToken: get_csrfToken()
+    // });
     console.log(url)
     let response = fetch(url)
     if (response.ok) {
