@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "5in2",
+    "author": "B",
+    "version": 29,
+    "source": "https://sangtacviet.vip",
+    "regexp": "(wwww.)?(((https://|http://)((sangtacviet.*?)|14.225.254.182)/truyen/(qidian|ptwxz|fanqie|69shu|qimao)/1/\\d+.*?))|69shuba.cx/book/(.*?).htm|69shu.me/book/(.*?).htm|((www|m).69yuedu.net\/article\/(.*?).html)|(www.(ptwxz|piaotian|piaotia).com/bookinfo/\\d+/\\d+.html$)|(book|m|www).qidian.com/(info|book)/(.*?)",
+    "description": "(5 trong 1) hỗ trợ đọc các web qidian(chương free), 69shu, ptwxz, qimao, fanqie (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi)",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "home": "home.js",
+    "search": "search.js",
+    "genre": "genre.js"
+  }
+}
