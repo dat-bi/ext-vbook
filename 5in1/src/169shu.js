@@ -1,4 +1,4 @@
-var host69 = 'https://69shuba.cx';
+var host69 = 'https://69shu.biz';
 function getChap69shu(url) {
     let response = fetch(url);
     if (response.ok) {
@@ -17,7 +17,7 @@ function getChap69shu(url) {
     return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");
 }
 function getToc69shu1(url) {
-    url = url.replace(".htm", '/')
+    url = url.replace(".html", '/').replace(".htm", '/')
     let response = fetch(url);
         let doc = response.html('gbk');
         var data = [];
@@ -57,8 +57,8 @@ function getDetail69shu(url) {
     let data = {
         name: $.Q(doc, 'div.booknav2 > h1 > a').text(),
         cover: $.Q(doc, 'div.bookimg2 > img').attr('src'),
-        author: $.Q(doc, 'div.booknav2 > p:nth-child(2) > a').text().trim(),
-        description: $.Q(doc, 'div.navtxt > p').html(),
+        author: $.Q(doc, 'div.booknav2 > p:nth-child(3) a').text().trim(),
+        description: $.Q(doc, '#jianjie-popup > div > div.content p').html(),
         detail: $.QA(doc, 'div.booknav2 p', { m: x => x.text(), j: '<br>' })
     }
     return data;
