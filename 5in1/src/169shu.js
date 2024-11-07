@@ -36,7 +36,7 @@ function formatName(name) {
     return name.replace(re, '第$2章');
 }
 function getToc69shu(id) {
-    url = `${host69}/book/${id}/`
+    url = `${host69}/b/${id}/`
     console.log(url)
     let response = fetch(url);
         let doc = response.html('gbk');
