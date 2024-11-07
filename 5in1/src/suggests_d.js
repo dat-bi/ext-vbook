@@ -5,7 +5,7 @@ function execute(input) {
     doc.select("a").forEach(e => {
         books.push({
             name: e.text(),
-            link: "https://sangtacviet.vip/truyen/qidian/1/" + e.attr("href").match(/\d+/g)[0] + "/",
+            link: "http://14.225.254.182/truyen/qidian/1/" + e.attr("href").match(/\d+/g)[0] + "/",
             cover:  "https:" +  cover.attr("src"),
         })
     });
