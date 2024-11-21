@@ -1,4 +1,4 @@
-var host69 = 'https://69shu.biz';
+var host69 = 'https://69shuba.cx';
 function getChap69shu(url) {
     let response = fetch(url);
     if (response.ok) {

@@ -1,30 +1,13 @@
 function getChapFanqie(url) {
-    let chapid = url.match(/\d+/g)[2]
+   const regex = /(?:item_id=|\/)(\d+)$/;
+    let chapid = url.match(regex)[1]
 
-    const cookie = "novel_web_id=7357767624615331362;";
-    const maxRetries = 25;
-    let attempts = 0;
-
-    while (attempts < maxRetries) {
-        let chapterUrl = "https://fanqienovel.com/api/reader/full?itemId=" + chapid;
-        console.log(chapterUrl)
-        let response_chapter_info = fetch(chapterUrl, {
-            headers: {
-                'Cookie': cookie,
-                // 'Content-Type': 'application/json',
-                // 'Accept': 'application/json',
-            }
-        });
-        console.log(response_chapter_info.ok)
-        if (response_chapter_info.ok) {
-            let json = response_chapter_info.json();
-            console.log(json)
-            let chapter_info = r_content(json.data.chapterData.content);
-            return chapter_info;
-        } else {
-            attempts++;
-            console.log(`Attempt ${attempts} failed. Retrying...`);
-        }
+    url = "https://fanqienovel.com/reader/" + chapid
+    let response = fetch(url);
+    if (response.ok) {
+        let doc = response.html();
+        let htm = doc.select(".muye-reader-content.noselect").html();
+        return r_content(htm);
     }
 }
 
