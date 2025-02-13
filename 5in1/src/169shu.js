@@ -12,6 +12,8 @@ function getChap69shu(url) {
         htm = cleanHtml(htm)
             .replace(/^ *第\d+章.*?<br>/, '') // Ex: '  第11745章 大结局，终<br>'
             .replace('(本章完)', '')
+            .replace(/无错版本在.*?吧首发本小说。/gmi,'')
+            .replace(/本作品由六九.*?理上传~~/gmi,'')
             ;
     }
     return htm.replace(/<br\s*\/?>|\n/g, "<br><br>");

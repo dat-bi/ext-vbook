@@ -1,0 +1,36 @@
+function execute() {
+    return Response.success([
+        { title: "Truyện Xuyên Không", input: "/the-loai/truyen-xuyen-khong", script: "gen.js" },
+        { title: "Truyện Ngôn Tình", input: "/the-loai/truyen-ngon-tinh", script: "gen.js" },
+        { title: "Truyện Hài Hước", input: "/the-loai/truyen-hai-huoc", script: "gen.js" },
+        { title: "Truyện Huyền Huyễn", input: "/the-loai/truyen-huyen-huyen", script: "gen.js" },
+        { title: "Sảng Văn", input: "/the-loai/sang-van", script: "gen.js" },
+        { title: "Truyện Đô Thị", input: "/the-loai/truyen-do-thi", script: "gen.js" },
+        { title: "Điền Văn", input: "/the-loai/dien-van", script: "gen.js" },
+        { title: "Truyện Tiên Hiệp", input: "/the-loai/truyen-tien-hiep", script: "gen.js" },
+        { title: "Truyện Hệ thống", input: "/the-loai/truyen-he-thong", script: "gen.js" },
+        { title: "Trọng Sinh", input: "/the-loai/trong-sinh", script: "gen.js" },
+        { title: "Xuyên Sách", input: "/the-loai/xuyen-sach", script: "gen.js" },
+        { title: "Đồng Nhân", input: "/the-loai/dong-nhan", script: "gen.js" },
+        { title: "Truyện Võng Du", input: "/the-loai/truyen-vong-du", script: "gen.js" },
+        { title: "Truyện Quân sự", input: "/the-loai/truyen-quan-su", script: "gen.js" },
+        { title: "Làm Giàu", input: "/the-loai/lam-giau", script: "gen.js" },
+        { title: "Truyện Kiếm hiệp", input: "/the-loai/truyen-kiem-hiep", script: "gen.js" },
+        { title: "Cung Đấu", input: "/the-loai/cung-dau", script: "gen.js" },
+        { title: "Truyện Trinh Thám", input: "/the-loai/truyen-trinh-tham", script: "gen.js" },
+        { title: "Đam Mỹ", input: "/the-loai/dam-my", script: "gen.js" },
+        { title: "Ngược", input: "/the-loai/nguoc", script: "gen.js" },
+        { title: "Võ Hiệp", input: "/the-loai/vo-hiep", script: "gen.js" },
+        { title: "Cổ Đại", input: "/the-loai/co-dai", script: "gen.js" },
+        { title: "Truyện Việt Nam", input: "/the-loai/truyen-viet-nam", script: "gen.js" },
+        { title: "Tâm Lý", input: "/the-loai/tam-ly", script: "gen.js" },
+        { title: "Bách Hợp", input: "/the-loai/bach-hop", script: "gen.js" },
+        { title: "Đô Thị", input: "/the-loai/do-thi", script: "gen.js" },
+        { title: "Tâm Linh - Tôn Giáo", input: "/the-loai/tam-linh-ton-giao", script: "gen.js" },
+        { title: "Kiếm Hiệp", input: "/the-loai/kiem-hiep", script: "gen.js" },
+        { title: "Huyền Huyễn", input: "/the-loai/huyen-huyen", script: "gen.js" },
+        { title: "Xuyên Không", input: "/the-loai/xuyen-khong", script: "gen.js" },
+    ]);
+}
+//
+// console.log([...document.querySelectorAll('.dropdown-menu li a')].map(e => `{title: "${e.innerText}", input: "${e.href.replace(/^(?:\/\/|[^/]+)*/, '')}", script: "gen.js"},`).join('\n'));
