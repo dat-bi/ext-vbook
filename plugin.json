@@ -16,6 +16,17 @@
             "locale": "zh_CN"
         },
         {
+            "name": "conduongbachu",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/conduongbachu/plugin.zip",
+            "version": 1,
+            "source": "https://www.conduongbachu.net",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/conduongbachu/icon.png",
+            "description": "Truyện chữ tùm lum...",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "ptwxzOrg",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ptwxzOrg/plugin.zip",
