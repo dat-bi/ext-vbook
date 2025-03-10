@@ -1,10 +1,10 @@
 {
     "metadata": {
-        "name": "tienhiepXYZ",
+        "name": "truyendocviet",
         "author": "B",
         "version": 2,
-        "source": "https://tienhiep.xyz",
-        "regexp": "https://tienhiep.xyz/.*?",
+        "source": "https://truyendocviet.vn/",
+        "regexp": "https://truyendocviet.vn/doc-truyen/.*?\\.html",
         "description": "Đọc truyện trên trang tienhiep.net",
         "locale": "vi_VN",
         "type": "novel",
@@ -12,9 +12,9 @@
     },
     "script": {
         "home": "home.js",
-        "genre": "genre.js",
         "search": "search.js",
         "detail": "detail.js",
+        "page": "page.js",
         "toc": "toc.js",
         "chap": "chap.js"
     }
