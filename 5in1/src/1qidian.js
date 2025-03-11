@@ -44,6 +44,7 @@ function getDetailQidian(url) {
     let response = fetch(url);
     let doc;
     if (!response.ok) return null;
+    console.log(url + "  " + response.status)
     if (response.status == 202) {
         let browser = Engine.newBrowser();
         browser.launch(url, 15 * 1000);
@@ -52,6 +53,7 @@ function getDetailQidian(url) {
     else {
         doc = response.html();
     }
+    console.log(url + "   " + doc)
     let cover1 = "https:" + $.Q(doc, '#bookImg img').attr('src');
     let author = doc.select('meta[property="og:novel:author"]').attr("content")
     // let a_gen = doc.select('.book-author .author-name > a');

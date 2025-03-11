@@ -1,10 +1,50 @@
+load('libs.js');
 function execute(url) {
-    url = url.replace("\.htm", '/')
-    console.log(url)
+    let idBook = url.match(/\d+/g)[1];
+    url = 'https://www.qidian.com/book/' + idBook + '/';
     let response = fetch(url);
-    let doc = response.html()
-    // var data = [];
-    console.log(doc)
+    let doc;
+    if (!response.ok) return null;
+    if (response.status == 202) {
+        let browser = Engine.newBrowser();
+        browser.launch(url, 15 * 1000);
+        doc = browser.html();
+    }
+    else {
+        doc = response.html();
+    }
+    console.log(url + "  " + doc)
+    let cover1 = "https:" + $.Q(doc, '#bookImg img').attr('src');
+    let author = doc.select('meta[property="og:novel:author"]').attr("content")
+    let suggests = [
+        {
+            title: "Truyện cùng tác giả:",
+            input: doc.select('.other-works .book-wrap-new>a'),
+            script: "suggests_author.js"
+        },
+        {
+            title: "Truyện đề cử:",
+            input: doc.select('.book-weekly-hot-rec.weekly-hot-rec > div') + doc.select("#bookImg img"),
+            script: "suggests_d.js"
+        }
+    ];
+    console.log(doc.select('#bookName').text())
+    return Response.success({
+        name:  doc.select('#bookName').text(),
+        cover: cover1,
+        author: author,
+        description:  doc.select('#book-intro-detail').html(),
+        host: STVHOST,
+        // genres: genres,
+        suggests: suggests,
+    });
+}
+    // url = url.replace("\.htm", '/')
+    // console.log(url)
+    // let response = fetch(url);
+    // let doc = response.html()
+    // // var data = [];
+    // console.log(doc)
     // var elems = doc.select('div.catalog > ul > li > a:not(#bookcase)');
     // elems.forEach(function (e) {
     //     data.push({
@@ -14,7 +54,7 @@ function execute(url) {
     //     })
     // });
     // return Response.success(data.reverse());
-}
+
     // let response = fetch(url);
     // let doc = response.html();
     // console.log(doc.select("body > script:nth-child(3)"))
