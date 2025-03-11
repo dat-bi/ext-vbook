@@ -24,7 +24,7 @@ function execute(url) {
     } else {
 
         if (url.includes("qidian")) {
-            url = STVHOST + "/truyen/qidian/1/" + url.match(/\d+/g)[0] + "/";
+            url = "/truyen/qidian/1/" + url.match(/\d+/g)[0] + "/";
             console.log(url)
             data = getTocQidian(url)
         } else if (url.includes("piaotia")) {
