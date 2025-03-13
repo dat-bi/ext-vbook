@@ -16,12 +16,12 @@
             "locale": "zh_CN"
         },
         {
-            "name": "conduongbachu",
+            "name": "akaytruyen",
             "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/conduongbachu/plugin.zip",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/akaytruyen/plugin.zip",
             "version": 1,
-            "source": "https://www.conduongbachu.net",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/conduongbachu/icon.png",
+            "source": "https://www.akaytruyen.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/akaytruyen/icon.png",
             "description": "Truyện chữ tùm lum...",
             "type": "novel",
             "locale": "vi_VN"
