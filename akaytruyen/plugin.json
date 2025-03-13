@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "conduongbachu",
+    "name": "akaytruyen",
     "author": "B",
     "version": 1,
-    "source": "https://conduongbachu.net",
-    "regexp": "https://conduongbachu.net/.*?",
-    "description": "Đọc truyện trên trang tienhiep.net",
+    "source": "https://akaytruyen.com",
+    "regexp": "https://akaytruyen.com/.*?",
+    "description": "Đọc truyện trên trang https://akaytruyen.com/",
     "locale": "vi_VN",
     "type": "novel",
     "language": "javascript"

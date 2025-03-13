@@ -1,6 +1,6 @@
 function execute() {
     return Response.success([
-        { title: "Con Đường Bá Chủ", input: "https://conduongbachu.net/", script: "gen.js" },
+        { title: "home", input: "https://akaytruyen.com/", script: "gen.js" },
     ]);
 }
 //

@@ -3,10 +3,10 @@ function execute(url) {
     if (response.ok) {
         let doc = response.html();
         return Response.success({
-            name: doc.select('.my-3  h2.fw-bold').text(),
-            cover: "https://conduongbachu.net/assets/images/banner-book.webp",
+            name: doc.select('h3.story-name').text(),
+            cover: doc.select('meta[property="og:image"]').attr("content"),
             author: "Akay Hau",
-            description: doc.select(".my-3").text()
+            description: doc.select(".story-detail__top--desc.px-3").text()
         });
     }
 
