@@ -1,13 +1,20 @@
 function getChapFanqie(url) {
-   const regex = /(?:item_id=|\/)(\d+)$/;
+    const regex = /(?:item_id=|\/)(\d+)$/;
     let chapid = url.match(regex)[1]
 
-    url = "https://fanqienovel.com/reader/" + chapid
+    // url = "https://fanqienovel.com/reader/" + chapid
+    url = "https://api.cenguigui.cn/api/tomato/content.php?item_id=" + chapid
+    // let response = fetch(url);
+    // if (response.ok) {
+    //     let doc = response.html();
+    //     let htm = doc.select(".muye-reader-content.noselect").html();
+    //     return r_content(htm);
+    // }
     let response = fetch(url);
     if (response.ok) {
-        let doc = response.html();
-        let htm = doc.select(".muye-reader-content.noselect").html();
-        return r_content(htm);
+        let json = response.json();
+        let content = json.data.content.replace(/\n/g, "<br>");
+        return content;
     }
 }
 

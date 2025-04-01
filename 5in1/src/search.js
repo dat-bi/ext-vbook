@@ -1,7 +1,9 @@
 load('libs.js');
 function execute(key, page) {
     if (!page) page = '1';
-    let response = fetch(STVHOST + '/?find=&findinname=' + key + '&minc=0&tag=&p=' + page);
+        var browser = Engine.newBrowser()
+        let doc = browser.launch("https://sangtacviet.app/" + '/?find=&findinname=' + key + '&minc=0&tag=&p=' + page, 5000)
+        browser.close()
         function toCapitalize(sentence) {
         const words = sentence.split(" ");
 
@@ -10,8 +12,7 @@ function execute(key, page) {
         }).join(" ");
     }
 
-    if (response.ok) {
-        let doc = response.html()
+        // let doc = response.html()
         let next = doc.select(".pagination").select("li.active + li").text()
         let el = doc.select("#searchviewdiv a.booksearch")
         let data = [];
@@ -25,6 +26,4 @@ function execute(key, page) {
             })
         });
         return Response.success(data, next)
-    }
-    return null;
 }
