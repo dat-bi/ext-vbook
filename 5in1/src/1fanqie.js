@@ -3,17 +3,24 @@ function getChapFanqie(url) {
     let chapid = url.match(regex)[1]
 
     // url = "https://fanqienovel.com/reader/" + chapid
-    url = "https://api.cenguigui.cn/api/tomato/content.php?item_id=" + chapid
+    // url = "https://api.cenguigui.cn/api/tomato/content.php?item_id=" + chapid
     // let response = fetch(url);
     // if (response.ok) {
     //     let doc = response.html();
     //     let htm = doc.select(".muye-reader-content.noselect").html();
     //     return r_content(htm);
     // }
-    let response = fetch(url);
+    // let response = fetch(url);
+    // if (response.ok) {
+    //     let json = response.json();
+    //     let content = json.data.content.replace(/\n/g, "<br>");
+    //     return content;
+    // }
+    let chapterUrl = "https://api.chanhnh.dpdns.org/tomato/content?item_id=" + chapid;
+    let response = fetch(chapterUrl)
     if (response.ok) {
         let json = response.json();
-        let content = json.data.content.replace(/\n/g, "<br>");
+        let content = json.data.content.replace(/<header[\s\S]*?<\/header>/gi, "").replace(/<h1[\s\S]*?<\/h1>/gi, "").replace(/<br\s*\/?>|\n/g, "<br><br>");
         return content;
     }
 }
