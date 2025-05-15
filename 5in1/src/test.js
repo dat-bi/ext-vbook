@@ -1,9 +1,12 @@
 load('libs.js');
+load('crypto.js');
 function execute(url) {
-    let response = fetch("http://14.225.254.182/?find=&findinname=nam&minc=0&tag=&p=2");
-    let doc = response.html()
-    // var data = [];
-    console.log(doc)
+    const contentEncrypt = "U2FsdGVkX191Tf5/7+D4Dap5AWU8EBK3hZE2nvi6J36Z1CjxBSNT7Fb6F3Arqivz";
+    const key_encrypt = "U2FsdGVkX19VOvGjOJx6eM7HG3mSmJtsS/ql6qrsomfBURcpNvAqPhYR0oSWze5FQQ7UVnFrq4p5Z7c3K5XHrqtyMAwsuc7/1SXXlueeiVXnu+muyK4h5+zgYoPU+RxI+OhCOT2QLTuYpVbaeOv2O/RJQHjfmW6WX+ifEiLZhxp6Q65TX05gBwgHSxh6L5m5QPL4a63yWzirWaR6Ij/Gjg=="; 
+    const decrypted = CryptoJS.AES.decrypt(contentEncrypt, key_encrypt);
+
+    const plaintext = decrypted.toString(CryptoJS.enc.Utf8);
+    console.log("Decrypted:", plaintext);
 }
     // return Response.success(data.reverse());
 

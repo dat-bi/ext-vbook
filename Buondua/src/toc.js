@@ -7,7 +7,7 @@ function execute(url) {
     let response= fetch(url);
     let doc = response.html();
     let div = doc.select(".pagination-list").first()
-    let el = div.select("span")
+    let el = div.select("li")
     let data = [];  
     for (var i = el.size() - 1; i >= 0; i--) {
         var e = el.get(i);

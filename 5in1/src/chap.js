@@ -6,6 +6,7 @@ load('1ptwxz.js');
 load('1fanqie.js');
 load('1qimao.js');
 load('crypto.js');
+load('config.js');
 function execute(url) {
     if (url.includes("m.qidian")) {
         return Response.success(getChapQidian(url))
@@ -24,6 +25,9 @@ function execute(url) {
         }
     }
     if (url.includes("fanqie")) {
+        if (getChapFanqie(url) == undefined) {
+            return Response.error("Vào browser của app trang 'https://api.langge.cf' tạo tài khoản rồi đăng nhập.\n LƯU Ý: không download được truyện, muốn download thì vào 'https://api.doubi.tk/coffee' donate để được download ")
+        }
         return Response.success(getChapFanqie(url))
     }
 }

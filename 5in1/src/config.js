@@ -9,3 +9,16 @@ function get_csrfToken() {
     }
     return localStorage.getItem("_csrfToken")
 }
+function get_device() {
+    if (!localStorage.getItem("device")) {
+        let response = fetch("https://api.langge.cf/");
+        let doc = response.request.headers.cookie
+        if(doc == undefined){
+            return undefined
+        } else(
+            doc = doc.replace("secretKey2=","")
+        )
+        localStorage.setItem("device", doc)
+    }
+    return localStorage.getItem("device")
+}
