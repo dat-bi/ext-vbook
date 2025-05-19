@@ -27,6 +27,17 @@
             "locale": "vi_VN"
         },
         {
+            "name": "qidian-vp",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qidian-vp/plugin.zip",
+            "version": 1,
+            "source": "https://www.qidian-vp.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qidian-vp/icon.png",
+            "description": "Truyện chữ tùm lum...",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "ptwxzOrg",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ptwxzOrg/plugin.zip",
