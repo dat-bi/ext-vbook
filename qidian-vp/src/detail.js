@@ -7,7 +7,7 @@ function execute(url) {
         doc.select(".space-x-4.space-y-2 a").forEach(e => {
             genres.push({
                 title: e.text(),
-                input: BASE_URL + e.attr("href"),
+                input:  e.attr("href"),
                 script: "gen.js"
             });
         });

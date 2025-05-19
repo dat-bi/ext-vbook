@@ -1,7 +1,7 @@
 load('config.js')
 function execute(url, page) {
     if (!page) page = '1';
-    let url1 = BASE_URL + url + "?page=" + page
+    let url1 = url + "?page=" + page
     console.log(url1)
     var response = fetch(url1);
     if (response.ok) {
