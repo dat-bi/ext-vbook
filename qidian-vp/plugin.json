@@ -2,7 +2,7 @@
   "metadata": {
     "name": "qidian-vp",
     "author": "B",
-    "version": 1,
+    "version": 2,
     "source": "https://qidian-vp.com/",
     "regexp": "qidian-vp.com/truyen/.*?",
     "description": "Đọc truyện trên trang Truyện Full",
@@ -12,7 +12,6 @@
   },
   "script": {
     "home": "home.js",
-    "genre": "genre.js",
     "detail": "detail.js",
     "search": "search.js",
     "page": "page.js",
