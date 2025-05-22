@@ -16,7 +16,14 @@ function execute(url) {
             cover: doc.select("a img.mx-auto").attr("src"),
             author: doc.select("h1.mb-2 + .mb-6").first().text(),
             genres: genres,
-            description: doc.select("#synopsis").html()
+            suggests: [
+                {
+                    title: "Đề cử sách: ",
+                    input: doc.select("div.mx-2.mt-5").html(),
+                    script: "similar.js"
+                }
+            ],
+            description: doc.select("#synopsis").html().replace(/·/g, '')
         })
     }
     return null;
