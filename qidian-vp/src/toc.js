@@ -1,7 +1,7 @@
 function execute(url) {
     let response = fetch(url);
     if (response.ok) {
-        sleep(200)
+        sleep(1000)
         let doc = response.html();
         let el1 = doc.select("#chapter-list")
         let el = el1.select("a")
