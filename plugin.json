@@ -8,7 +8,7 @@
             "name": "5in1",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/plugin.zip",
-            "version": 48,
+            "version": 50,
             "source": "https://sangtacviet.app",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/5in1/icon.png",
             "description": "(5 trong 1) hỗ trợ đọc các web fanqie, qidian(chương free), 69shu, uukanshu, ptwxz, qimao (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi) <br> nếu lỗi khi đọc mấy nguồn 69shu, uukanshu thì xoá mấy ext đó đi, dùng cái này cũng được",
