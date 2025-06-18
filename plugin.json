@@ -128,6 +128,17 @@
             "locale": "zh_CN"
         },
         {
+            "name": "truyentranh3q",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyentranh3q/plugin.zip",
+            "version": 1,
+            "source": "https://truyentranh3q.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyentranh3q/icon.png",
+            "description": "Đọc truyện trên trang truyentranh3q",
+            "type": "comic",
+            "locale": "vi_VN"
+        },
+                {
             "name": "Độc giả số 1",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/%C4%90%E1%BB%99c%20gi%E1%BA%A3%20s%E1%BB%91%201/plugin.zip",
