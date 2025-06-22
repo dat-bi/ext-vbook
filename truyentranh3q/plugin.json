@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "truyentranh3q",
+    "author": "B",
+    "version": 1,
+    "source": "https://truyentranh3q.com/",
+    "regexp": "https://truyentranh3q.com/(.*?)$",
+    "description": "Đọc truyện trên trang men18",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "comic",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "genre": "genre.js"
+  }
+}
