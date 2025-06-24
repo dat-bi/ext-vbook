@@ -1,12 +1,10 @@
-load('libs.js');
 load('config.js');
-
 function execute(url) {
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL)
-    var response = fetch(url);
+    let response = fetch(url);
     let genres = [];
     if (response.ok) {
-        var doc = response.html();
+        let doc = response.html();
     let tag = doc.select('table > tbody > tr:nth-child(5) > td:nth-child(2) a ');
         tag.forEach(e => {
             genres.push({
@@ -24,7 +22,7 @@ function execute(url) {
         ];
         return Response.success({
             name: doc.select('.bai-viet-box h1 > a').text(),
-            cover: "https://i.imgur.com/5BdXa90.png",
+            cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
             author: doc.select('table > tbody > tr:nth-child(3)').text().replace('Tác giả', '').trim() || 'Sưu tầm',
             description: 'Nghiêm cấm trẻ em dưới 18 tuổi',
             detail: '',
@@ -36,11 +34,4 @@ function execute(url) {
     return null;
 }
 
-// https://stackoverflow.com/a/1527820
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-// (づ｡◕‿‿◕｡)づ

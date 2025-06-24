@@ -1,12 +1,10 @@
-load('libs.js');
 load('config.js');
-
 function execute(url) {
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL)
-    var response = fetch(url);
+    let response = fetch(url);
     if (response.ok) {
-        var doc = response.html();
-        var data = [];
+        let doc = response.html();
+        let data = [];
 
         data.push({
             name: "Phần 1",
@@ -14,7 +12,7 @@ function execute(url) {
             host: BASE_URL
         })
 
-        var elems = doc.select('.bai-viet-box a.post-page-numbers');
+        let elems = doc.select('.bai-viet-box a.post-page-numbers');
         elems.forEach(function(e) {
             data.push({
                 name: e.text(),
