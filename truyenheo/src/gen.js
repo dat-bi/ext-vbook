@@ -1,4 +1,4 @@
-load('libs.js');
+// load('libs.js');
 load('config.js');
 
 function execute(url, page) {
@@ -9,22 +9,22 @@ function execute(url, page) {
         var doc = response.html();
         var data = [];
 
-        var elems = $.QA(doc, '.noibat');
+        var elems = doc.select(".noibat")
         if (!elems.length) return Response.error(url);
 
         elems.forEach(function(e) {
-            var name = $.Q(e, 'a > strong').text();
+            var name = e.select('a > strong').text();
             if (name == '') return;
             data.push({
                 name: name,
-                link: $.Q(e, 'a').attr('href'),
+                link: e.select('a').attr('href'),
                 cover:  "https://i.imgur.com/5BdXa90.png",
-                description: $.Q(e, 'span').text(),
+                description: e.select('span').text(),
                 host: BASE_URL
             })
         })
 
-        var next = $.Q(doc, 'span.page-numbers.current + a').text();
+        var next = doc.select('span.page-numbers.current + a').text();
         if (next) return Response.success(data, next);
 
         return Response.success(data);

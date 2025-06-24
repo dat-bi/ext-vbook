@@ -14,7 +14,7 @@ function execute(url) {
             host: BASE_URL
         })
 
-        var elems = $.QA(doc, '.bai-viet-box a.post-page-numbers');
+        var elems = doc.select('.bai-viet-box a.post-page-numbers');
         elems.forEach(function(e) {
             data.push({
                 name: e.text(),
