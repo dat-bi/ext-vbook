@@ -1,13 +1,17 @@
 load('config.js');
 
 function execute(url, page) {
-    page = page || '1';
-    let newUrl = BASE_URL + url + (page === '1' ? '/' : '/page/{0}/'.replace('{0}', page));
+    if (!page) {
+        page = '';
+    } else {
+        page = `page/${page}/`
+    };
+    let newUrl = BASE_URL + url + page
     let response = fetch(newUrl);
     if (response.ok) {
         let doc = response.html();
         let data = [];
-        doc.select(".noibat").forEach(function (e) {
+        doc.select(".noibat").forEach(e => {
             let name = e.select('a > strong').text();
             if (name == '') return;
             data.push({

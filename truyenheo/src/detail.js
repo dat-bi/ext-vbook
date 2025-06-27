@@ -1,5 +1,6 @@
 load('config.js');
 function execute(url) {
+    if (url.slice(-1) !== "/") url = url + "/";
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL)
     let response = fetch(url);
     let genres = [];
