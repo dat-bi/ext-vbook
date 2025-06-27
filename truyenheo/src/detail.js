@@ -21,7 +21,7 @@ function execute(url) {
             }
         ];
         return Response.success({
-            name: doc.select('.bai-viet-box h1 > a').text(),
+            name: doc.select('.bai-viet-box h1 > a').first().text(),
             cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
             author: doc.select('table > tbody > tr:nth-child(3)').text().replace('Tác giả', '').trim() || 'Sưu tầm',
             description: 'Nghiêm cấm trẻ em dưới 18 tuổi',

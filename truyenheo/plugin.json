@@ -2,7 +2,7 @@
   "metadata": {
     "name": "truyenheo",
     "author": "B",
-    "version": 13,
+    "version": 14,
     "source": "https://truyensextv.cc/",
     "regexp": "truyen(heo|sex).*?/[^/]+/?$",
     "description": "Đọc truyện trên trang http://truyensextv.me tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
