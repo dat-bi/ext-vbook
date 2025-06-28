@@ -1,14 +1,11 @@
-load('config.js');
-
-function execute(url, page) {
-    if (!page) {
+function execute(key, page) {
+        if (!page) {
         page = '';
     } else {
         page = `page/${page}/`
     };
-    let newUrl =  url + page
-    console.log(newUrl)
-    let response = fetch(newUrl);
+    var key = encodeURIComponent(key)
+    let response = fetch("https://doctruyen14.vip/"+page + "?s=" + key + "&submit=T%C3%ACm")
     if (response.ok) {
         let doc = response.html();
         let data = [];
@@ -18,14 +15,12 @@ function execute(url, page) {
                 name: name,
                 link: e.select('h2 a').attr('href'),
                 cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
-                host: BASE_URL
             })
         })
-
-        let next = doc.select('span.current + a').text();
+                let next = doc.select('span.current + a').text();
         if (next) return Response.success(data, next);
 
-        return Response.success(data);
+        return Response.success(data,next);
     }
     return null;
 }
