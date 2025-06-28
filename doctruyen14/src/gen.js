@@ -1,6 +1,7 @@
 load('config.js');
 
 function execute(url, page) {
+    if (url.slice(-1) !== "/") url = url + "/";
     if (!page) {
         page = '';
     } else {
@@ -22,10 +23,8 @@ function execute(url, page) {
             })
         })
 
-        let next = doc.select('span.current + a').text();
-        if (next) return Response.success(data, next);
-
-        return Response.success(data);
+        let next = doc.select('.current + a').text();
+        return Response.success(data, next);
     }
     return null;
 }
