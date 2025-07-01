@@ -41,7 +41,7 @@
             "name": "qidian-vp",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qidian-vp/plugin.zip",
-            "version": 5,
+            "version": 6,
             "source": "https://www.qidian-vp.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qidian-vp/icon.png",
             "description": "Truyện chữ tùm lum...",
