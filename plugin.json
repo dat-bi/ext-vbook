@@ -59,6 +59,18 @@
             "type": "chinese_novel",
             "locale": "zh_CN"
         },
+                {
+            "name": "alicesw",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/alicesw/plugin.zip",
+            "version": 1,
+            "source": "https://alicesw.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/alicesw/icon.png",
+            "description": "Đọc truyện trên trang alicesw",
+            "type": "chinese_novel",
+            "locale": "zh_CN",
+            "tag": "nsfw"
+        },
         {
             "name": "60ks",
             "author": "B",
