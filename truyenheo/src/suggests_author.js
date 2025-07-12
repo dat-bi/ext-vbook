@@ -6,7 +6,7 @@ function execute(input) {
         data.push({
             name: e.text().replace(/\\|\"/g,"").replace(/<\/a>n/g,""),
             link: e.attr("href").replace(/\\|\"/g,""),
-            cover:  "https://i.imgur.com/5BdXa90.png",
+            cover:  "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
         })
     });
     return Response.success(data)

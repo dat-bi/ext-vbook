@@ -2,6 +2,7 @@ load('config.js');
 function execute(url) {
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL)
     if (url.slice(-1) !== "/") url = url + "/";
+    console.log(url)
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html();
@@ -13,14 +14,20 @@ function execute(url) {
             host: BASE_URL
         })
 
-        let elems = doc.select('.bai-viet-box a.post-page-numbers');
-        elems.forEach(function(e) {
+        let last = doc.select('.last').first().attr("href")
+        if(last ){
+            last = last.match(/\/\d+\//g)[0].match(/\d+/g)[0]
+        } else {
+            last = doc.select('.larger').last().text();
+        }
+        for(let i = 2; i <= parseInt(last); i++){
             data.push({
-                name: e.text(),
-                url: e.attr('href'),
+                name: "Phần " + i,
+                url: url + "/" + i + "/",
                 host: BASE_URL
             })
-        });
+        
+        }
 
         return Response.success(data);
     }
