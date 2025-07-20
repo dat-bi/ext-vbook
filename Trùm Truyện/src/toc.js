@@ -1,3 +1,4 @@
+load('config.js');
 function execute(url) {
     let response = fetch(url);
     if (response.ok) {
@@ -8,7 +9,8 @@ function execute(url) {
             let e = el.get(i);
             data.push({
                 name: e.text(),
-                url: e.attr("href")
+                url: e.attr("href"),
+                host: BASE_URL
             });
         }
         return Response.success(data);
