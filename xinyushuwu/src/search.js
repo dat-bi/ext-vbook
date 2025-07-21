@@ -21,7 +21,7 @@ function execute(key, page) {
             data.push({
                 name: $.Q(e, 'a').text().trim(),
                 link: $.Q(e, 'a').attr('href'),
-                cover: genCover(BASE_URL, link),
+                cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
                 description: $.Q(e, 'td.odd', 1).text(),
                 host: BASE_URL
             })
@@ -44,13 +44,4 @@ function execute(key, page) {
     }
 
     return Response.error(key);
-}
-
-function genCover(host, bookUrl) {
-    var m, id;
-    if ((m = bookUrl.match(/\d+\/(\d+)/)) && m[1] && (id = m[1])) {
-        return String.format('{0}/files/article/image/{1}/{2}/{2}s.jpg', host, Math.floor(id / 1000), id);
-    }
-
-    return host + '/modules/article/images/nocover.jpg';
 }

@@ -1,7 +1,10 @@
+load('config.js');
 function execute(url, page) {
     if(!page) page = '1';
-
-    let response = fetch("https://www.xyushu5.com/" +url + "_"+page+"/");
+    url = BASE_URL.replace("m.","www.") +url + "_"+page+"/"
+    console.log('url: ' + url);
+    
+    let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
         const data = [];
@@ -12,10 +15,10 @@ function execute(url, page) {
 
             data.push({
                 name: e.select(".l02 a").first().text(),
-                link: 'https://m.xyushu5.com/novel/' + e.select(".l02 a").last().attr("href").match(/\d+/g)[1] + '.html' ,
-                cover: 'http://www.yikushan.com/static/yikushan/nocover.jpg',
+                link: BASE_URL + '/novel/' + e.select(".l02 a").last().attr("href").match(/\d+/g)[1] + '.html' ,
+                cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
                 description: e.select(".l01").text() + e.select(".l07").text(),
-                host: "https://m.xyushu5.com"
+                host: BASE_URL 
             })
         });
 

@@ -15,7 +15,7 @@ function execute(url, page) {
         data.push({
             name: $.Q(e, 'h3 a').text(),
             link: $.Q(e, 'h3 a').attr('href'),
-            cover: $.Q(e, '.pic img').attr('src') || 'https://raw.githubusercontent.com/dat-bi/ext-vbook/main/anh-bia/1.png',
+            cover: $.Q(e, '.pic img').attr('src') || "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
             description: $.Q(e, '.pp .p1').text(),
             host: BASE_URL
         })

@@ -1,20 +1,15 @@
+load('config.js');
 function execute(url) {
-    var bookId = url.replace(/https:\/\/m.xyushu5.com\/novel\/|https:\/\/www.xyushu5.com\/read/g,'').replace('.html','').replace('/','')
-    let response = fetch('https://www.xyushu5.com/read/'+bookId+'/');
+    let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
-        let coverImg = doc.select(".img_in img").first().attr("src");
-        console.log(coverImg)
-        if (coverImg.startsWith("/")) {
-            coverImg = "https://www.xyushu5.com" + coverImg;
-        }
-        let author = "作者："+doc.select("#info > div.infotitle > span > a").first().text();
+        let author = "作者："+doc.select("#novelMain div:nth-child(2) > a").first().text();
         return Response.success({
-            name: doc.select(".infotitle > h1").text(),
-            cover: coverImg,
+            name: doc.select("#nr_body > nav > ul > li:nth-child(2)").text(),
+            cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
             author: author,
-            description: doc.select("#aboutbook").text(),
-            detail: doc.select("#info > div.infotitle > span > span").text(),
+            description: doc.select("#novelMain > div:nth-child(6) > div > pre").text(),
+            detail: doc.select(".article_info_td").text(),
             host: "https://m.xyushu5.com"
         });
     }

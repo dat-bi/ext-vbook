@@ -2,9 +2,9 @@
   "metadata": {
     "name": "xyushu5",
     "author": "B",
-    "version": 2,
+    "version": 3,
     "source": "https://m.xyushu5.com/",
-    "regexp": "https://(www.|m.)?xyushu5.com/(.*?)/\\d+(\\/|\\.html)",
+    "regexp": "https://m.?xyushu5.*?/(.*?)/\\d+(\\/|\\.html)",
     "description": "Đọc truyện trên trang https://www.xyushu5.com",
     "locale": "zh_CN",
     "language": "javascript",

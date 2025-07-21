@@ -1,4 +1,4 @@
-let BASE_URL = 'https://www.xinyushuwu2.org';
+let BASE_URL = 'https://m.xyushu5.xyz';
 try {
     if (CONFIG_URL) {
         BASE_URL = CONFIG_URL;

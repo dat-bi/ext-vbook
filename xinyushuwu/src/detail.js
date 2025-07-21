@@ -8,7 +8,7 @@ function execute(url) {
 
     return Response.success({
         name: $.Q(doc, '.introduce > h1').text(),
-        cover: BASE_URL + '/modules/article/images/nocover.jpg',
+        cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
         author: author,
         description: $.Q(doc, '.jj').text(),
         detail: String.format('作者: {0}<br>{1}', author, lastUpdated),
