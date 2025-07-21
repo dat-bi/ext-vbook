@@ -274,28 +274,6 @@
             "locale": "zh_CN"
         },
         {
-            "name": "tienhiep",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/plugin.zip",
-            "version": 2,
-            "source": "https://tienhiep2.net",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiep/icon.png",
-            "description": "Đọc truyện trên trang tienhiep.net",
-            "type": "novel",
-            "locale": "vi_VN"
-        },
-        {
-            "name": "tigerfp",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tigerfp/plugin.zip",
-            "version": 3,
-            "source": "https://www.tigerfp.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tigerfp/icon.png",
-            "description": "Đọc truyện trên trang tigerfp.com",
-            "type": "chinese_novel",
-            "locale": "zh-CN"
-        },
-        {
             "name": "Trùm Truyện",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/Tr%C3%B9m%20Truy%E1%BB%87n/plugin.zip",
