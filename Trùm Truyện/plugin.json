@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Trùm Truyện",
     "author": "B",
-    "version": 4,
+    "version": 5,
     "source": "https://trumtruyen.live",
     "regexp": "(www.)?trumtruyen.*?/[^/]+/?$",
     "description": "Đọc truyện trên trang Truyện Full",
