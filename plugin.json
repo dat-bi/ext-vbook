@@ -230,6 +230,18 @@
             "tag": "nsfw"
         },
         {
+            "name": "mangadistrict",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mangadistrict/plugin.zip",
+            "version": 1,
+            "source": "https://mangadistrict.com/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/mangadistrict/icon.png",
+            "description": "Đọc truyện trên trang mangadistrict",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "ntruyen",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ntruyen/plugin.zip",

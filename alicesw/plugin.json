@@ -8,7 +8,8 @@
     "description": "Đọc truyện trên trang http://www.alicesw.com",
     "locale": "zh_CN",
     "language": "javascript",
-    "type": "chinese_novel"
+    "type": "chinese_novel",
+    "tag": "nsfw"
   },
   "script": {
     "home": "home.js",
