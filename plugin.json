@@ -242,6 +242,18 @@
             "tag": "nsfw"
         },
         {
+            "name": "daomeoden",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/daomeoden/plugin.zip",
+            "version": 1,
+            "source": "https://daomeoden.net/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/daomeoden/icon.png",
+            "description": "Đọc truyện trên trang daomeoden",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "ntruyen",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/ntruyen/plugin.zip",
