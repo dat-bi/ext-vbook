@@ -2,7 +2,7 @@
   "metadata": {
     "name": "daomeoden",
     "author": "B",
-    "version": 1,
+    "version": 2,
     "source": "https://daomeoden.net/",
     "regexp": "https://daomeoden.*?/truyen-tranh/.*?.html",
     "description": "Đọc truyện trên trang men18",
