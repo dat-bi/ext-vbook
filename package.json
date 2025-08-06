@@ -2,6 +2,9 @@
   "name": "vbook-extensions",
   "version": "1.0.0",
   "dependencies": {
-    "glob": "^8.1.0"
+    "axios": "^1.11.0",
+    "crypto-js": "^4.2.0",
+    "glob": "^8.1.0",
+    "node-fetch": "^3.3.2"
   }
 }
