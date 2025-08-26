@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Button Demo</title>
+</head>
+
+<body>
+    <div class="content">
+
+    </div>
+
+    <script>
+        let cookieButton = null;
+        let isOpaque = false;
+
+        function createCookieButton() {
+            // Xóa button cũ nếu có
+            if (cookieButton) {
+                removeCookieButton();
+            }
+
+            // Tạo button mới
+            var btn = document.createElement("button");
+            btn.innerText = "🍪 Cookie STV";
+            btn.style.position = "fixed";
+            btn.style.bottom = "10px";  
+            btn.style.left = "10px";
+            btn.style.zIndex = "99999";
+            btn.style.opacity = "0.5";
+            btn.style.fontSize = "12px";
+            btn.style.padding = "4px 8px";
+            btn.style.borderRadius = "6px";
+            btn.style.border = "1px solid #888";
+            btn.style.background = "#fff";
+            btn.style.color = "#000";
+            btn.style.cursor = "pointer";
+            btn.style.transition = "all 0.3s ease";
+
+            // Cấu hình cho điện thoại
+            if (window.innerWidth <= 768) {
+                btn.style.fontSize = "14px";
+                btn.style.padding = "8px 12px";
+                btn.style.bottom = "15px";
+                btn.style.left = "15px";
+                btn.style.borderRadius = "8px";
+                btn.style.minHeight = "44px"; // iOS recommended touch target
+                btn.style.minWidth = "44px";
+                btn.style.touchAction = "manipulation"; // Ngăn zoom khi double tap
+            }
+
+            // Cấu hình cho màn hình rất nhỏ
+            if (window.innerWidth <= 480) {
+                btn.style.fontSize = "16px";
+                btn.style.padding = "10px 16px";
+                btn.style.bottom = "20px";
+                btn.style.left = "20px";
+            }
+
+            // Thêm hiệu ứng hover cho desktop và touch cho mobile
+            btn.onmouseenter = function () {
+                this.style.opacity = "1";
+                if (window.innerWidth > 768) {
+                    this.style.transform = "scale(1.05)";
+                }
+            };
+
+            btn.onmouseleave = function () {
+                this.style.opacity = isOpaque ? "1" : "0.5";
+                if (window.innerWidth > 768) {
+                    this.style.transform = "scale(1)";
+                }
+            };
+
+            // Thêm sự kiện touch cho mobile
+            btn.ontouchstart = function () {
+                this.style.opacity = "1";
+                this.style.transform = "scale(0.95)";
+            };
+
+            btn.ontouchend = function () {
+                this.style.opacity = isOpaque ? "1" : "0.5";
+                this.style.transform = "scale(1)";
+            };
+
+            // Thêm sự kiện click
+            btn.onclick = function () {
+                alert("Cookie button đã được click! 🍪");
+            };
+
+            document.body.appendChild(btn);
+            cookieButton = btn;
+
+            console.log("Cookie button đã được tạo!");
+        }
+
+        function removeCookieButton() {
+            if (cookieButton) {
+                document.body.removeChild(cookieButton);
+                cookieButton = null;
+                console.log("Cookie button đã được xóa!");
+            }
+        }
+
+        function toggleOpacity() {
+            if (cookieButton) {
+                isOpaque = !isOpaque;
+                cookieButton.style.opacity = isOpaque ? "1" : "0.5";
+                console.log("Độ trong suốt đã được thay đổi:", isOpaque ? "Đậm" : "Mờ");
+            } else {
+                alert("Vui lòng tạo cookie button trước!");
+            }
+        }
+
+        // Tự động tạo button khi trang load
+        window.onload = function () {
+            createCookieButton();
+        };
+
+        // Cập nhật button khi thay đổi kích thước màn hình
+        window.onresize = function () {
+            if (cookieButton) {
+                removeCookieButton();
+                createCookieButton();
+            }
+        };
+    </script>
+</body>
+
+</html>

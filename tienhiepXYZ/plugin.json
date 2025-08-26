@@ -1,10 +1,10 @@
 {
     "metadata": {
-        "name": "tienhiepXYZ",
+        "name": "truyendich.vn",
         "author": "B",
-        "version": 2,
-        "source": "https://tienhiep.xyz",
-        "regexp": "https://tienhiep.xyz/.*?",
+        "version": 3,
+        "source": "https://truyendich.vn",
+        "regexp": "https://((truyendich.vn)|(tienhiep.xyz))/.*?",
         "description": "Đọc truyện trên trang tienhiep.net",
         "locale": "vi_VN",
         "type": "novel",
@@ -16,6 +16,7 @@
         "search": "search.js",
         "detail": "detail.js",
         "toc": "toc.js",
-        "chap": "chap.js"
+        "chap": "chap.js",
+        "page": "page.js"
     }
 }

@@ -309,6 +309,17 @@
             "locale": "vi_VN"
         },
         {
+            "name": "truyendich.vn",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiepXYZ/plugin.zip",
+            "version": 3,
+            "source": "https://truyendich.vn",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tienhiepXYZ/icon.png",
+            "description": "Đọc truyện trên trang truyendich.vn",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "truyenchuth",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenchuth/plugin.zip",
@@ -333,7 +344,7 @@
             "name": "truyenheo",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/plugin.zip",
-            "version": 16,
+            "version": 17,
             "source": "https://truyensextv.cc/",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/truyenheo/icon.png",
             "description": "Đọc truyện trên trang http://truyensextv.me tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
