@@ -72,6 +72,18 @@
             "tag": "nsfw"
         },
         {
+            "name": "18mh",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/18mh/plugin.zip",
+            "version": 1,
+            "source": "https://18mh.net",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/18mh/icon.png",
+            "description": "Đọc truyện trên trang 18mh",
+            "type": "chinese_novel",
+            "locale": "zh_CN",
+            "tag": "nsfw"
+        },
+        {
             "name": "60ks",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/60ks/plugin.zip",
