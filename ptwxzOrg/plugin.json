@@ -2,7 +2,7 @@
     "metadata": {
         "name": "ptwxzOrg",
         "author": "B",
-        "version": 2,
+        "version": 3,
         "source": "https://ptwxz.org",
         "regexp": "(https://|http://)(m.|www.)ptwxz.org/.*?/\\d+(/|/index.html)",
         "description": "Đọc truyện trên trang ptwxz",

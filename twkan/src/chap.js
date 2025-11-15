@@ -8,7 +8,7 @@ function execute(url) {
     if (response.ok) {
         let doc = response.html();
 
-        var htm = $.Q(doc, '#txtcontent', { remove: ['h1', 'div', 'script'] }).html();
+        var htm = $.Q(doc, '#txtcontent0', { remove: ['h1', 'div', 'script'] }).html();
 
         htm = cleanHtml(htm)
             .replace(/^ *第\d+章.*?<br>/, '') // Ex: '  第11745章 大结局，终<br>'

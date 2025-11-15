@@ -2,7 +2,7 @@
   "metadata": {
     "name": "twkan",
     "author": "B",
-    "version": 2,
+    "version": 3,
     "source": "https://twkan.com",
     "regexp": "twkan\\.com/(txt|book)/.*?\\.html",
     "description": "Đọc truyện trên trang twkan",
