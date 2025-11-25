@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "Dưa Leo Truyện",
+    "author": "B",
+    "version": 10,
+    "source": "https://dualeotruyencg.com/",
+    "regexp": "https://(www.)?dualeotruyen.*?/truyen-tranh/.*?",
+    "description": "Đọc truyện trên trang dualeotruyen",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "comic",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

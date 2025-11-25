@@ -84,6 +84,18 @@
             "tag": "nsfw"
         },
         {
+            "name": "Dưa Leo Truyện",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/D%C6%B0a%20Leo%20Truy%E1%BB%87n/plugin.zip",
+            "version": 10,
+            "source": "https://dualeotruyenza.com/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/D%C6%B0a%20Leo%20Truy%E1%BB%87n/icon.png",
+            "description": "Đọc truyện trên trang dualeotruyen",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "60ks",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/60ks/plugin.zip",
