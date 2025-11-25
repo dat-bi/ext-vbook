@@ -2,14 +2,15 @@ load('libs.js');
 load('config.js');
 
 function execute(url) {
-    url = url.replace("m.", "www.").replace(/index.html/g, "") + "/index.html";
+     if (url.slice(-1) !== "/") url = url + "/";
+    url = url.replace("m.", "www.").replace(/index.html/g, "") + "index.html";
     console.log(url)
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html();
 
         var data = [];
-        var elems = doc.select('#list > dl:nth-child(2) dd a');
+        var elems = doc.select('#list > dl dd a');
         console.log(elems.size())
 
         elems.forEach(function (e) {
