@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Dưa Leo Truyện",
     "author": "B",
-    "version": 11,
+    "version": 12,
     "source": "https://dualeotruyencg.com/",
     "regexp": "dualeotruyen.*?/truyen-tranh/.*?",
     "description": "Đọc truyện trên trang dualeotruyen",
