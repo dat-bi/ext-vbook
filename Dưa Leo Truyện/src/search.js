@@ -5,19 +5,63 @@ function execute(key, page) {
 
     if (response.ok) {
         let doc = response.html();
-        let next =  doc.select("div.page_redirect .active + a").attr("href");
-        let data = [];
-        doc.select("div.box_list .li_truyen").forEach(e => {
-            let coverImg = e.select(".img img").first().attr("data-src");
+        var next = doc.select(".page_redirect .active + a").text();
+        var data = [];
+
+        var items = doc.select(".li_truyen");
+
+        for (var i = 0; i < items.size(); i++) {
+            var e = items.get(i);
+
+            // Link truyện
+            var link = "";
+            var a = e.select("a").first();
+            if (a != null) {
+                link = a.attr("href");
+                if (link != null && link.indexOf("http") != 0) {
+                    link = BASE_URL + link;
+                }
+            }
+
+            // Tên truyện
+            var name = "";
+            var h6 = e.select(".name").first();
+            if (h6 != null) {
+                name = h6.text();
+            }
+
+            // Ảnh bìa
+            var cover = "";
+            var img = e.select("img").first();
+            if (img != null) {
+                cover = img.attr("data-src");
+                if (cover == null || cover == "") {
+                    cover = img.attr("src");
+                }
+            }
+// ---- Chapter mới nhất ----
+    var chapter_name = e.select(".chap_name").first().text();
+
+    // ---- Thời gian cập nhật ----
+    var update_time = "";
+    var postOn = e.select(".time").first();
+    if (postOn != null) {
+        update_time = postOn.text().trim();
+    }
+
+    // ---- Description (gộp tên chap + thời gian) ----
+    var description = chapter_name;
+    if (update_time != "") {
+        description = description + " · " + update_time;
+    }
             data.push({
-                name: e.select(".name").first().text(),
-                link: e.select("a").first().attr("href"),
-                cover: coverImg,
-                description: e.select(".chap_name").first().text(),
+                name: name,
+                link: link,
+                cover: cover,
+                description: description,
                 host: BASE_URL
             });
-        });
-
+        }
         return Response.success(data, next);
     }
     return null;

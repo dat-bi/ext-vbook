@@ -9,7 +9,7 @@ function execute(url, page) {
         var next = doc.select(".page_redirect .active + a").text();
         var data = [];
 
-        var items = doc.select(".row.product-grid .card");
+        var items = doc.select(".li_truyen");
 
         for (var i = 0; i < items.size(); i++) {
             var e = items.get(i);
@@ -26,14 +26,14 @@ function execute(url, page) {
 
             // Tên truyện
             var name = "";
-            var h6 = e.select("h6.comics-item-title").first();
+            var h6 = e.select(".name").first();
             if (h6 != null) {
                 name = h6.text();
             }
 
             // Ảnh bìa
             var cover = "";
-            var img = e.select("img.card-img-top").first();
+            var img = e.select("img").first();
             if (img != null) {
                 cover = img.attr("data-src");
                 if (cover == null || cover == "") {
@@ -41,20 +41,11 @@ function execute(url, page) {
                 }
             }
 // ---- Chapter mới nhất ----
-    var chapter_name = "";
-    var chapter_link = "";
-    var chapA = e.select(".chapter.font-meta a").first();
-    if (chapA != null) {
-        chapter_name = chapA.text().trim();
-        chapter_link = chapA.attr("href");
-        if (chapter_link != null && chapter_link.indexOf("http") != 0) {
-            chapter_link = BASE_URL + chapter_link;
-        }
-    }
+    var chapter_name = e.select(".chap_name").first().text();
 
     // ---- Thời gian cập nhật ----
     var update_time = "";
-    var postOn = e.select(".post-on.font-meta").first();
+    var postOn = e.select(".time").first();
     if (postOn != null) {
         update_time = postOn.text().trim();
     }

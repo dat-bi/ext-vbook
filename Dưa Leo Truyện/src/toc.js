@@ -6,11 +6,12 @@ function execute(url) {
         let doc = response.html();
         let list = [];
 
-        var items = doc.select(".list-chapters .item");
+        var items = doc.select(".box_list .chapter-item");
+
         for (var i = 0; i < items.size(); i++) {
             var item = items.get(i);
 
-            var a = item.select(".episode-title a").first();
+            var a = item.select(".chap_name a").first();
             if (a == null) {
                 continue;
             }
