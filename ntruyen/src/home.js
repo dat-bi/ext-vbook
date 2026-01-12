@@ -1,18 +1,9 @@
 function execute(url) {
-    let response = fetch("https://ntruyen.top/")
-    if (response.ok) {
-        let doc = response.html()
-        var data = []
-        let el = doc.select("#main-nav > div > div.sort-dropdown > ul a")
-        el.forEach(e => {
-            data.push({
-                title: e.text(),
-                input: e.attr("href").replace("https://ntruyen.top/",""),
-                script: "gen.js"
-            })
-        }
-        )
-        data.shift()
-    }
-    return Response.success(data)
+    return Response.success(
+        [
+            { title: "Truyện Mới", input: "/danh-sach/truyen-moi", script: "gen.js" },
+            { title: "Truyện Hot", input: "/danh-sach/truyen-hot", script: "gen.js" },
+            { title: "Truyện FULL", input: "/danh-sach/truyen-full", script: "gen.js" }
+        ]
+    )
 }

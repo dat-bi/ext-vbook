@@ -1,16 +1,48 @@
 function execute() {
-
-    var doc = Html.parse("<ul><li><a href=\"the-loai/tien-hiep\">Tiên Hiệp</a> </li><li><a href=\"the-loai/vo-hiep\">Võ Hiệp</a> </li><li><a href=\"the-loai/do-thi\">Đô Thị</a> </li><li><a href=\"the-loai/ngon-tinh\">Ngôn Tình</a> </li><li><a href=\"the-loai/quang-truong\">Quan Trường</a> </li><li><a href=\"the-loai/vong-du\">Võng Du</a> </li><li><a href=\"the-loai/khoa-huyen\">Khoa Huyễn</a> </li><li><a href=\"the-loai/huyen-huyen\">Huyền Huyễn</a> </li><li><a href=\"the-loai/di-gioi\">Dị Giới</a> </li><li><a href=\"the-loai/di-nang\">Dị Năng</a> </li><li><a href=\"the-loai/quan-su\">Quân Sự</a> </li><li><a href=\"the-loai/lich-su\">Lịch Sử</a> </li><li><a href=\"the-loai/xuyen-khong\">Xuyên Không</a> </li><li><a href=\"the-loai/trong-sinh\">Trọng Sinh</a> </li><li><a href=\"the-loai/trinh-tham\">Trinh Thám</a> </li><li><a href=\"the-loai/linh-di\">Linh Dị</a> </li><li><a href=\"the-loai/sac-hiep\">Sắc Hiệp</a> </li><li><a href=\"the-loai/sung\">Sủng</a> </li><li><a href=\"the-loai/nguoc\">Ngược</a> </li><li><a href=\"the-loai/cung-dau\">Cung Đấu</a> </li><li><a href=\"the-loai/nu-cuong\">Nữ Cường</a> </li><li><a href=\"the-loai/gia-dau\">Gia Đấu</a> </li><li><a href=\"the-loai/dong-phuong\">Đông Phương</a> </li><li><a href=\"the-loai/dam-my\">Đam Mỹ</a> </li><li><a href=\"the-loai/hai-huoc\">Hài Hước</a> </li><li><a href=\"the-loai/co-dai\">Cổ Đại</a> </li><li><a href=\"the-loai/mat-the\">Mạt Thế</a> </li><li><a href=\"the-loai/truyen-teen\">Truyện Teen</a> </li><li><a href=\"the-loai/tieu-thuyet\">Tiểu Thuyết</a> </li><li><a href=\"the-loai/van-hoc-viet-nam\">Văn học Việt Nam</a> </li><li><a href=\"the-loai/doan-van\">Đoản Văn</a> </li><li><a href=\"the-loai/khac\">Khác</a> </li><li><a href=\"the-loai/bach-hop\">Bách Hợp</a> </li><li><a href=\"the-loai/dong-nhan\">Đồng Nhân</a> </li><li><a href=\"the-loai/he-thong\">Hệ Thống</a> </li><li><a href=\"the-loai/dien-vien\">Điền Viên</a> </li></ul>");
-    var genre = [];
-
-    var el = doc.select("li a")
-    for (var i = 0; i < el.size(); i++) {
-        var e = el.get(i);
-        genre.push({
-            title: e.text(),
-            input: e.attr("href"),
-            script: "gen.js"
-        });
-    }
-    return Response.success(genre);
+    return Response.success([{ title: "Bách Hợp", input: "/the-loai/bach-hop", script: "gen.js" },
+    { title: "Cổ Đại", input: "/the-loai/co-dai", script: "gen.js" },
+    { title: "Cung Đấu", input: "/the-loai/cung-dau", script: "gen.js" },
+    { title: "Dã Sử", input: "/the-loai/da-su", script: "gen.js" },
+    { title: "Dị Giới", input: "/the-loai/di-gioi", script: "gen.js" },
+    { title: "Dị Năng", input: "/the-loai/di-nang", script: "gen.js" },
+    { title: "Đam Mỹ", input: "/the-loai/dam-my", script: "gen.js" },
+    { title: "Điền Văn", input: "/the-loai/dien-van", script: "gen.js" },
+    { title: "Đoản Văn", input: "/the-loai/doan-van", script: "gen.js" },
+    { title: "Đô Thị", input: "/the-loai/do-thi", script: "gen.js" },
+    { title: "Đồng Nhân", input: "/the-loai/dong-nhan", script: "gen.js" },
+    { title: "Đông Phương", input: "/the-loai/dong-phuong", script: "gen.js" },
+    { title: "FanFic", input: "/the-loai/fanfic", script: "gen.js" },
+    { title: "Gia Đấu", input: "/the-loai/gia-dau", script: "gen.js" },
+    { title: "Hài Hước", input: "/the-loai/hai-huoc", script: "gen.js" },
+    { title: "Hệ Thống", input: "/the-loai/he-thong", script: "gen.js" },
+    { title: "Huyền Huyễn", input: "/the-loai/huyen-huyen", script: "gen.js" },
+    { title: "Huyền Nghi", input: "/the-loai/huyen-nghi", script: "gen.js" },
+    { title: "Khoa Huyễn", input: "/the-loai/khoa-huyen", script: "gen.js" },
+    { title: "Kiếm Hiệp", input: "/the-loai/kiem-hiep", script: "gen.js" },
+    { title: "Kỳ Ảo", input: "/the-loai/ky-ao", script: "gen.js" },
+    { title: "Lịch Sử", input: "/the-loai/lich-su", script: "gen.js" },
+    { title: "Light Novel", input: "/the-loai/light-novel", script: "gen.js" },
+    { title: "Linh Dị", input: "/the-loai/linh-di", script: "gen.js" },
+    { title: "Mạt Thế", input: "/the-loai/mat-the", script: "gen.js" },
+    { title: "Ngôn Tình", input: "/the-loai/ngon-tinh", script: "gen.js" },
+    { title: "Ngược", input: "/the-loai/nguoc", script: "gen.js" },
+    { title: "Nữ Cường", input: "/the-loai/nu-cuong", script: "gen.js" },
+    { title: "Nữ Phụ", input: "/the-loai/nu-phu", script: "gen.js" },
+    { title: "Phương Tây", input: "/the-loai/phuong-tay", script: "gen.js" },
+    { title: "Quan Trường", input: "/the-loai/quan-truong", script: "gen.js" },
+    { title: "Quân Sự", input: "/the-loai/quan-su", script: "gen.js" },
+    { title: "Sắc", input: "/the-loai/sac", script: "gen.js" },
+    { title: "Sủng", input: "/the-loai/sung", script: "gen.js" },
+    { title: "Thám Hiểm", input: "/the-loai/tham-hiem", script: "gen.js" },
+    { title: "Tiên Hiệp", input: "/the-loai/tien-hiep", script: "gen.js" },
+    { title: "Tiểu Thuyết", input: "/the-loai/tieu-thuyet", script: "gen.js" },
+    { title: "Tổng Tài", input: "/the-loai/tong-tai", script: "gen.js" },
+    { title: "Trinh Thám", input: "/the-loai/trinh-tham", script: "gen.js" },
+    { title: "Trọng Sinh", input: "/the-loai/trong-sinh", script: "gen.js" },
+    { title: "Truyện Teen", input: "/the-loai/truyen-teen", script: "gen.js" },
+    { title: "Truyện Tranh", input: "/the-loai/truyen-tranh", script: "gen.js" },
+    { title: "Việt Nam", input: "/the-loai/viet-nam", script: "gen.js" },
+    { title: "Võng Du", input: "/the-loai/vong-du", script: "gen.js" },
+    { title: "Xuyên Không", input: "/the-loai/xuyen-khong", script: "gen.js" },
+    { title: "Xuyên Nhanh", input: "/the-loai/xuyen-nhanh", script: "gen.js" }]);
 }

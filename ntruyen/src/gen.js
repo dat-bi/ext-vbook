@@ -1,22 +1,32 @@
+load('config.js');
 function execute(url, page) {
-    if (!page) page = '1';
-    let response = fetch('https://ntruyen.top/' + url, {
-        method: "GET",
-        queries: {
-            paged: page
-        }
-    });
+    let target = BASE_URL + url;
+    if (page && !/([?&])page=\d+/.test(url)) {
+        let separator = url.indexOf("?") >= 0 ? "&" : "?"
+        target += separator + "page=" + page;
+    }
+    let response = fetch(target);
     if (response.ok) {
         let doc = response.html();
-        let next = doc.select(".pagination").select("li.active + li").text()
-        let el = doc.select(".grid-story-item")
+        let next = null
+        let nextHref = doc.select("a[aria-label='Go to next page']").attr("href")
+        if (nextHref) {
+            let match = nextHref.match(/page=(\d+)/)
+            if (match) next = match[1]
+        }
+        let el = doc.select("a[itemprop='hasPart']")
         let data = [];
         el.forEach(e => data.push({
-            name: e.select("h3 a").first().text(),
-            link: e.select("h3 a").first().attr("href"),
-            cover: e.select(".cover img").first().attr("src"),
-            description: e.select(".metas a").first().text() + " - " + e.select(".metas a").last().text() + " - " + e.select(".metas span").last().text(),
-            host: "https://ntruyen.top"
+            name: e.select("p[itemprop='name']").text(),
+            link: e.attr("href"),
+            cover: e.select("img[itemprop='image']").attr("data-src") || e.select("img[itemprop='image']").attr("src"),
+            description: [
+                e.select("[itemprop='author'] [itemprop='name']").text(),
+                e.select("[itemprop='bookFormat']").text(),
+                e.select("[itemprop='dateModified']").text(),
+                e.select("[itemprop='genre']").text()
+            ].filter(t => t && t.length > 0).join(" - "),
+            host: BASE_URL
         }))
         return Response.success(data, next)
     }
