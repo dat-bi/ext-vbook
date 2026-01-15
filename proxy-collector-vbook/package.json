@@ -1,0 +1,16 @@
+{
+    "name": "vbook-proxy-collector",
+    "version": "0.1.0",
+    "private": true,
+    "type": "commonjs",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "ai": "node cli.js --latest",
+        "ai:cli": "node cli.js"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.18.3"
+    }
+}

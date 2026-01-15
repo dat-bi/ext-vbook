@@ -6,6 +6,7 @@ function execute(url) {
     // var doc = browser.launch(url, 5000);
     // browser.close()
     let response = fetch(url)
+    if (!response.ok) return Response.error("HTTP Error: " + response.status)
     let doc = response.html()
     let genres = []
     let genresText = []
@@ -20,11 +21,11 @@ function execute(url) {
     })
     let description = doc.select("article[itemprop='description'] [itemprop='description']").text()
     return Response.success({
-        name : doc.select("header[itemtype='https://schema.org/Book'] h1[itemprop='name']").text(),
-        cover : doc.select("header[itemtype='https://schema.org/Book'] img.object-cover.rounded-xl").attr("src"),
-        host : BASE_URL,
-        author : doc.select("header[itemtype='https://schema.org/Book'] [itemprop='author'] [itemprop='name']").text(),
-        description : genresText.join(", ") + (description ? "<br>" + description : ""),
-        genres : genres,
+        name: doc.select("header[itemtype='https://schema.org/Book'] h1[itemprop='name']").text(),
+        cover: doc.select("header[itemtype='https://schema.org/Book'] img.object-cover.rounded-xl").attr("src"),
+        host: BASE_URL,
+        author: doc.select("header[itemtype='https://schema.org/Book'] [itemprop='author'] [itemprop='name']").text(),
+        description: genresText.join(", ") + (description ? "<br>" + description : ""),
+        genres: genres,
     });
 }
