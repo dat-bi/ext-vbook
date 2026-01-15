@@ -38,6 +38,17 @@
             "locale": "vi_VN"
         },
         {
+            "name": "Tàng Thư Viện [APP]",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tangthuvienAPP/plugin.zip",
+            "version": 1,
+            "source": "https://m.tangthuvien.net",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/tangthuvienAPP/icon.png",
+            "description": "Truyện tangthuvienAPP...",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "nhieutruyen (qidian-vp)",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/qidian-vp/plugin.zip",

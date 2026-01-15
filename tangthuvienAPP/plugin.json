@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "name": "Tàng Thư Viện [APP]",
+    "author": "B",
+    "version": 1,
+    "source": "https://m.tangthuvien.net",
+    "regexp": "https://apptangthuvien.*?",
+    "description": "Đọc truyện trên app Tàng Thư Viện",
+    "locale": "vi_VN",
+    "type": "novel",
+    "language": "javascript"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "thread_num": 1,
+    "delay": 3000
+  }
+}
