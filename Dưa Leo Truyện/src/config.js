@@ -1,4 +1,4 @@
-let BASE_URL = 'https://dualeotruyenjd.com'
+let BASE_URL = 'https://dualeotruyenyk.com'
 try {
     if (CONFIG_URL) {
         BASE_URL = CONFIG_URL;
