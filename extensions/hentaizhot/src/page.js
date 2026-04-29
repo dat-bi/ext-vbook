@@ -4,7 +4,7 @@ load("config.js");
 // This site has playlist on the same page (no pagination for TOC).
 function execute(url) {
     url = (url || "") + "";
-    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL);
+    url = decodeURI(url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL));
     if (url.slice(-1) === "/") url = url.slice(0, -1);
     return Response.success([url]);
 }

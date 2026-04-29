@@ -105,7 +105,7 @@ function execute(url, page) {
 
             dataApi.push({
                 name: name,
-                link: BASE_URL + "/watch/" + slug,
+                link: encodeURI(BASE_URL + "/watch/" + slug),
                 cover: cover,
                 host: BASE_URL,
                 tag: tags
@@ -154,7 +154,7 @@ function execute(url, page) {
         var link = href.indexOf("http") === 0 ? href : (href.indexOf("/") === 0 ? (BASE_URL + href) : (BASE_URL + "/" + href));
         data.push({
             name: name || link,
-            link: link,
+            link: encodeURI(link),
             cover: cover,
             host: BASE_URL
         });
