@@ -25,6 +25,7 @@ function collectPossibleBooks(node, out, seen) {
 
     if (isArray(node)) {
         for (var i = 0; i < node.length; i++) {
+            
             collectPossibleBooks(node[i], out, seen);
         }
         return;
