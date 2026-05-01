@@ -42,6 +42,7 @@ function execute(key, page) {
         }
 
         var link = href.indexOf("http") === 0 ? href : (href.indexOf("/") === 0 ? (BASE_URL + href) : (BASE_URL + "/" + href));
+        link = encodeURI(link);
         if (data.length < 60) {
             data.push({ name: name || link, link: link, cover: cover, description: "", host: BASE_URL });
         }

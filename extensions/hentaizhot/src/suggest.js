@@ -27,7 +27,7 @@ function execute(url) {
             }
             items.push({
                 name: name || slug,
-                link: BASE_URL + "/watch/" + slug,
+                link: encodeURI(BASE_URL + "/watch/" + slug),
                 cover: cover,
                 host: BASE_URL
             });
