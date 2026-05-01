@@ -2,7 +2,7 @@
   "metadata": {
     "name": "hentaizhot",
     "author": "B",
-    "version": 5,
+    "version": 6,
     "source": "https://hentaiz.hot",
     "regexp": "hentaiz\\.hot\\/watch\\/[^/]+\\/?$",
     "description": "HentaiZ video extension",
