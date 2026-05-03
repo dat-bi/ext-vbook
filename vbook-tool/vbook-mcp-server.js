@@ -34,6 +34,7 @@ const sessionState    = require('./lib/session-state');
 const gate            = require('./lib/gate');
 const detector        = require('./lib/violation-detector');
 const responseWrapper = require('./lib/response-wrapper');
+const nodePreflight  = require('./lib/node-preflight');
 
 // ─── MCP stdio protocol helpers ───────────────────────────────────────────────
 
@@ -78,6 +79,50 @@ const TOOLS = [
             type: 'object',
             properties: {},
             required: []
+        }
+    },
+    {
+        name: 'node_preflight_probe',
+        description: 'Fast preflight using Node HTTP(S): test API URL, headers, method, and capture response. Use before VBook debug for difficult sites.',
+        inputSchema: {
+            type: 'object',
+            properties: {
+                url: { type: 'string' },
+                method: { type: 'string', enum: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'] },
+                headers: { type: 'object' },
+                body: { type: 'string' },
+                expect: { type: 'string', enum: ['json', 'text'], default: 'json' },
+                timeout_ms: { type: 'number' },
+                retries: { type: 'number', default: 0 },
+                follow_redirects: { type: 'boolean', default: true },
+                max_redirects: { type: 'number', default: 3 },
+                extract_path: { type: 'string', description: 'Optional dot path to extract from JSON response, e.g. data.items' },
+                save_as: { type: 'string', description: 'Optional filename (without extension) to save preflight result spec' }
+            },
+            required: ['url']
+        }
+    },
+    {
+        name: 'convert_preflight_to_vbook_fetch',
+        description: 'Convert a preflight request spec to Rhino-safe VBook fetch execute() script.',
+        inputSchema: {
+            type: 'object',
+            properties: {
+                spec: {
+                    type: 'object',
+                    properties: {
+                        url: { type: 'string' },
+                        method: { type: 'string' },
+                        headers: { type: 'object' },
+                        body: { type: 'string' },
+                        expect: { type: 'string', enum: ['json', 'text'] },
+                        queries: { type: 'object' },
+                        extract_path: { type: 'string' }
+                    },
+                    required: ['url']
+                }
+            },
+            required: ['spec']
         }
     },
     {
@@ -472,6 +517,73 @@ async function executeTool(name, args) {
             const parsed = parseJsonOutput(out.stdout);
             if (!parsed) return { error: out.stderr || out.stdout };
             return parsed;
+        }
+
+        case 'node_preflight_probe': {
+            const method = (args.method || 'GET').toUpperCase();
+            const headers = args.headers || {};
+            try {
+                const out = await nodePreflight.requestRaw(args.url, {
+                    method,
+                    headers,
+                    body: args.body || '',
+                    timeoutMs: args.timeout_ms || 15000,
+                    retries: args.retries || 0,
+                    followRedirects: args.follow_redirects !== false,
+                    maxRedirects: args.max_redirects || 3
+                });
+                const parsed = nodePreflight.parseBody(out.body, args.expect || 'json');
+                const extracted = (parsed.mode === 'json' && args.extract_path)
+                    ? nodePreflight.getByPath(parsed.data, args.extract_path)
+                    : null;
+
+                const result = {
+                    success: out.ok,
+                    request: {
+                        url: args.url,
+                        method,
+                        headers,
+                        body: args.body || null
+                    },
+                    response: {
+                        status: out.status,
+                        status_text: out.statusText,
+                        headers: out.headers,
+                        parsed_mode: parsed.mode,
+                        final_url: out.finalUrl,
+                        attempts: out.attempts,
+                        trace: out.trace,
+                        sample: (parsed.mode === 'text'
+                            ? String(parsed.data).substring(0, 1000)
+                            : parsed.data),
+                        extracted
+                    },
+                    next: 'If good, call convert_preflight_to_vbook_fetch then test with debug on device.'
+                };
+                if (args.save_as) {
+                    result.saved_spec = nodePreflight.saveSpec(PROJECT_ROOT, args.save_as, result);
+                }
+                return result;
+            } catch (err) {
+                return {
+                    success: false,
+                    error: err && err.message ? err.message : String(err),
+                    request: {
+                        url: args.url,
+                        method,
+                        headers
+                    }
+                };
+            }
+        }
+
+        case 'convert_preflight_to_vbook_fetch': {
+            const script = nodePreflight.generateVbookFetchScript(args.spec || {});
+            return {
+                success: true,
+                script,
+                tip: 'Write this to extension src/*.js then run validate/debug/test_all.'
+            };
         }
 
         case 'create_smart': {

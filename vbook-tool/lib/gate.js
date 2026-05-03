@@ -15,6 +15,8 @@ var GATE_MAP = {
     'read_context':         null,
     'list_extensions':      null,
     'get_plugin_info':      null,
+    'node_preflight_probe': null,
+    'convert_preflight_to_vbook_fetch': null,
 
     // Need env_checked
     'analyze':              'env_checked',
@@ -22,7 +24,7 @@ var GATE_MAP = {
     'get_dom_tree':         'env_checked',
     'create':               'env_checked',
     'create_smart':         'env_checked',
-    'create_extension_flow':'env_checked',
+    'create_extension_flow':null,
     'copy_demo':            'env_checked',
     'update_plugin_json':   'env_checked',
     'update_plugin_version':'env_checked',
