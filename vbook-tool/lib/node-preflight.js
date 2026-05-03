@@ -22,7 +22,7 @@ function requestOnce(url, opts) {
             timeout: opts.timeoutMs || 15000
         }, (res) => {
             const chunks = [];
-            res.on('data', (c) => chunks.push(Buffer.from(c)));
+            res.on('data', (c) => chunks.push(c));
             res.on('end', () => {
                 const rawBuffer = Buffer.concat(chunks);
                 let body = '';
