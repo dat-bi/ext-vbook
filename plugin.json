@@ -87,7 +87,7 @@
             "name": "alicesw",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/alicesw/plugin.zip",
-            "version": 11,
+            "version": 12,
             "source": "http://alicesw.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/alicesw/icon.png",
             "description": "Đọc truyện trên trang http://www.alicesw.com",
