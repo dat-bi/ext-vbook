@@ -84,7 +84,7 @@ async function requestRaw(url, options) {
             out.attempts = attempts;
             return out;
         } catch (err) {
-            if (attempts > retries + 1) throw err;
+            if (attempts > retries) throw err;
         }
     }
 }
