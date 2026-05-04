@@ -24,6 +24,12 @@ function getNextHint(toolName, result) {
             return result.error
                 ? '❌ Analyze thất bại. Kiểm tra URL.'
                 : '✅ Analyze xong. Dùng kết quả để viết code.';
+        case 'node_preflight_probe':
+            return result.success
+                ? '✅ Node preflight OK. Tiếp theo: convert_preflight_to_vbook_fetch rồi test lại bằng debug trên device.'
+                : '❌ Node preflight fail. Kiểm tra URL/headers/cookies trước.';
+        case 'convert_preflight_to_vbook_fetch':
+            return '✅ Đã convert sang script fetch cho VBook. Tiếp theo: write_extension_script → validate → debug.';
 
         case 'create_extension_flow':
             if (result.status === 'success')
