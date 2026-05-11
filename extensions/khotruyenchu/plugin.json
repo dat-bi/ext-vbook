@@ -2,10 +2,10 @@
   "metadata": {
     "name": "Kho Truyện Chữ",
     "author": "B",
-    "version": 3,
-    "source": "https://khotruyenchu.online/",
-    "regexp": "khotruyenchu\\.(sbs|click|online)/truyen/.*",
-    "description": "Đọc truyện trên khotruyenchu.online",
+    "version": 4,
+    "source": "https://khotruyenchu.space/",
+    "regexp": "khotruyenchu\\.(.*?)/truyen/.*",
+    "description": "Đọc truyện trên khotruyenchu.space",
     "locale": "vi_VN",
     "language": "javascript",
     "type": "novel"
@@ -18,5 +18,13 @@
     "search": "search.js",
     "toc": "toc.js",
     "chap": "chap.js"
+  },
+  "config": {
+    "CONFIG_URL": {
+      "title": "Tên miền",
+      "mode": "input",
+      "format": "text",
+      "default": "khotruyenchu.space"
+    }
   }
 }

@@ -8,11 +8,11 @@ function parseNovelList(doc) {
     for (let i = 0; i < items.size(); i++) {
         let item = items.get(i);
         let titleEl = item.select("h3.story-list-title, .hs-title a, .entry-title a").first();
-        if (!titleEl && item.tagName() === "a") titleEl = item;
+        if (!titleEl && (item.attr("href") + "").length > 0) titleEl = item;
         
         let name = titleEl ? titleEl.text().trim() : "";
         let link = "";
-        if (item.tagName() === "a") {
+        if ((item.attr("href") + "").length > 0) {
             link = item.attr("href");
         } else {
             link = titleEl ? titleEl.attr("href") : "";

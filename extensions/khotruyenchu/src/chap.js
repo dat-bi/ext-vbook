@@ -33,7 +33,7 @@ function execute(url) {
                 }
 
                 // Remove small elements containing site name
-                if (el.tagName() !== 'p' && (text.indexOf("khotruyenchu") >= 0 || text.indexOf("sbs") >= 0) && text.length < 200) {
+                if ((el.tag() + "").toLowerCase() !== 'p' && (text.indexOf("khotruyenchu") >= 0 || text.indexOf("sbs") >= 0) && text.length < 200) {
                     el.remove();
                 }
                 
