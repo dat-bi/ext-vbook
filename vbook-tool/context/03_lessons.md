@@ -151,3 +151,45 @@ var title = el.select("SELECTOR").text() + "";
    - Kết quả: Tốc độ lấy link giảm từ 15s xuống còn ~1.5s.
 3. **Date Parsing:** Với dữ liệu ngày tháng dạng mảng `["Date", "2024-..."]`, dùng `new Date(item[1])` để parse chính xác trong môi trường Rhino.
 4. **Bypass Redirect:** Thay thế trực tiếp domain gateway (ví dụ `e.streamqq.com`) bằng domain server gốc (`p1.spexliu.top`) để né lỗi 302 và các lớp bảo vệ trung gian.
+
+---
+
+## 10. Bypass Shopee/Next.js Gated Content (Next.js App Router Case Study)
+
+**Problem:** 
+1. Các web truyện hiện đại (như `ntruyen.biz`) sử dụng Next.js App Router với cơ chế streaming dữ liệu qua `self.__next_f.push`. Nội dung không nằm trong HTML tĩnh mà được đẩy xuống dưới dạng các chunk JSON-encoded.
+2. Trang web áp dụng "Shopee-gate": Yêu cầu click link affiliate để mở khóa chương. Nội dung thực tế có thể đã được tải nhưng bị ẩn bằng CSS (`opacity-0`, `h-0`, `pointer-events-none`).
+3. Chặn DevTools: Web chặn mở F12 để ngăn việc soi selector hoặc copy nội dung.
+
+**Solution:**
+1. **Next.js Stream Extraction:** Sử dụng Regex để bắt các chunk dữ liệu từ `self.__next_f.push`. Lưu ý giải mã các ký tự escaped như `\u003cp`, `\u003cbr`.
+   ```javascript
+   let regex = /self\.__next_f\.push\(\[1,"((?:\\.|[^"\\])*)"\]\)/g;
+   // Giải mã JSON.parse('"' + match[1] + '"')
+   ```
+2. **Tailwind `.prose` Selector:** Ưu tiên selector `.prose` (Tailwind Typography). Đây là class tiêu chuẩn cho các khối nội dung văn bản trên các site Next.js hiện đại.
+3. **Xử lý nội dung ẩn:** Không bỏ qua các element có class `opacity-0` hay `h-0`. Nếu `doc.select(".prose")` tìm thấy dữ liệu, hãy trích xuất bất kể trạng thái hiển thị trên trình duyệt.
+4. **Browser Fallback:** Nếu `fetch` bị 403 hoặc không tìm thấy dữ liệu trong `__next_f`, sử dụng `Engine.newBrowser()` để giả lập trình duyệt thật, cho phép JS thực thi và kích hoạt các cookie/session cần thiết để "mở khóa".
+5. **Clean Noise:** Luồng dữ liệu Next.js thường kèm theo các ID động (ví dụ `.go4109123758`) hoặc các đoạn script lồng nhau. Cần dùng `.remove()` để dọn dẹp trước khi trả kết quả về `Response.success`.
+
+---
+
+## 11. Bypass DevTools Blocking (Anti-Debug Bypassing)
+
+**Problem:** Website sử dụng các kỹ thuật như `debugger` loop, check `window.devtools`, hoặc chặn phím tắt (F12, Ctrl+Shift+I) để ngăn cản việc soi DOM và bắt API.
+
+**Solution:**
+1. **Sử dụng Tool MCP VBook (Khuyên dùng):**
+   - `mcp_vbook_inspect`: Trích xuất nhanh cấu trúc heading, link và ảnh.
+   - `mcp_vbook_get_dom_tree`: Lấy toàn bộ cây DOM dưới dạng JSON. 
+   - **Tại sao?** Các tool này chạy phía backend (Rhino/Jsoup), không thực thi JS của trang web nên hoàn toàn miễn nhiễm với mọi kỹ thuật chặn DevTools của trình duyệt.
+2. **Sử dụng `Engine.newBrowser()` + Logging:**
+   - Viết một script `test.js` để `launch(url)` và in ra `doc.html()` hoặc `browser.urls()`.
+   - Đây là cách hiệu quả nhất để xem các API background mà trang web gọi sau khi render.
+3. **View Source (`view-source:URL`):** 
+   - Cách cổ điển nhưng hữu hiệu để xem HTML tĩnh ban đầu mà không bị JS làm phiền.
+4. **Disable JavaScript:** 
+   - Sử dụng các extension trình duyệt để tắt JS. Khi JS không chạy, các script chặn DevTools sẽ vô dụng. Tuy nhiên cách này có thể làm mất dữ liệu nếu trang web render hoàn toàn bằng JS.
+5. **Network Interception (vBook Side):**
+   - Sử dụng code trong `test.js` để bắt toàn bộ request: `JSON.stringify(browser.urls())`. Mọi API ẩn sẽ lộ ra tại đây.
+
