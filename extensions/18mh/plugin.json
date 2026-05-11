@@ -2,7 +2,7 @@
   "metadata": {
     "name": "18mh",
     "author": "B",
-    "version": 2,
+    "version": 3,
     "source": "https://18mh.net/novel",
     "regexp": "18mh.net/novel/.*?",
     "description": "Đọc truyện trên trang 18mh.net",

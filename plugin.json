@@ -19,7 +19,7 @@
             "name": "18mh",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/18mh/plugin.zip",
-            "version": 2,
+            "version": 3,
             "source": "https://18mh.net/novel",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/18mh/icon.png",
             "description": "Đọc truyện trên trang 18mh.net",
