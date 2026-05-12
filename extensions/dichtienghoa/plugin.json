@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "dichtienghoa",
+    "author": "b",
+    "version": 1,
+    "source": "https://dichtienghoa.site/",
+    "regexp": "dichtienghoa\\.site\\/truyen\\/[a-zA-Z0-9-]+\\/[a-zA-Z0-9-]+$",
+    "description": "dichtienghoa.site",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "novel"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

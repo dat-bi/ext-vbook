@@ -22,7 +22,7 @@ function execute(url) {
             contentEl.select(".story-navigation, .reading-tools-bar, .social-share, .baoloi, .entry-meta, script, style, ins,em, .ads-responsive").remove();
             
             // Selective removal of watermarks/ads (even nested ones)
-            contentEl.select("div, span, i, p, a").forEach(function(el) {
+            contentEl.select("div, span, i, a").forEach(function(el) {
                 let text = el.text().toLowerCase();
                 let style = String(el.attr("style") || "").toLowerCase();
                 
@@ -33,7 +33,7 @@ function execute(url) {
                 }
 
                 // Remove small elements containing site name
-                if ((el.tag() + "").toLowerCase() !== 'p' && (text.indexOf("khotruyenchu") >= 0 || text.indexOf("sbs") >= 0) && text.length < 200) {
+                if ((text.indexOf("khotruyenchu") >= 0 || text.indexOf("sbs") >= 0) && text.length < 200) {
                     el.remove();
                 }
                 
