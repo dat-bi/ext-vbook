@@ -50,7 +50,7 @@ GITHUB_REPO=user/repo       # Repo GitHub để gen link tải plugin.zip
 Lệnh `vbook create` hiện đã được nâng cấp để sử dụng các bản mẫu (demos) chất lượng cao thay vì các bản mẫu thô sơ.
 
 ### Cách hoạt động:
-1.  **Nhận diện loại**: Dựa trên tham số `-t` (`novel`, `comic`, `video`), công cụ sẽ tìm thư mục mẫu tương ứng trong `extensions/_demo_<type>`.
+1.  **Nhận diện loại**: Dựa trên tham số `-t` (`novel`, `comic`, `video`), công cụ sẽ tìm thư mục mẫu tương ứng trong `templates/_demo_<type>`.
 2.  **Sao chép và Thay thế**: Toàn bộ mã nguồn mẫu sẽ được copy sang extension mới. Các giá trị placeholders sẽ được tự động đổi tên:
     -   `DEMO_NOVEL`, `DEMO_VIDEO`... -> Tên extension của bạn.
     -   `TODO_AUTHOR` -> Tên tác giả lấy từ `.env`.
@@ -81,8 +81,8 @@ vbook create my-movie -s https://movie-site.com -t video
 ## 🛡️ Quy tắc & Ràng buộc quan trọng
 
 ### 1. Quy tắc thư mục (Directory Rules)
-- Các thư mục có tên bắt đầu bằng dấu gạch dưới (ví dụ: `_demo_novel`, `_demo_video`) được coi là **Template/Demo**.
-- **Lưu ý**: Lệnh `publish` và `build` hàng loạt sẽ **tự động bỏ qua** các thư mục này. Chúng không bao giờ được xuất hiện trong kho ứng dụng chính thức.
+- `templates/_demo_novel`, `templates/_demo_comic`, `templates/_demo_video` là **Template/Demo** để scaffold extension mới.
+- `extensions/` chỉ chứa plugin thật. Lệnh `publish` và `build` hàng loạt chỉ quét `extensions/`, không quét `templates/`.
 
 ### 2. Logic Publish thông minh
 Lệnh `vbook publish` đi kèm với các cơ chế tối ưu:

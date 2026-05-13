@@ -21,6 +21,8 @@ Dự án này được xây dựng và quản lý bằng quy chuẩn chuyên ngh
 ## 📂 Cấu trúc dự án
 
 - **[`/extensions`](file:///d:/github/ext-vbookb/extensions)**: Thành phần cốt lõi của dự án. Chứa mã nguồn của tất cả các tiện ích đã hỗ trợ. Mỗi tiện ích bao gồm các script tối ưu: Trang chủ (Home), Chi tiết (Detail), Mục lục (TOC), và Nội dung chương (Chap).
+- **[`/templates`](file:///d:/github/ext-vbookb/templates)**: Chứa các mẫu `_demo_*` dùng để scaffold extension mới; không publish vào kho plugin.
+- **[`/assets`](file:///d:/github/ext-vbookb/assets)**: Chứa tài nguyên dùng chung như ảnh bìa và file mẫu không phải plugin.
 - **[`/vbook-tool`](file:///d:/github/ext-vbookb/vbook-tool)**: Bộ công cụ CLI chuyên nghiệp cho lập trình viên (và AI). Bao gồm các tính năng tự động tạo khung (scaffold), kiểm tra tương thích Rhino, và đồng bộ kiểm tra trên thiết bị thật.
 - **[`/context`](file:///d:/github/ext-vbookb/context)**: Tiêu chuẩn phát triển dành cho AI. Chứa các tài liệu hướng dẫn về quy tắc Rhino runtime, quy trình làm việc (workflow) và các bài học kinh nghiệm.
 - **[`plugin.json`](file:///d:/github/ext-vbookb/plugin.json)**: Danh sách tổng hợp toàn bộ tiện ích, giúp đồng bộ hóa dữ liệu với ứng dụng di động.

@@ -28,6 +28,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 const execFileAsync = promisify(execFile);
 const CLI = path.join(__dirname, 'index.js');
 const PROJECT_ROOT = path.dirname(__dirname);
+const TEMPLATES_DIR = path.join(PROJECT_ROOT, 'templates');
 
 // ─── Smart Enforcement Layer ──────────────────────────────────────────────────
 const sessionState    = require('./lib/session-state');
@@ -176,7 +177,7 @@ const TOOLS = [
     },
     {
         name: 'create_extension_flow',
-        description: '🚨 MANDATORY FIRST STEP for creating ANY new extension. Handles: (1) env check, (2) collect required URLs from user, (3) scaffold from _demo_* template. AI MUST call this before writing any script. If status=need_answers, AI MUST ask the user for the listed info and call again with answers object. Never skip this flow.',
+        description: '🚨 MANDATORY FIRST STEP for creating ANY new extension. Handles: (1) env check, (2) collect required URLs from user, (3) scaffold from templates/_demo_* template. AI MUST call this before writing any script. If status=need_answers, AI MUST ask the user for the listed info and call again with answers object. Never skip this flow.',
         inputSchema: {
             type: 'object',
             properties: {
@@ -306,7 +307,7 @@ const TOOLS = [
     },
     {
         name: 'write_extension_script',
-        description: '⚠️ PREREQUISITE: For new extensions, create_extension_flow MUST be called first to scaffold from _demo_* template. Never write scripts from scratch. Always implement real selectors found via inspect/analyze — never use placeholder selectors like SELECTOR_TITLE.',
+        description: '⚠️ PREREQUISITE: For new extensions, create_extension_flow MUST be called first to scaffold from templates/_demo_* template. Never write scripts from scratch. Always implement real selectors found via inspect/analyze — never use placeholder selectors like SELECTOR_TITLE.',
         inputSchema: {
             type: 'object',
             properties: {
@@ -404,7 +405,7 @@ const TOOLS = [
     },
     {
         name: 'copy_demo',
-        description: 'Copy a demo extension template (_demo_novel, _demo_comic, _demo_video) to scaffold a new extension. Always use this to create new extensions — never write scripts from scratch. Automatically sets up all required files for the given type.',
+        description: 'Copy a demo extension template from templates/ (_demo_novel, _demo_comic, _demo_video) to scaffold a new extension. Always use this to create new extensions — never write scripts from scratch. Automatically sets up all required files for the given type.',
         inputSchema: {
             type: 'object',
             properties: {
@@ -667,7 +668,7 @@ async function executeTool(name, args) {
                 };
             }
 
-            // 3. All answers present → scaffold from _demo_* template
+            // 3. All answers present → scaffold from templates/_demo_* template
             const extName = answers.name;
             const extDir = path.join(PROJECT_ROOT, 'extensions', extName);
 
@@ -697,11 +698,12 @@ async function executeTool(name, args) {
             plugin.metadata.regexp = `https?:\\\\/\\\\/(?:www\\\\.)?${domain}\\\\/`;
 
             // Add optional scripts
-            if (answers.has_search && !plugin.metadata.script.search) plugin.metadata.script.search = 'search.js';
-            if (answers.has_genre && !plugin.metadata.script.genre) plugin.metadata.script.genre = 'genre.js';
+            if (!plugin.script) plugin.script = {};
+            if (answers.has_search && !plugin.script.search) plugin.script.search = 'search.js';
+            if (answers.has_genre && !plugin.script.genre) plugin.script.genre = 'genre.js';
             // Remove genre script if not needed
-            if (!answers.has_genre && plugin.metadata.script.genre) delete plugin.metadata.script.genre;
-            if (!answers.has_search && plugin.metadata.script.search) delete plugin.metadata.script.search;
+            if (!answers.has_genre && plugin.script.genre) delete plugin.script.genre;
+            if (!answers.has_search && plugin.script.search) delete plugin.script.search;
 
             fs.writeFileSync(pluginPath, JSON.stringify(plugin, null, 2), 'utf8');
 
@@ -712,7 +714,7 @@ async function executeTool(name, args) {
 
             return {
                 status: "success",
-                message: `✅ Extension '${extName}' (${demoType}) đã được tạo từ _demo_${demoType} template!`,
+                message: `✅ Extension '${extName}' (${demoType}) đã được tạo từ templates/_demo_${demoType} template!`,
                 extension_path: extDir,
                 next_steps: [
                     `1. Inspect URL listing:  mcp_vbook_inspect("${answers.url_listing || siteUrl}")`,
@@ -1144,11 +1146,11 @@ ${selectorCode}
         case 'copy_demo': {
             const demoMap = { novel: '_demo_novel', comic: '_demo_comic', video: '_demo_video' };
             const demoType = demoMap[args.type] || '_demo_novel';
-            const demoDir = path.join(PROJECT_ROOT, 'extensions', demoType);
+            const demoDir = path.join(TEMPLATES_DIR, demoType);
             const newDir = path.join(PROJECT_ROOT, 'extensions', args.name);
             
             if (!fs.existsSync(demoDir)) {
-                return { error: `Demo template not found: ${demoType}` };
+                return { error: `Demo template not found: templates/${demoType}` };
             }
             if (fs.existsSync(newDir)) {
                 return { error: `Extension already exists: ${args.name}` };

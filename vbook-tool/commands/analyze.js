@@ -8,7 +8,7 @@
 const path = require('path');
 const fs = require('fs');
 const { sendModernRequest } = require('../utils');
-const { getPluginInfo, getProjectRoot } = require('../lib/plugin-info');
+const { getPluginInfo, getTemplatesDir } = require('../lib/plugin-info');
 const c = require('../lib/colors');
 
 // The analysis script — runs inside Rhino/VBook via the Browser API
@@ -139,20 +139,19 @@ function register(program) {
                         throw new Error('Resolved plugin.json is not an extension plugin.json');
                     }
                 } catch (e) {
-                    // Fallback: allow running from project root by using a demo extension
-                    // as context so we always have extensions/<name>/src/ available.
-                    const projectRoot = getProjectRoot();
+                    // Fallback: allow running from project root by using a template
+                    // as context so we always have a valid src/ payload available.
                     const demoCandidates = ['_demo_novel', '_demo_comic', '_demo_video'];
                     let demoRoot = null;
                     for (const d of demoCandidates) {
-                        const candidate = path.join(projectRoot, 'extensions', d, 'plugin.json');
+                        const candidate = path.join(getTemplatesDir(), d, 'plugin.json');
                         if (fs.existsSync(candidate)) {
                             demoRoot = path.dirname(candidate);
                             break;
                         }
                     }
                     if (!demoRoot) {
-                        throw new Error("No demo extension found for analyze fallback. Ensure extensions/_demo_* exists.");
+                        throw new Error("No template found for analyze fallback. Ensure templates/_demo_* exists.");
                     }
                     info = getPluginInfo(demoRoot);
                 }

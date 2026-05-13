@@ -192,4 +192,27 @@ var title = el.select("SELECTOR").text() + "";
    - Sử dụng các extension trình duyệt để tắt JS. Khi JS không chạy, các script chặn DevTools sẽ vô dụng. Tuy nhiên cách này có thể làm mất dữ liệu nếu trang web render hoàn toàn bằng JS.
 5. **Network Interception (vBook Side):**
    - Sử dụng code trong `test.js` để bắt toàn bộ request: `JSON.stringify(browser.urls())`. Mọi API ẩn sẽ lộ ra tại đây.
-
+
+
+---
+
+## 12. Avoid tagName() / is() / tag() on HtmlElement
+
+**Problem:** The `HtmlElement` wrapper in the VBook Rhino environment may not support standard Jsoup methods like `tagName()`, `is()`, or `tag()`. Calling them results in `TypeError: Cannot find function ... in object`.
+
+**Solution:**
+1. **Selection Filtering:** Instead of selecting all elements and filtering by tag name in a loop, refine the initial CSS selector to exclude the tags you don't want to process.
+   ```javascript
+   // WRONG
+   doc.select("div, p").forEach(el => {
+       if (el.tagName() !== 'p') el.remove();
+   });
+
+   // CORRECT
+   doc.select("div").remove();
+   ```
+2. **Attribute Checking:** For `<a>` tags, check for the presence of the `href` attribute.
+   ```javascript
+   if ((el.attr("href") + "").length > 0) { /* Likely an <a> tag */ }
+   ```
+3. **Class/ID Checking:** Use `el.className()` or `el.id()` which are supported.

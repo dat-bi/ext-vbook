@@ -1,7 +1,7 @@
 # 04_demo.md — Script Contracts & Data Flow Reference
 
 > Tài liệu này CHỈ chứa: contracts, data flow, directory structure.
-> **Code mẫu thực tế** nằm trong `extensions/_demo_novel/`, `_demo_comic/`, `_demo_video/`.
+> **Code mẫu thực tế** nằm trong `templates/_demo_novel/`, `templates/_demo_comic/`, `templates/_demo_video/`.
 > Khi tạo extension mới → dùng `copy_demo` hoặc `create_extension_flow`, KHÔNG viết từ đầu.
 
 ---
@@ -119,4 +119,4 @@ try { if (CONFIG_URL) BASE_URL = CONFIG_URL; } catch (e) {}
 - [ ] `config.js` dùng `let BASE_URL` + có `CONFIG_URL` override
 - [ ] `page.js` phải tồn tại
 
-> Xem code mẫu đầy đủ tại: `extensions/_demo_novel/`, `_demo_comic/`, `_demo_video/`
+> Xem code mẫu đầy đủ tại: `templates/_demo_novel/`, `templates/_demo_comic/`, `templates/_demo_video/`

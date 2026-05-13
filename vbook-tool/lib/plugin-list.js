@@ -8,7 +8,7 @@ const { getProjectRoot, getExtensionsDir, getAuthor, getGithubRepo } = require('
 
 /**
  * Scan all extension directories and return their metadata.
- * Scans inside the extensions/ directory.
+ * Scans inside the extensions/ directory. Templates live in templates/ and are not scanned.
  * @param {object} [opts]
  * @param {string} [opts.filterType]    Filter by type (novel, comic, etc.)
  * @param {string} [opts.filterLocale]  Filter by locale (vi_VN, zh_CN, etc.)
@@ -33,7 +33,7 @@ function scanExtensions(opts) {
     for (const entry of entries) {
         if (!entry.isDirectory()) continue;
         if (skipDirs.has(entry.name)) continue;
-        if (entry.name.startsWith('_')) continue; // Skip templates/demos starting with _
+        if (entry.name.startsWith('_')) continue; // Skip any private/internal extension directory
 
         const pluginJsonPath = path.join(extensionsDir, entry.name, 'plugin.json');
         if (!fs.existsSync(pluginJsonPath)) continue;

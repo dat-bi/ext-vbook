@@ -8,7 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
-const { getProjectRoot, getExtensionsDir, getAuthor } = require('../lib/plugin-info');
+const { getExtensionsDir, getTemplatesDir, getAuthor } = require('../lib/plugin-info');
 const c = require('../lib/colors');
 
 // ─── Templates ──────────────────────────────────────────────────────────────
@@ -411,7 +411,7 @@ function createPlaceholderIcon(destPath) {
  * Replaces placeholders in the process.
  */
 function copyFromDemo(demoName, targetDir, context) {
-    const demoDir = path.join(getExtensionsDir(), demoName);
+    const demoDir = path.join(getTemplatesDir(), demoName);
     if (!fs.existsSync(demoDir)) return false;
 
     // Recursive copy
@@ -426,6 +426,11 @@ function copyFromDemo(demoName, targetDir, context) {
             if (entry.isDirectory()) {
                 copyDir(srcPath, destPath);
             } else {
+                if (!entry.name.endsWith('.js') && entry.name !== 'plugin.json') {
+                    fs.copyFileSync(srcPath, destPath);
+                    continue;
+                }
+
                 let content = fs.readFileSync(srcPath, 'utf8');
 
                 // Substitution logic
@@ -447,7 +452,7 @@ function copyFromDemo(demoName, targetDir, context) {
                         .replace(/TODO_DOMAIN/g, context.domain);
                     
                     // Inject BASE_URL if used but not defined (simple check)
-                    if (content.includes('BASE_URL') && !content.includes('var BASE_URL')) {
+                    if (content.includes('BASE_URL') && !/(\bvar|\blet|\bconst)\s+BASE_URL\b/.test(content)) {
                         content = `var BASE_URL = "${context.source}";\n\n` + content;
                     }
                 }
@@ -493,7 +498,7 @@ function register(program) {
                 const hasDemo = copyFromDemo(demoFolderName, extDir, { name, author, source, domain, type: options.type });
 
                 if (hasDemo) {
-                    console.log(c.green(`  ✨ Using template from: ${demoFolderName}`));
+                    console.log(c.green(`  ✨ Using template from: templates/${demoFolderName}`));
                     console.log(c.dim(`  📁 extensions/${name}/`));
                 } else {
                     // Fallback to legacy hardcoded templates

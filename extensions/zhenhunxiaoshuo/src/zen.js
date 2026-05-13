@@ -14,7 +14,7 @@ function execute(url, page) {
             data.push({
                 name: e.text(),
                 link: "https://www.zhenhunxiaoshuo.com" + e.select("a").attr("href"),
-                cover: "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/anh-bia/1.png",
+                cover: "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/assets/anh-bia/1.png",
                 description: e.select("td").last().text(),
             })
         };

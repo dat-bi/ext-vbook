@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 const EXTENSIONS_DIR = 'extensions';
+const TEMPLATES_DIR = 'templates';
 
 /**
  * Get the extensions directory path.
@@ -12,6 +13,14 @@ const EXTENSIONS_DIR = 'extensions';
  */
 function getExtensionsDir() {
     return path.join(getProjectRoot(), EXTENSIONS_DIR);
+}
+
+/**
+ * Get the templates directory path.
+ * @returns {string}
+ */
+function getTemplatesDir() {
+    return path.join(getProjectRoot(), TEMPLATES_DIR);
 }
 
 /**
@@ -98,4 +107,4 @@ function getGithubRepo() {
     return process.env.GITHUB_REPO || 'dat-bi/ext-vbook';
 }
 
-module.exports = { getPluginInfo, getProjectRoot, getExtensionsDir, getAuthor, getGithubRepo };
+module.exports = { getPluginInfo, getProjectRoot, getExtensionsDir, getTemplatesDir, getAuthor, getGithubRepo };
