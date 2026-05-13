@@ -1,11 +1,16 @@
 /**
  * Session State Manager
- * Tracks the current workflow step, inspected URLs, debugged scripts, etc.
- * State is in-memory — resets when MCP server restarts (intentional).
+ * Tracks workflow progress for MCP tools and persists it across server restarts.
  */
+
+const fs = require('fs');
+const path = require('path');
+
+const STATE_FILE = path.join(__dirname, '..', '.vbook-session.json');
 
 const SESSION_STEPS = [
     'init',
+    'bootstrapped',
     'env_checked',
     'urls_provided',
     'inspected',
@@ -16,37 +21,57 @@ const SESSION_STEPS = [
     'published'
 ];
 
-var state = {
-    step: 'init',
-    env_ok: false,
-    extension_name: null,
-    inspected_urls: {},      // { url: { timestamp, selectors } }
-    debugged_scripts: [],    // ['detail.js', 'toc.js', ...]
-    required_scripts: [],    // set when extension type is known
-    violations_log: []       // log all violations in session
-};
+var state = normalizeState({});
+
+function normalizeState(input) {
+    input = input || {};
+    return {
+        step: input.step || 'init',
+        bootstrapped: !!input.bootstrapped,
+        env_ok: !!input.env_ok,
+        extension_name: input.extension_name || null,
+        inspected_urls: input.inspected_urls || {},
+        debugged_scripts: Array.isArray(input.debugged_scripts) ? input.debugged_scripts : [],
+        required_scripts: Array.isArray(input.required_scripts) ? input.required_scripts : [],
+        violations_log: Array.isArray(input.violations_log) ? input.violations_log : [],
+        docs_loaded: Array.isArray(input.docs_loaded) ? input.docs_loaded : [],
+        updated_at: input.updated_at || null
+    };
+}
+
+function load() {
+    if (!fs.existsSync(STATE_FILE)) return;
+    try {
+        state = normalizeState(JSON.parse(fs.readFileSync(STATE_FILE, 'utf8')));
+    } catch (e) {
+        state = normalizeState(state);
+    }
+}
+
+function save() {
+    try {
+        state.updated_at = new Date().toISOString();
+        fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), 'utf8');
+    } catch (e) {}
+}
+
+load();
 
 function stepIndex(step) {
     var idx = SESSION_STEPS.indexOf(step);
     return idx >= 0 ? idx : -1;
 }
 
-/**
- * Advance to a new step (only if it's the next logical step or later).
- * Won't go backwards.
- */
 function advanceTo(step) {
     var currentIdx = stepIndex(state.step);
     var targetIdx = stepIndex(step);
-    if (targetIdx < 0) return; // invalid step
+    if (targetIdx < 0) return;
     if (targetIdx > currentIdx) {
         state.step = step;
+        save();
     }
 }
 
-/**
- * Check if we can proceed to the given step based on current state.
- */
 function canProceedTo(step) {
     var currentIdx = stepIndex(state.step);
     var targetIdx = stepIndex(step);
@@ -54,14 +79,12 @@ function canProceedTo(step) {
     return currentIdx >= targetIdx;
 }
 
-/**
- * Get a snapshot of the entire session state.
- */
 function getStatus() {
     return {
         step: state.step,
         step_index: stepIndex(state.step),
         total_steps: SESSION_STEPS.length,
+        bootstrapped: state.bootstrapped,
         env_ok: state.env_ok,
         extension_name: state.extension_name,
         inspected_urls: Object.keys(state.inspected_urls),
@@ -70,39 +93,32 @@ function getStatus() {
         required_scripts: state.required_scripts.slice(),
         all_debugged: allScriptsDebugged(),
         violations_count: state.violations_log.length,
+        docs_loaded: state.docs_loaded.slice(),
+        updated_at: state.updated_at,
+        state_file: STATE_FILE,
         steps: SESSION_STEPS
     };
 }
 
-/**
- * Store inspection result for a URL.
- */
 function addInspectedUrl(url, data) {
     state.inspected_urls[url] = {
         timestamp: new Date().toISOString(),
         selectors: data || {}
     };
+    save();
 }
 
-/**
- * Check if minimum URLs have been inspected (at least 2: detail + chap).
- */
 function hasMinimumInspected() {
     return Object.keys(state.inspected_urls).length >= 2;
 }
 
-/**
- * Mark a script as successfully debugged.
- */
 function markDebuggedScript(file) {
     if (state.debugged_scripts.indexOf(file) < 0) {
         state.debugged_scripts.push(file);
+        save();
     }
 }
 
-/**
- * Check if all required scripts have been debugged.
- */
 function allScriptsDebugged() {
     if (state.required_scripts.length === 0) return true;
     for (var i = 0; i < state.required_scripts.length; i++) {
@@ -113,48 +129,41 @@ function allScriptsDebugged() {
     return true;
 }
 
-/**
- * Set the list of scripts that must be debugged before test_all.
- */
 function setRequiredScripts(list) {
     state.required_scripts = list.slice();
+    save();
 }
 
-/**
- * Reset the entire state for a new extension.
- */
 function reset(extensionName) {
-    state.step = 'init';
-    state.env_ok = false;
-    state.extension_name = extensionName || null;
-    state.inspected_urls = {};
-    state.debugged_scripts = [];
-    state.required_scripts = [];
-    state.violations_log = [];
+    state = normalizeState({
+        extension_name: extensionName || null
+    });
+    save();
 }
 
-/**
- * Log a violation event.
- */
 function logViolation(v) {
     state.violations_log.push({
         timestamp: new Date().toISOString(),
         message: v
     });
+    save();
 }
 
-/**
- * Set env_ok flag.
- */
 function setEnvOk(ok) {
     state.env_ok = !!ok;
+    save();
 }
 
-/**
- * Set extension name.
- */
 function setExtensionName(name) {
     state.extension_name = name || null;
+    save();
+}
+
+function markBootstrapped(docsLoaded) {
+    state.bootstrapped = true;
+    state.docs_loaded = Array.isArray(docsLoaded) ? docsLoaded.slice() : [];
+    advanceTo('bootstrapped');
+    save();
 }
 
 module.exports = {
@@ -170,5 +179,8 @@ module.exports = {
     logViolation,
     setEnvOk,
     setExtensionName,
+    markBootstrapped,
+    load,
+    save,
     SESSION_STEPS
 };

@@ -1,122 +1,106 @@
-# 04_demo.md — Script Contracts & Data Flow Reference
+# 04_demo.md - Extension Contracts
 
-> Tài liệu này CHỈ chứa: contracts, data flow, directory structure.
-> **Code mẫu thực tế** nằm trong `templates/_demo_novel/`, `templates/_demo_comic/`, `templates/_demo_video/`.
-> Khi tạo extension mới → dùng `copy_demo` hoặc `create_extension_flow`, KHÔNG viết từ đầu.
+Use templates from `templates/_demo_novel`, `templates/_demo_comic`, and `templates/_demo_video`. Do not write a new extension from nothing unless a template cannot fit.
 
----
+## Directory Contract
 
-## Directory Structure
-
-```
-ext-name/
-├── plugin.json*       (required)
-├── icon.png*          (64x64)
-└── src/
-    ├── config.js      (required — BASE_URL + CONFIG_URL override)
-    ├── detail.js*     (required)
-    ├── page.js*       (required — intermediary between detail and toc)
-    ├── toc.js*        (required)
-    ├── chap.js*       (required)
-    ├── track.js*      (required if type = video)
-    ├── home.js        (optional)
-    ├── genre.js       (optional)
-    ├── gen.js         (optional — generic list for home/genre)
-    ├── search.js      (optional)
-    └── comment.js     (optional)
+```text
+extensions/<name>/
+├─ plugin.json
+├─ icon.png
+├─ plugin.zip
+└─ src/
+   ├─ config.js
+   ├─ home.js      optional
+   ├─ genre.js     optional
+   ├─ gen.js       optional list parser
+   ├─ search.js    optional
+   ├─ detail.js    required
+   ├─ page.js      required
+   ├─ toc.js       required
+   ├─ chap.js      required
+   └─ track.js     required for video
 ```
 
----
+## plugin.json Contract
+
+```json
+{
+  "metadata": {
+    "name": "Display Name",
+    "author": "B",
+    "version": 1,
+    "source": "https://domain.com",
+    "regexp": "https?:\\/\\/(?:www\\.)?domain\\.com\\/truyen\\/[a-zA-Z0-9-]+\\/?$",
+    "description": "...",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "novel"
+  },
+  "script": {
+    "detail": "detail.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
+```
+
+Rules:
+
+- `script.*` values are file names only, never `src/file.js`.
+- `regexp` should match detail pages, not every URL on the site.
+- Increment `metadata.version` before publishing a changed extension.
+
+## Script Return Contracts
+
+| Script | Signature | Return |
+| --- | --- | --- |
+| `home.js` | `execute()` | `[{title, input, script}]` |
+| `genre.js` | `execute()` | `[{title, input, script}]` |
+| `gen.js` | `execute(url, page)` | `[{name, link, cover, host}], nextPage` |
+| `search.js` | `execute(key, page)` | `[{name, link, cover, host}], nextPage` |
+| `detail.js` | `execute(url)` | `{name, cover, host, author, description, detail, ongoing, genres?, suggests?, comments?}` |
+| `page.js` | `execute(url)` | `[urlString, ...]` |
+| `toc.js` | `execute(url)` | `[{name, url, host, pay?}]` |
+| `chap.js` novel/comic | `execute(url)` | HTML string |
+| `chap.js` video | `execute(url)` | `[{title, data}]` |
+| `track.js` video | `execute(url)` | `{data, type, headers?, host?, timeSkip?}` |
 
 ## Data Flow
 
-### Home / Genre → Book List
-
-```
-home.js → execute()
-  └─ returns [{title, input, script}]
-       └─ gen.js → execute(url=input, page="1")
-            └─ returns [{name, link, cover, host}], next
-                 └─ gen.js → execute(url=input, page=next)  ← loops until next=null
+```text
+home -> gen -> detail -> page -> toc -> chap
+search -> detail -> page -> toc -> chap
+genre -> gen -> detail -> page -> toc -> chap
+video: chap -> track
 ```
 
-### Detail → TOC → Chapter
-
-```
-detail.js → execute(url)          → {name, cover, host, author, ongoing, ...}
-page.js   → execute(url)          → [pageUrl1, pageUrl2, ...]   ← ALWAYS an array
-toc.js    → execute(url)          → [{name, url, host}]         ← one call per page
-chap.js   → execute(url)          → htmlString (novel/comic) or [{title, data}] (video)
-track.js  → execute(url)          → {data, type, headers, host} ← video only
-```
-
-### Search
-
-```
-search.js → execute(key, page)    → [{name, link, cover, host}], next
-```
-
----
-
-## Script Contracts
-
-| Script | Signature | Returns |
-|--------|-----------|---------|
-| `home` | `execute()` | `[{title*, input*, script*}]` |
-| `genre` | `execute()` | `[{title*, input*, script*}]` |
-| `gen` | `execute(url, page)` | `[{name*, link*, cover?, host?}]`, next? |
-| `search` | `execute(key, page)` | `[{name*, link*, cover?, host?}]`, next? |
-| `detail` | `execute(url)` | `{name*, cover, host, author, ongoing*, genres?, suggests?, comments?}` |
-| `page` | `execute(url)` | `[urlString, ...]` — **ALWAYS array, min 1 element** |
-| `toc` | `execute(url)` | `[{name*, url*, host?, pay?}]` |
-| `chap` (novel) | `execute(url)` | `htmlString` |
-| `chap` (video) | `execute(url)` | `[{title*, data*}]` |
-| `track` | `execute(url)` | `{data*, type*, headers?, host?, timeSkip?}` |
-| `comment` | `execute(input, next)` | `[{name, content, description}]`, next? |
-
-> **`next`** phải là **string** hoặc **null** — KHÔNG phải number.
-
----
-
-## plugin.json Fields
-
-| Field | Required | Description |
-|-------|----------|-------------|
-| `metadata.name` | ✅ | Tên hiển thị |
-| `metadata.author` | ✅ | Đọc từ `.env` |
-| `metadata.version` | ✅ | Bắt đầu từ 1 |
-| `metadata.source` | ✅ | Base URL |
-| `metadata.regexp` | ✅ | Match detail URL only, kết thúc `\\/?$` |
-| `metadata.type` | ✅ | `novel` / `comic` / `video` |
-| `metadata.tag` | optional | `18+` nếu NSFW |
-| `script.*` | ✅ | Paths không có prefix `src/` |
-
----
-
-## config.js Pattern (Bắt buộc)
+## config.js Pattern
 
 ```js
-// Dùng LET (không phải const) để VBook có thể inject CONFIG_URL
-let BASE_URL = "https://domain.net";
+let BASE_URL = "https://domain.com";
 try { if (CONFIG_URL) BASE_URL = CONFIG_URL; } catch (e) {}
 ```
 
----
+## page.js Minimum
 
-## track.js Types
+Always create `page.js`.
 
-| `type` | Khi nào dùng |
-|--------|--------------|
-| `"native"` | URL direct: `.mp4`, `.m3u8` |
-| `"auto"` | iframe/embed — VBook WebView tự bắt stream |
+```js
+load("config.js");
 
----
+function execute(url) {
+    url = url.replace(/^(?:https?:\/\/)?(?:www\.)?([^\/]+)/, BASE_URL);
+    if (url.slice(-1) === "/") url = url.slice(0, -1);
+    return Response.success([url]);
+}
+```
 
-## Pre-publish Checklist (tự động khi gọi `publish`)
+## Common Output Rules
 
-- [ ] Tất cả script trong `plugin.json` phải có file tương ứng
-- [ ] Video type → phải có `track.js` + `chap.js`
-- [ ] `config.js` dùng `let BASE_URL` + có `CONFIG_URL` override
-- [ ] `page.js` phải tồn tại
-
-> Xem code mẫu đầy đủ tại: `templates/_demo_novel/`, `templates/_demo_comic/`, `templates/_demo_video/`
+- `host` should be the base URL.
+- `ongoing: true` means still updating.
+- `ongoing: false` means completed.
+- VIP/locked chapters can include `pay: true`.
+- `nextPage` must be string or `null`.

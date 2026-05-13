@@ -1,171 +1,89 @@
-# 05_repair.md — Extension Repair Guide
+# 05_repair.md - Repair Guide
 
-> Step-by-step guide for fixing broken extensions.
-> **FORBIDDEN: Guessing selectors** — ALWAYS use `mcp_vbook_inspect` to get real device data.
+Use this when an existing extension is broken.
 
----
+## Required Order
 
-## Prerequisites
-```bash
-vbook check-env --json
-```
-→ Confirm device is online. If not → update `VBOOK_IP` in `.env`.
+1. `check_env`
+2. Read `plugin.json` and relevant `src/*.js`.
+3. Reproduce with `debug --json`.
+4. Inspect/discover the current website.
+5. Fix code.
+6. `validate`
+7. Re-run failing `debug`.
+8. `test_all --from <step>`
+9. `build --bump`
+10. `publish`
 
----
+## Failure Map
 
-## Repair Workflow
+| Symptom | First script to test |
+| --- | --- |
+| Detail page not recognized | `detail.js` |
+| Empty home/list | `home.js`, then `gen.js` |
+| Search empty | `search.js` |
+| No chapters | `page.js`, then `toc.js` |
+| Chapter unreadable | `chap.js` |
+| Video not playing | `chap.js`, then `track.js` |
 
-### STEP 1 — Gather Context
+## Diagnose Before Editing
 
-Read first:
-- `extensions/<name>/plugin.json` → source, regexp, version
-- `extensions/<name>/src/*.js` → current implementation
+Do not edit selectors from memory.
 
-Identify failing script:
-- "no books loading" → test detail.js
-- "no chapters found" → test toc.js
-- "reading errors" → test chap.js
-- "home empty" → test home.js or gen.js
+Use:
 
----
+- VBook `debug --json` for the real exception.
+- `analyze` / `inspect` / DOM tree for current structure.
+- Node preflight for suspected API endpoints.
+- Playwright/Chrome DevTools discovery for JS-rendered or hard sites.
 
-### STEP 2 — Reproduce Error
+## Common Fixes
 
-```bash
-vbook debug src/<failing_script>.js -in "<url>" --json
-```
+### Selector changed
 
-Check JSON response:
-```json
-{
-  "exception": "Cannot read property 'text' of null",
-  "log": "...",
-  "data": null
-}
-```
-
----
-
-### STEP 3 — Diagnose Root Cause
-
-**Check if website changed:**
-- **AI MUST** run `mcp_vbook_inspect(url)` to see the current DOM structure on the actual device.
-- Compare selectors in the code vs the inspect output.
-
-Also check for Cloudflare using `mcp_vbook_analyze(url)`:
-- `"cloudflare": true` → the site requires `Engine.newBrowser()`.
-
----
-
-### STEP 4 — Fix Code
-
-**Selector changed:**
 ```js
-// OLD (failing)
-var name = doc.select("OLD_SELECTOR").first().text();
-
-// NEW (fixed via mcp_vbook_inspect)
-var name = doc.select("NEW_SELECTOR").first().text();
+var name = doc.select("REAL_SELECTOR_FROM_INSPECT").text() + "";
 ```
 
-**Cloudflare protection:**
+### Domain changed
+
+Update both:
+
+- `src/config.js`
+- `plugin.json.metadata.source`
+- `plugin.json.metadata.regexp`
+
+### Encoding issue
+
+```js
+var doc = res.html("gbk");
+var text = res.text("gbk");
+```
+
+### Fetch cannot see content
+
+Use Browser API:
+
 ```js
 var b = Engine.newBrowser();
-b.setUserAgent(UserAgent.android());
 try {
+    b.setUserAgent(UserAgent.android());
     b.launch(url, 12000);
     var doc = b.html();
-    // Parse using doc...
 } finally {
     b.close();
 }
 ```
 
-**Domain changed:**
-1. Update `src/config.js` with new `BASE_URL`
-2. Update `plugin.json`:
-```json
-{
-  "metadata": {
-    "source": "https://new-domain.com",
-    "regexp": "new-domain\\.com/truyen/[^/]+/?$"
-  }
-}
-```
+### API found
 
----
+Prefer API over HTML selectors if it is stable. Test API with Node preflight, then convert to Rhino-safe `fetch()`.
 
-### STEP 5 — Validate & Confirm
+## Publish Rule
 
-```bash
-vbook validate ./extensions/<name>
-vbook debug src/<fixed_script>.js -in "<url>" --json
-```
+Only publish after:
 
-Verify `exception: null` and `data` is valid.
-
----
-
-### STEP 6 — Regression Test
-
-```bash
-vbook test-all --from <fixed_step> --json
-```
-
----
-
-### STEP 7 — Bump & Publish
-
-```bash
-vbook build --bump
-vbook publish
-```
-
-Report: old version → new version, what changed.
-
----
-
-## Decision Tree
-
-```
-Extension broken
-├── No data from detail.js?
-│   ├── Run: mcp_vbook_inspect <url>
-│   ├── Update selectors
-│   └── Cloudflare? → Engine.newBrowser()
-│
-├── No chapters in toc.js?
-│   ├── Chapters dynamically loaded
-│   └── Try: Engine.newBrowser() + b.waitUrl()
-│
-├── Chap content empty?
-│   ├── Content in different container
-│   ├── Use mcp_vbook_inspect to find correct content selector
-│   └── Check iframe
-│
-└── Search returns nothing?
-    ├── Search URL pattern changed
-    └── Update search.js URL construction
-```
-
----
-
-## Quick Commands
-```bash
-# Pinpoint failing script
-vbook debug src/<script>.js -in "<url>" --json
-
-# Inspect website structure on device
-# (Run via MCP tool, not CLI)
-mcp_vbook_inspect(url)
-
-# Validate syntax
-vbook validate ./<name>
-
-# Full test from step
-vbook test-all --from <step> --json
-
-# Build & publish
-vbook build --bump
-vbook publish
-```
+- `validate` has 0 errors.
+- failing script debug passes.
+- `test_all` passes or the skipped steps are explicitly irrelevant.
+- `metadata.version` was bumped.

@@ -24,7 +24,7 @@ Dự án này được xây dựng và quản lý bằng quy chuẩn chuyên ngh
 - **[`/templates`](file:///d:/github/ext-vbookb/templates)**: Chứa các mẫu `_demo_*` dùng để scaffold extension mới; không publish vào kho plugin.
 - **[`/assets`](file:///d:/github/ext-vbookb/assets)**: Chứa tài nguyên dùng chung như ảnh bìa và file mẫu không phải plugin.
 - **[`/vbook-tool`](file:///d:/github/ext-vbookb/vbook-tool)**: Bộ công cụ CLI chuyên nghiệp cho lập trình viên (và AI). Bao gồm các tính năng tự động tạo khung (scaffold), kiểm tra tương thích Rhino, và đồng bộ kiểm tra trên thiết bị thật.
-- **[`/context`](file:///d:/github/ext-vbookb/context)**: Tiêu chuẩn phát triển dành cho AI. Chứa các tài liệu hướng dẫn về quy tắc Rhino runtime, quy trình làm việc (workflow) và các bài học kinh nghiệm.
+- **[`/vbook-tool/context`](file:///d:/github/ext-vbookb/vbook-tool/context)**: Tiêu chuẩn phát triển dành cho AI. Chứa bootstrap đầu phiên, quy tắc Rhino runtime, workflow, contract script và playbook xử lý web khó.
 - **[`plugin.json`](file:///d:/github/ext-vbookb/plugin.json)**: Danh sách tổng hợp toàn bộ tiện ích, giúp đồng bộ hóa dữ liệu với ứng dụng di động.
 
 ---
@@ -51,7 +51,7 @@ Chúng tôi sử dụng quy trình phát triển hỗ trợ bởi AI để đả
    - macOS/Linux: `./vbook-tool/vbook <command>`
 
 3. **Tìm hiểu quy trình**:
-   Vui lòng đọc kỹ [Quy trình làm việc tiêu chuẩn](file:///d:/github/ext-vbookb/context/02_workflow.md) và [Các ràng buộc Rhino Runtime](file:///d:/github/ext-vbookb/context/01_runtime.md) trước khi đóng góp.
+   Vui lòng đọc kỹ [Bootstrap đầu phiên](file:///d:/github/ext-vbookb/vbook-tool/context/00_BOOTSTRAP.md), [Quy trình làm việc tiêu chuẩn](file:///d:/github/ext-vbookb/vbook-tool/context/02_workflow.md) và [Các ràng buộc Rhino Runtime](file:///d:/github/ext-vbookb/vbook-tool/context/01_runtime.md) trước khi đóng góp.
 
 Để xem chi tiết các lệnh CLI, hãy tham khảo [VBook Tool README](file:///d:/github/ext-vbookb/vbook-tool/README.md).
 

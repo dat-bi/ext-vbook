@@ -9,6 +9,9 @@
  */
 function getNextHint(toolName, result) {
     switch (toolName) {
+        case 'bootstrap_session':
+            return 'Bootstrap complete. Next: call check_env before any device-dependent workflow.';
+
         case 'check_env':
             return result.ok
                 ? '✅ Env OK. Tiếp theo: inspect các URLs (listing, detail, toc, chap).'

@@ -29,6 +29,14 @@ const execFileAsync = promisify(execFile);
 const CLI = path.join(__dirname, 'index.js');
 const PROJECT_ROOT = path.dirname(__dirname);
 const TEMPLATES_DIR = path.join(PROJECT_ROOT, 'templates');
+const BOOTSTRAP_DOCS = [
+    '00_BOOTSTRAP.md',
+    '01_runtime.md',
+    '01_runtime_api.md',
+    '02_workflow.md',
+    '03_HARD_SITES.md',
+    '04_demo.md'
+];
 
 // ─── Smart Enforcement Layer ──────────────────────────────────────────────────
 const sessionState    = require('./lib/session-state');
@@ -73,6 +81,17 @@ function sendError(id, code, message) {
 // ─── Tool definitions ─────────────────────────────────────────────────────────
 
 const TOOLS = [
+    {
+        name: 'bootstrap_session',
+        description: 'MANDATORY FIRST TOOL at the start of every AI session. Loads concise VBook docs, persists session state, and returns the required next step.',
+        inputSchema: {
+            type: 'object',
+            properties: {
+                extension_name: { type: 'string', description: 'Optional extension currently being worked on' }
+            },
+            required: []
+        }
+    },
     {
         name: 'check_env',
         description: '🚨 MANDATORY FIRST STEP. Check environment config (VBOOK_IP, VBOOK_PORT) and device connectivity. ALWAYS run this before any debug/test/publish operation. If it fails, STOP and notify user.',
@@ -354,7 +373,7 @@ const TOOLS = [
         inputSchema: {
             type: 'object',
             properties: {
-                file: { type: 'string', enum: ['01_runtime.md', '02_workflow.md', '03_lessons.md', '04_demo.md', '05_repair.md'], description: 'Context file to read' }
+                file: { type: 'string', enum: ['00_BOOTSTRAP.md', '01_runtime.md', '01_runtime_api.md', '02_workflow.md', '03_HARD_SITES.md', '03_lessons.md', '04_demo.md', '05_repair.md', 'Crypto_Bridge.md'], description: 'Context file to read' }
             },
             required: ['file']
         }
@@ -501,6 +520,64 @@ function resolveExtDir(extension_name) {
 
 async function executeTool(name, args) {
     switch (name) {
+
+        case 'bootstrap_session': {
+            const beforeStatus = sessionState.getStatus();
+            let resumed = true;
+            if (args.extension_name) {
+                if (beforeStatus.extension_name && beforeStatus.extension_name !== args.extension_name) {
+                    sessionState.reset(args.extension_name);
+                    resumed = false;
+                } else {
+                    sessionState.setExtensionName(args.extension_name);
+                }
+            } else if (beforeStatus.extension_name) {
+                sessionState.reset(null);
+                resumed = false;
+            }
+
+            const docs = {};
+            const loaded = [];
+            for (const file of BOOTSTRAP_DOCS) {
+                const fullPath = path.join(__dirname, 'context', file);
+                if (!fs.existsSync(fullPath)) continue;
+                const content = fs.readFileSync(fullPath, 'utf8');
+                docs[file] = content;
+                loaded.push(file);
+            }
+
+            sessionState.markBootstrapped(loaded);
+            const status = sessionState.getStatus();
+
+            return {
+                ok: true,
+                message: resumed
+                    ? 'Bootstrap loaded. Existing matching session resumed. Next required tool: check_env.'
+                    : 'Bootstrap loaded. Previous unrelated session cleared. Next required tool: check_env.',
+                next_required: 'check_env',
+                resumed,
+                docs_loaded: loaded,
+                session: status,
+                must: [
+                    'Run check_env before device-dependent actions.',
+                    'Do not guess selectors.',
+                    'Use Playwright/Chrome only for discovery; VBook debug is final.',
+                    'Do not publish until test_all passes.'
+                ],
+                workflow: [
+                    'bootstrap_session',
+                    'check_env',
+                    'create/read extension',
+                    'diagnose/discover/inspect',
+                    'write scripts',
+                    'validate',
+                    'debug',
+                    'test_all',
+                    'build/publish'
+                ],
+                docs
+            };
+        }
 
         case 'check_env': {
             const out = await runCLI(['check-env', '--json']);

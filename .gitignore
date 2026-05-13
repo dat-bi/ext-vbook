@@ -18,6 +18,8 @@ history.bak
 /proxy-collector-vbook/node_modules
 /tangthuvienAPP/src
 /vbook-tool/node_modules
+/vbook-tool/.vbook-session.json
+/vbook-tool/tmp
 /alicesw/plugin_decoded
 /qimaofix
 /edgetrans
