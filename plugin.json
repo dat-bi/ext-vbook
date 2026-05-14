@@ -345,17 +345,6 @@
             "locale": "vi_VN"
         },
         {
-            "name": "MTC",
-            "author": "vBook",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/TEST/plugin.zip",
-            "version": 38,
-            "source": "https://metruyencv.com",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/TEST/icon.png",
-            "description": "Đọc truyện trên trang Mê Truyện CV",
-            "type": "novel",
-            "locale": "vi_VN"
-        },
-        {
             "name": "truyendich.vn",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/tienhiepXYZ/plugin.zip",
