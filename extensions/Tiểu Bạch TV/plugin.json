@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "name": "Tiểu Bạch TV",
+    "author": "B",
+    "version": 1,
+    "source": "https://hsex.tv",
+    "regexp": "hsex\\\\.tv/[^/]+/?$",
+    "description": "Tiểu Bạch TV video extension",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "video",
+    "tag": "nsfw"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "suggest": "suggest.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  }
+}
