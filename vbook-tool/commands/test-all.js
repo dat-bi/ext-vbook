@@ -4,7 +4,7 @@
  */
 const path = require('path');
 const fs = require('fs');
-const { sendModernRequest } = require('../utils');
+const { sendModernRequest, resolveVBookEndpoint } = require('../utils');
 const { getPluginInfo } = require('../lib/plugin-info');
 const c = require('../lib/colors');
 
@@ -23,8 +23,9 @@ function register(program) {
 
             try {
                 const info = getPluginInfo();
-                const ip = options.ip || process.env.VBOOK_IP;
-                const port = parseInt(options.port || process.env.VBOOK_PORT || '8080');
+                const endpoint = await resolveVBookEndpoint({ ip: options.ip, port: options.port });
+                const ip = endpoint.ip;
+                const port = endpoint.port;
                 const verbose = options.verbose || process.env.VERBOSE === 'true';
                 const skipSet = new Set((options.skip || '').split(',').filter(Boolean));
                 const fromStep = options.from || 'home';

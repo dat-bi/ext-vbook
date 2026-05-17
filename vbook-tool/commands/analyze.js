@@ -155,14 +155,11 @@ function register(program) {
                     }
                     info = getPluginInfo(demoRoot);
                 }
-                const ip = options.ip || process.env.VBOOK_IP;
-                const port = parseInt(options.port || process.env.VBOOK_PORT || '8080');
+                const { resolveVBookEndpoint } = require('../utils');
+                const endpoint = await resolveVBookEndpoint({ ip: options.ip, port: options.port });
+                const ip = endpoint.ip;
+                const port = endpoint.port;
                 const verbose = options.verbose || process.env.VERBOSE === 'true';
-
-                if (!ip) {
-                    console.error(c.error('VBOOK_IP not set. Run: vbook check-env'));
-                    process.exit(1);
-                }
 
                 if (!json) {
                     console.log(c.bold(`\n🔎 Analyzing: ${c.cyan(url)}\n`));

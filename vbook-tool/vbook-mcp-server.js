@@ -666,9 +666,15 @@ async function executeTool(name, args) {
 
         case 'create_smart': {
             const { smartCreate } = require('./commands/create-smart');
-            const ip = process.env.VBOOK_IP;
-            const port = parseInt(process.env.VBOOK_PORT || '8080');
-            if (!ip) return { success: false, error: 'VBOOK_IP not set in .env. Run check_env first.' };
+            const { resolveVBookEndpoint } = require('./utils');
+            let endpoint;
+            try {
+                endpoint = await resolveVBookEndpoint({});
+            } catch (e) {
+                return { success: false, error: e.message + '. Run check_env first.' };
+            }
+            const ip = endpoint.ip;
+            const port = endpoint.port;
             try {
                 const result = await smartCreate({
                     name: args.name,

@@ -2,7 +2,7 @@
  * CHECK-ENV COMMAND — Verify environment setup and device connectivity
  */
 const { getPluginInfo, getProjectRoot, getExtensionsDir } = require('../lib/plugin-info');
-const { sendModernRequest } = require('../utils');
+const { getCandidateIps, checkDeviceConnect } = require('../utils');
 const { scanExtensions } = require('../lib/plugin-list');
 const c = require('../lib/colors');
 const fs = require('fs');
@@ -27,15 +27,16 @@ function register(program) {
             step('Environment variables:');
 
             const ip = process.env.VBOOK_IP;
+            const ips = getCandidateIps();
             const port = parseInt(process.env.VBOOK_PORT || '8080');
             const author = process.env.author;
 
-            report.env = { VBOOK_IP: ip || null, VBOOK_PORT: port, author: author || null };
+            report.env = { VBOOK_IP: ip || null, VBOOK_IPS: ips, VBOOK_PORT: port, author: author || null };
 
-            if (!ip) {
-                fail('VBOOK_IP is not set in vbook-tool/.env');
+            if (ips.length === 0) {
+                fail('VBOOK_IP or VBOOK_IPS is not set in vbook-tool/.env');
             } else {
-                pass(`VBOOK_IP = ${ip}`);
+                pass(`VBook IP candidates = ${ips.join(', ')}`);
             }
             pass(`VBOOK_PORT = ${port}`);
             if (!author) {
@@ -62,37 +63,37 @@ function register(program) {
 
             // ─── Device connectivity ───────────────────────────────────────────
             step('Device connectivity:');
-            if (ip) {
-                try {
-                    const http = require('http');
-                    const pingStart = Date.now();
-                    await new Promise((resolve, reject) => {
-                        const req = http.get({
-                            hostname: ip, port, path: '/connect', timeout: 5000
-                        }, (res) => {
-                            let data = '';
-                            res.on('data', chunk => data += chunk);
-                            res.on('end', () => {
-                                const elapsed = Date.now() - pingStart;
-                                report.device = { ip, port, status: res.statusCode, latency: `${elapsed}ms`, response: data.substring(0, 200) };
-                                if (res.statusCode === 200) {
-                                    pass(`Device reachable at http://${ip}:${port} (${elapsed}ms)`);
-                                } else {
-                                    warn(`Device responded with status ${res.statusCode}`);
-                                }
-                                resolve();
-                            });
-                        });
-                        req.on('error', reject);
-                        req.on('timeout', () => { req.destroy(); reject(new Error('timeout')); });
-                    });
-                } catch (e) {
-                    fail(`Cannot reach device at http://${ip}:${port} — ${e.message}`);
-                    fail(`Update VBOOK_IP in vbook-tool/.env with the device's current IP`);
-                    report.device = { ip, port, status: 'unreachable', error: e.message };
+            if (ips.length > 0) {
+                const checked = [];
+                let selected = null;
+                for (const candidate of ips) {
+                    const result = await checkDeviceConnect(candidate, port, 2000);
+                    checked.push(result);
+                    if (result.ok && !selected) selected = result;
+                    if (!json) {
+                        if (result.ok) pass(`Device reachable at http://${candidate}:${port} (${result.latency}ms)`);
+                        else warn(`Cannot reach http://${candidate}:${port} — ${result.error || result.status}`);
+                    }
+                }
+
+                report.device = {
+                    ip: selected ? selected.ip : null,
+                    port,
+                    status: selected ? selected.status : 'unreachable',
+                    latency: selected ? `${selected.latency}ms` : null,
+                    response: selected ? selected.response : null,
+                    candidates: checked
+                };
+
+                if (selected) {
+                    process.env.VBOOK_IP = selected.ip;
+                    if (!json) console.log(c.green(`\n  ✅ Selected VBOOK_IP = ${selected.ip}`));
+                } else {
+                    fail(`Cannot reach any VBook device on port ${port}`);
+                    fail(`Update VBOOK_IPS or VBOOK_IP in vbook-tool/.env`);
                 }
             } else {
-                warn('Skipping device ping — VBOOK_IP not set');
+                warn('Skipping device ping — VBOOK_IP/VBOOK_IPS not set');
             }
 
             // ─── Output ────────────────────────────────────────────────────────

@@ -17,7 +17,8 @@ npm install
 Tạo file `.env` trong thư mục `vbook-tool/` với các nội dung sau:
 ```env
 author=TenCuaBan             # Tên tác giả mặc định cho extension mới
-VBOOK_IP=192.168.1.XX       # Lấy từ tab "Web Server" trong app VBook
+VBOOK_IP=192.168.1.XX       # IP fallback, lấy từ tab "Web Server" trong app VBook
+VBOOK_IPS=192.168.1.10,192.168.1.11  # Tùy chọn: nhiều IP, tool tự chọn máy đang online
 VBOOK_PORT=8080             # Mặc định là 8080
 GITHUB_REPO=user/repo       # Repo GitHub để gen link tải plugin.zip
 ```
