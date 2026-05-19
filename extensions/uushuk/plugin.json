@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "uushuk",
+    "author": "B",
+    "version": 1,
+    "source": "https://www.uushuk.com",
+    "regexp": "www\\\\.uushuk\\\\.com/book/.*?\\\\.html",
+    "description": "Đọc truyện chữ Trung trên uu书库",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "chinese_novel"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

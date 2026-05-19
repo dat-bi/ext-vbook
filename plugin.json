@@ -73,63 +73,6 @@
             "tag": "nsfw"
         },
         {
-            "name": "Kỳ huyễn",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/K%E1%BB%B3%20huy%E1%BB%85n/plugin.zip",
-            "version": 1,
-            "source": "https://kyhuyen.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/K%E1%BB%B3%20huy%E1%BB%85n/icon.png",
-            "description": "Đọc truyện trên trang Kỳ huyễn kyhuyen.com",
-            "type": "novel",
-            "locale": "vi_VN"
-        },
-        {
-            "name": "Men18",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Men18/plugin.zip",
-            "version": 4,
-            "source": "https://hen18.vip/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Men18/icon.png",
-            "description": "Đọc truyện trên trang men18",
-            "type": "comic",
-            "locale": "vi_VN",
-            "tag": "nsfw"
-        },
-        {
-            "name": "Tiểu Bạch TV",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Ti%E1%BB%83u%20B%E1%BA%A1ch%20TV/plugin.zip",
-            "version": 1,
-            "source": "https://hsex.tv",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Ti%E1%BB%83u%20B%E1%BA%A1ch%20TV/icon.png",
-            "description": "Tiểu Bạch TV video extension",
-            "type": "video",
-            "locale": "zh_CN",
-            "tag": "nsfw"
-        },
-        {
-            "name": "Trùm Truyện",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Tr%C3%B9m%20Truy%E1%BB%87n/plugin.zip",
-            "version": 5,
-            "source": "https://trumtruyen.live",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Tr%C3%B9m%20Truy%E1%BB%87n/icon.png",
-            "description": "Đọc truyện trên trang Truyện Full",
-            "type": "novel",
-            "locale": "vi_VN"
-        },
-        {
-            "name": "[Review] tuishujun 💬",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/%5BReview%5D%20tuishujun%20%F0%9F%92%AC/plugin.zip",
-            "version": 1,
-            "source": "https://www.tuishujun.com/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/%5BReview%5D%20tuishujun%20%F0%9F%92%AC/icon.png",
-            "description": "Xem đánh giá truyện trên trang https://www.tuishujun.com/",
-            "type": "chinese_novel",
-            "locale": "zh_CN"
-        },
-        {
             "name": "akaytruyen",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/akaytruyen/plugin.zip",
@@ -245,6 +188,17 @@
             "locale": "vi_VN"
         },
         {
+            "name": "Kỳ huyễn",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/K%E1%BB%B3%20huy%E1%BB%85n/plugin.zip",
+            "version": 1,
+            "source": "https://kyhuyen.com/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/K%E1%BB%B3%20huy%E1%BB%85n/icon.png",
+            "description": "Đọc truyện trên trang Kỳ huyễn kyhuyen.com",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "lkdttzz",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/lkdttzz/plugin.zip",
@@ -274,6 +228,18 @@
             "version": 1,
             "source": "https://mangadistrict.com/",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/mangadistrict/icon.png",
+            "description": "Đọc truyện trên trang men18",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
+            "name": "Men18",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Men18/plugin.zip",
+            "version": 4,
+            "source": "https://hen18.vip/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Men18/icon.png",
             "description": "Đọc truyện trên trang men18",
             "type": "comic",
             "locale": "vi_VN",
@@ -379,6 +345,18 @@
             "locale": "vi_VN"
         },
         {
+            "name": "Tiểu Bạch TV",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Ti%E1%BB%83u%20B%E1%BA%A1ch%20TV/plugin.zip",
+            "version": 1,
+            "source": "https://hsex.tv",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Ti%E1%BB%83u%20B%E1%BA%A1ch%20TV/icon.png",
+            "description": "Tiểu Bạch TV video extension",
+            "type": "video",
+            "locale": "zh_CN",
+            "tag": "nsfw"
+        },
+        {
             "name": "truyenchuth",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/truyenchuth/plugin.zip",
@@ -435,6 +413,17 @@
             "tag": "nsfw"
         },
         {
+            "name": "Trùm Truyện",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Tr%C3%B9m%20Truy%E1%BB%87n/plugin.zip",
+            "version": 5,
+            "source": "https://trumtruyen.live",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/Tr%C3%B9m%20Truy%E1%BB%87n/icon.png",
+            "description": "Đọc truyện trên trang Truyện Full",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "twkan",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/twkan/plugin.zip",
@@ -442,6 +431,17 @@
             "source": "https://twkan.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/twkan/icon.png",
             "description": "Đọc truyện trên trang twkan",
+            "type": "chinese_novel",
+            "locale": "zh_CN"
+        },
+        {
+            "name": "uushuk",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/uushuk/plugin.zip",
+            "version": 1,
+            "source": "https://www.uushuk.com",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/uushuk/icon.png",
+            "description": "Đọc truyện chữ Trung trên uu书库",
             "type": "chinese_novel",
             "locale": "zh_CN"
         },
@@ -477,6 +477,17 @@
             "source": "https://www.zhenhunxiaoshuo.com/",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/zhenhunxiaoshuo/icon.png",
             "description": "Đọc truyện trên trang http://www.yikushan.cọm",
+            "type": "chinese_novel",
+            "locale": "zh_CN"
+        },
+        {
+            "name": "[Review] tuishujun 💬",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/%5BReview%5D%20tuishujun%20%F0%9F%92%AC/plugin.zip",
+            "version": 1,
+            "source": "https://www.tuishujun.com/",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/%5BReview%5D%20tuishujun%20%F0%9F%92%AC/icon.png",
+            "description": "Xem đánh giá truyện trên trang https://www.tuishujun.com/",
             "type": "chinese_novel",
             "locale": "zh_CN"
         },
