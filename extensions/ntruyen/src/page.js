@@ -7,7 +7,7 @@ function execute(url) {
     let html = response.text();
     let storyId = extractStoryId(html);
     if (!storyId) return null;
-    let apiBase = "https://api.ntruyen.biz/novels/" + storyId + "/chapters?page=";
+    let apiBase = "https://api." + BASE_URL.replace("https://", "") + "/novels/" + storyId + "/chapters?page=";
     let apiResponse = fetch(apiBase + "1");
     if (!apiResponse.ok) return null;
     let json = JSON.parse(apiResponse.text());
