@@ -2,9 +2,9 @@
   "metadata": {
     "name": "kanunu8",
     "author": "B",
-    "version": 3,
+    "version": 4,
     "source": "https://www.kanunu8.com",
-    "regexp": "https://(www.)?kanunu8.com(/(book2|book3|book|book4)/\\d+($|/$|/index.html)|/files/(.*?)(/(.*?)/|/)\\d+\\.html|/.*?/\\d+/\\d+.html)",
+    "regexp": "https://(www\\.)?kanunu8\\.com(/(book\\d*|101|tuili|wuxia)/[^/]+(/(index\\.html|\\d+\\.html)?)?|/files/.*?\\d+\\.html|/zt/zt_\\d+\\.html)",
     "description": "Đọc truyện trên trang https://www.kanunu8.com",
     "locale": "zh_CN",
     "language": "javascript",
