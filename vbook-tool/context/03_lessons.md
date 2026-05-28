@@ -52,3 +52,13 @@ Problem: Local curl/Node discovery can receive a Cloudflare challenge page even 
 Signal: curl output title is `Just a moment...`, but VBook `debug` for the same URL returns status 200 with real selectors/data.
 
 Fix: Treat local curl/Node output as suspect for protected sites. Use a temporary VBook debug/probe script to inspect `response.status`, `response.url`, title, selector counts, and sample links, then convert findings into normal Rhino-safe parser code.
+
+---
+
+## WordPress wp-pagenavi May Omit last/larger Links
+
+Problem: Some WordPress paginated posts expose only `.wp-pagenavi a.page` and `a.nextpostslink`, so parsers that depend on `.last` or `.larger` return only the first page.
+
+Signal: The article has `link[rel=next]` and `.wp-pagenavi` with numbered links, but `.last`/`.larger` selectors are empty in VBook debug.
+
+Fix: Parse the maximum page number from all `.wp-pagenavi a[href]` href suffixes and numeric link text, then build page URLs from a normalized base URL without a trailing slash.
