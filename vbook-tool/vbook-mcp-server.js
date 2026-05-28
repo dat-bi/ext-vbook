@@ -35,7 +35,9 @@ const BOOTSTRAP_DOCS = [
     '01_runtime_api.md',
     '02_workflow.md',
     '03_HARD_SITES.md',
-    '04_demo.md'
+    '03_lessons.md',
+    '04_demo.md',
+    '05_repair.md'
 ];
 
 // ─── Smart Enforcement Layer ──────────────────────────────────────────────────

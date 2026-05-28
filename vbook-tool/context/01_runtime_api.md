@@ -283,6 +283,36 @@ try {
 } catch (e) {}
 ```
 
+When `set-cookie` is hidden, VBook may still expose the active cookie on the
+request or in the runtime cookie jar:
+
+```js
+function getCookieFromResponse(res) {
+    var cookie = "";
+    try {
+        if (res && res.headers) {
+            cookie = res.headers["set-cookie"] || res.headers["Set-Cookie"] || "";
+        }
+    } catch (e) {}
+    try {
+        if (!cookie && res && res.request && res.request.headers) {
+            cookie = res.request.headers.cookie || res.request.headers.Cookie || "";
+        }
+    } catch (e2) {}
+    try {
+        if (!cookie) cookie = localCookie.getCookie() || "";
+    } catch (e3) {}
+    return cookie + "";
+}
+
+function getCsrfTokenFromCookie(cookie) {
+    var match = (((cookie || "") + "").match(/_csrfToken=([^;,\s<]+)/) || []);
+    return match[1] || "";
+}
+```
+
+Use this before falling back to `Engine.newBrowser()` for CSRF/session setup.
+
 ## Browser Network Discovery Pattern
 
 ```js

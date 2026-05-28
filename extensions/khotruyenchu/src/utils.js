@@ -1,5 +1,6 @@
 function parseNovelList(doc) {
     let novelList = [];
+    let seenLinks = {};
     let items = doc.select("a.story-list-item, .home-story-card, .entry-card, article.post");
     if (items.isEmpty()) {
         items = doc.select(".ct-container-fluid .entries article");
@@ -28,6 +29,10 @@ function parseNovelList(doc) {
         let author = authorEl ? authorEl.text().trim().replace(/✍️\s*/, "") : "";
         
         if (name && link) {
+            link = normalizeUrl(link);
+            if (seenLinks[link]) continue;
+            seenLinks[link] = true;
+
             if (author && name.indexOf(author) > 0) {
                 name = name.split(/✍️|⏱️/)[0].trim();
             }
@@ -42,4 +47,12 @@ function parseNovelList(doc) {
         }
     }
     return novelList;
+}
+
+function normalizeUrl(url) {
+    url = (url || "") + "";
+    if (url.indexOf("//") === 0) return "https:" + url;
+    if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0) return url;
+    if (url.charAt(0) !== "/") url = "/" + url;
+    return BASE_URL + url;
 }

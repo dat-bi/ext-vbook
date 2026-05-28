@@ -79,6 +79,26 @@ try {
 
 Prefer API over HTML selectors if it is stable. Test API with Node preflight, then convert to Rhino-safe `fetch()`.
 
+### CSRF cookie hidden
+
+If Node/curl works after adding `_csrfToken`, but VBook debug times out while
+trying to initialize a browser session, verify cookie sources on the device
+before using `Engine.newBrowser()`:
+
+```js
+var response = fetch(BASE_URL);
+var cookie = "";
+try { cookie = response.headers["set-cookie"] || response.headers["Set-Cookie"] || ""; } catch (e) {}
+try {
+    if (!cookie && response.request && response.request.headers) {
+        cookie = response.request.headers.cookie || response.request.headers.Cookie || "";
+    }
+} catch (e2) {}
+try { if (!cookie) cookie = localCookie.getCookie() || ""; } catch (e3) {}
+```
+
+Extract `_csrfToken` from that cookie and cache it in `localStorage`.
+
 ## Publish Rule
 
 Only publish after:

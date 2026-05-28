@@ -1,21 +1,9 @@
 load('config.js');
 
 function execute() {
-    let response = fetch(BASE_URL);
-    if (response.ok) {
-        let doc = response.html();
-        let genres = [];
-        doc.select("a[href*='/the-loai/']").forEach(function(el) {
-            let title = el.text().trim();
-            if (title && title.length < 30) {
-                genres.push({
-                    title: title,
-                    input: el.attr("href"),
-                    script: "gen.js"
-                });
-            }
-        });
-        return Response.success(genres);
-    }
-    return null;
+    return Response.success([
+        { title: "Top Qidian", input: BASE_URL + "/top-qidian/", script: "gen.js" },
+        { title: "Độc giả yêu cầu dịch", input: BASE_URL + "/yeu-cau-dich/", script: "gen.js" },
+        { title: "Huyền huyễn - Tiên hiệp", input: BASE_URL + "/the-loai/huyen-huyen-tien-hiep/", script: "gen.js" }
+    ]);
 }

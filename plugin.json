@@ -180,7 +180,7 @@
             "name": "Kho Truyện Chữ",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/khotruyenchu/plugin.zip",
-            "version": 6,
+            "version": 7,
             "source": "https://khotruyenchu.space/",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/khotruyenchu/icon.png",
             "description": "Đọc truyện trên khotruyenchu.space",
