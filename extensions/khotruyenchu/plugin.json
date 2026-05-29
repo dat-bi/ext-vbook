@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Kho Truyện Chữ",
     "author": "B",
-    "version": 6,
+    "version": 7,
     "source": "https://khotruyenchu.space/",
     "regexp": "khotruyenchu\\.(.*?)/truyen/.*",
     "description": "Đọc truyện trên khotruyenchu.space",

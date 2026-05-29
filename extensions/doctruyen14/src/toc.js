@@ -2,11 +2,12 @@ load('config.js');
 function execute(url) {
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL)
     if (url.slice(-1) !== "/") url = url + "/";
+    var baseUrl = url.slice(0, -1);
     console.log(url)
-    let response = fetch(url);
+    var response = fetch(url);
     if (response.ok) {
-        let doc = response.html();
-        let data = [];
+        var doc = response.html();
+        var data = [];
 
         data.push({
             name: "Phần 1",
@@ -14,16 +15,22 @@ function execute(url) {
             host: BASE_URL
         })
 
-        let last = doc.select('.last').first().attr("href")
-        if(last ){
-            last = last.match(/\/\d+\//g)[0].match(/\d+/g)[0]
-        } else {
-            last = doc.select('.larger').last().text();
+        var last = 1;
+        var links = doc.select(".wp-pagenavi a[href]");
+        for (var i = 0; i < links.size(); i++) {
+            var item = links.get(i);
+            var href = item.attr("href") + "";
+            var text = item.text() + "";
+            var number = 0;
+            var match = href.match(/\/(\d+)\/?$/);
+            if (match && match[1]) number = parseInt(match[1]);
+            if (!number && text.match(/^\d+$/)) number = parseInt(text);
+            if (number > last) last = number;
         }
-        for(let i = 2; i <= parseInt(last); i++){
+        for(var i = 2; i <= last; i++){
             data.push({
                 name: "Phần " + i,
-                url: url + "/" + i + "/",
+                url: baseUrl + "/" + i + "/",
                 host: BASE_URL
             })
         

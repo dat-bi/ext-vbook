@@ -4,20 +4,16 @@ function execute(url) {
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html();
-        Console.log("Doc title: " + doc.select("title").text());
         
         let contentEl = doc.select("div.entry-content").first();
         if (!contentEl) {
-            Console.log("Fallback 1: .story-detail-content");
             contentEl = doc.select(".story-detail-content").first();
         }
         if (!contentEl) {
-            Console.log("Fallback 2: article");
             contentEl = doc.select("article").first();
         }
 
         if (contentEl) {
-            Console.log("Content found!");
             // Remove common junk blocks
             contentEl.select(".story-navigation, .reading-tools-bar, .social-share, .baoloi, .entry-meta, script, style, ins,em, .ads-responsive").remove();
             

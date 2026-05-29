@@ -30,3 +30,35 @@ Signal: how to detect it.
 
 Fix: concrete rule or code pattern.
 ```
+
+
+---
+
+## CSRF Cookie May Live On Request Or localCookie
+
+Problem: Some sites set `_csrfToken` during `fetch(BASE_URL)`, but VBook may not expose `set-cookie` in `response.headers`; scripts that only read headers can fall back to `Engine.newBrowser()` and timeout.
+
+Signal: Node/curl with CSRF works, VBook `fetch(BASE_URL)` returns 200 HTML, `response.headers["set-cookie"]` is empty, and debug times out near the browser launch timeout.
+
+Fix: After `fetch()`, check `response.request.headers.cookie`/`Cookie`, then `localCookie.getCookie()`, extract `_csrfToken`, cache it in `localStorage`, and avoid Browser fallback unless those cookie sources fail.
+
+
+---
+
+## Dev Fetch May Hit Cloudflare While VBook Fetch Works
+
+Problem: Local curl/Node discovery can receive a Cloudflare challenge page even when VBook `fetch()` on the device can access the real HTML.
+
+Signal: curl output title is `Just a moment...`, but VBook `debug` for the same URL returns status 200 with real selectors/data.
+
+Fix: Treat local curl/Node output as suspect for protected sites. Use a temporary VBook debug/probe script to inspect `response.status`, `response.url`, title, selector counts, and sample links, then convert findings into normal Rhino-safe parser code.
+
+---
+
+## WordPress wp-pagenavi May Omit last/larger Links
+
+Problem: Some WordPress paginated posts expose only `.wp-pagenavi a.page` and `a.nextpostslink`, so parsers that depend on `.last` or `.larger` return only the first page.
+
+Signal: The article has `link[rel=next]` and `.wp-pagenavi` with numbered links, but `.last`/`.larger` selectors are empty in VBook debug.
+
+Fix: Parse the maximum page number from all `.wp-pagenavi a[href]` href suffixes and numeric link text, then build page URLs from a normalized base URL without a trailing slash.

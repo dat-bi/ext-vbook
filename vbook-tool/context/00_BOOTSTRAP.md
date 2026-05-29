@@ -8,6 +8,7 @@ Read this at the start of every AI session.
   - `01_runtime.md`
   - `02_workflow.md`
   - `03_HARD_SITES.md` for hard websites
+  - `03_lessons.md` for reusable lessons from previous fixes
   - `04_demo.md`
   - `05_repair.md` for fixes
 - Read `01_runtime_api.md` before using unfamiliar APIs such as Browser, Graphics, Blob, WebSocket, storage, media, or advanced `Http` helpers.
