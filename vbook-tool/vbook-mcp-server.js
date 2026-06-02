@@ -246,13 +246,13 @@ const TOOLS = [
     },
     {
         name: 'test_all',
-        description: 'Run the full extension test chain: home → gen → detail → [page] → toc → chap via Modern HTTP API. Returns JSON with success/failure per step.',
+        description: 'Run the full extension test chain: home → gen → detail → [suggests if detail returns it] → [page] → toc → chap via Modern HTTP API. Returns JSON with success/failure per step.',
         inputSchema: {
             type: 'object',
             properties: {
                 extension_path: { type: 'string', description: 'Path to extension directory.' },
                 from_step: { type: 'string', enum: ['home', 'gen', 'detail', 'page', 'toc', 'chap'], description: 'Start from this step (skips earlier steps)' },
-                skip: { type: 'string', description: 'Comma-separated steps to skip (e.g. home,gen)' }
+                skip: { type: 'string', description: 'Comma-separated steps to skip (e.g. home,gen,suggests)' }
             },
             required: []
         }
@@ -272,7 +272,7 @@ const TOOLS = [
     },
     {
         name: 'publish',
-        description: 'Build extension + update root plugin.json registry. AUTOMATICALLY runs pre-publish checklist before building: verifies all scripts exist, type-specific files (track.js for video), and config.js pattern. Set skip_validate=true only if you are sure all checks pass. Final step after test_all passes.',
+        description: 'Build extension + update root plugin.json registry. AUTOMATICALLY runs pre-publish checklist before building: verifies all scripts exist, type-specific files (track.js for video), and config.js pattern. Set skip_validate=true only if you are sure all checks pass. Final step after validate/debug/test_all pass.',
         inputSchema: {
             type: 'object',
             properties: {
@@ -426,12 +426,12 @@ const TOOLS = [
     },
     {
         name: 'copy_demo',
-        description: 'Copy a demo extension template from templates/ (_demo_novel, _demo_comic, _demo_video) to scaffold a new extension. Always use this to create new extensions — never write scripts from scratch. Automatically sets up all required files for the given type.',
+        description: 'Copy a demo extension template from templates/ (_demo_novel, _demo_comic, _demo_video, _demo_translate, _demo_tts) to scaffold a new extension. Always use this to create new extensions — never write scripts from scratch. Automatically sets up all required files for the given type.',
         inputSchema: {
             type: 'object',
             properties: {
                 name: { type: 'string', description: 'New extension directory name (e.g. truyenfull)' },
-                type: { type: 'string', enum: ['novel', 'comic', 'video'], description: 'Template type: novel, comic, or video' }
+                type: { type: 'string', enum: ['novel', 'comic', 'video', 'translate', 'tts'], description: 'Template type: novel, comic, video, translate, or tts' }
             },
             required: ['name', 'type']
         }
@@ -564,7 +564,7 @@ async function executeTool(name, args) {
                     'Run check_env before device-dependent actions.',
                     'Do not guess selectors.',
                     'Use Playwright/Chrome only for discovery; VBook debug is final.',
-                    'Do not publish until test_all passes.'
+                    'Do not install/build/publish until test_all passes.'
                 ],
                 workflow: [
                     'bootstrap_session',
@@ -575,6 +575,7 @@ async function executeTool(name, args) {
                     'validate',
                     'debug',
                     'test_all',
+                    'install if app UI verification is needed',
                     'build/publish'
                 ],
                 docs
@@ -728,8 +729,12 @@ async function executeTool(name, args) {
             }
 
             // 2. Check Answers
-            const mandatoryFields = ['name', 'type', 'tag', 'url_listing', 'url_detail', 'url_toc', 'url_chap', 'has_search', 'has_genre'];
             const answers = args.answers || {};
+            const requestedType = answers.type || '';
+            const toolType = requestedType === 'translate' || requestedType === 'tts';
+            const mandatoryFields = toolType
+                ? ['name', 'type', 'tag']
+                : ['name', 'type', 'tag', 'url_listing', 'url_detail', 'url_toc', 'url_chap', 'has_search', 'has_genre'];
             const missingFields = mandatoryFields.filter(f => answers[f] === undefined || answers[f] === '');
 
             if (missingFields.length > 0) {
@@ -741,7 +746,7 @@ async function executeTool(name, args) {
                         "Để tạo extension, vui lòng cung cấp các thông tin sau:",
                         "",
                         "1. Tên extension (không dấu, không khoảng trắng, vd: truyenfull):",
-                        "2. Loại nội dung? (novel / comic / video)",
+                        "2. Loại nội dung? (novel / comic / video / translate / tts)",
                         "3. Tag? (Normal / 18+)",
                         "4. Link trang DANH SÁCH (trang chủ hoặc danh sách thể loại):",
                         "5. Link trang CHI TIẾT một bộ (bất kỳ):",
@@ -762,7 +767,7 @@ async function executeTool(name, args) {
             }
 
             // Copy correct demo template
-            const typeMap = { novel: 'novel', comic: 'comic', video: 'video', chinese_novel: 'novel', translate: 'novel', tts: 'novel' };
+            const typeMap = { novel: 'novel', comic: 'comic', video: 'video', chinese_novel: 'novel', translate: 'translate', tts: 'tts' };
             const demoType = typeMap[answers.type] || 'novel';
             const copyResult = await executeTool('copy_demo', { name: extName, type: demoType });
             if (!copyResult.success) {
@@ -775,39 +780,50 @@ async function executeTool(name, args) {
             plugin.metadata.name = extName;
             plugin.metadata.source = siteUrl;
             plugin.metadata.description = `${extName} extension for VBook`;
-            plugin.metadata.type = demoType;
+            plugin.metadata.type = answers.type === 'chinese_novel' ? 'chinese_novel' : demoType;
             plugin.metadata.tag = answers.tag === '18+' ? '18+' : undefined;
 
             // Build regexp from source URL domain
             const domain = siteUrl.replace(/https?:\/\//, '').replace(/\//g, '').replace(/\./g, '\\\\.');
-            plugin.metadata.regexp = `https?:\\\\/\\\\/(?:www\\\\.)?${domain}\\\\/`;
+            if (plugin.metadata.type !== 'translate' && plugin.metadata.type !== 'tts') {
+                plugin.metadata.regexp = `https?:\\\\/\\\\/(?:www\\\\.)?${domain}\\\\/`;
+            } else {
+                delete plugin.metadata.regexp;
+            }
+            if (plugin.config && typeof plugin.config.support_url === 'string') {
+                plugin.config.support_url = siteUrl;
+            }
 
             // Add optional scripts
             if (!plugin.script) plugin.script = {};
-            if (answers.has_search && !plugin.script.search) plugin.script.search = 'search.js';
-            if (answers.has_genre && !plugin.script.genre) plugin.script.genre = 'genre.js';
-            // Remove genre script if not needed
-            if (!answers.has_genre && plugin.script.genre) delete plugin.script.genre;
-            if (!answers.has_search && plugin.script.search) delete plugin.script.search;
+            if (plugin.metadata.type !== 'translate' && plugin.metadata.type !== 'tts') {
+                if (answers.has_search && !plugin.script.search) plugin.script.search = 'search.js';
+                if (answers.has_genre && !plugin.script.genre) plugin.script.genre = 'genre.js';
+                // Remove genre script if not needed
+                if (!answers.has_genre && plugin.script.genre) delete plugin.script.genre;
+                if (!answers.has_search && plugin.script.search) delete plugin.script.search;
+            }
 
             fs.writeFileSync(pluginPath, JSON.stringify(plugin, null, 2), 'utf8');
 
-            // 5. Update config.js with real BASE_URL
+            // 5. Update config.js with real BASE_URL when the template has config.js
             const configPath = path.join(extDir, 'src', 'config.js');
-            const configContent = `let BASE_URL = "${siteUrl}";\ntry { if (CONFIG_URL) BASE_URL = CONFIG_URL; } catch (e) {}\n`;
-            fs.writeFileSync(configPath, configContent, 'utf8');
+            if (fs.existsSync(configPath) && plugin.metadata.type !== 'translate' && plugin.metadata.type !== 'tts') {
+                const configContent = `let BASE_URL = "${siteUrl}";\ntry { if (CONFIG_URL) BASE_URL = CONFIG_URL; } catch (e) {}\n`;
+                fs.writeFileSync(configPath, configContent, 'utf8');
+            }
 
             return {
                 status: "success",
                 message: `✅ Extension '${extName}' (${demoType}) đã được tạo từ templates/_demo_${demoType} template!`,
                 extension_path: extDir,
                 next_steps: [
-                    `1. Inspect URL listing:  mcp_vbook_inspect("${answers.url_listing || siteUrl}")`,
-                    `2. Inspect URL detail:   mcp_vbook_inspect("${answers.url_detail}")`,
-                    `3. Inspect URL chapter:  mcp_vbook_inspect("${answers.url_chap}")`,
-                    "4. Implement scripts dựa trên kết quả inspect",
-                    "5. validate → debug → test_all → publish"
-                ]
+                    toolType ? "1. Read plugin.json config and provider docs/API evidence" : `1. Inspect URL listing:  mcp_vbook_inspect("${answers.url_listing || siteUrl}")`,
+                    toolType ? "2. Debug language.js/translate.js or voice.js/tts.js with real text" : `2. Inspect URL detail:   mcp_vbook_inspect("${answers.url_detail}")`,
+                    toolType ? "3. validate → debug required scripts → build/publish" : `3. Inspect URL chapter:  mcp_vbook_inspect("${answers.url_chap}")`,
+                    toolType ? "" : "4. Implement scripts dựa trên kết quả inspect",
+                    toolType ? "" : "5. validate → debug → test_all → install if app UI verification is needed → build/publish"
+                ].filter(Boolean)
             };
         }
 
@@ -879,7 +895,8 @@ async function executeTool(name, args) {
                 if (fs.existsSync(pluginJsonPath)) {
                     const plugin = JSON.parse(fs.readFileSync(pluginJsonPath, 'utf8'));
                     const type = (plugin.metadata && plugin.metadata.type) || '';
-                    const scripts = (plugin.metadata && plugin.metadata.script) || {};
+                    const scripts = plugin.script || {};
+                    const config = plugin.config || {};
                     const srcDir = path.join(cwd, 'src');
 
                     // 1. All scripts in plugin.json must have corresponding files
@@ -897,24 +914,49 @@ async function executeTool(name, args) {
                         if (scripts.track && !fs.existsSync(path.join(srcDir, 'track.js'))) {
                             checkErrors.push('Missing file: src/track.js (required for video type)');
                         }
+                    } else if (type === 'translate') {
+                        if (!scripts.language) checkErrors.push('Translate extension thiếu "language" trong plugin.json script');
+                        if (!scripts.translate) checkErrors.push('Translate extension thiếu "translate" trong plugin.json script');
+                    } else if (type === 'tts') {
+                        if (!scripts.voice) checkErrors.push('TTS extension thiếu "voice" trong plugin.json script');
+                        if (!scripts.tts) checkErrors.push('TTS extension thiếu "tts" trong plugin.json script');
                     }
 
-                    // 3. config.js must use let + CONFIG_URL
+                    // 3. config.js must use let + CONFIG_URL for source extensions
                     const configPath = path.join(srcDir, 'config.js');
-                    if (fs.existsSync(configPath)) {
-                        const configContent = fs.readFileSync(configPath, 'utf8');
-                        if (!configContent.includes('CONFIG_URL')) {
-                            checkErrors.push('config.js thiếu CONFIG_URL override pattern: try { if (CONFIG_URL) BASE_URL = CONFIG_URL; } catch(e) {}');
+                    if (type !== 'translate' && type !== 'tts') {
+                        if (fs.existsSync(configPath)) {
+                            const configContent = fs.readFileSync(configPath, 'utf8');
+                            if (!configContent.includes('CONFIG_URL')) {
+                                checkErrors.push('config.js thiếu CONFIG_URL override pattern: try { if (CONFIG_URL) BASE_URL = CONFIG_URL; } catch(e) {}');
+                            }
+                            if (configContent.includes('const BASE_URL')) {
+                                checkErrors.push('config.js phải dùng "let BASE_URL" không phải "const BASE_URL"');
+                            }
+                        } else {
+                            checkErrors.push('Thiếu src/config.js — bắt buộc phải có');
                         }
-                        if (configContent.includes('const BASE_URL')) {
-                            checkErrors.push('config.js phải dùng "let BASE_URL" không phải "const BASE_URL"');
-                        }
-                    } else {
-                        checkErrors.push('Thiếu src/config.js — bắt buộc phải có');
                     }
 
-                    // 4. page.js must exist
-                    if (!fs.existsSync(path.join(srcDir, 'page.js'))) {
+                    // 4. Config items should follow VBook config contract
+                    Object.keys(config).forEach(function(key) {
+                        const item = config[key];
+                        if (item === null || ['string', 'number', 'boolean'].includes(typeof item)) {
+                            return;
+                        }
+                        if (!item || typeof item !== 'object' || Array.isArray(item)) {
+                            checkErrors.push(`config.${key} phải là primitive hoặc object có title/mode/format/default`);
+                            return;
+                        }
+                        ['title', 'mode', 'format'].forEach(function(field) {
+                            if (!Object.prototype.hasOwnProperty.call(item, field)) {
+                                checkErrors.push(`config.${key} thiếu "${field}"`);
+                            }
+                        });
+                    });
+
+                    // 5. page.js must exist for novel/comic/chinese_novel
+                    if (['novel', 'comic', 'chinese_novel'].includes(type) && !fs.existsSync(path.join(srcDir, 'page.js'))) {
                         checkErrors.push('Thiếu src/page.js — bắt buộc phải có (trả về [url] nếu không có phân trang)');
                     }
                 }
@@ -1229,7 +1271,7 @@ ${selectorCode}
         }
 
         case 'copy_demo': {
-            const demoMap = { novel: '_demo_novel', comic: '_demo_comic', video: '_demo_video' };
+            const demoMap = { novel: '_demo_novel', comic: '_demo_comic', video: '_demo_video', translate: '_demo_translate', tts: '_demo_tts' };
             const demoType = demoMap[args.type] || '_demo_novel';
             const demoDir = path.join(TEMPLATES_DIR, demoType);
             const newDir = path.join(PROJECT_ROOT, 'extensions', args.name);
@@ -1310,7 +1352,15 @@ function updateStateAfterTool(name, args, result) {
                 // Set required scripts dựa trên type
                 var type = (args.answers && args.answers.type) || 'novel';
                 var required = ['detail.js', 'toc.js', 'chap.js'];
-                if (type === 'video') required.push('track.js');
+                if (type === 'video') {
+                    required.push('track.js');
+                } else if (type === 'translate') {
+                    required = ['language.js', 'translate.js'];
+                } else if (type === 'tts') {
+                    required = ['voice.js', 'tts.js'];
+                } else {
+                    required.splice(1, 0, 'page.js');
+                }
                 sessionState.setRequiredScripts(required);
             }
             break;
@@ -1324,10 +1374,9 @@ function updateStateAfterTool(name, args, result) {
             if (result.success) {
                 var scriptName = require('path').basename(args.file || '');
                 sessionState.markDebuggedScript(scriptName);
-                // Advance ngay nếu đã debug ít nhất 3 scripts cốt lõi
-                // thay vì chờ allScriptsDebugged() (vì required_scripts có thể chưa set)
-                if (sessionState.allScriptsDebugged() || 
-                    sessionState.getStatus().debugged_scripts.length >= 3) {
+                var status = sessionState.getStatus();
+                if (sessionState.allScriptsDebugged() ||
+                    (status.required_scripts.length === 0 && status.debugged_scripts.length >= 3)) {
                     sessionState.advanceTo('debugged');
                 }
             }

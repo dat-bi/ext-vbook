@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "DEMO_TTS",
+    "author": "TODO_AUTHOR",
+    "version": 1,
+    "source": "https://TODO_DOMAIN.net",
+    "description": "Demo TTS extension template",
+    "language": "javascript",
+    "type": "tts"
+  },
+  "script": {
+    "voice": "voice.js",
+    "tts": "tts.js"
+  },
+  "config": {
+    "preload_size": 3,
+    "max_length": 200,
+    "required_api_key": false,
+    "support_url": "https://TODO_DOMAIN.net"
+  }
+}

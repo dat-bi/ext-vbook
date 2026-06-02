@@ -78,7 +78,6 @@ function execute(url) {
         author: author,
         description: description,
         ongoing: ongoing,
-        format: "series", // Định dạng "series" dành cho web có nhiều tập, nếu phim lẻ có thể bỏ hoặc để khác
         genres: genres,
         suggests: suggests,
         comments: comments

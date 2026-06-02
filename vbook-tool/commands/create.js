@@ -440,13 +440,20 @@ function copyFromDemo(demoName, targetDir, context) {
                     json.metadata.author = context.author;
                     json.metadata.source = context.source;
                     json.metadata.version = 1;
-                    // Recompute regexp
-                    json.metadata.regexp = context.source.replace(/https?:\/\//, '').replace(/\./g, '\\\\.').replace(/\/$/, '') + '/[^/]+/?$';
+                    // Recompute regexp only for source/content extensions.
+                    if (context.type !== 'translate' && context.type !== 'tts') {
+                        json.metadata.regexp = context.source.replace(/https?:\/\//, '').replace(/\./g, '\\\\.').replace(/\/$/, '') + '/[^/]+/?$';
+                    } else {
+                        delete json.metadata.regexp;
+                    }
+                    if (json.config && typeof json.config.support_url === 'string') {
+                        json.config.support_url = context.source;
+                    }
                     content = JSON.stringify(json, null, 2);
                 } else if (entry.name.endsWith('.js')) {
                     // Replace placeholders
                     content = content
-                        .replace(/DEMO_NOVEL|DEMO_COMIC|DEMO_VIDEO/g, context.name)
+                        .replace(/DEMO_NOVEL|DEMO_COMIC|DEMO_VIDEO|DEMO_TRANSLATE|DEMO_TTS/g, context.name)
                         .replace(/TODO_AUTHOR/g, context.author)
                         .replace(/https:\/\/TODO_DOMAIN\.net/g, context.source)
                         .replace(/TODO_DOMAIN/g, context.domain);

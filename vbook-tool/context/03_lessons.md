@@ -6,7 +6,7 @@ Keep this file short. Add only reusable lessons that change future decisions.
 
 1. Verify `icon.png` after scaffold. Some favicon downloads return HTML/SVG instead of PNG.
 2. `regexp` should match detail URLs only and should be strict enough to avoid false matches.
-3. `page.js` is required. If no TOC pagination exists, return `[url]`.
+3. `page.js` is required for novel/comic/chinese_novel. If no TOC pagination exists, return `[url]`.
 4. Prefer stable API endpoints over brittle HTML selectors.
 5. Use `fetch()` before `Engine.newBrowser()` unless JS rendering or protection requires a browser.
 6. For AJAX/POST endpoints, copy required headers, body format, and cookies from discovery.
@@ -14,6 +14,12 @@ Keep this file short. Add only reusable lessons that change future decisions.
 8. Convert `.text()`, `.attr()`, `.html()` to JS strings with `+ ""`.
 9. Avoid generic selectors unless verified on the real page.
 10. Avoid `tagName()`, `is()`, and `tag()` in VBook scripts unless tested.
+11. `debug` runs scripts from the current workspace payload only. If the installed app still fails after debug passes, run `test_all`, then `install`, then verify the app UI.
+12. API-backed sources still need `metadata.regexp` and returned URLs that route through the app. Detail, TOC, and chapter URLs must match the scripts that consume them.
+13. `detail.suggests` is an action list. For recommended books, return one action pointing to `suggests.js`; let `suggests.js` return book items.
+14. Account/password APIs may still require OTP or session cookies. Add config fields for credentials, but do not invent an OTP bypass; cache/use real tokens or cookies only when the API returns them.
+15. `plugin.json.config` keys become VBook script globals. Primitive config flags are valid. Object config fields need `title`, `mode`, and `format`; `default` is optional and should match the format when present.
+16. `translate` and `tts` extensions do not use novel/comic detail-page selectors. Use `language.js`/`translate.js` and `voice.js`/`tts.js` contracts, with primitive config flags such as `max_length`, `required_api_key`, and `support_url`.
 
 ## Hard Site Notes
 
