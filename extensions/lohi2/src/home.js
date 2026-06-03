@@ -1,22 +1,18 @@
-// home.js — Trang chủ / Explore tabs
-// Contract: execute() → [{title, input, script}]
-// Each item becomes a tab. "script" is called with url=input, page=""
 function execute() {
-    // TODO: Customize the explore tabs for https://truyen.lohi2.com
     return Response.success([
         {
-            title: "Truyện mới",
-            input: "https://truyen.lohi2.com/truyen-moi",
+            title: "Tất cả",
+            input: "https://api.lohi2.com/novel/novels",
             script: "gen.js"
         },
         {
-            title: "Truyện hot",
-            input: "https://truyen.lohi2.com/truyen-hot",
+            title: "Tiên hiệp",
+            input: "https://api.lohi2.com/novel/novels?genre=Tiên Hiệp",
             script: "gen.js"
         },
         {
-            title: "Hoàn thành",
-            input: "https://truyen.lohi2.com/hoan-thanh",
+            title: "Audio",
+            input: "https://api.lohi2.com/novel/novels?tts=1",
             script: "gen.js"
         }
     ]);

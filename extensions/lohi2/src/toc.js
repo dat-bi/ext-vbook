@@ -1,37 +1,31 @@
-// toc.js — Table of contents (chapter list)
-// Contract: execute(url) → [{name*, url*, host?}]
+var BASE_URL = "https://truyen.lohi2.com";
+var API_URL = "https://api.lohi2.com/novel";
+
+function getSlug(url) {
+    return (url || "").replace(/\/$/, "").split("/").pop();
+}
+
 function execute(url) {
-    let response = fetch(url);
+    var slug = getSlug(url);
+    var response = fetch(API_URL + "/novels/" + slug + "/chapters?limit=10000&offset=0");
     if (!response.ok) return Response.error("Cannot load TOC");
-    
-    let doc = response.html();
-    let chapters = [];
-    
-    // Chapter list on https://truyen.lohi2.com
-    doc.select("a[href*='/chuong-']").forEach(function(el) {
-        let name = el.text().trim();
-        let chapUrl = el.attr("href");
-        
-        if (!name || !chapUrl) return;
-        
-        // Normalize URL
-        if (!chapUrl.startsWith("http")) {
-            if (chapUrl.startsWith("/")) {
-                chapUrl = "https://truyen.lohi2.com" + chapUrl;
-            } else {
-                chapUrl = "https://truyen.lohi2.com/" + chapUrl;
-            }
-        }
-        
+
+    var chapters = [];
+    response.json().forEach(function(item) {
+        var number = item.chapterNumber || item.chapter_number;
+        var name = item.titleVi || item.title_vi || ("Chương " + number);
+        if (!number || !name) return;
+
         chapters.push({
             name: name,
-            url: chapUrl
+            url: BASE_URL + "/truyen/" + slug + "/chuong-" + number,
+            host: BASE_URL
         });
     });
-    
+
     if (chapters.length === 0) {
         return Response.error("No chapters found");
     }
-    
+
     return Response.success(chapters);
 }

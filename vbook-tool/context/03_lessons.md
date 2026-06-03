@@ -68,3 +68,23 @@ Problem: Some WordPress paginated posts expose only `.wp-pagenavi a.page` and `a
 Signal: The article has `link[rel=next]` and `.wp-pagenavi` with numbered links, but `.last`/`.larger` selectors are empty in VBook debug.
 
 Fix: Parse the maximum page number from all `.wp-pagenavi a[href]` href suffixes and numeric link text, then build page URLs from a normalized base URL without a trailing slash.
+
+---
+
+## ChillAudio TTS Streams MP3 Over SAMI WebSocket
+
+Problem: ChillAudio TTS has no public mp3 URL; audio is generated per text chunk through CapCut/SAMI WebSocket.
+
+Signal: HAR shows `POST /wp-json/epub-reader/v1/parse-url` for chapter text, then `wss://sami-normal-sg.capcutapi.com/internal/api/v1/ws` messages with `event:"StartTask"`, `namespace:"TTS"`, `audio_config.format:"mp3"`, and binary opcode 2 frames.
+
+Fix: For TTS extensions, return the configured speaker IDs from `voice.js`; in `tts.js`, send `StartTask` over WebSocket, collect binary MP3 frames until `TaskEnd`/`TaskFinished`, then base64-encode the combined audio bytes.
+
+---
+
+## VBook Browser loadHtml Argument Order May Differ From Docs
+
+Problem: On the tested app/runtime, `Engine.newBrowser().loadHtml(baseUrl, html)` loaded the base URL string as page content, so inline scripts never ran and TTS polling timed out.
+
+Signal: A probe with `loadHtml("https://site/", "<html>...</html>")` returned body text `https://site/`; `callJs(...)` also returned an HTML wrapper like `<html><body>value</body></html>`.
+
+Fix: Probe Browser behavior on the target app before relying on docs. For this runtime, use `loadHtml(html, baseUrl)` and unwrap `callJs` results from the returned HTML body before comparing values.
