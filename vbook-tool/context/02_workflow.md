@@ -10,24 +10,29 @@ This workflow is mandatory for AI agents. Do not skip steps.
 - `debug` fails -> do not run `test_all`.
 - `test_all` fails -> do not build or publish.
 - Playwright/Chrome discovery can guide code, but VBook `debug` is the final truth.
+- Local `debug` success does not update the installed app. Use `install` after `test_all` when verifying app UI behavior.
 
 ## New Extension Flow
 
 1. `read_context("00_BOOTSTRAP.md")`
 2. `check_env`
 3. `create_extension_flow(site_url)`
-4. If status is `need_answers`, ask the user for all requested URLs.
+4. If status is `need_answers`, ask the user for all requested inputs.
 5. Diagnose with `analyze`, `inspect`, DOM tree, Node preflight, or Playwright/Chrome discovery.
 6. Write scripts with real selectors or real API findings.
 7. `validate`
 8. `debug` important scripts individually:
    - `detail.js`
-   - `page.js`
+   - `page.js` for novel/comic/chinese_novel, or if present
    - `toc.js`
    - `chap.js`
    - `gen.js` / `search.js` if present
+   - `suggests.js` if `detail.js` returns `suggests`
+   - `language.js` and `translate.js` for translate extensions
+   - `voice.js` and `tts.js` for TTS extensions
 9. `test_all`
-10. `build --bump` or `publish`
+10. `install` when app UI must be verified on device
+11. `build --bump` or `publish`
 
 ## Repair Flow
 
@@ -42,8 +47,9 @@ This workflow is mandatory for AI agents. Do not skip steps.
 7. `validate`
 8. Re-run the failing `debug`.
 9. `test_all --from <fixed_step>`
-10. `build --bump`
-11. `publish`
+10. `install` when the failure is visible only in the app UI.
+11. `build --bump`
+12. `publish`
 
 ## Required User Answers For New Sites
 
@@ -59,6 +65,14 @@ Ask for these when `create_extension_flow` needs answers:
 8. Search support: yes/no.
 9. Genre support: yes/no.
 
+For `translate` or `tts`, URL fields for listing/detail/toc/chapter are not required. Ask for:
+
+1. Extension name.
+2. Type: `translate` or `tts`.
+3. Tag: normal or `nsfw`.
+4. Provider/source URL.
+5. Required config fields such as API key, host, model, cookie, voice, or account/password.
+
 ## Tool Order
 
 ```text
@@ -71,6 +85,7 @@ bootstrap/read_context
 -> validate
 -> debug
 -> test_all
+-> install when verifying app UI
 -> build/publish
 ```
 

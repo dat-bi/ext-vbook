@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "DEMO_TRANSLATE",
+    "author": "TODO_AUTHOR",
+    "version": 1,
+    "source": "https://TODO_DOMAIN.net",
+    "description": "Demo translate extension template",
+    "language": "javascript",
+    "type": "translate"
+  },
+  "script": {
+    "language": "language.js",
+    "translate": "translate.js"
+  },
+  "config": {
+    "support_auto_detect": true,
+    "max_length": 20000,
+    "max_line": 5000,
+    "required_api_key": false,
+    "support_url": "https://TODO_DOMAIN.net",
+    "api_keys": {
+      "title": "API Keys, one per line",
+      "mode": "input",
+      "format": "text"
+    },
+    "temp": {
+      "title": "Temperature",
+      "mode": "input",
+      "format": "number",
+      "default": 0.5
+    },
+    "topP": {
+      "title": "TopP",
+      "mode": "input",
+      "format": "number",
+      "default": 0.5
+    },
+    "topK": {
+      "title": "TopK",
+      "mode": "input",
+      "format": "number",
+      "default": 20
+    },
+    "models": {
+      "title": "Models, one per line",
+      "mode": "input",
+      "format": "text",
+      "default": "default-model"
+    },
+    "listprompts": {
+      "title": "Prompt names, one per line",
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

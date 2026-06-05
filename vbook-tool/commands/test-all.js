@@ -168,6 +168,22 @@ function register(program) {
                     console.log(c.dim('  ⏭ detail.js (skipped)'));
                 }
 
+                // ─── OPTIONAL: suggests from detail ───────────────────────────────
+                if (!skipSet.has('suggests') && detailData && Array.isArray(detailData.suggests) && detailData.suggests.length) {
+                    const firstSuggestAction = detailData.suggests[0];
+                    const suggestScriptName = firstSuggestAction.script || 'suggests.js';
+                    const suggestInput = firstSuggestAction.input || '';
+                    const suggestWrap = await runScript(suggestScriptName, [suggestInput]);
+                    results.suggests = suggestWrap;
+                    const suggestData = suggestWrap.data && suggestWrap.data.data
+                        ? suggestWrap.data.data
+                        : (Array.isArray(suggestWrap.data) ? suggestWrap.data : null);
+                    if (!suggestData || !suggestData.length) throw new Error(`${suggestScriptName}: No suggested books returned`);
+                    if (!jsonMode) console.log(c.dim(`    → ${suggestData.length} suggested books`));
+                } else if (!jsonMode && detailData && Array.isArray(detailData.suggests) && detailData.suggests.length) {
+                    console.log(c.dim('  ⏭ suggests.js (skipped)'));
+                }
+
                 // ─── STEP 4: page (optional — mirrors extension.js) ────────────────
                 var tocInput = detailUrl;
                 if (fromIndex <= 3 && !skipSet.has('page') && detailUrl) {

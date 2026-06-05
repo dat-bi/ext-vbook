@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "ChillAudio TTS",
+    "author": "B",
+    "version": 1,
+    "source": "https://chillaudio.org",
+    "description": "Nghe truyen bang 4 giong TTS Viet cua ChillAudio/CapCut SAMI",
+    "language": "javascript",
+    "type": "tts"
+  },
+  "script": {
+    "voice": "voice.js",
+    "tts": "tts.js"
+  },
+  "config": {
+    "preload_size": 3,
+    "max_length": 260,
+    "required_api_key": false,
+    "support_url": "https://chillaudio.org"
+  }
+}

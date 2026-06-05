@@ -141,7 +141,7 @@ function register(program) {
                 } catch (e) {
                     // Fallback: allow running from project root by using a template
                     // as context so we always have a valid src/ payload available.
-                    const demoCandidates = ['_demo_novel', '_demo_comic', '_demo_video'];
+                    const demoCandidates = ['_demo_novel', '_demo_comic', '_demo_video', '_demo_translate', '_demo_tts'];
                     let demoRoot = null;
                     for (const d of demoCandidates) {
                         const candidate = path.join(getTemplatesDir(), d, 'plugin.json');

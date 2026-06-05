@@ -52,7 +52,7 @@ var HINTS = {
     'code_written': 'Write or update script code before validate.',
     'validated':    'Run validate and fix all errors before debug.',
     'debugged':     'Debug relevant scripts on the VBook device before test_all.',
-    'tested':       'Run test_all successfully before build/publish/install.'
+    'tested':       'Run test_all successfully before install/build/publish.'
 };
 
 function getHint(requiredStep) {

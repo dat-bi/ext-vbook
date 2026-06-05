@@ -74,6 +74,10 @@ const RHINO_CHECKS = [
 const VALID_TYPES = ['novel', 'comic', 'chinese_novel', 'translate', 'tts', 'video'];
 const VALID_LOCALES = ['vi_VN', 'zh_CN', 'zh-CN', 'en_US'];
 const REQUIRED_SCRIPTS = ['detail.js', 'toc.js', 'chap.js'];
+const REQUIRED_BY_TYPE = {
+    translate: ['language.js', 'translate.js'],
+    tts: ['voice.js', 'tts.js']
+};
 
 /**
  * Run validation on an extension directory.
@@ -110,6 +114,7 @@ function runValidation(targetPath) {
 
     const meta = pluginJson.metadata || {};
     const scripts = pluginJson.script || {};
+    const config = pluginJson.config || {};
 
     // 2. Metadata checks
     if (!meta.name) addError('metadata.name is missing');
@@ -165,7 +170,49 @@ function runValidation(targetPath) {
     }
     if (scriptCount > 0) addOk(`${scriptCount} script file(s) found`);
 
-    // 6. Check required scripts (for novel/comic types)
+    // 6. Check config schema
+    const configKeys = Object.keys(config);
+    if (configKeys.length > 0) {
+        addOk(`${configKeys.length} config field(s) found`);
+        for (const key of configKeys) {
+            const item = config[key];
+            if (item === null || ['string', 'number', 'boolean'].includes(typeof item)) {
+                continue;
+            }
+            if (!item || typeof item !== 'object' || Array.isArray(item)) {
+                addWarn(`config.${key}: should be a primitive value or an object with title/mode/format/default`);
+                continue;
+            }
+            if (!item.title) addWarn(`config.${key}: missing title`);
+            if (!item.mode) addWarn(`config.${key}: missing mode (usually "input")`);
+            if (!item.format) addWarn(`config.${key}: missing format ("text" or "number")`);
+            if (item.format && ['text', 'number'].indexOf(String(item.format)) < 0) {
+                addWarn(`config.${key}: unusual format "${item.format}"`);
+            }
+            if (Object.prototype.hasOwnProperty.call(item, 'default')) {
+                if (item.format === 'number' && typeof item.default !== 'number') {
+                    addWarn(`config.${key}: default should be a number for format "number"`);
+                }
+                if (item.format === 'text' && typeof item.default !== 'string') {
+                    addWarn(`config.${key}: default should be a string for format "text"`);
+                }
+            }
+        }
+    }
+
+    const configJsPath = path.join(srcDir, 'config.js');
+    const interactiveConfigKeys = configKeys.filter(function(key) {
+        const item = config[key];
+        return item && typeof item === 'object' && !Array.isArray(item);
+    });
+    if (interactiveConfigKeys.length > 0 && fs.existsSync(configJsPath)) {
+        const configContent = fs.readFileSync(configJsPath, 'utf8');
+        if (configContent.indexOf('replace(/"/g') < 0 && configContent.indexOf('configText(') < 0) {
+            addWarn('config.js should sanitize config globals before use, for example String(raw).replace(/"/g, "").trim()');
+        }
+    }
+
+    // 7. Check required scripts by type
     if (['novel', 'comic', 'chinese_novel'].includes(meta.type)) {
         for (const req of REQUIRED_SCRIPTS) {
             const baseName = req.replace('.js', '');
@@ -173,9 +220,16 @@ function runValidation(targetPath) {
                 addWarn(`Missing recommended script: ${baseName} (required for type "${meta.type}")`);
             }
         }
+    } else if (REQUIRED_BY_TYPE[meta.type]) {
+        for (const req of REQUIRED_BY_TYPE[meta.type]) {
+            const baseName = req.replace('.js', '');
+            if (!scripts[baseName]) {
+                addWarn(`Missing recommended script: ${baseName} (required for type "${meta.type}")`);
+            }
+        }
     }
 
-    // 7. Check each JS file for execute() and Rhino constraints
+    // 8. Check each JS file for execute() and Rhino constraints
     for (const [key, fileName] of Object.entries(scripts)) {
         const filePath = path.join(srcDir, fileName);
         if (!fs.existsSync(filePath)) continue;
@@ -209,7 +263,7 @@ function runValidation(targetPath) {
         }
     }
 
-    // 8. Check script paths don't include src/ prefix
+    // 9. Check script paths don't include src/ prefix
     for (const [key, fileName] of Object.entries(scripts)) {
         if (fileName.startsWith('src/')) {
             addError(`script.${key}: value "${fileName}" should NOT include "src/" prefix. Use just "${fileName.replace('src/', '')}"`);

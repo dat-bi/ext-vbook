@@ -1,4 +1,11 @@
 {
   "commentTranslate.targetLanguage": "vi",
-  "commentTranslate.hover.enabled": true
+  "commentTranslate.hover.enabled": true,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/usr/bin/bash",
+      "args": ["-l"]
+    }
+  }
 }

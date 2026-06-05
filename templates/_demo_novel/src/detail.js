@@ -80,7 +80,6 @@ function execute(url) {
         author: author,
         description: description,
         ongoing: ongoing,
-        format: "series",
         genres: genres.length > 0 ? genres : undefined,
         suggests: suggests.length > 0 ? suggests : undefined,
         comments: comments

@@ -67,6 +67,35 @@ res.html("gbk");
 res.json();
 ```
 
+## Config Globals
+
+Fields declared in `plugin.json.config` are injected as global variables named by their config keys.
+
+```json
+{
+  "config": {
+    "username": { "title": "Tai khoan", "mode": "input", "format": "text", "default": "" },
+    "password": { "title": "Mat khau", "mode": "input", "format": "text", "default": "" }
+  }
+}
+```
+
+Read them defensively in `config.js`:
+
+```js
+function configText(name) {
+    try {
+        var raw = this[name];
+        raw = raw === undefined || raw === null ? "" : String(raw);
+        return raw.replace(/"/g, "").trim();
+    } catch (e) {
+        return "";
+    }
+}
+```
+
+Do not assume a config field exists. Always guard with `typeof field !== "undefined"` or a helper.
+
 ## DOM API
 
 ```js

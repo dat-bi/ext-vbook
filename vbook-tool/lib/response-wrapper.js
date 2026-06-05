@@ -36,7 +36,7 @@ function getNextHint(toolName, result) {
 
         case 'create_extension_flow':
             if (result.status === 'success')
-                return '✅ Extension scaffolded. Tiếp theo: inspect URLs để lấy real selectors.';
+                return '✅ Extension scaffolded. Tiếp theo: inspect URLs/API thật để lấy selectors/endpoints thật.';
             if (result.status === 'need_answers')
                 return '⏳ Cần user trả lời các câu hỏi trước khi tiếp tục.';
             return '❌ Tạo extension thất bại. Đọc message.';
@@ -46,7 +46,7 @@ function getNextHint(toolName, result) {
 
         case 'validate':
             if (result.errors === 0)
-                return '✅ Validate pass. Tiếp theo: debug từng script (detail, toc, chap).';
+                return '✅ Validate pass. Tiếp theo: debug từng script (detail, page nếu có/cần, toc, chap, gen/search/suggests nếu có).';
             return '❌ DỪNG. Fix ' + result.errors + ' error(s) trước. Đọc output để biết lỗi cụ thể.';
 
         case 'debug':
@@ -56,8 +56,8 @@ function getNextHint(toolName, result) {
 
         case 'test_all':
             return result.success
-                ? '✅ Test-all pass. Tiếp theo: gọi publish.'
-                : '❌ DỪNG. Fix bước thất bại trước khi publish.';
+                ? '✅ Test-all pass. Tiếp theo: install nếu cần kiểm tra app UI, sau đó build/publish.'
+                : '❌ DỪNG. Fix bước thất bại trước khi install/build/publish.';
 
         case 'publish':
         case 'publish_my_extensions':
@@ -67,7 +67,7 @@ function getNextHint(toolName, result) {
 
         case 'build':
             return result.success
-                ? '✅ Build xong.'
+                ? '✅ Build xong. Chỉ publish nếu validate/debug/test_all đã pass.'
                 : '❌ Build thất bại. Kiểm tra lỗi.';
 
         case 'install':

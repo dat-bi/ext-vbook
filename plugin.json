@@ -153,6 +153,16 @@
             "tag": "nsfw"
         },
         {
+            "name": "ChillAudio TTS",
+            "author": "B",
+            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/chillaudio-tts/plugin.zip",
+            "version": 1,
+            "source": "https://chillaudio.org",
+            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/chillaudio-tts/icon.png",
+            "description": "Nghe truyen bang 4 giong TTS Viet cua ChillAudio/CapCut SAMI",
+            "type": "tts"
+        },
+        {
             "name": "daomeoden",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/daomeoden/plugin.zip",
@@ -172,17 +182,6 @@
             "source": "https://www.ddxs.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/ddxs/icon.png",
             "description": "Đọc truyện trên trang ddxs.com",
-            "type": "chinese_novel",
-            "locale": "zh_CN"
-        },
-        {
-            "name": "dichtienghoa",
-            "author": "B",
-            "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/dichtienghoa/plugin.zip",
-            "version": 3,
-            "source": "https://dichtienghoa.site/",
-            "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/dichtienghoa/icon.png",
-            "description": "(5 trong 1) hỗ trợ đọc các web qidian(chương free), 69shu, ptwxz, qimao, fanqie (lên sangtacviet chỉ để lấy thông tin truyện với đọc bình luận cho tiện thôi)",
             "type": "chinese_novel",
             "locale": "zh_CN"
         },

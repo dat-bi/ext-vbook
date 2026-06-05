@@ -2,9 +2,9 @@
   "metadata": {
     "name": "lohi2",
     "author": "B",
-    "version": 1,
+    "version": 2,
     "source": "https://truyen.lohi2.com",
-    "regexp": "truyen\\\\.lohi2\\\\.com/[^/]+/?$",
+    "regexp": "truyen\\\\.lohi2\\\\.com/truyen/[^/?#]+/?$",
     "description": "Đọc truyện trên trang lohi2",
     "locale": "vi_VN",
     "language": "javascript",
