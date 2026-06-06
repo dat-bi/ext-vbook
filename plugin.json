@@ -236,7 +236,7 @@
             "name": "kanunu8",
             "author": "B",
             "path": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/kanunu8/plugin.zip",
-            "version": 3,
+            "version": 4,
             "source": "https://www.kanunu8.com",
             "icon": "https://raw.githubusercontent.com/dat-bi/ext-vbook/main/extensions/kanunu8/icon.png",
             "description": "Đọc truyện trên trang https://www.kanunu8.com",

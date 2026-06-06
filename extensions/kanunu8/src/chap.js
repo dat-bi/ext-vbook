@@ -2,17 +2,19 @@ function execute(url) {
     let response = fetch(url);
     if (response.ok) {
         let doc = response.html('gbk');
-        if (true){
-            var htm = doc.select("body > div:nth-child(1) > table:nth-child(10) > tbody > tr > td:nth-child(2) > p").html();
-            htm = htm.replace(/&nbsp;/g,'')
-            if(htm.length === 0 ){
-                var htm = doc.select("#Article > div").html().replace(/&nbsp;/g,'');
-                htm = Html.clean(htm, ["p"]).replace(/&nbsp;/g,'').replace(/上一页　 回目录　 下一页/g,'')
-                if(htm.length === 0 ){
-                    var htm = doc.select("#content p").html();
-                    if(htm.length === 0 ){
-                        var htm = doc.select("body > div > table:nth-child(5) > tbody > tr > td:nth-child(2) > p").html();
-                        htm = htm.replace(/&nbsp;/g,'')
+        var htm = doc.select("body > div:nth-child(1) > table:nth-child(10) > tbody > tr > td:nth-child(2) > p").html() + "";
+        htm = htm.replace(/&nbsp;/g, '');
+        if (htm.length === 0 || htm === "null") {
+            htm = doc.select("#neirong p").html() + "";
+            htm = htm.replace(/&nbsp;/g, '').replace(/上一页　 回目录　 下一页/g, '');
+            if (htm.length === 0 || htm === "null") {
+                htm = doc.select("#Article > div").html() + "";
+                htm = htm.replace(/&nbsp;/g, '').replace(/上一页　 回目录　 下一页/g, '');
+                if (htm.length === 0 || htm === "null") {
+                    htm = doc.select("#content p").html() + "";
+                    if (htm.length === 0 || htm === "null") {
+                        htm = doc.select("body > div > table:nth-child(5) > tbody > tr > td:nth-child(2) > p").html() + "";
+                        htm = htm.replace(/&nbsp;/g, '');
                     }
                 }
             }
