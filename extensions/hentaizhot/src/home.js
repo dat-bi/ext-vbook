@@ -1,5 +1,3 @@
-var BASE_URL = "https://hentaiz.hot";
-
 // home.js — Danh sách tab trang chủ
 // có link thì mới thêm vào
 // Contract: execute() → [{ title, input, script }]

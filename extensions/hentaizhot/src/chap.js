@@ -1,5 +1,3 @@
-var BASE_URL = "https://hentaiz.hot";
-
 // chap.js — Lấy danh sách server/phân giải stream cho 1 tập video
 // Contract: execute(url) → [{ title*, data* }]
 load('config.js');
