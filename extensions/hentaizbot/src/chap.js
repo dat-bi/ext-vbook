@@ -2,17 +2,40 @@ load('config.js');
 
 function execute(url) {
     url = normalizeUrl(url);
-    var doc = Http.get(url).html();
-    
-    
-    if (!doc || doc.select(".player__cdn").size() === 0) {
+    var res = fetch(url, { headers: { "User-Agent": UserAgent.chrome() } });
+    var doc = res && res.ok ? res.html() : null;
+
+    if (!doc) {
         var browser = Engine.newBrowser();
-        doc = browser.launch(url, 5000);
-        browser.close();
+        try {
+            doc = browser.launch(url, 8000);
+        } finally {
+            browser.close();
+        }
     }
     
     if (doc) {
         let tracks = [];
+        let embedUrl = "";
+
+        doc.select('script[type="application/ld+json"]').forEach(e => {
+            if (embedUrl) return;
+            let txt = (e.html() || "") + "";
+            if (txt.indexOf("VideoObject") === -1) return;
+            try {
+                let obj = JSON.parse(txt);
+                if (obj && obj.embedUrl) embedUrl = obj.embedUrl + "";
+            } catch (err) {}
+        });
+
+        if (embedUrl) {
+            tracks.push({
+                title: "Play Video",
+                data: normalizeUrl(embedUrl)
+            });
+            return Response.success(tracks);
+        }
+
         let servers = doc.select(".player__cdn");
         
         if (servers.size() > 0) {
@@ -28,10 +51,10 @@ function execute(url) {
                     };
                     if (!fallbackTrack) fallbackTrack = trackInfo;
                     
-                    // Ưu tiên dùng StreamQQ / Trivonix vì dễ Native lấy link m3u8
-                    if (serverUrl.indexOf("streamqq") !== -1 || serverUrl.indexOf("trivonix") !== -1 || serverUrl.indexOf("spexliu") !== -1) {
+                    // Ưu tiên server có thể xử lý native trong track.js
+                    if (serverUrl.indexOf("x.haiten.org") !== -1 || serverUrl.indexOf("sonar-cdn.com") !== -1 || serverUrl.indexOf("streamqq") !== -1 || serverUrl.indexOf("trivonix") !== -1 || serverUrl.indexOf("spexliu") !== -1) {
                         bestTrack = trackInfo;
-                        break; // Tìm được 1 cái dễ nhất là ngắt luôn
+                        break;
                     }
                 }
             }

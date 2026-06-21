@@ -2,6 +2,8 @@
 // có link thì mới thêm vào
 // Contract: execute() → [{ title, input, script }]
 // Mỗi item = 1 tab. "input" là URL truyền vào gen.js, {{page}} sẽ được thay tự động
+load("config.js");
+
 function execute() {
     return Response.success([
         {
