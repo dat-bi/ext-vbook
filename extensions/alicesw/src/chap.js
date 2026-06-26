@@ -9,6 +9,7 @@ function execute(url) {
     let doc = browser.html(3000);
     browser.close();
 
-    var htm = doc.select(".content_txt").html();
+    doc.select("h3").remove();
+    var htm = doc.select(".read-section").html();
     return Response.success(htm);
 }
