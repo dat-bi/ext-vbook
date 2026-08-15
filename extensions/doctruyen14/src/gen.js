@@ -1,30 +1,29 @@
 load('config.js');
 
 function execute(url, page) {
-    if (url.slice(-1) !== "/") url = url + "/";
-    if (!page) {
-        page = '';
+    var newUrl = "";
+    var nextUrl = String(page || "");
+    if (/^https?:\/\//i.test(nextUrl)) {
+        newUrl = normalizeUrl(nextUrl);
     } else {
-        page = `page/${page}/`
-    };
-    let newUrl = url + page
-    console.log(newUrl)
-    let response = fetch(newUrl);
-    if (response.ok) {
-        let doc = response.html();
-        let data = [];
-        doc.select(".post").forEach(e => {
-            let name = e.select('.entry-title').text().split('–')[0].trim();
-            data.push({
-                name: name,
-                link: e.select('h2 a').attr('href'),
-                cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
-                host: BASE_URL
-            })
-        })
-
-        let next = doc.select('.current + a').text();
-        return Response.success(data, next);
+        url = normalizeUrl(url);
+        if (url.slice(-1) !== "/") url = url + "/";
+        newUrl = url + (nextUrl ? "page/" + nextUrl + "/" : "");
     }
-    return null;
+    console.log(newUrl);
+    var response = fetch(newUrl);
+    if (!response.ok) return Response.error("Khong the tai danh sach truyen (HTTP " + response.status + ")");
+
+    var doc = response.html();
+    var data = [];
+    var cards = doc.select("article.post.story-card");
+    for (var i = 0; i < cards.size(); i++) {
+        var card = cards.get(i);
+        var link = card.select("a.story-card__link").first();
+        var href = link.attr("href") + "";
+        var name = link.select("h2.entry-title").text() + "";
+        if (!href || !name) continue;
+        data.push({ name: name, link: normalizeUrl(href), cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp", host: BASE_URL });
+    }
+    return Response.success(data, doc.select("link[rel=next]").attr("href") + "");
 }

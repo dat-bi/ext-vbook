@@ -2,10 +2,10 @@
   "metadata": {
     "name": "Đọc Truyện 14",
     "author": "B",
-    "version": 7,
+    "version": 8,
     "source": "https://doctruyen14.biz/",
-    "regexp": "https://doctruyen14.(vip|biz|cc)/.*?/",
-    "description": "Đọc Truyện 14 là trang web đọc truyện chữ online.",
+    "regexp": "https?:\\/\\/(?:www\\.)?doctruyen14\\.(?:vip|biz|cc|net)\\/[^\\/?#]+\\/?$",
+    "description": "Đọc Truyện 14 là trang đọc truyện chữ online.",
     "locale": "vi_VN",
     "language": "javascript",
     "type": "novel",
@@ -13,7 +13,9 @@
   },
   "script": {
     "home": "home.js",
+    "gen": "gen.js",
     "detail": "detail.js",
+    "page": "page.js",
     "toc": "toc.js",
     "chap": "chap.js",
     "search": "search.js",

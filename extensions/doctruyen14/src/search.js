@@ -1,26 +1,21 @@
-function execute(key, page) {
-        if (!page) {
-        page = '';
-    } else {
-        page = `page/${page}/`
-    };
-    var key = encodeURIComponent(key)
-    let response = fetch("https://doctruyen14.biz/"+page + "?s=" + key + "&submit=T%C3%ACm")
-    if (response.ok) {
-        let doc = response.html();
-        let data = [];
-        doc.select(".post").forEach(e => {
-            let name = e.select('.entry-title').text();
-            data.push({
-                name: name,
-                link: e.select('h2 a').attr('href'),
-                cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp",
-            })
-        })
-                let next = doc.select('span.current + a').text();
-        if (next) return Response.success(data, next);
+load('config.js');
 
-        return Response.success(data,next);
+function execute(key, page) {
+    var nextUrl = String(page || "");
+    var url = /^https?:\/\//i.test(nextUrl) ? normalizeUrl(nextUrl) : BASE_URL + "/?s=" + encodeURIComponent(String(key || ""));
+    var response = fetch(url);
+    if (!response.ok) return Response.error("Khong the tim kiem truyen (HTTP " + response.status + ")");
+
+    var doc = response.html();
+    var data = [];
+    var cards = doc.select("article.post.story-card");
+    for (var i = 0; i < cards.size(); i++) {
+        var card = cards.get(i);
+        var link = card.select("a.story-card__link").first();
+        var href = link.attr("href") + "";
+        var name = link.select("h2.entry-title").text() + "";
+        if (!href || !name) continue;
+        data.push({ name: name, link: normalizeUrl(href), cover: "https://i.postimg.cc/T2WtdmBM/5BdXa90.webp", host: BASE_URL });
     }
-    return null;
+    return Response.success(data, doc.select("link[rel=next]").attr("href") + "");
 }

@@ -2,8 +2,8 @@
   "metadata": {
     "name": "truyenheo",
     "author": "B",
-    "version": 19,
-    "source": "https://truyenxxx.net",
+    "version": 20,
+    "source": "https://truyenxxx.org",
     "regexp": "https://truyenxxx.*?/.*?/",
     "description": "Đọc truyện trên trang https://truyenxxx.net tác giả là hajljnopera mà xóa rồi, dat-bi sửa",
     "locale": "vi_VN",

@@ -88,3 +88,14 @@ Problem: On the tested app/runtime, `Engine.newBrowser().loadHtml(baseUrl, html)
 Signal: A probe with `loadHtml("https://site/", "<html>...</html>")` returned body text `https://site/`; `callJs(...)` also returned an HTML wrapper like `<html><body>value</body></html>`.
 
 Fix: Probe Browser behavior on the target app before relying on docs. For this runtime, use `loadHtml(html, baseUrl)` and unwrap `callJs` results from the returned HTML body before comparing values.
+
+
+---
+
+## WordPress Chapter Jump Select
+
+Problem: Some story pages replaced numbered pagination anchors with a `select.chapter-jump` control that exposes `data-url-page1`, `data-url-tpl`, and `data-page-token` instead of a simple `.wp-pagenavi a[href]` list.
+
+Signal: The HTML contains `<select class="chapter-jump">` with `<option value="1">` through the final chapter, while anchor-based page counting stops at page 2 or misses later chapters entirely.
+
+Fix: Read the `option` values directly, use `data-url-page1` for chapter 1, and build later chapter URLs by replacing `data-page-token` inside `data-url-tpl`; keep the old anchor scan only as a fallback.

@@ -1,47 +1,33 @@
 load('config.js');
 
 function execute(url) {
+    url = normalizeUrl(url);
     if (url.slice(-1) !== "/") url = url + "/";
-    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL)
-    console.log(url)
+    console.log(url);
     var response = fetch(url);
-    let genres = [];
-    if (response.ok) {
-        var doc = response.html();
-        let author = doc.select('a[rel="tag"]').first();
-        let suggests = [
-            {
-                title: "Truyện cùng tác giả:",
-                input: author.attr("href"),
-                script: "gen.js"
-            }
-        ];
-        doc.select('a[rel="tag"]').first().remove();
-        let tag = doc.select('a[rel="tag"]');
-        tag.forEach(e => {
-            genres.push({
-                title: e.text(),
-                input: e.attr("href"),
-                script: "gen.js"
-            })
-        })
-        let gen = doc.select('a[rel="category tag"]');
-        gen.forEach(e => {
-            genres.push({
-                title: e.text(),
-                input: e.attr("href"),
-                script: "gen.js"
-            })
-        })
-        return Response.success({
-            name: doc.select('h1').text().split('–')[0].trim(),
-            cover: "https://i.imgur.com/5BdXa90.png",
-            author:  author.text(),
-            description: 'Nghiêm cấm trẻ em dưới 18 tuổi',
-            genres: genres,
-            suggests: suggests,
-            host: BASE_URL
-        });
+    if (!response.ok) return Response.error("Khong the tai thong tin truyen (HTTP " + response.status + ")");
+
+    var doc = response.html();
+    var genres = [];
+    var tags = doc.select(".story-chips a");
+    for (var i = 0; i < tags.size(); i++) {
+        var tag = tags.get(i);
+        genres.push({ title: tag.text() + "", input: normalizeUrl(tag.attr("href") + ""), script: "gen.js" });
     }
-    return null;
+    var author = doc.select(".story-chips--tac-gia a").first();
+    var authorName = author.text() + "";
+    var authorUrl = author.attr("href") + "";
+    var suggests = [];
+    if (authorUrl) suggests.push({ title: "Truyen cung tac gia", input: normalizeUrl(authorUrl), script: "gen.js" });
+
+    return Response.success({
+        name: doc.select("h1.entry-title").text() + "",
+        cover: "https://i.imgur.com/5BdXa90.png",
+        author: authorName,
+        description: doc.select(".entry-content p").first().text() + "",
+        genres: genres,
+        suggests: suggests,
+        host: BASE_URL,
+        ongoing: true
+    });
 }
