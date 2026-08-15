@@ -15,5 +15,8 @@
     "dotenv": "^16.4.5",
     "glob": "^10.3.10",
     "string-argv": "^0.3.2"
+  },
+  "overrides": {
+    "brace-expansion": "5.0.9"
   }
 }
